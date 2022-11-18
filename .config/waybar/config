@@ -92,7 +92,7 @@
   },
   "custom/power": {
     "format": "⏻",
-    "on-click": "adios --systemd"
+    "on-click": "archlinux-logout"
   },
   "custom/menu": {
     "format": "",
