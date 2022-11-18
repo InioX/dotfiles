@@ -1,9 +1,7 @@
 # P-chy dotfiles
 These dotfiles are meant to be used with hyprland, for bspwm see [this](https://github.com/InioX/dotfiles-bspwm).
 ## Showcase
-![Terminal image](./images/terminal.png)
-![Discord image](./images/discord.png)
-![Rofi image](./images/rofi.png)
+![showcase.mp4](./images/recording.mp4)
 ## Installation
 #### Main config:
 ```
