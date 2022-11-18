@@ -1,0 +1,114 @@
+
+{
+  "layer": "top",
+  "position": "top", 
+  "height": 40,
+  
+  "modules-left":   [ "wlr/workspaces", "tray", "network" ],
+  "modules-center": [ "custom/menu", "clock", "custom/power" ],
+  "modules-right":  [ "custom/wl-gammarelay-temperature", "custom/wl-gammarelay-brightness", "pulseaudio", "battery" ],
+  
+  "wlr/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate",
+    "format": "{icon}",
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": []
+    },
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "",
+      "10": "",
+      "default": "",
+      "active": ""
+    }
+  },
+  "tray": {
+    "icon-size": 13,
+    "spacing": 10
+  },
+  "backlight":{
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["","",""],
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "min-length": 6 
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
+  },
+  "clock": {
+   "format": "{: %I:%M %p   %d/%m}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "network": {
+    "format-wifi": "直 {essid}",
+    "format-ethernet": " {essid}",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "睊 Disconnected",
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " Muted",
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", "墳", ""]
+    }
+  },
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "adios --systemd"
+  },
+  "custom/menu": {
+    "format": "",
+    "on-click": "rofi -show drun -config ~/.config/hypr/rofi/config.rasi"
+  },
+  "custom/wl-gammarelay-temperature": {
+    "format": "{} ",
+    "exec": "wl-gammarelay --subscribe Temperature",
+    "on-scroll-up": "~/.config/hypr/scripts/brightness.sh temperature-up 100",
+    "on-scroll-down": "~/.config/hypr/scripts/brightness.sh temperature-down 100"
+  },
+  "custom/wl-gammarelay-brightness": {
+    "format": "{} ",
+    "exec": "wl-gammarelay --subscribe Brightness",
+    "on-scroll-up": "~/.config/hypr/scripts/brightness.sh brightness-up 0.05",
+    "on-scroll-down": "~/.config/hypr/scripts/brightness.sh brightness-down 0.05"
+  }
+}
+}

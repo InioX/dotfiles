@@ -1,0 +1,137 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 14px;
+  min-height: 0px;
+}
+
+window#waybar {
+  background: transparent;
+  color: #cdd6f4;
+}
+
+#workspaces button {
+  padding: 5px;
+  color: #ffffff;
+  margin-right: 5px;
+}
+
+#workspaces button.active {
+  background: #ffbf9b;
+  color: #211a17;
+  border-radius: 30px;
+  margin: 5px;
+}
+
+#workspaces button.focused {
+  color: #ffbf9b;
+  background: #eba0ac;
+  border-radius: 10px;
+}
+
+#workspaces button.urgent {
+  color: #11111b;
+  background: #a6e3a1;
+  border-radius: 10px;
+}
+
+#workspaces button:hover {
+  background: #362f2b;
+  color: #ffffff;
+  border-radius: 0;
+  border: 0;
+  outline: 0;
+}
+
+tooltip {
+  background: #362f2b;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ffbf9b;
+}
+
+#custom-language, #custom-updates, #custom-caffeine, #custom-power, #clock, #battery, #pulseaudio, #network, #workspaces, #tray, #backlight, #custom-menu, #custom-wl-gammarelay-brightness, #custom-wl-gammarelay-temperature {
+  background: #211a17;
+  padding: 0px 10px;
+  margin: 3px 0px;
+  border: 3px solid #ffbf9b;
+}
+
+#tray {
+	margin-left: 5px;
+	padding-left: 10px;
+	margin-bottom: 3px;
+	padding-right: 10px;
+	border-radius: 10px;
+	transition: none;
+}
+
+#workspaces {
+  background: #211a17;
+  border-radius: 10px;
+  padding-right: 10px;
+  padding-left: 5px;
+  margin-left: 5px;
+}
+
+#clock {
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+#network {
+  color: #ffffff;
+  border-radius: 10px;
+  margin-left: 5px;
+}
+
+#pulseaudio {
+  color: #ffffff;
+  border-radius: 10px;
+  margin-right: 3px;
+}
+
+#battery {
+  color:  #ffffff;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 10px;
+}
+
+#backlight {
+  color: #ffffff;
+}
+
+#custom-power {
+  color: #ffffff;
+  background: #211a17;
+  margin-left: 5px;
+  border-radius: 10px;
+}
+
+#custom-wl-gammarelay-brightness {
+  color: #ffffff;
+  background: #211a17;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 10px;
+}
+
+#custom-wl-gammarelay-temperature {
+  color: #ffffff;
+  background: #211a17;
+  border-radius: 10px;
+  margin-right: 3px;
+  border-radius: 10px;
+}
+
+#custom-menu {
+  color: #ffffff;
+  background: #211a17;
+  margin-right: 5px;
+  border-radius: 10px;
+}

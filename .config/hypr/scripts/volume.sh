@@ -63,14 +63,14 @@ output-mute)
 # Input
 input-up)
     volume=$(volume_input)
-    text="ﱛ Microphone: $volume%"
+    text="Microphone: $volume%"
     id=$id_input
 	amixer -D pulse sset Capture "$amount"%+
 	notification_bar;;
 
 input-down)
     volume=$(volume_input)
-    text="ﱜ Microphone: $volume%"
+    text="Microphone: $volume%"
     id=$id_input
 	amixer -D pulse sset Capture "$amount"%-
 	notification_bar;;
