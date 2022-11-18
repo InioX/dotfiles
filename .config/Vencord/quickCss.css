@@ -1,0 +1,32 @@
+@import url("https://bulldog3321.github.io/Bulldogs-Theme/main.css");
+
+/* colouring */
+.theme-dark {
+  --background-primary: #211a17;
+  --background-secondary: #40342d;
+  --background-secondary-alt: #403027;
+  --background-modifier-hover: rgba(255, 255, 255, 0.01);
+  --background-modifier-active: rgba(255, 255, 255, 0.03);
+  --background-modifier-selected: rgba(255, 255, 255, 0.04);
+  --text-muted: rgb(182, 182, 182);
+  --interactive-normal: rgb(200, 200, 200);
+  --interactive-active: #ffffff;
+  --interactive-muted: #30343d;
+}
+
+/* variables */
+:root {
+  --blurple-recolor: #ffbf9b;
+  --background: #403027;
+  --spacing: 6px;
+  --radius: 10px;
+}
+
+/* blurple recolor */
+:root {
+  --accentcolor:   #ffbf9b;   /* blurple */
+  /*--accentcolor:   97, 179, 222;   /* blurple */
+  --accentcolor2:  250, 110, 246;  /* boostpink */
+  --linkcolor:     255, 207, 181;  /* link */
+  --dangercolor:   240, 71, 71;    /* red */
+}

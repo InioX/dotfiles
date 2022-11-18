@@ -1,0 +1,11 @@
+configuration {
+modi: "window,drun,ssh,run";
+
+show-icons: true;
+terminal: "kitty";
+kb-cancel: "Escape,Control+g,Control+bracketleft";
+click-to-exit: true;
+case-sensitive: false;
+}
+
+@theme "~/.config/hypr/rofi/dmenu.rasi"
