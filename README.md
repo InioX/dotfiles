@@ -11,9 +11,9 @@ git clone https://github.com/InioX/dotfiles-hyprland
 cd dotfiles-hyprland/.config && cp * ~/.config
 cd dotfiles-hyprland/home && cp * ~/
 ```
-#### Other programs:
+#### Dependencies:
 ```
-paru -S rofi-lbonn-wayland kitty pcmanfm-gtk3 swaybg lxsession wl-gammarelay grim slurp playerctl alsamixer 
+paru -S rofi-lbonn-wayland kitty pcmanfm-gtk3 swaybg lxsession wl-gammarelay grim slurp playerctl alsamixer bc dunst neovim
 ```
 ## Basic keybindings
 
