@@ -13,7 +13,7 @@ cd dotfiles-hyprland/home && cp * ~/
 ```
 #### Dependencies:
 ```
-paru -S rofi-lbonn-wayland kitty pcmanfm-gtk3 swaybg lxsession wl-gammarelay grim slurp playerctl alsamixer bc dunst neovim
+paru -S rofi-lbonn-wayland kitty pcmanfm-gtk3 swaybg lxsession wl-gammarelay grim slurp playerctl alsamixer bc dunst neovim waybar-hyprland-git archlinux-logout-git
 ```
 ## Basic keybindings
 
