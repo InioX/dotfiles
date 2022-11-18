@@ -13,7 +13,7 @@ cd dotfiles-hyprland/home && cp * ~/
 ```
 #### Other programs:
 ```
-paru -S rofi-lbonn-wayland kitty pcmanfm swaybg lxsession wl-gammarelay grim slurp playerctl alsamixer 
+paru -S rofi-lbonn-wayland kitty pcmanfm-gtk3 swaybg lxsession wl-gammarelay grim slurp playerctl alsamixer 
 ```
 ## Basic keybindings
 
