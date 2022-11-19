@@ -1,7 +1,7 @@
 # P-chy dotfiles
 These dotfiles are meant to be used with hyprland, for bspwm see [this](https://github.com/InioX/dotfiles-bspwm).
 ## Showcase
-https://user-images.githubusercontent.com/81521595/202808805-1935cf52-c664-47e0-b9d7-b75858630a0a.mp4
+https://user-images.githubusercontent.com/81521595/202860841-1ebc1d34-9aee-41cc-b16e-d1028548deb1.mp4
 ## Installation
 #### Dependencies:
 Assuming you use an arch based distribution and your aur helper is paru:
