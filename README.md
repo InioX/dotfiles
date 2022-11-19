@@ -24,7 +24,7 @@ nvim +PackerSync
 > **_NOTE:_** Please note that this does not back up any of your current config
 
 ```
-git clone https://github.com/InioX/dotfiles-hyprland ~/Documents
+git clone https://github.com/InioX/dotfiles-hyprland ~/Documents/
 cd ~/Documents/dotfiles-hyprland && cp * ~/.config
 cd ~/Documents/dotfiles-hyprland/home && cp * ~/
 ```
