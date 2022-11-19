@@ -10,7 +10,7 @@ paru -S rofi-lbonn-wayland kitty pcmanfm-gtk3 swaybg lxsession wl-gammarelay gri
 ```
 #### Dunst (patched version)
 ```
-git clone https://github.com/k-vernooy/dunst ~/Documents/dunst/
+git clone -b progress-styling https://github.com/k-vernooy/dunst/ ~/Documents/dunst/
 cd ~/Documents/dunst && make && sudo make install
 ```
 #### AstroNvim
