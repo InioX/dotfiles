@@ -10,7 +10,7 @@ paru -S rofi-lbonn-wayland kitty pcmanfm-gtk3 swaybg lxsession wl-gammarelay gri
 ```
 #### Dunst (patched version)
 ```
-git clone https://github.com/k-vernooy/dunst ~/Documents/ 
+git clone https://github.com/k-vernooy/dunst ~/Documents/dunst/
 cd ~/Documents/dunst && make && sudo make install
 ```
 #### AstroNvim
@@ -24,7 +24,7 @@ nvim +PackerSync
 > **_NOTE:_** Please note that this does not back up any of your current config
 
 ```
-git clone https://github.com/InioX/dotfiles-hyprland ~/Documents/
+git clone https://github.com/InioX/dotfiles-hyprland ~/Documents/dotfiles-hyprland
 cd ~/Documents/dotfiles-hyprland && cp * ~/.config
 cd ~/Documents/dotfiles-hyprland/home && cp * ~/
 ```
