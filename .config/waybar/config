@@ -4,7 +4,7 @@
   "position": "top", 
   "height": 40,
   
-  "modules-left":   [ "wlr/workspaces", "tray", "network" ],
+  "modules-left":   [ "wlr/workspaces",  "tray", "network" ],
   "modules-center": [ "custom/menu", "clock", "custom/power" ],
   "modules-right":  [ "custom/wl-gammarelay-temperature", "custom/wl-gammarelay-brightness", "pulseaudio", "battery" ],
   
@@ -69,7 +69,7 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "network": {
-    "format-wifi": "直 {essid}",
+    "format-wifi": "直 Connected",
     "format-ethernet": " {essid}",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "睊 Disconnected",
@@ -99,13 +99,13 @@
     "on-click": "rofi -show drun -config ~/.config/hypr/rofi/config.rasi"
   },
   "custom/wl-gammarelay-temperature": {
-    "format": "{} ",
+    "format": "{} ",
     "exec": "wl-gammarelay --subscribe Temperature",
     "on-scroll-up": "~/.config/hypr/scripts/brightness.sh temperature-up 100",
     "on-scroll-down": "~/.config/hypr/scripts/brightness.sh temperature-down 100"
   },
   "custom/wl-gammarelay-brightness": {
-    "format": "{} ",
+    "format": "{} ",
     "exec": "wl-gammarelay --subscribe Brightness",
     "on-scroll-up": "~/.config/hypr/scripts/brightness.sh brightness-up 0.05",
     "on-scroll-down": "~/.config/hypr/scripts/brightness.sh brightness-down 0.05"
