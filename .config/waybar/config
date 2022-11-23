@@ -100,13 +100,13 @@
   },
   "custom/wl-gammarelay-temperature": {
     "format": "{} ",
-    "exec": "wl-gammarelay --subscribe Temperature",
+    "exec": "wl-gammarelay-rs watch {t}",
     "on-scroll-up": "~/.config/hypr/scripts/brightness.sh temperature-up 100",
     "on-scroll-down": "~/.config/hypr/scripts/brightness.sh temperature-down 100"
   },
   "custom/wl-gammarelay-brightness": {
     "format": "{} ",
-    "exec": "wl-gammarelay --subscribe Brightness",
+    "exec": "wl-gammarelay-rs watch {bp}",
     "on-scroll-up": "~/.config/hypr/scripts/brightness.sh brightness-up 0.05",
     "on-scroll-down": "~/.config/hypr/scripts/brightness.sh brightness-down 0.05"
   }
