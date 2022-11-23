@@ -7,21 +7,10 @@ icon_folder="~/.config/hypr/icons"
 amount=$2
 id_brightness="8054"
 id_temperature="8055"
-value_brightness=`timeout 0.01 wl-gammarelay --subscribe Brightness &`
-value_temperature=`timeout 0.01 wl-gammarelay --subscribe Temperature &`
+value_brightness=`timeout 0.01 wl-gammarelay-rs watch {bp} &`
+value_temperature=`timeout 0.01 wl-gammarelay-rs watch {t} &`
 
 # Functions
-function get_value {
-    local percentage=`expr $1*100/1 | bc`
-    if [[ "$percentage" -eq 100 ]]; then
-        value=100 
-    elif [[ "$percentage" -eq 0 ]]; then
-        value=0
-    else
-        value=$percentage
-    fi
-}
-
 function notification_bar {
     dunstify -u low -r "$id" -h int:value:"$value" "${text}" -a "${header}" -i "${icon}"
 }
@@ -29,8 +18,7 @@ function notification_bar {
 case $1 in
 # Brightness
 brightness-up)
-    get_value $value_brightness
-    # value=$(get_percentage $value_brightness)
+    value=$value_brightness
     header="Brightness"
     text="Currently at ${value}%"
     icon="$icon_folder/brightness-up.png"
@@ -39,7 +27,7 @@ brightness-up)
 	notification_bar;;
 
 brightness-down)
-    get_value $value_brightness
+    value=$value_brightness
     header="Brightness"
     text="Currently at ${value}%"
     icon="$icon_folder/brightness-down.png"
