@@ -6,7 +6,7 @@ https://user-images.githubusercontent.com/81521595/202860841-1ebc1d34-9aee-41cc-
 #### Dependencies:
 Assuming you use an arch based distribution and your aur helper is paru:
 ```
-paru -S rofi-lbonn-wayland kitty pcmanfm-gtk3 swaybg lxsession wl-gammarelay-rs grim slurp playerctl alsamixer bc neovim waybar-hyprland-git archlinux-logout-git
+paru -S rofi-lbonn-wayland kitty pcmanfm-gtk3 swaybg lxsession wl-gammarelay-rs grim slurp playerctl alsa-utils bc neovim waybar-hyprland-git
 ```
 #### Dunst (patched version)
 ```
