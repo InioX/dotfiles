@@ -3,13 +3,18 @@ These dotfiles are meant to be used with hyprland, for bspwm see [this](https://
 ## Showcase
 https://user-images.githubusercontent.com/81521595/202860841-1ebc1d34-9aee-41cc-b16e-d1028548deb1.mp4
 ## Installation
-#### Dependencies:
+#### Dependencies
 Assuming you use an arch based distribution and your aur helper is paru:
 ```
 paru -S rofi-lbonn-wayland kitty pcmanfm-gtk3 swaybg lxsession wl-gammarelay-rs grim slurp playerctl alsa-utils bc neovim waybar-hyprland-git wl-clipboard-rs
 ```
+#### Fonts 
+```
+paru -S ttf-nerd-fonts-symbols-1000em-mono ttf-nerd-fonts-symbols-common noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+```
 #### Dunst (patched version)
 ```
+paru -S pod2man core/dbus libxinerama libxrandr libxss glib pango libnotify xdg-utils
 git clone -b progress-styling https://github.com/k-vernooy/dunst/ ~/Documents/dunst/
 cd ~/Documents/dunst && make && sudo make install
 ```
@@ -20,7 +25,7 @@ mv ~/.local/share/nvim/site ~/.local/share/nvim/site.bak
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 nvim +PackerSync
 ```
-#### Main config:
+#### Main config
 > **_NOTE:_** Please note that this does not back up any of your current config
 
 ```
