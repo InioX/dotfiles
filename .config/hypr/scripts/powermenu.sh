@@ -25,14 +25,14 @@ then
     loginctl terminate-user `whoami`
 elif [ "$selected_option" == "$shutdown" ]
 then
-    sudo systemctl poweroff
+    systemctl poweroff
 elif [ "$selected_option" == "$reboot" ]
 then
-    sudo systemctl reboot
+    systemctl reboot
 elif [ "$selected_option" == "$sleep" ]
 then
     amixer set Master mute
-    sudo systemctl suspend
+    systemctl suspend
 else
     echo "No match"
 fi
