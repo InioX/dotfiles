@@ -13,7 +13,7 @@ case $1 in
     text="Copied screen"
     grim - | wl-copy
     notification;;
-  copy_region)
+  copy_area)
     icon="${icon_folder}/copy.png"
     header="Screenshot"
     text="Copied region"
