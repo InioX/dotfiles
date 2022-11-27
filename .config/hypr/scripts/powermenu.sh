@@ -19,7 +19,7 @@ $shutdown" | rofi -dmenu\
 # Do something based on selected option
 if [ "$selected_option" == "$lock" ]
 then
-    swaylock
+    ~/.config/hypr/scripts/lockscreen.sh
 elif [ "$selected_option" == "$logout" ]
 then
     loginctl terminate-user `whoami`
