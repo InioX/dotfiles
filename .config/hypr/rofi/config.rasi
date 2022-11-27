@@ -8,4 +8,4 @@ click-to-exit: true;
 case-sensitive: false;
 }
 
-@theme "~/.config/hypr/rofi/dmenu.rasi"
+@theme "~/.config/hypr/rofi/p-chy.rasi"

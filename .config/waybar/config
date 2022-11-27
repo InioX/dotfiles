@@ -92,11 +92,11 @@
   },
   "custom/power": {
     "format": "⏻",
-    "on-click": "archlinux-logout"
+    "on-click": "~/.config/hypr/scripts/powermenu.sh"
   },
   "custom/menu": {
     "format": "",
-    "on-click": "rofi -show drun -config ~/.config/hypr/rofi/config.rasi"
+    "on-click": "rofi -display-drun Search: -show drun  -disable-history -config ~/.config/hypr/rofi/config.rasi"
   },
   "custom/wl-gammarelay-temperature": {
     "format": "{} ",
