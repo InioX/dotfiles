@@ -12,11 +12,24 @@ paru -S rofi-lbonn-wayland kitty pcmanfm-gtk3 swaybg lxsession wl-gammarelay-rs 
 ```
 paru -S ttf-nerd-fonts-symbols-1000em-mono ttf-nerd-fonts-symbols-common noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
 ```
+#### Icons 
+```
+paru -S sardi-icons
+```
 #### Dunst (patched version)
 ```
 paru -S pod2man core/dbus libxinerama libxrandr libxss glib pango libnotify xdg-utils
 git clone -b progress-styling https://github.com/k-vernooy/dunst/ ~/Documents/dunst/
 cd ~/Documents/dunst && make && sudo make install
+```
+#### Vencord
+```
+sudo pacman -S npm
+sudo npm i -g pnpm
+git clone https://github.com/Vendicted/Vencord ~/Documents/Vencord && cd ~/Douments/Vencord
+pnpm install --frozen-lockfile
+pnpm build
+sudo pnpm inject
 ```
 #### AstroNvim
 ```
@@ -32,6 +45,11 @@ nvim +PackerSync
 git clone https://github.com/InioX/dotfiles-hyprland ~/Documents/dotfiles-hyprland
 cd ~/Documents/dotfiles-hyprland && cp * ~/.config
 cd ~/Documents/dotfiles-hyprland/home && cp * ~/
+```
+#### GTK theme
+```
+mv ~/Documents/dotfiles-hyprland/themes/adw-gtk3-dark
+gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
 ```
 ## Basic keybindings
 
