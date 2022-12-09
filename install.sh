@@ -97,7 +97,7 @@ install_vencord () {
 install_dunst () {
   print_header "Installing dunst"
   git clone -b progress-styling https://github.com/k-vernooy/dunst/
-  # cd dunst && make && sudo make install && cd ..
+  cd dunst && make && sudo make install && cd ..
 }
 
 install_nvim () {
@@ -113,6 +113,7 @@ install_gtk_theme () {
   cd dotfiles-hyprland
   print_text "Copying files in $(pwd)/themes to /usr/share/themes"
   sudo cp -a themes/adw-gtk3-dark/ /usr/share/themes
+  print_text "Setting GTK theme"
   cd ..
 }
 
@@ -133,7 +134,7 @@ function confirm() {
 }
 
 backup_config () {
-  cp -a ~/.test/. ~/.test.bak/ && rm -rf ~/.test/*
+  cp -a ~/.config/. ~/.config.bak/ && rm -rf ~/.config/*
   print_text "Copying files from ${HOME}/.config to ${HOME}/.config.bak"
 }
 
@@ -141,9 +142,9 @@ install_config () {
   git clone https://github.com/InioX/dotfiles-hyprland
   cd dotfiles-hyprland
   print_text "Copying files in $(pwd)/.config folder to ${HOME}/.config/"
-  cp .config/. -ar ~/.test/
+  cp .config/. -ar ~/.config/
   print_text "Copying files in $(pwd)/home to ${HOME}/"
-  cp -ar home/ ~/.test/home/
+  cp -ar home/ ~/
 }
 
 check_for_error () {
