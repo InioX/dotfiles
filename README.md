@@ -4,6 +4,7 @@ These dotfiles are meant to be used with hyprland, for bspwm see [this](https://
 https://user-images.githubusercontent.com/81521595/202860841-1ebc1d34-9aee-41cc-b16e-d1028548deb1.mp4
 ## Installation
 ### Using the installer
+Assuming you use an arch based distro and you have paru installed:
 ```
 git clone https://github.com/InioX/dotfiles-hyprland
 cd dotfiles-hyprland && ./install.sh
