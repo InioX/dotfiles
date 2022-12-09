@@ -7,7 +7,8 @@ https://user-images.githubusercontent.com/81521595/202860841-1ebc1d34-9aee-41cc-
 Assuming you use an arch based distro and you have paru installed:
 ```
 git clone https://github.com/InioX/dotfiles-hyprland
-cd dotfiles-hyprland && ./install.sh
+```
+bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles-hyprland/master/install.sh)
 ```
 ### Manually
 TODO
