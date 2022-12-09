@@ -3,54 +3,13 @@ These dotfiles are meant to be used with hyprland, for bspwm see [this](https://
 ## Showcase
 https://user-images.githubusercontent.com/81521595/202860841-1ebc1d34-9aee-41cc-b16e-d1028548deb1.mp4
 ## Installation
-#### Dependencies
-Assuming you use an arch based distribution and your aur helper is paru:
+### Using the installer
 ```
-paru -S rofi-lbonn-wayland kitty pcmanfm-gtk3 swaybg lxsession wl-gammarelay-rs grim slurp playerctl alsa-utils bc neovim waybar-hyprland-git wl-clipboard-rs
+git clone https://github.com/InioX/dotfiles-hyprland
+cd dotfiles-hyprland && ./install.sh
 ```
-#### Fonts 
-```
-paru -S ttf-nerd-fonts-symbols-1000em-mono ttf-nerd-fonts-symbols-common noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
-```
-#### Icons 
-```
-paru -S sardi-icons
-```
-#### Dunst (patched version)
-```
-paru -S pod2man core/dbus libxinerama libxrandr libxss glib pango libnotify xdg-utils
-git clone -b progress-styling https://github.com/k-vernooy/dunst/ ~/Documents/dunst/
-cd ~/Documents/dunst && make && sudo make install
-```
-#### Vencord
-```
-sudo pacman -S npm
-sudo npm i -g pnpm
-git clone https://github.com/Vendicted/Vencord ~/Documents/Vencord && cd ~/Douments/Vencord
-pnpm install --frozen-lockfile
-pnpm build
-sudo pnpm inject
-```
-#### AstroNvim
-```
-mv ~/.config/nvim ~/.config/nvim.bak
-mv ~/.local/share/nvim/site ~/.local/share/nvim/site.bak
-git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-nvim +PackerSync
-```
-#### Main config
-> **_NOTE:_** Please note that this does not back up any of your current config
-
-```
-git clone https://github.com/InioX/dotfiles-hyprland ~/Documents/dotfiles-hyprland
-cd ~/Documents/dotfiles-hyprland && cp * ~/.config
-cd ~/Documents/dotfiles-hyprland/home && cp * ~/
-```
-#### GTK theme
-```
-mv ~/Documents/dotfiles-hyprland/themes/adw-gtk3-dark
-gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
-```
+### Manually
+TODO
 ## Basic keybindings
 
 > **_NOTE:_** Left mouse button is mouse:272 and right click is mouse:273
