@@ -81,6 +81,7 @@ main () {
 
   echo -e "\n${purple}==>${nocolor} ${bold}Thanks for using my dotfiles!${normal}"
   echo ':: Do not forget to run "nvim +PackerSync"'
+  echo ':: If the GTK theme didnt apply, log out and run "gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark"'
 }
 
 install_starship () {
