@@ -14,13 +14,13 @@ TODO
 
 > **_NOTE:_** Left mouse button is mouse:272 and right click is mouse:273
 
-|  Shortcut |  Action |
+|  Keybind | Action |
 | - | - |
-| Terminal (kitty) | $main_mod, return |
-| Rofi | $main_mod, W |
-| File manager (pcmanfm) | SUPER_SHIFT, return |
-| Change workspace | $main_mod, [0,9] |
-| Move window to a workspace | SUPER_SHIFT, [0,9] |
-| Kill a window | $main_mod, Q |
-| Move a window| $main_mod, mouse:272 |
-| Resize a window | $main_mod, mouse:273 |
+| <kbd>$main_mod, return</kbd> | Terminal (kitty) |
+| <kbd>$main_mod, W</kbd> | Rofi |
+| <kbd>SUPER_SHIFT, return</kbd> | File manager (pcmanfm) |
+| <kbd>$main_mod, [0,9]</kbd> | Change workspace |
+| <kbd>SUPER_SHIFT, [0,9]</kbd> | Move window to a workspace |
+| <kbd>$main_mod, Q</kbd> | Kill a window |
+|  <kbd>$main_mod, mouse:272</kbd> | Move a window |
+| <kbd>$main_mod, mouse:273</kbd> | Resize a window |
