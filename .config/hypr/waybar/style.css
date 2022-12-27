@@ -10,13 +10,13 @@
 }
 
 window#waybar {
-  background: transparent;
+  background: @bg0;
   color: #cdd6f4;
 }
 
 #workspaces button {
   padding: 5px;
-  color: @text;
+  color: #505050;
   margin: 3px;
   border-radius: 30px;
 }
@@ -27,32 +27,45 @@ window#waybar {
 }
 
 #workspaces button:hover {
-  background: @bg1;
+  background: @bg0;
+  color: @bg1;
 }
 
 tooltip {
   background: @tip;
   border-radius: 10px;
-  border: 3px solid @accent;
+  border: 3px solid @bg1;
 }
 
-#custom-language, #custom-updates, #custom-caffeine, #custom-power, #clock, #battery, #pulseaudio, #network, #workspaces, #tray, #backlight, #custom-menu, #custom-wl-gammarelay-brightness, #custom-wl-gammarelay-temperature {
-  background: @bg0;
+#custom-language, #custom-updates, #custom-caffeine, #clock, #battery, #pulseaudio, #network, #tray, #backlight, #custom-wl-gammarelay-brightness, #custom-wl-gammarelay-temperature, #workspaces {
+  background: @bg1;
   padding: 0px 10px;
-  margin: 3px 0px;
-  border: 3px solid @accent;
-  border-radius: 10px;
+  margin: 7px 0px;
+  border-radius: 5px;
+}
+
+#custom-menu, #custom-power {
+  background: @accent;
+  color: @bg1;
+  padding: 0px 10px;
+  margin: 7px 0px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+#custom-power {
+    font-weight: normal;
 }
 
 #tray {
 	margin-left: 5px;
 	padding-left: 10px;
-	margin-bottom: 3px;
 	padding-right: 10px;
 	transition: none;
 }
 
 #workspaces {
+  background: @bg1;
   padding-right: 10px;
   padding-left: 5px;
   margin-left: 5px;
@@ -60,46 +73,16 @@ tooltip {
 
 #clock {
   color: @text;
-  border-radius: 10px;
+  border-radius: 5px;
+  margin-left: 5px;
 }
 
 #network {
   color: @text;
-  margin-left: 5px;
-}
-
-#pulseaudio {
-  color: @text;
-  margin-right: 3px;
-}
-
-#battery {
-  color:  @text;
-  margin-left: 5px;
   margin-right: 5px;
 }
 
-#backlight {
-  color: @text;
-}
-
-#custom-power {
-  color: @text;
-  margin-left: 5px;
-}
-
-#custom-wl-gammarelay-brightness {
-  color: @text;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-#custom-wl-gammarelay-temperature {
-  color: @text;
-  margin-right: 3px;
-}
-
-#custom-menu {
+#pulseaudio, #battery, #custom-wl-gammarelay-brightness, #custom-wl-gammarelay-temperature {
   color: @text;
   margin-right: 5px;
 }
