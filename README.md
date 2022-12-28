@@ -1,6 +1,20 @@
 # P-chy dotfiles
-These dotfiles are meant to be used with hyprland, for bspwm see [this](https://github.com/InioX/dotfiles-bspwm).
+
+## Content
+- Vencord
+- Dunst
+- Fish
+- Starship
+- Custom GTK theme
+- Hyprland
+- Kitty
+- Neofetch
+- Neovim
+- Zsh (using fish instead)
+
 ## Showcase
+> **⚠️ NOTE:** The showcase may be outdated and look differently.
+
 https://user-images.githubusercontent.com/81521595/202860841-1ebc1d34-9aee-41cc-b16e-d1028548deb1.mp4
 ## Installation
 ### Using the installer
@@ -12,7 +26,7 @@ bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles-hyprland/master/
 TODO
 ## Basic keybindings
 
-> **_NOTE:_** Left mouse button is mouse:272 and right click is mouse:273
+> **⚠️ NOTE:** Left mouse click is mouse:272, right click is mouse:273, and $main_mod is the SUPER (Windows) key.
 
 |  Keybind | Action |
 | - | - |
