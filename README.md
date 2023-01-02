@@ -125,3 +125,9 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 | <kbd>⊞ Super</kbd> <kbd>Q</kbd> | Kill a window |
 |  <kbd>⊞ Super</kbd> <kbd>mouse:272</kbd> | Move a window |
 | <kbd>⊞ Super</kbd> <kbd>mouse:273</kbd> | Resize a window |
+
+## Known problems
+1) Volume script randomly deciding to not work.
+    - No idea how to fix this for now.
+2) Clicking on waybar widgets triggers them multiple times.
+    - https://github.com/Alexays/Waybar/issues/1850
