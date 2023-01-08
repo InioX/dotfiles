@@ -2,11 +2,14 @@
     <img src="https://user-images.githubusercontent.com/81521595/210214249-49b5024d-fd61-4c0b-97c8-2b74bb1ee7b8.png" alt="logo" width=400>
 </div>
 
+
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/81521595/211203162-2fbf24de-1634-4941-acd7-cf8541f7da13.png" alt="colors" width=320>
+</div>
+
 <div align="center">
     <h1>P-CHY DOTFILES</h1>
 </div>
-
-These dotfiles are a part of CAT-CHY OS.
 
 ## Showcase
 > **⚠️ NOTE:** The showcase may be outdated and look differently.
