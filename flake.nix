@@ -12,23 +12,37 @@
     # TODO: Add Hyprland and protocol
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
-    # TODO Make this into a function with variables for system and hostname
-    
-    nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [ ./nixos/configuration.nix ];
-      };
-    };
+  outputs = { nixpkgs, home-manager, ... }@inputs: 
+  let
+      # addNewHost = hostname: system:
+      addNewHost = { hostname ? "nixos", system ? "x86_64-linux" }: {
+        
+        inherit hostname system;
 
-    homeConfigurations = {
-      "ini@laptop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs; };
-        modules = [ ./home-manager/home.nix ];
+        inputs.nixpkgs.lib.nixosSystem = {
+          modules = [
+            { networking.hostName = hostname; }
+            "./hosts/${hostname}/configuration.nix" inputs
+          ];
+
+        };
+
+          # ${hostname} = nixpkgs.lib.nixosSystem {
+          # specialArgs = { inherit inputs; };
+          # modules = [ ./nixos/configuration.nix ];
+          # };
+
+        # homeConfigurations = {
+        #   "ini@${hostname}" = home-manager.lib.homeManagerConfiguration {
+        #     pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        #     extraSpecialArgs = { inherit inputs; };
+        #     modules = [ ./home-manager/home.nix ];
+        #   };
+        # };
+      };
+    in {
+      nixosConfigurations = {
+        laptop = addNewHost "laptop" "x86_64-linux";
       };
     };
-  
-  };
 }
