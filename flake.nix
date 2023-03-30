@@ -6,19 +6,14 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    # TODO: Add any other flake you might need
-    # hardware.url = "github:nixos/nixos-hardware";
-
-    # Shameless plug: looking for a way to nixify your themes and make
-    # everything match nicely? Try nix-colors!
-    # nix-colors.url = "github:misterio77/nix-colors";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: 
-let
+  outputs = { nixpkgs, home-manager, ... } @inputs: 
+          let
             # system = "x86_64-linux"; #current system
             # pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
             # lib = nixpkgs.lib;
@@ -31,8 +26,9 @@ let
                     inherit system;
                     modules = [
                         { networking.hostName = hostname; }
-                        (./. + "/hosts/${hostname}/configuration.nix")
-                        
+                        ./modules/system/main.nix
+                        ( ./. + "/hosts/${hostname}/configuration.nix" )
+
                         # home-manager.nixosModules.home-manager
                         # {
                         #     home-manager = {
@@ -48,10 +44,10 @@ let
                 };
 
         in {
-            nixosConfigurations = {
-                # Now, defining a new system is can be done in one line
-                #                                Architecture   Hostname
-                laptop = addNewHost { hostname = "laptop"; };
-            };
+          nixosConfigurations = {
+              # Now, defining a new system is can be done in one line
+              #                                Architecture   Hostname
+              laptop = addNewHost { hostname = "laptop"; };
+          };
     };
 }
