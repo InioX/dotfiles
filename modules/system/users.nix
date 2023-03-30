@@ -12,9 +12,5 @@
         "networkmanager"
         "nix"
       ];
-      packages = with pkgs; [
-        firefox
-        vscodium
-      ];
   };
 }

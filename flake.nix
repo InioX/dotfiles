@@ -10,9 +10,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Hyprland
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { nixpkgs, home-manager, ... } @inputs:
+  outputs = { nixpkgs, home-manager, hyprland, ... } @inputs:
   let
     addNewHost = { hostname, system ? "x86_64-linux", pkgs ? inputs.nixpkgs}:
       pkgs.lib.nixosSystem {
@@ -20,18 +23,16 @@
         modules = [
           { networking.hostName = hostname; }
           ./modules/system/default.nix
-          ( ./. + "/hosts/${hostname}/configuration.nix" )
+          ( ./. + "/hosts/${hostname}/" )
 
-          # home-manager.nixosModules.home-manager
-          # {
-          #     home-manager = {
-          #         useUserPackages = true;
-          #         useGlobalPkgs = true;
-          #         extraSpecialArgs = { inherit inputs; };
-          #         # Home manager config (configures programs like firefox, zsh, eww, etc)
-          #         users.notus = (./. + "/hosts/${hostname}/user.nix");
-          #     };
-          # }
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              useUserPackages = true;
+              useGlobalPkgs = true;
+              extraSpecialArgs = { inherit inputs; }; # TODO: Add nix-colors???
+              users.ini = (./. + "/hosts/${hostname}/user.nix");
+            };
+          }
         ];
         specialArgs = { inherit inputs; };
       };
