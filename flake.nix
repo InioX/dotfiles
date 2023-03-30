@@ -9,40 +9,49 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # TODO: Add Hyprland and protocol
+    # TODO: Add any other flake you might need
+    # hardware.url = "github:nixos/nixos-hardware";
+
+    # Shameless plug: looking for a way to nixify your themes and make
+    # everything match nicely? Try nix-colors!
+    # nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: 
-  let
-      # addNewHost = hostname: system:
-      addNewHost = { hostname ? "nixos", system ? "x86_64-linux" }: {
-        
-        inherit hostname system;
+let
+            # system = "x86_64-linux"; #current system
+            # pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+            # lib = nixpkgs.lib;
 
-        inputs.nixpkgs.lib.nixosSystem = {
-          modules = [
-            { networking.hostName = hostname; }
-            "./hosts/${hostname}/configuration.nix" inputs
-          ];
+            # This lets us reuse the code to "create" a system
+            # Credits go to sioodmy on this one!
+            # https://github.com/sioodmy/dotfiles/blob/main/flake.nix
+            addNewHost = { hostname, system ? "x86_64-linux", pkgs ? inputs.nixpkgs}:
+                pkgs.lib.nixosSystem {
+                    inherit system;
+                    modules = [
+                        { networking.hostName = hostname; }
+                        (./. + "/hosts/${hostname}/configuration.nix")
+                        
+                        # home-manager.nixosModules.home-manager
+                        # {
+                        #     home-manager = {
+                        #         useUserPackages = true;
+                        #         useGlobalPkgs = true;
+                        #         extraSpecialArgs = { inherit inputs; };
+                        #         # Home manager config (configures programs like firefox, zsh, eww, etc)
+                        #         users.notus = (./. + "/hosts/${hostname}/user.nix");
+                        #     };
+                        # }
+                    ];
+                    specialArgs = { inherit inputs; };
+                };
 
-        };
-
-          # ${hostname} = nixpkgs.lib.nixosSystem {
-          # specialArgs = { inherit inputs; };
-          # modules = [ ./nixos/configuration.nix ];
-          # };
-
-        # homeConfigurations = {
-        #   "ini@${hostname}" = home-manager.lib.homeManagerConfiguration {
-        #     pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        #     extraSpecialArgs = { inherit inputs; };
-        #     modules = [ ./home-manager/home.nix ];
-        #   };
-        # };
-      };
-    in {
-      nixosConfigurations = {
-        laptop = addNewHost "laptop" "x86_64-linux";
-      };
+        in {
+            nixosConfigurations = {
+                # Now, defining a new system is can be done in one line
+                #                                Architecture   Hostname
+                laptop = addNewHost { hostname = "laptop"; };
+            };
     };
 }
