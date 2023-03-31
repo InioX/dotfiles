@@ -3,14 +3,13 @@
   pkgs,
   ...
 }: {
-  home = {
-    username = "ini";
-    home-directory = "home/ini";
-    packages = with pkgs; [
-      firefox
-      vscodium
-    ];
+  config = {
+    home = {
+      packages = with pkgs; [
+        firefox
+        vscodium
+      ];
+      stateVersion = "22.11";
+    };
   };
-
-  config.home.stateVersion = "22.11";
 }

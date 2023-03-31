@@ -22,7 +22,7 @@
         inherit system;
         modules = [
           { networking.hostName = hostname; }
-          ./modules/system/default.nix
+          ./modules/system
           ( ./. + "/hosts/${hostname}/" )
 
           home-manager.nixosModules.home-manager {
