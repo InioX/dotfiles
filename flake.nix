@@ -3,7 +3,9 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-22.11";
+    };
 
     # Home manager
     home-manager = {
@@ -12,7 +14,9 @@
     };
 
     # Hyprland
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
   };
 
   outputs = { nixpkgs, home-manager, hyprland, ... } @inputs:

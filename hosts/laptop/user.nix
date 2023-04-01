@@ -9,7 +9,9 @@
         firefox
         vscodium
       ];
+
       stateVersion = "22.11";
     };
   };
+  imports = [ ../../home ];
 }

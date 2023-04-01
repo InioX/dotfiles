@@ -4,10 +4,12 @@
   imports = [ ./hardware.nix ../../modules/desktop/xorg ];
 
   # Bootloader.
-  boot.loader.grub = {
-    enable = true;
-    device = "/dev/vda/";
-    useOSProber = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
+    };
   };
 
   # Enable networking
