@@ -19,30 +19,57 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, ... } @inputs:
-  let
-    addNewHost = { hostname, system ? "x86_64-linux", pkgs ? inputs.nixpkgs}:
-      pkgs.lib.nixosSystem {
+  outputs = { nixpkgs, home-manager, hyprland, ... } @inputs: let
+
+    stateVersion = "22.11";
+    system = "x86_64-linux";
+    username = "ini";
+
+    addNewHost = hostName: hmModules: nixModules:
+      inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [
-          { networking.hostName = hostname; }
+        # Combine home manager modules from args with the default ones
+        modules = nixModules ++ [
+  
+          # The main system configuration
           ./modules/system
-          ( ./. + "/hosts/${hostname}/" )
+          # The host configuration containing hardware.nix
+          ( ./. + "/hosts/${hostName}/" )
+
+          {
+            # Use the hostname for networking
+            networking = { inherit hostName; };
+
+            users.users.${username} = {
+                isNormalUser = true;
+                extraGroups = [
+                  "wheel" # Have access to sudo
+                  "power" # Use power commands without sudo
+                  "networkmanager" # Use network commands without sudo
+                  "nix"
+                ];
+              };
+          }
 
           home-manager.nixosModules.home-manager {
             home-manager = {
+              users.${username} = {...}: {
+                imports = [ ./home ] ++ hmModules;
+                home = { inherit stateVersion; };
+              };
               useUserPackages = true;
               useGlobalPkgs = true;
-              extraSpecialArgs = { inherit inputs; }; # TODO: Add nix-colors???
-              users.ini = (./. + "/hosts/${hostname}/user.nix");
+              extraSpecialArgs = { inherit inputs system; };
             };
           }
         ];
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs stateVersion; };
       };
-      in {
-        nixosConfigurations = {
-            laptop = addNewHost { hostname = "laptop"; };
-        };
-      };
+  in {
+    nixosConfigurations = {
+        # USAGE: addNewHost <hostname>  <nixModules>    <hmModules> 
+        laptop = addNewHost  "laptop"        []         [ ./home/desktop/xfce ./home/desktop/hyprland ];
+    };
+  };
+      
 }

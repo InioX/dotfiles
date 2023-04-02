@@ -1,14 +1,11 @@
 {
   config,
   pkgs,
-  inputs,
   ...
-} : {
-  # TODO: Make this modular
-  imports = [
-    ./hyprland
-     inputs.hyprland.homeManagerModules.default
+}: {
+  home.packages = with pkgs; [
+    firefox
+    vscodium
+    discord
   ];
-  
-  # FIXME: Starting from here:
 }

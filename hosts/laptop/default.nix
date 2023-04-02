@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware.nix ../../modules/desktop/xorg ];
+  imports = [ ./hardware.nix ];
 
   # Bootloader.
   boot.loader = {
