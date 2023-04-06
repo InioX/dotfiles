@@ -19,22 +19,21 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, ... } @inputs: let
-
+  outputs = { nixpkgs, home-manager, hyprland, self, ... } @inputs: 
+  with self.lib; let
+    cfg = self.config.test.home;
     stateVersion = "22.11";
     system = "x86_64-linux";
     username = "ini";
 
-    addNewHost = hostName: hmModules: nixModules:
+    addNewHost = hostName:
       inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        # Combine home manager modules from args with the default ones
-        modules = nixModules ++ [
-  
+        modules = [
           # The main system configuration
           ./modules/system
-          # The host configuration containing hardware.nix
-          ( ./. + "/hosts/${hostName}/" )
+          # The host specific configuration
+          ( ./. + "/hosts/${hostName}/")
 
           {
             # Use the hostname for networking
@@ -43,33 +42,20 @@
             users.users.${username} = {
                 isNormalUser = true;
                 extraGroups = [
-                  "wheel" # Have access to sudo
-                  "power" # Use power commands without sudo
-                  "networkmanager" # Use network commands without sudo
+                  "wheel"
+                  "power"
+                  "networkmanager"
                   "nix"
                 ];
-              };
-          }
-
-          home-manager.nixosModules.home-manager {
-            home-manager = {
-              users.${username} = {...}: {
-                imports = [ ./home ] ++ hmModules;
-                home = { inherit stateVersion; };
-              };
-              useUserPackages = true;
-              useGlobalPkgs = true;
-              extraSpecialArgs = { inherit inputs system; };
             };
           }
         ];
-        specialArgs = { inherit inputs stateVersion; };
+        specialArgs = { inherit inputs stateVersion username; };
       };
   in {
     nixosConfigurations = {
-        # USAGE: addNewHost <hostname>  <nixModules>    <hmModules> 
-        laptop = addNewHost  "laptop"        []         [ ./home/desktop/xfce ./home/desktop/hyprland ];
+        # USAGE: addNewHost <hostname>
+        laptop = addNewHost  "laptop";
     };
   };
-      
 }

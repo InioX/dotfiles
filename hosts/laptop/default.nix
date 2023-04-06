@@ -1,9 +1,14 @@
-{ config, pkgs, ... }:
-
+{ 
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib;
 {
-  imports = [ ./hardware.nix ];
+  imports = [ ./hardware.nix ../../modules ];
 
-  # Bootloader.
+  # Configure the bootloader
   boot.loader = {
     systemd-boot.enable = true;
     efi = {
@@ -14,4 +19,21 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    discord
+    vscodium
+  ];
+
+  test = {
+    desktop = {
+      xfce.enable = true;
+    };
+    apps = {
+      firefox.enable = true;
+    };
+    cli = {
+      git.enable = true;
+    };
+  };
 }
