@@ -3,8 +3,6 @@
   pkgs,
   lib,
   inputs,
-  git-email,
-  git-username,
   ...
 }: with lib; let
   cfg = config.test.cli.git;
