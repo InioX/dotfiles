@@ -9,8 +9,6 @@
     ./system
     ./apps
     ./cli
-
-    # for now
     ./home
   ];
 }

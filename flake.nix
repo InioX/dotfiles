@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "My nix dotfiles flake";
 
   inputs = {
     # Nixpkgs
@@ -19,38 +19,23 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, self, ... } @inputs: 
-  with self.lib; let
-    cfg = self.config.test.home;
+  outputs = { nixpkgs, ... } @inputs: 
+  let
     stateVersion = "22.11";
     system = "x86_64-linux";
     username = "ini";
 
-    addNewHost = hostName:
-      inputs.nixpkgs.lib.nixosSystem {
+    addNewHost = hostName: with inputs;
+      nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           # The main system configuration
           ./modules/system
           # The host specific configuration
           ( ./. + "/hosts/${hostName}/")
-
-          {
-            # Use the hostname for networking
-            networking = { inherit hostName; };
-
-            users.users.${username} = {
-                isNormalUser = true;
-                extraGroups = [
-                  "wheel"
-                  "power"
-                  "networkmanager"
-                  "nix"
-                ];
-            };
-          }
         ];
-        specialArgs = { inherit inputs stateVersion username; };
+        # Pass the variables to other modules
+        specialArgs = { inherit inputs stateVersion username hostName; };
       };
   in {
     nixosConfigurations = {

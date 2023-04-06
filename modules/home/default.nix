@@ -45,7 +45,7 @@ in {
       useUserPackages = true;
 
       # FIXME error: attribute 'test' missing
-      # users.${username} = mkAliasDefinitions options.test.home.extraOptions;
+      users.${username} = mkAliasDefinitions config.test.home.extraOptions;
     };
   };
 }

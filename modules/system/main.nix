@@ -1,8 +1,24 @@
 {
   config,
   pkgs,
+  hostName,
+  stateVersion,
+  username,
   ...
 }: {
+  networking = { inherit hostName; };
+  system = { inherit stateVersion; };
+
+  users.users.${username} = {
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+      "power"
+      "networkmanager"
+      "nix"
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
     vim
     wget
