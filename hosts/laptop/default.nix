@@ -34,7 +34,11 @@ with lib;
       firefox.enable = true;
     };
     cli = {
-      git.enable = true;
+      git = {
+        enable = true;
+        email = "justimnix@gmail.com";
+        name = "InioX";
+      };
     };
   };
 }
