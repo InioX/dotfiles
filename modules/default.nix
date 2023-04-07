@@ -5,10 +5,20 @@
   ...
 }: {
   imports = [
-    ./desktop
+    # Desktop
+    ./desktop/hyprland
+    ./desktop/xfce
+
+    # System
     ./system
-    ./apps
-    ./cli
+
+    # Apps
+    ./apps/firefox
+
+    # CLI
+    ./cli/git
+    
+    # Home
     ./home
   ];
 }
