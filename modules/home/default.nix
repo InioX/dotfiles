@@ -14,19 +14,19 @@ in {
 
   options.test.home = with types; {
     file = mkOption {
-      type = types.attrs;
+      type = attrs;
       description = ''
         A set of files to be managed by home-manager's <option>home.file</option>.
       '';
     };
     configFile = mkOption {
-      type = types.attrs;
+      type = attrs;
       description = ''
         A set of files to be managed by home-manager's <option>xdg.configFile</option>.
       '';
     };
     extraOptions = mkOption {
-      type = types.attrs;
+      type = attrs;
       description = ''
         Options to pass directly to home-manager.
       '';
@@ -34,6 +34,7 @@ in {
   };
 
   config = {
+    # FIXME error: attribute 'test' missing
     test.home.extraOptions = {
       home.stateVersion = stateVersion;
       home.file = mkAliasDefinitions options.test.home.file;
@@ -44,8 +45,7 @@ in {
     home-manager = {
       useUserPackages = true;
 
-      # FIXME error: attribute 'test' missing
-      users.${username} = mkAliasDefinitions config.test.home.extraOptions;
+      users.${username} = mkAliasDefinitions cfg.extraOptions;
     };
   };
 }
