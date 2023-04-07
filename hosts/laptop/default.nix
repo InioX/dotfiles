@@ -24,11 +24,16 @@ with lib;
     discord
     vscodium
     gh
+    tdesktop
+    pavucontrol
   ];
+
+  programs.adb.enable = true;
 
   test = {
     desktop = {
       xfce.enable = true;
+      hyprland.enable = true;
     };
     apps = {
       firefox.enable = true;

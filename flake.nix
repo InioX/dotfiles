@@ -19,7 +19,7 @@
     };
   };
 
-  outputs = { nixpkgs, ... } @inputs: 
+  outputs = { nixpkgs, hyprland, ... } @inputs: 
   let
     stateVersion = "22.11";
     system = "x86_64-linux";

@@ -24,6 +24,21 @@ in {
   ];
 
   config = mkIf cfg.enable {
-    programs.hyprland.enable = true;
+    environment.systemPackages = with pkgs; [
+      kitty
+      wl-clipboard
+      grim
+      slurp
+      alacritty
+      wofi
+      playerctl
+      pcmanfm
+    ];
+    test.home.extraOptions = {
+       wayland.windowManager.hyprland = {
+          enable = true;
+          extraConfig = builtins.readFile ./hyprland.conf;
+       };
+    };
   };
 }
