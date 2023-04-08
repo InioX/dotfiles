@@ -1,4 +1,3 @@
-# ℹ️ Description
 Welcome to my dotfiles! They currently feature 2 linux distributions.
 
 The arch branch has an installer thats best used after a fresh install, though it can be used on an already set up system too.
