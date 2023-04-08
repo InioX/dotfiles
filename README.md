@@ -25,16 +25,17 @@ Welcome to my dotfiles! I'm only using one host currenly, it's a Lenovo laptop w
 ## 📑 Contents
 ```ini
 📂 dotfiles/
+├── ❄️ flake.nix
 ├── 📂 modules/ # All the modules
-│   ├── 📂 apps/ # GUI apps/tools
-│   ├── 📂 cli/ # CLI apps/tools
-│   ├── 📂 system/ # Main system configuration
-│   ├── 📂 home/ # Home Manager configuration
-│   └── 📂 desktop/ # DE/WM configurations
+│   ├── 📁 apps/ # GUI apps/tools
+│   ├── 📁 cli/ # CLI apps/tools
+│   ├── 📁 system/ # Main system configuration
+│   ├── 📁 home/ # Home Manager configuration
+│   └── 📁 desktop/ # DE/WM configurations
 └── 📂 hosts/ # Host specific configurations
     └── 📂 <hostName>/
-         ├── 📄 default.nix
-         └── 📄 hardware.nix
+        ├── 📄 default.nix
+        └── 📄 hardware.nix
 ```
 # 📷 Showcase
 >**Note** The showcase may be outdated and look differently.
