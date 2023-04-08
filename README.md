@@ -9,6 +9,19 @@
 
 # ℹ️ Description
 Welcome to my dotfiles! I'm only using one host currenly, it's a Lenovo laptop with a Ryzen APU.
+
+>**Warning** These dotfiles are incomplete, I'm still in the process or porting over the config files from arch.
+## 📊 Progress
+- [x] Hyprland (without custom scripts)
+- [ ] Rofi
+- [ ] Dunst
+- [ ] GTK theme
+- [ ] Neofetch
+- [ ] Neovim
+- [ ] Fish
+- [ ] Starship
+- [ ] Vencord
+
 ## 📑 Contents
 ```ini
 📂 dotfiles/
