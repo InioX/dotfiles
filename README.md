@@ -1,51 +1,52 @@
 <div align="center">
-    <img src="https://user-images.githubusercontent.com/81521595/210214249-49b5024d-fd61-4c0b-97c8-2b74bb1ee7b8.png" alt="logo" width=400>
-</div>
-
-
-<div align="center">
-    <img src="https://user-images.githubusercontent.com/81521595/211203162-2fbf24de-1634-4941-acd7-cf8541f7da13.png" alt="colors" width=320>
+    <img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" alt="logo" width=150>
 </div>
 
 <div align="center">
-    <h1>P-CHY DOTFILES</h1>
+    <h1>ARCH DOTFILES</h1>
 </div>
 
-## Showcase
-> **⚠️ NOTE:** The showcase may be outdated and look differently.
+<div align="center">
+    <b>My Arch linux dotfiles with an installer.</b>
+</div>
 
 
-<details><summary>Expand to show</summary>
-<p>
-
-https://user-images.githubusercontent.com/81521595/202860841-1ebc1d34-9aee-41cc-b16e-d1028548deb1.mp4
-
-</p>
-</details>
-
-## Contents
-- [Vencord](.config/Vencord)
-- [Dunst](.config/dunst)
-- [Starship](.config/starship.toml)
-- [Custom GTK theme]()
-- [Hyprland](.config/hypr)
-- [Kitty](.config/kitty)
-- [Neofetch](.config/neofetch)
-- [Neovim](.config/nvim)
-- [Zsh (using fish instead)](home/)
-- [Fish](.config/fish)
-
-## Installation
-
-### Using the installer
-
-Assuming you use an arch based distro:
-
-```shell
-bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles-hyprland/master/install.sh)
+# ℹ️ Description
+## 📑 Contents
+```ini
+📂 dotfiles/
+├── 📄 install.sh
+├── 📂 .config/ # Will get copied to ~/.config/
+│   ├── 📂 starship.toml
+│   ├── 📁 Vencord/
+│   ├── 📁 dunst/
+│   ├── 📁 fish/
+│   ├── 📁 gtk-3.0/
+│   ├── 📁 gtk-4.0/
+│   ├── 📂 hypr/
+│   │   ├── 📁 waybar/
+│   │   └── 📁 rofi/
+│   ├── 📁 kitty/
+│   ├── 📁 neofetch/
+│   └── 📁 nvim/
+├── 📂 home/ # Will get copied to ~/
+│   ├── 📄 .p10k.zsh
+│   └── 📄 .zshrc
+└── 📂 themes/ # Will get copied to /usr/share/themes
+    └── 📄 adw-gtk3-dark
 ```
 
-### Manually
+# 🛠️ Installation
+
+### ⚙️ Using the installer
+
+>**Note** Assuming you use an arch based distro
+
+```shell
+bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles-hyprland/arch/install.sh)
+```
+
+### 🔧 Manually
 
 <details><summary>Expand to show</summary>
 <p>
@@ -92,7 +93,7 @@ sudo cp -r ~/.cache/nvim ~/.cache/nvim.bak && rm -rf ~/.cache/nvim
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 ```
 
-## P-CHY Config
+## Main config
 ```shell
 # First, back up the current config
 sudo cp -a ~/.config/. ~/.config.bak/ && sudo rm -rf ~/.config/*
@@ -114,23 +115,20 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 </p>
 </details>
 
-## Basic keybindings
+# 📷 Showcase
+>**Note** The showcase may be outdated and look differently.
 
-> **⚠️ NOTE:** Left mouse click is mouse:272, right click is mouse:273, and Super the Windows key.
+<details><summary>Expand to show</summary>
+<p>
 
-|  Keybind | Action |
-| - | - |
-| <kbd>⊞ Super</kbd> <kbd>⏎ Enter</kbd> | Terminal (kitty) |
-| <kbd>⊞ Super</kbd> <kbd>W</kbd> | Rofi |
-| <kbd>⊞ Super</kbd> <kbd>⇧ Shift</kbd> <kbd>⏎ Enter</kbd> | File manager (pcmanfm) |
-| <kbd>⊞ Super</kbd> <kbd>[0,9]</kbd> | Change workspace |
-| <kbd>⊞ Super</kbd> <kbd>⇧ Shift</kbd> <kbd>[0,9]</kbd> | Move window to a workspace |
-| <kbd>⊞ Super</kbd> <kbd>Q</kbd> | Kill a window |
-|  <kbd>⊞ Super</kbd> <kbd>mouse:272</kbd> | Move a window |
-| <kbd>⊞ Super</kbd> <kbd>mouse:273</kbd> | Resize a window |
+https://user-images.githubusercontent.com/81521595/202860841-1ebc1d34-9aee-41cc-b16e-d1028548deb1.mp4
 
-## Known problems
-1) Volume script randomly deciding to not work.
-    - No idea how to fix this for now.
-2) Clicking on waybar widgets triggers them multiple times.
-    - https://github.com/Alexays/Waybar/issues/1850
+</p>
+</details>
+
+# ✨ Acknowledgment
+Special thanks to all the people mentioned below, they either helped me solve issues or i copied from them.
+
+[Mathisbuilder](https://github.com/MathisP75)
+•
+[flick0](https://github.com/flick0/dotfiles)
