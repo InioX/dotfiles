@@ -21,6 +21,7 @@ Welcome to my dotfiles! I'm only using one host currenly, it's a Lenovo laptop w
 - [ ] Fish
 - [ ] Starship
 - [ ] Vencord
+- [ ] Waybar
 
 ## 📑 Contents
 ```ini
