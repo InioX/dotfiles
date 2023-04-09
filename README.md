@@ -7,9 +7,13 @@
 </div>
 
 <div align="center">
-    <b>My Arch linux dotfiles with an installer.</b>
+    <p>My Arch linux dotfiles with an <a href="https://github.com/InioX/dotfiles/tree/arch/install.sh">installer</a>.</p>
 </div>
 
+<div align="center">
+  <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-2ea44f?style=for-the-badge&logo=Arch+Linux&logoColor=blue" alt="Arch - LATEST"></a> 
+  <a href="https://"><img src="https://img.shields.io/badge/MAINTAINED-SOMETIMES-yellow?style=for-the-badge" alt="MAINTAINED - SOMETIMES"></a>
+</div>
 
 # ℹ️ Description
 ## 📑 Contents
