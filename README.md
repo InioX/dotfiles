@@ -16,11 +16,11 @@
 The arch branch has an installer thats best used after a fresh install, though it can be used on an already set up system too.
 
 Just simply open your terminal and run
-```
+```shell
 bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/arch/install.sh)
 ```
 The nixos branch can easily be installed by running
-```
+```shell
 nixos-install --flake .#hostname
 ```
 
