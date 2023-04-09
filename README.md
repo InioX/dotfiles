@@ -1,5 +1,18 @@
-Welcome to my dotfiles! They currently feature 2 linux distributions.
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/81521595/230770458-cb27e77a-273a-4c0d-a43c-e388048dcc2e.png" alt="logo" width=200>
+</div>
 
+<h1 align="center">
+  LINUX DOTFILES<br>
+  <a href="">
+      <img src="https://img.shields.io/github/issues/InioX/dotfiles?color=5176c1&style=for-the-badge">
+   </a>
+   <a href="https://github.com/InioX/dotfiles/stargazers">
+      <img src="https://img.shields.io/github/stars/InioX/dotfiles?color=7eb8e3&style=for-the-badge">
+   </a>
+</h1>
+
+## 🛠️ Installation
 The arch branch has an installer thats best used after a fresh install, though it can be used on an already set up system too.
 
 Just simply open your terminal and run
