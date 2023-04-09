@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/81521595/230770746-844775c5-e02c-408f-8856-d16570115e47.png" alt="logo" width=225>
+  <img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" alt="arch logo" width=150>
+  <img src="https://nixos.org/logo/nixos-logo-only-hires.png" alt="nix logo" width=150>
 </div>
 
 <h1 align="center">
