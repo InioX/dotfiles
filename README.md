@@ -17,7 +17,7 @@ The arch branch has an installer thats best used after a fresh install, though i
 
 Just simply open your terminal and run
 ```
-bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles-hyprland/arch/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/arch/install.sh)
 ```
 The nixos branch can easily be installed by running
 ```
