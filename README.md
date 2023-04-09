@@ -16,12 +16,12 @@ nixos-install --flake .#hostname
 >**Warning** The arch branch may not be up to date, as i mainly use nixos now. I will still try update it from time to time if i can.
 
 <p float="left">
-  <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-2ea44f?style=for-the-badge&logo=Arch+Linux&logoColor=blue" alt="Arch - LATEST"></a> 
+  <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-2ea44f?style=for-the-badge&logo=Arch+Linux&logoColor=white" alt="Arch - LATEST"></a> 
   <a href="https://"><img src="https://img.shields.io/badge/MAINTAINED-KINDA-yellow?style=for-the-badge" alt="MAINTAINED - SOMETIMES"></a>
 </p>
 
 <p float="left">
-   <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-22.11-2ea44f?style=for-the-badge&logo=NixOS&logoColor=blue" alt="NixOS - 22.11"></a>
+   <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-22.11-2ea44f?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 22.11"></a>
    <a href="https://"><img src="https://img.shields.io/badge/MAINTAINED-YES-2ea44f?style=for-the-badge" alt="MAINTAINED - YES"></a>
  </p>
 
