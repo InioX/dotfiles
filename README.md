@@ -47,7 +47,7 @@
 >**Note** Assuming you use an arch based distro
 
 ```shell
-bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles-hyprland/arch/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/arch/install.sh)
 ```
 
 ### 🔧 Manually
