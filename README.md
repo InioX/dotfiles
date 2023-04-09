@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" alt="arch logo" width=150>
+  <img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" alt="arch logo" width=125>
   <img src="https://nixos.org/logo/nixos-logo-only-hires.png" alt="nix logo" width=150>
 </div>
 
