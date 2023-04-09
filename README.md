@@ -11,8 +11,8 @@
 </div>
 
 <div align="center">
-  <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-2ea44f?style=for-the-badge&logo=Arch+Linux&logoColor=blue" alt="Arch - LATEST"></a> 
-  <a href="https://"><img src="https://img.shields.io/badge/MAINTAINED-SOMETIMES-yellow?style=for-the-badge" alt="MAINTAINED - SOMETIMES"></a>
+  <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-1793d1?style=for-the-badge&logo=Arch+Linux&logoColor=white" alt="Arch - LATEST"></a> 
+  <a href="https://"><img src="https://img.shields.io/badge/MAINTAINED-KINDA-1793d1?style=for-the-badge" alt="MAINTAINED - SOMETIMES"></a>
 </div>
 
 # ℹ️ Description
