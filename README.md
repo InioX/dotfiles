@@ -4,7 +4,12 @@
 </div>
 
 <div align="center">
-    <b>My nixos dotfiles with  <a href="https://github.com/nix-community/home-manager">Home Manager</a></b>
+    <p>My nixos dotfiles with  <a href="https://github.com/nix-community/home-manager">Home Manager</a></p>
+</div>
+
+<div align="center">
+   <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-22.11-2ea44f?style=for-the-badge&logo=NixOS&logoColor=blue" alt="NixOS - 22.11"></a>
+   <a href="https://"><img src="https://img.shields.io/badge/MAINTAINED-YES-2ea44f?style=for-the-badge" alt="MAINTAINED - YES"></a>
 </div>
 
 # ℹ️ Description
