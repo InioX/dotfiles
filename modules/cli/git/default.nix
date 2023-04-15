@@ -8,9 +8,6 @@
 }: with lib; let
   cfg = config.test.cli.git;
 in {
-  imports = with inputs; [
-    home-manager.nixosModules.home-manager
-  ];
   options.test.cli.git = with types; {
     enable = mkOption {
       type = bool;
@@ -36,23 +33,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # home-manager = {
-    #   useUserPackages = true;
-
-    #   users.${username} = {
-    #     programs.git = {
-    #       enable = true;
-    #       userEmail = config.test.cli.git.email;
-    #       userName = config.test.cli.git.name;
-    #       aliases = {
-    #         s = "status";
-    #         a = "add";
-    #         c = "commit";
-    #       };
-    #     };
-    #   };
-    # };
-
     test.home.extraOptions = {
       programs.git = {
         enable = true;
