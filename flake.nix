@@ -7,7 +7,7 @@
     stateVersion = "22.11";
 
     # Use a config folder for compatibility with arch
-    dotfilesFolder = ./config;
+    configFolder = ./config;
 
     system = "x86_64-linux";
     username = "ini";
@@ -25,7 +25,7 @@
         ];
         # Pass the variables to other modules
         specialArgs = {
-          inherit inputs stateVersion username hostName dotfilesFolder;
+          inherit inputs stateVersion username hostName configFolder;
         };
       };
   in {
