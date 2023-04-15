@@ -44,6 +44,10 @@ in {
       gtk.enable = true;
       dunst.enable = true;
     };
+
+    test.cli = {
+      neofetch.enable = true;
+    };
     
     test.home.configFile."hypr".source = dotfilesFolder + /hypr;
   };

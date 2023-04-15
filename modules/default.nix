@@ -26,6 +26,7 @@
 
     # CLI
     ./cli/git
+    ./cli/neofetch
     
     # Home
     ./home
