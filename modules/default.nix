@@ -18,9 +18,6 @@
     ./desktop/addons/gtk
     ./desktop/addons/dunst
 
-    # System
-    ./system
-
     # Apps
     ./apps/firefox
 
