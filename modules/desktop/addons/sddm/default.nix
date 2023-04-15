@@ -7,9 +7,9 @@
 }:
 with lib;
 let
-  cfg = config.test.desktop.addons.sddm;
+  cfg = config.zenyte.desktop.addons.sddm;
 in {
-  options.test.desktop.addons.sddm = {
+  options.zenyte.desktop.addons.sddm = {
     enable = mkOption {
       type = types.bool;
       default = false;

@@ -7,9 +7,9 @@
 }:
 with lib;
 let
-  cfg = config.test.desktop.awesome;
+  cfg = config.zenyte.desktop.awesome;
 in {
-  options.test.desktop.awesome = {
+  options.zenyte.desktop.awesome = {
     enable = mkOption {
       type = types.bool;
       default = false;
@@ -20,7 +20,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    test.home.extraOptions = {
+    zenyte.home.extraOptions = {
       xsession.windowManager.awesome = {
         enable = true;
         luaModules = with pkgs.luaPackages; [

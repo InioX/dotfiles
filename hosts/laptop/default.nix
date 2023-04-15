@@ -34,26 +34,26 @@ with lib;
   programs.adb.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
-  test = {
-    desktop = {
-      xfce.enable = true;
-      awesome.enable = true;
-      hyprland.enable = true;
+  zenyte.desktop = {
+    xfce.enable = true;
+    awesome.enable = true;
+    hyprland.enable = true;
+  };
+
+  zenyte.apps = {
+    firefox = {
+      enable = true;
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        bitwarden
+      ];
     };
-    apps = {
-      firefox = {
-        enable = true;
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          bitwarden
-        ];
-      };
-    };
-    cli = {
-      git = {
-        enable = true;
-        email = "justimnix@gmail.com";
-        name = "InioX";
-      };
+  };
+
+  zenyte.cli = {
+    git = {
+      enable = true;
+      email = "justimnix@gmail.com";
+      name = "InioX";
     };
   };
 }

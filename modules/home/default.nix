@@ -8,14 +8,14 @@
   ...
 }:
 with lib;
-let cfg = config.test.home;
+let cfg = config.zenyte.home;
 in
 {
   imports = with inputs; [
     home-manager.nixosModules.home-manager
   ];
 
-  options.test.home = with types; {
+  options.zenyte.home = with types; {
     file = mkOption {
       type = types.attrs;
       description = ''
@@ -37,17 +37,17 @@ in
   };
 
   config = {
-    test.home.extraOptions = {
+    zenyte.home.extraOptions = {
       home.stateVersion = config.system.stateVersion;
-      home.file = mkAliasDefinitions options.test.home.file;
+      home.file = mkAliasDefinitions options.zenyte.home.file;
       xdg.enable = true;
-      xdg.configFile = mkAliasDefinitions options.test.home.configFile;
+      xdg.configFile = mkAliasDefinitions options.zenyte.home.configFile;
     };
 
       # home = {
       #   inherit username;
       #   homeDirectory = "/home/${username}/";
-      #   file = mkAliasDefinitions options.test.home.file;
+      #   file = mkAliasDefinitions options.zenyte.home.file;
       #   stateVersion = config.system.stateVersion;
       # };
 
@@ -55,7 +55,7 @@ in
       useUserPackages = true;
 
       users.${username} =
-        mkAliasDefinitions options.test.home.extraOptions;
+        mkAliasDefinitions options.zenyte.home.extraOptions;
     };
   };
 }

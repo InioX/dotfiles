@@ -6,9 +6,9 @@
 }:
 with lib;
 let
-  cfg = config.test.apps.firefox;
+  cfg = config.zenyte.apps.firefox;
 in {
-  options.test.apps.firefox = with types; {
+  options.zenyte.apps.firefox = with types; {
     enable = mkOption {
       type = bool;
       default = false;
@@ -25,7 +25,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    test.home.extraOptions.programs.firefox = {
+    zenyte.home.extraOptions.programs.firefox = {
         enable = true;
         package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
             extraPolicies = {

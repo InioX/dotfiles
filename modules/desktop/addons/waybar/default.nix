@@ -9,9 +9,9 @@
 }:
 with lib;
 let
-  cfg = config.test.desktop.addons.waybar;
+  cfg = config.zenyte.desktop.addons.waybar;
 in {
-  options.test.desktop.addons.waybar = {
+  options.zenyte.desktop.addons.waybar = {
     enable = mkOption {
       type = types.bool;
       default = false;
@@ -34,6 +34,6 @@ in {
       waybar
     ];
 
-    test.home.configFile."waybar".source = dotfilesFolder + /waybar;
+    zenyte.home.configFile."waybar".source = dotfilesFolder + /waybar;
   };
 }

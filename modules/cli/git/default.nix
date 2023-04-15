@@ -6,9 +6,9 @@
   username,
   ...
 }: with lib; let
-  cfg = config.test.cli.git;
+  cfg = config.zenyte.cli.git;
 in {
-  options.test.cli.git = with types; {
+  options.zenyte.cli.git = with types; {
     enable = mkOption {
       type = bool;
       default = false;
@@ -33,11 +33,11 @@ in {
   };
 
   config = mkIf cfg.enable {
-    test.home.extraOptions = {
+    zenyte.home.extraOptions = {
       programs.git = {
         enable = true;
-        userEmail = config.test.cli.git.email;
-        userName = config.test.cli.git.name;
+        userEmail = config.zenyte.cli.git.email;
+        userName = config.zenyte.cli.git.name;
         aliases = {
           s = "status";
           a = "add";

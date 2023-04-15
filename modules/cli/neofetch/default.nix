@@ -6,9 +6,9 @@
   dotfilesFolder,
   ...
 }: with lib; let
-  cfg = config.test.cli.neofetch;
+  cfg = config.zenyte.cli.neofetch;
 in {
-  options.test.cli.neofetch = with types; {
+  options.zenyte.cli.neofetch = with types; {
     enable = mkOption {
       type = bool;
       default = false;
@@ -22,6 +22,6 @@ in {
     environment.systemPackages = with pkgs; [
       neofetch
     ];
-    test.home.configFile."neofetch".source = dotfilesFolder + /neofetch;
+    zenyte.home.configFile."neofetch".source = dotfilesFolder + /neofetch;
   };
 }

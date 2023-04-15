@@ -7,9 +7,9 @@
 }:
 with lib;
 let
-  cfg = config.test.desktop.addons.gtk;
+  cfg = config.zenyte.desktop.addons.gtk;
 in {
-  options.test.desktop.addons.gtk = {
+  options.zenyte.desktop.addons.gtk = {
     enable = mkOption {
       type = types.bool;
       default = false;
@@ -26,7 +26,7 @@ in {
       libadwaita
     ];
 
-    test.home.extraOptions.gtk = {
+    zenyte.home.extraOptions.gtk = {
       enable = true;
       # font.name = "Victor Mono SemiBold 12";
       theme = with pkgs; {
@@ -35,8 +35,8 @@ in {
       };
     };
 
-    test.home.configFile."gtk-2.0".source = dotfilesFolder + /gtk-2.0;
-    test.home.configFile."gtk-3.0".source = dotfilesFolder + /gtk-3.0;
-    test.home.configFile."gtk-4.0".source = dotfilesFolder + /gtk-4.0;
+    zenyte.home.configFile."gtk-2.0".source = dotfilesFolder + /gtk-2.0;
+    zenyte.home.configFile."gtk-3.0".source = dotfilesFolder + /gtk-3.0;
+    zenyte.home.configFile."gtk-4.0".source = dotfilesFolder + /gtk-4.0;
   };
 }

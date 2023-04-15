@@ -7,9 +7,9 @@
 }:
 with lib;
 let
-  cfg = config.test.desktop.addons.kitty;
+  cfg = config.zenyte.desktop.addons.kitty;
 in {
-  options.test.desktop.addons.kitty = {
+  options.zenyte.desktop.addons.kitty = {
     enable = mkOption {
       type = types.bool;
       default = false;
@@ -25,6 +25,6 @@ in {
       kitty
     ];
 
-    test.home.configFile."kitty".source = dotfilesFolder + /kitty;
+    zenyte.home.configFile."kitty".source = dotfilesFolder + /kitty;
   };
 }

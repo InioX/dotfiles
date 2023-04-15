@@ -7,9 +7,9 @@
 }:
 with lib;
 let
-  cfg = config.test.desktop.addons.rofi;
+  cfg = config.zenyte.desktop.addons.rofi;
 in {
-  options.test.desktop.addons.rofi = {
+  options.zenyte.desktop.addons.rofi = {
     enable = mkOption {
       type = types.bool;
       default = false;
@@ -25,6 +25,6 @@ in {
       rofi-wayland
     ];
 
-    test.home.configFile."rofi".source = dotfilesFolder + /rofi;
+    zenyte.home.configFile."rofi".source = dotfilesFolder + /rofi;
   };
 }

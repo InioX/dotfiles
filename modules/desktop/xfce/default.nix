@@ -6,9 +6,9 @@
 }:
 with lib;
 let
-  cfg = config.test.desktop.xfce;
+  cfg = config.zenyte.desktop.xfce;
 in {
-  options.test.desktop.xfce = {
+  options.zenyte.desktop.xfce = {
     enable = mkOption {
       type = types.bool;
       default = false;

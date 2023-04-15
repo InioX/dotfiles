@@ -7,9 +7,9 @@
 }:
 with lib;
 let
-  cfg = config.test.desktop.addons.dunst;
+  cfg = config.zenyte.desktop.addons.dunst;
 in {
-  options.test.desktop.addons.dunst = {
+  options.zenyte.desktop.addons.dunst = {
     enable = mkOption {
       type = types.bool;
       default = false;
@@ -25,9 +25,9 @@ in {
       libnotify
     ];
 
-    test.home.configFile."dunst".source = dotfilesFolder + /dunst;
+    zenyte.home.configFile."dunst".source = dotfilesFolder + /dunst;
     
-    test.home.extraOptions.services.dunst = {
+    zenyte.home.extraOptions.services.dunst = {
       enable = true;
       package = pkgs.dunst.overrideAttrs (oldAttrs: {
         src = pkgs.fetchFromGitHub {
