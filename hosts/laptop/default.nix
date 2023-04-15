@@ -20,23 +20,33 @@ with lib;
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Additional packages to install
   environment.systemPackages = with pkgs; [
     discord
-    vscodium
     gh
     tdesktop
     pavucontrol
+    brave
+    vscode
   ];
 
+  # TODO Maybe move this into system module
   programs.adb.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   test = {
     desktop = {
       xfce.enable = true;
+      awesome.enable = true;
       hyprland.enable = true;
     };
     apps = {
-      firefox.enable = true;
+      firefox = {
+        enable = true;
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          bitwarden
+        ];
+      };
     };
     cli = {
       git = {

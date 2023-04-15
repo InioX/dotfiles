@@ -1,0 +1,26 @@
+
+    @define-color text #ede0dd;
+    
+    @define-color accent_color #ffb4a3;
+
+    @define-color accent_bg_color #ffb4a3;
+
+    @define-color window_bg_color #201a19;
+
+    @define-color window_fg_color white;
+
+    @define-color headerbar_bg_color #201a19;
+
+    @define-color headerbar_fg_color white;
+
+    @define-color popover_bg_color #201a19;
+
+    @define-color popover_fg_color white;
+
+    @define-color view_bg_color #534340;
+
+    @define-color view_fg_color white;
+
+    @define-color card_bg_color rgba(255, 255, 255, 0.08);
+
+    @define-color card_fg_color white;

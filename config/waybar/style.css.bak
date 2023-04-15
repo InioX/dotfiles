@@ -1,0 +1,126 @@
+@import "colors.css";
+
+* {
+  all: initial;
+  border: none;
+  border-radius: 0;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 14px;
+  min-height: 0px;
+}
+
+window#waybar {
+  background: @surface;
+}
+
+#workspaces {
+  background: @surfaceVariant;
+  color: @onSurface;
+  border: 2px solid @outline;
+  padding: 0px 5px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+#workspaces button {
+  color: @onSurface;
+  padding: 4px;
+  margin: 4px;
+  border-radius: 30px;
+  transition: all 0.2s ease-out;
+}
+
+#workspaces button.active {
+  background: @primary;
+  color: @onSurface;
+  padding: 0px 20px;
+  transition: all 0.2s ease-out;
+}
+
+#workspaces button:hover {
+  background: @surface;
+}
+
+tooltip {
+  background: @surfaceVariant;
+  border-radius: 10px;
+  border: 3px solid @outline;
+  color: @onSurfaceVariant;
+}
+
+#custom-mic, #custom-language, #custom-updates, #custom-caffeine, #clock, #battery, #pulseaudio, #network, #tray, #backlight, #custom-wl-gammarelay-brightness, #custom-wl-gammarelay-temperature {
+  background: @surfaceVariant;
+  color: @onSurface;
+  border: 2px solid @outline;
+  padding: 0px 10px;
+  margin: 7px 0px;
+  border-radius: 8px;
+}
+
+#custom-mic {
+  margin-right: 5px;
+}
+
+/* #custom-mic.used { */
+/*   background: @accent1; */
+/*   color: @bg1; */
+/* } */
+/**/
+/* #battery.charging { */
+/*   border: 2px solid @accent0; */
+/* } */
+/**/
+/* #battery.discharging.critical { */
+/*   border: 2px solid @accent1; */
+/* } */
+
+#custom-search, #custom-power {
+  background: @primary;
+  padding: 0px 10px;
+  margin: 7px 0px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+#custom-search {
+  margin-left: 5px;
+  font-weight: normal;
+  font-size: 15px;
+  padding: 0px 10px;
+  margin: 7px 5px;
+}
+
+#custom-power {
+  font-weight: normal;
+}
+
+#tray {
+	margin-left: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: none;
+}
+
+#clock {
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+#network, #pulseaudio, #battery, #custom-wl-gammarelay-brightness, #custom-wl-gammarelay-temperature {
+  margin-right: 5px;
+}
+
+#custom-wl-gammarelay-temperature {
+  margin-left: 0px;
+  padding-left: 4px;
+  border-radius: 0px 7px 7px 0px;
+  border-width: 2px 2px 2px 0px;
+}
+
+#custom-wl-gammarelay-brightness {
+  margin-right: 0px;
+  padding-right: 4px;
+  border-radius: 7px 0px 0px 7px;
+  border-width: 2px 0px 2px 2px;
+}

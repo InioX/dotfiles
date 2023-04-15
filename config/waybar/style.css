@@ -1,0 +1,92 @@
+@import "colors.css";
+
+* {
+  /* all: initial; */
+  font-family: monospace;
+  min-height: 0;
+  min-width: 20px;
+  margin: 2px;
+}
+
+window#waybar {
+  background-color: @surface;
+}
+
+#custom-power,
+#workspaces,
+#clock
+#custom-menu
+{
+  margin: 5px;
+}
+
+#custom-menu {
+  /* background: #25f2f5; */
+  font-size: 30px;
+}
+
+#custom-power {
+  background: @tertiaryContainer;
+  color: @onTertiaryContainer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+#workspaces {
+  background: @surfaceVariant;
+  color: @onSurfaceVariant;
+  padding: 5px 0px;
+  border-radius: 10px;
+}
+
+#workspaces button {
+  color: @onSurface;
+  border-radius: 30px;
+  padding: 4px;
+  margin: 4px;
+}
+
+#workspaces button.active {
+  color: @onPrimary;
+  background: @primary;
+}
+
+#workspaces button:hover {
+  background: @surfaceVariant;
+  color: @onSurface;
+}
+
+#clock {
+  color: @onSurface;
+  background: @surfaceVariant;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+#pulseaudio.icon,
+#custom-wl-gammarelay-temperature.icon,
+#custom-wl-gammarelay-brightness.icon
+{
+  background: @primary;
+  color: @onPrimary;
+  font-size: 20px;
+  border-radius: 10px 10px 0px 0px;
+  padding: 3px;
+  margin: 5px;
+  margin-bottom: 0px;
+}
+
+#pulseaudio.text,
+#custom-wl-gammarelay-temperature.text,
+#custom-wl-gammarelay-brightness.text
+{
+  background: @surfaceVariant;
+  color: @onSurface;
+
+  border-radius: 0px 0px 10px 10px;
+  padding: 3px;
+  margin: 5px;
+  margin-top: 0px;
+}

@@ -1,0 +1,55 @@
+* {
+    /* Colors */
+    fg:                             #ffffff;
+    bg0: 		                	#362f2b;
+    bg1: 	                		#211a17;
+    accent: 			            #ffbf9b;
+	
+    background-color:  		        transparent;
+    text-color:        		        @fg;
+    font:			                "Noto Sans 12";
+	
+    width:      		            20%;
+    margin:     		            0px;
+    padding:   			            0px;
+    spacing:    		            0px;
+}
+
+inputbar {
+   background-color:	        	@bg0;
+   padding:			                10px;
+   border-radius:		            10px;
+}
+
+listview {
+   lines:		                	5;
+}
+
+mainbox {
+    background-color:               @bg1;
+    children:                       [ inputbar, listview ];
+    spacing:                        15px;
+    padding:                        20px;
+}
+
+window {
+    border: 			            4px;
+    border-color:		            @bg0;
+    border-radius:      	        10px;
+    background-color:		        @bg0;
+}
+
+element {
+    padding: 			            5px;
+    background-color:		        @bg1;
+}
+
+element selected {
+    background-color: 		        @accent;
+    border-radius:		            10px;
+}
+
+element-icon {
+    margin:		            	    0px 5px 0px 0px;
+    size:			                30px;
+}

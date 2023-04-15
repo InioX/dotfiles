@@ -3,6 +3,8 @@
   pkgs,
   lib,
   inputs,
+  options,
+  dotfilesFolder,
   ...
 }:
 with lib;
@@ -20,25 +22,28 @@ in {
   };
 
   imports = [
-      inputs.hyprland.nixosModules.default
+    inputs.hyprland.nixosModules.default
   ];
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      kitty
       wl-clipboard
       grim
       slurp
-      alacritty
-      wofi
       playerctl
-      pcmanfm
+      inputs.nixpkgs-wayland.packages.${system}.wl-gammarelay-rs
     ];
-    test.home.extraOptions = {
-       wayland.windowManager.hyprland = {
-          enable = true;
-          extraConfig = builtins.readFile ./hyprland.conf;
-       };
+
+    programs.hyprland.enable = true;
+
+    test.desktop.addons = {
+      waybar.enable = true;
+      kitty.enable = true;
+      rofi.enable = true;
+      sddm.enable = true;
+      gtk.enable = true;
     };
+    
+    test.home.configFile."hypr".source = dotfilesFolder + /hypr;
   };
 }

@@ -2,6 +2,7 @@
   inputs,
   config,
   lib,
+  options,
   username,
   stateVersion,
   ...
@@ -43,11 +44,18 @@ in
       xdg.configFile = mkAliasDefinitions options.test.home.configFile;
     };
 
+      # home = {
+      #   inherit username;
+      #   homeDirectory = "/home/${username}/";
+      #   file = mkAliasDefinitions options.test.home.file;
+      #   stateVersion = config.system.stateVersion;
+      # };
+
     home-manager = {
       useUserPackages = true;
 
       users.${username} =
-        mkAliasDefinitions cfg.extraOptions;
+        mkAliasDefinitions options.test.home.extraOptions;
     };
   };
 }

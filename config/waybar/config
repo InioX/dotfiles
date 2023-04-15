@@ -1,0 +1,111 @@
+{
+  "layer": "top",
+  "position": "left", 
+  
+  /* BOTTOM */
+  "modules-right": [
+    "custom/wl-gammarelay-brightness#icon",
+    "custom/wl-gammarelay-brightness#text",
+    "custom/wl-gammarelay-temperature#icon",
+    "custom/wl-gammarelay-temperature#text",
+    "pulseaudio#icon",
+    "pulseaudio#text"
+  ],
+
+  /*CENTER */
+  "modules-center": [ 
+    "clock"
+  ],
+
+  /* TOP */
+  "modules-left": [
+    "custom/menu",
+    "custom/power",
+    "wlr/workspaces"
+  ],
+
+  "custom/power": {
+    "format": ""
+  },
+
+  "custom/menu": {
+      "format": "󰍜"
+    },
+
+  "wlr/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "",
+      "10": "",
+      "default": "",
+    }
+  },
+
+  "clock": {
+      "format": "{:<span weight=\"bold\">%H</span>\n<span weight=\"light\">%M</span>}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+
+  "pulseaudio#icon": {
+    "format": "{icon}",
+    "format-muted": " ",
+    "scroll-step": 1,
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-middle": "pavucontrol",
+    "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", "墳", ""]
+    },
+  },
+  "pulseaudio#text": {
+    "format": "{volume}",
+    "format-muted": "{volume}",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-middle": "pavucontrol",
+    "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+  },
+
+  "custom/wl-gammarelay-temperature#icon": {
+    "format": "",
+    "on-scroll-up": "~/.config/hypr/scripts/brightness.sh temperature-up 100",
+    "on-scroll-down": "~/.config/hypr/scripts/brightness.sh temperature-down 100"
+  },
+
+  "custom/wl-gammarelay-temperature#text": {
+    "format": "{}",
+    "exec": "wl-gammarelay-rs watch {t}",
+    "on-scroll-up": "~/.config/hypr/scripts/brightness.sh temperature-up 100",
+    "on-scroll-down": "~/.config/hypr/scripts/brightness.sh temperature-down 100"
+  },
+
+  "custom/wl-gammarelay-brightness#icon": {
+    "format": "",
+    "on-scroll-up": "~/.config/hypr/scripts/brightness.sh brightness-up 0.05",
+    "on-scroll-down": "~/.config/hypr/scripts/brightness.sh brightness-down 0.05"
+  },
+
+  "custom/wl-gammarelay-brightness#text": {
+    "format": "{}",
+    "exec": "wl-gammarelay-rs watch {bp}",
+    "on-scroll-up": "~/.config/hypr/scripts/brightness.sh brightness-up 100",
+    "on-scroll-down": "~/.config/hypr/scripts/brightness.sh temperature-down 100"
+  },
+
+}
