@@ -32,7 +32,7 @@ Welcome to my dotfiles! I'm only using one host currenly, it's a Lenovo laptop w
 ```ini
 📂 dotfiles/
 ├── ❄️ flake.nix
-├── 📂 config/ # The dotfiles for all programs
+├── 📂 config/ # All dotfiles for programs, in a folder for compability with arch
 ├── 📂 modules/ # All the modules
 │   ├── 📁 apps/ # GUI apps/tools
 │   ├── 📁 cli/ # CLI apps/tools
@@ -58,7 +58,7 @@ https://user-images.githubusercontent.com/81521595/202860841-1ebc1d34-9aee-41cc-
 
 # ✨ Acknowledgment
 
-First, special thanks to [jakehamilton](https://github.com/jakehamilton), my config is **heavily** inspired by [his](https://github.com/jakehamilton/config).
+First, special thanks to [jakehamilton](https://github.com/jakehamilton), my config is **heavily** inspired by [him](https://github.com/jakehamilton/config).
 
 I also want to thank all the people mentioned below, they either helped me solve issues or i copied from them.
 
