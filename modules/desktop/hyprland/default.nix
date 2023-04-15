@@ -4,7 +4,7 @@
   lib,
   inputs,
   options,
-  dotfilesFolder,
+  configFolder,
   ...
 }:
 with lib;
@@ -49,6 +49,6 @@ in {
       neofetch.enable = true;
     };
     
-    zenyte.home.configFile."hypr".source = dotfilesFolder + /hypr;
+    zenyte.home.configFile."hypr".source = configFolder + /hypr;
   };
 }

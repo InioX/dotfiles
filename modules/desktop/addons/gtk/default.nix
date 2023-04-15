@@ -2,7 +2,7 @@
   config,
   pkgs,
   lib,
-  dotfilesFolder,
+  configFolder,
   ...
 }:
 with lib;
@@ -35,8 +35,8 @@ in {
       };
     };
 
-    zenyte.home.configFile."gtk-2.0".source = dotfilesFolder + /gtk-2.0;
-    zenyte.home.configFile."gtk-3.0".source = dotfilesFolder + /gtk-3.0;
-    zenyte.home.configFile."gtk-4.0".source = dotfilesFolder + /gtk-4.0;
+    zenyte.home.configFile."gtk-2.0".source = configFolder + /gtk-2.0;
+    zenyte.home.configFile."gtk-3.0".source = configFolder + /gtk-3.0;
+    zenyte.home.configFile."gtk-4.0".source = configFolder + /gtk-4.0;
   };
 }

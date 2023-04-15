@@ -2,7 +2,7 @@
   config,
   pkgs,
   lib,
-  dotfilesFolder,
+  configFolder,
   ...
 }:
 with lib;
@@ -25,6 +25,6 @@ in {
       rofi-wayland
     ];
 
-    zenyte.home.configFile."rofi".source = dotfilesFolder + /rofi;
+    zenyte.home.configFile."rofi".source = configFolder + /rofi;
   };
 }

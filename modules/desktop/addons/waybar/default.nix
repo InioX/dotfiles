@@ -4,7 +4,7 @@
   lib,
   inputs,
   nixpkgs,
-  dotfilesFolder,
+  configFolder,
   ...
 }:
 with lib;
@@ -34,6 +34,6 @@ in {
       waybar
     ];
 
-    zenyte.home.configFile."waybar".source = dotfilesFolder + /waybar;
+    zenyte.home.configFile."waybar".source = configFolder + /waybar;
   };
 }

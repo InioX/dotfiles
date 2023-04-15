@@ -3,7 +3,7 @@
   pkgs,
   lib,
   inputs,
-  dotfilesFolder,
+  configFolder,
   ...
 }: with lib; let
   cfg = config.zenyte.cli.neofetch;
@@ -22,6 +22,6 @@ in {
     environment.systemPackages = with pkgs; [
       neofetch
     ];
-    zenyte.home.configFile."neofetch".source = dotfilesFolder + /neofetch;
+    zenyte.home.configFile."neofetch".source = configFolder + /neofetch;
   };
 }

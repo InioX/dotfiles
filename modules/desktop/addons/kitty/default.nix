@@ -2,7 +2,7 @@
   config,
   pkgs,
   lib,
-  dotfilesFolder,
+  configFolder,
   ...
 }:
 with lib;
@@ -25,6 +25,6 @@ in {
       kitty
     ];
 
-    zenyte.home.configFile."kitty".source = dotfilesFolder + /kitty;
+    zenyte.home.configFile."kitty".source = configFolder + /kitty;
   };
 }

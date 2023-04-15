@@ -2,7 +2,7 @@
   config,
   pkgs,
   lib,
-  dotfilesFolder,
+  configFolder,
   ...
 }:
 with lib;
@@ -25,7 +25,7 @@ in {
       libnotify
     ];
 
-    zenyte.home.configFile."dunst".source = dotfilesFolder + /dunst;
+    zenyte.home.configFile."dunst".source = configFolder + /dunst;
     
     zenyte.home.extraOptions.services.dunst = {
       enable = true;

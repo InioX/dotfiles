@@ -2,7 +2,7 @@
   config,
   pkgs,
   lib,
-  dotfilesFolder,
+  configFolder,
   ...
 }:
 with lib;
