@@ -19,7 +19,7 @@ Welcome to my dotfiles! I'm only using one host currenly, it's a Lenovo laptop w
 ## 📊 Progress
 - [x] Hyprland (without custom scripts)
 - [x] Rofi
-- [ ] Dunst
+- [x] Dunst
 - [x] GTK theme
 - [ ] Neofetch
 - [ ] Neovim
