@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #Usage: ./volume.sh [output-up / output-down / output-mute] [int]
 #Usage: ./volume.sh [input-up / input-down / input-mute] [int]
 

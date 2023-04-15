@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #Usage: ./brightness.sh [brightness-up / brightness-down / brightness-mute] [int]
 #Usage: ./brightness.sh [temperature-up / temperature-down / temperature-mute] [int]
 

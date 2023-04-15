@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 timeout=4000
 icon_folder="~/.config/hypr/icons"
 
