@@ -42,6 +42,7 @@ in {
       rofi.enable = true;
       sddm.enable = true;
       gtk.enable = true;
+      dunst.enable = true;
     };
     
     test.home.configFile."hypr".source = dotfilesFolder + /hypr;

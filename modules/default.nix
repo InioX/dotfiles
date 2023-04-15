@@ -16,6 +16,7 @@
     ./desktop/addons/rofi
     ./desktop/addons/sddm
     ./desktop/addons/gtk
+    ./desktop/addons/dunst
 
     # System
     ./system
