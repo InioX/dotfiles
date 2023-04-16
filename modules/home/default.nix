@@ -44,13 +44,6 @@ in
       xdg.configFile = mkAliasDefinitions options.zenyte.home.configFile;
     };
 
-      # home = {
-      #   inherit username;
-      #   homeDirectory = "/home/${username}/";
-      #   file = mkAliasDefinitions options.zenyte.home.file;
-      #   stateVersion = config.system.stateVersion;
-      # };
-
     home-manager = {
       useUserPackages = true;
 
