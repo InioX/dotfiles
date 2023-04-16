@@ -9,13 +9,7 @@ let
   cfg = config.zenyte.apps.firefox;
 in {
   options.zenyte.apps.firefox = with types; {
-    enable = mkOption {
-      type = bool;
-      default = false;
-      description = ''
-        make a description later
-      '';
-    };
+    enable = mkEnableOption "Whether to enable firefox."; 
     extensions = mkOption {
       type = nullOr (listOf package);
       description = ''

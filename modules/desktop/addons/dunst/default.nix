@@ -10,13 +10,7 @@ let
   cfg = config.zenyte.desktop.addons.dunst;
 in {
   options.zenyte.desktop.addons.dunst = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        make a description later
-      '';
-    };
+    enable = mkEnableOption "Whether to enable the k-vernooy dunst fork.";
   };
 
   config = mkIf cfg.enable {

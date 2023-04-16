@@ -9,13 +9,7 @@
   cfg = config.zenyte.cli.neofetch;
 in {
   options.zenyte.cli.neofetch = with types; {
-    enable = mkOption {
-      type = bool;
-      default = false;
-      description = ''
-        Whether to enable neofetch or not.
-      '';
-    };
+    enable = mkEnableOption "Whether to enable neofetch.";
   };
 
   config = mkIf cfg.enable {

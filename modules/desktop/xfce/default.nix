@@ -9,13 +9,7 @@ let
   cfg = config.zenyte.desktop.xfce;
 in {
   options.zenyte.desktop.xfce = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        make a description later
-      '';
-    };
+    enable = mkEnableOption "Whether to enable xfce.";
   };
 
   config = mkIf cfg.enable {

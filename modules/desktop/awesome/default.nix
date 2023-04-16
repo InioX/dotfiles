@@ -10,13 +10,7 @@ let
   cfg = config.zenyte.desktop.awesome;
 in {
   options.zenyte.desktop.awesome = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        make a description later
-      '';
-    };
+    enable = mkEnableOption "Whether to enable awesomewm.";
   };
 
   config = mkIf cfg.enable {

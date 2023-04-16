@@ -9,13 +9,7 @@
   cfg = config.zenyte.cli.git;
 in {
   options.zenyte.cli.git = with types; {
-    enable = mkOption {
-      type = bool;
-      default = false;
-      description = ''
-        Whether to enable git or not.
-      '';
-    };
+    enable = mkEnableOption "Whether to enable git.";
     email = mkOption {
       type = str;
       default = "";

@@ -12,13 +12,7 @@ let
   cfg = config.zenyte.desktop.addons.waybar;
 in {
   options.zenyte.desktop.addons.waybar = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        make a description later
-      '';
-    };
+    enable = mkEnableOption "Whether to enable waybar with experimental patches.";
   };
 
   config = mkIf cfg.enable {

@@ -10,13 +10,7 @@ let
   cfg = config.zenyte.desktop.addons.rofi;
 in {
   options.zenyte.desktop.addons.rofi = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        make a description later
-      '';
-    };
+    enable = mkEnableOption "Whether to enable rofi.";
   };
 
   config = mkIf cfg.enable {

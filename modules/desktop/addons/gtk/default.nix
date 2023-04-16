@@ -10,13 +10,7 @@ let
   cfg = config.zenyte.desktop.addons.gtk;
 in {
   options.zenyte.desktop.addons.gtk = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        make a description later
-      '';
-    };
+    enable = mkEnableOption "Whether to enable gtk theme.";
   };
 
   config = mkIf cfg.enable {

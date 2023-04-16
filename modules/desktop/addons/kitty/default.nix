@@ -10,13 +10,7 @@ let
   cfg = config.zenyte.desktop.addons.kitty;
 in {
   options.zenyte.desktop.addons.kitty = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        make a description later
-      '';
-    };
+    enable = mkEnableOption "Whether to enable kitty.";
   };
 
   config = mkIf cfg.enable {

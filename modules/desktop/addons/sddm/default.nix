@@ -10,13 +10,7 @@ let
   cfg = config.zenyte.desktop.addons.sddm;
 in {
   options.zenyte.desktop.addons.sddm = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        make a description later
-      '';
-    };
+    enable = mkEnableOption "Whether to enable sddm.";
   };
 
   config = mkIf cfg.enable {
