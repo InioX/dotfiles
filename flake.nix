@@ -7,7 +7,7 @@
     stateVersion = "22.11";
 
     # Use a config folder for compatibility with arch
-    configFolder = ./config;
+    configFolder = ./dotfiles/config;
 
     system = "x86_64-linux";
     username = "ini";
