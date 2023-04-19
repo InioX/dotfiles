@@ -8,6 +8,7 @@
 
     # Use a config folder for compatibility with arch
     configFolder = ./dotfiles/config;
+    templateFolder = ./dotfiles/templates;
 
     system = "x86_64-linux";
     username = "ini";
@@ -25,7 +26,7 @@
         ];
         # Pass the variables to other modules
         specialArgs = {
-          inherit inputs stateVersion username hostName configFolder;
+          inherit inputs stateVersion username hostName configFolder templateFolder;
         };
       };
   in {
