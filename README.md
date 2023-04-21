@@ -13,30 +13,68 @@
 </div>
 
 # ℹ️ Description
-Welcome to my dotfiles! I'm only using one host currenly, it's a Lenovo laptop with a Ryzen APU.
+Welcome to my dotfiles! My main goal was to have dynamic colors based on the wallpaper. However, i couldnt figure of a good way to make this work with [Home Manager](https://github.com/nix-community/home-manager) without having to rebuild everytime... The folder structure is pretty messy but i did try my best to explain it below.
 
 ## 📑 Contents
 ```ini
 📂 dotfiles/
 ├── ❄️ flake.nix
 ├── 📂 dotfiles/ # All dotfiles for programs, in a folder for compability with arch
-    ├── 📁 config/ # My dotfiles except for those generated from templates
-    ├── 📁 templates/ # Additional stuff generated with matugen
-    └── 📁 wallpapers/ # All my wallpapers are stored here
+│    ├── 📁 config/ # My dotfiles except for those generated from templates
+│    ├── 📁 templates/ # Additional stuff generated with matugen
+│    └── 📁 wallpapers/ # All my wallpapers are stored here
 ├── 📂 modules/ # All the modules
 │   ├── 📁 apps/ # GUI apps/tools
 │   ├── 📁 cli/ # CLI apps/tools
 │   ├── 📁 system/ # Main system configuration
 │   ├── 📁 home/ # Home Manager configuration
 │   └── 📁 desktop/ # DE/WM configurations
-        └── 📁 addons/ # Additional stuff for desktop
+│        └── 📁 addons/ # Additional stuff for desktop
 └── 📂 hosts/ # Host specific configurations
     └── 📂 <hostName>/
         ├── 📄 default.nix
         └── 📄 hardware.nix
 ```
+
+## 🛠️ Usage
+
+### Installation
+```shell
+# First, clone the repository
+git clone https://github.com/InioX/dotfiles && cd dotfiles
+
+# Enter shell with pip, python and matugen
+nix-shell
+
+# Rebuild the system 
+sudo nixos-rebuild switch --flake .#<hostname>
+
+# Generate templates from the config/templates/ folder
+matugen /path/to/wallpaper/
+```
+>**Note** Read matugen documentation [here](https://github.com/InioX/Matugen#usage).
+
+### Adding new hosts
+```nix
+# flake.nix
+{
+  outputs = { nixpkgs, ... } @inputs:
+  let
+  # ...
+in {
+    nixosConfigurations = {
+        # USAGE: addNewHost <hostname>
+        laptop = addNewHost  "laptop";
+    };
+  };
+  inputs = {
+    # ...
+  };
+}
+```
+
 # 📷 Showcase
->**Note** The showcase may be outdated and look differently.
+>**Warning** The showcase may be outdated and look differently.
 
 <details><summary>Expand to show</summary>
 <p>
