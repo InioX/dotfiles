@@ -15,6 +15,8 @@
 # ℹ️ Description
 Welcome to my dotfiles! My main goal was to have dynamic colors based on the wallpaper. However, i couldnt figure of a good way to make this work with [Home Manager](https://github.com/nix-community/home-manager) without having to rebuild everytime... The folder structure is pretty messy but i did try my best to explain it below.
 
+[test](https://www.youtube.com/watch?v=lBlEEiwQzYA)
+
 ## 📑 Contents
 ```ini
 📂 dotfiles/
@@ -79,7 +81,7 @@ in {
 <details><summary>Expand to show</summary>
 <p>
 
-https://user-images.githubusercontent.com/81521595/202860841-1ebc1d34-9aee-41cc-b16e-d1028548deb1.mp4
+[![](https://markdown-videos.deta.dev/youtube/lBlEEiwQzYA)](https://youtu.be/lBlEEiwQzYA)
 
 </p>
 </details>
