@@ -19,6 +19,8 @@ in {
       rofi-wayland
     ];
 
-    zenyte.home.configFile."rofi".source = configFolder + /rofi;
+    zenyte.home.configFile."rofi/config.rasi".source = configFolder + /rofi/config.rasi;
+    zenyte.home.configFile."rofi/powermenu.rasi".source = configFolder + /rofi/powermenu.rasi;
+    zenyte.home.configFile."rofi/menu.rasi".source = configFolder + /rofi/menu.rasi;
   };
 }

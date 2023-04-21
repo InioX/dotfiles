@@ -17,6 +17,7 @@
     ./desktop/addons/sddm
     ./desktop/addons/gtk
     ./desktop/addons/dunst
+    ./desktop/addons/matugen
 
     # Apps
     ./apps/firefox

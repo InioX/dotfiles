@@ -28,6 +28,7 @@ in {
       waybar
     ];
 
-    zenyte.home.configFile."waybar".source = configFolder + /waybar;
+    zenyte.home.configFile."waybar/config".source = configFolder + /waybar/config;
+    zenyte.home.configFile."waybar/style.css".source = configFolder + /waybar/style.css;
   };
 }

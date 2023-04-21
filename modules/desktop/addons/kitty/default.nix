@@ -19,6 +19,6 @@ in {
       kitty
     ];
 
-    zenyte.home.configFile."kitty".source = configFolder + /kitty;
+    zenyte.home.configFile."kitty/kitty.conf".source = configFolder + /kitty/kitty.conf;
   };
 }

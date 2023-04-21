@@ -37,12 +37,18 @@ in {
       sddm.enable = true;
       gtk.enable = true;
       dunst.enable = true;
+      matugen.enable = true;
     };
 
     zenyte.cli = {
       neofetch.enable = true;
     };
     
-    zenyte.home.configFile."hypr".source = configFolder + /hypr;
+    # zenyte.home.configFile."hypr".source = configFolder + /hypr;
+    zenyte.home.configFile."hypr/icons".source = configFolder + /hypr/icons;
+    zenyte.home.configFile."hypr/scripts".source = configFolder + /hypr/scripts;
+    zenyte.home.configFile."hypr/wallpapers".source = configFolder + /hypr/wallpapers;
+    zenyte.home.configFile."hypr/hyprland.conf".source = configFolder + /hypr/hyprland.conf;
+    zenyte.home.configFile."hypr/keybindings.conf".source = configFolder + /hypr/keybindings.conf;
   };
 }

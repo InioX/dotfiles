@@ -1,12 +1,8 @@
+@import                          "colors.rasi"
+
 * {
-    /* Colors */
-    fg:                             #ffffff;
-    bg0: 		                	#362f2b;
-    bg1: 	                		#211a17;
-    accent: 			            #ffbf9b;
-	
     background-color:  		        transparent;
-    text-color:        		        @fg;
+    text-color:        		        @onSurface;
     font:			                "Noto Sans 12";
 	
     width:      		            20%;
@@ -16,7 +12,7 @@
 }
 
 inputbar {
-   background-color:	        	@bg0;
+   background-color:	        	@surfaceVariant;
    padding:			                10px;
    border-radius:		            10px;
 }
@@ -26,7 +22,7 @@ listview {
 }
 
 mainbox {
-    background-color:               @bg1;
+    background-color:               @surface;
     children:                       [ inputbar, listview ];
     spacing:                        15px;
     padding:                        20px;
@@ -34,18 +30,19 @@ mainbox {
 
 window {
     border: 			            4px;
-    border-color:		            @bg0;
+    border-color:		            @surfaceVariant;
     border-radius:      	        10px;
-    background-color:		        @bg0;
+    background-color:		        @surfaceVariant;
 }
 
 element {
     padding: 			            5px;
-    background-color:		        @bg1;
+    background-color:		        @surface;
 }
 
 element selected {
-    background-color: 		        @accent;
+    text-color:        		        @onPrimary;
+    background-color: 		        @primary;
     border-radius:		            10px;
 }
 
