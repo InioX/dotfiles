@@ -32,7 +32,10 @@ Welcome to my dotfiles! I'm only using one host currenly, it's a Lenovo laptop w
 ```ini
 📂 dotfiles/
 ├── ❄️ flake.nix
-├── 📂 config/ # All dotfiles for programs, in a folder for compability with arch
+├── 📂 dotfiles/ # All dotfiles for programs, in a folder for compability with arch
+    ├── 📁 config/ # My dotfiles except for those generated from templates
+    ├── 📁 templates/ # Additional stuff generated with matugen
+    └── 📁 wallpapers/ # All my wallpapers are stored here
 ├── 📂 modules/ # All the modules
 │   ├── 📁 apps/ # GUI apps/tools
 │   ├── 📁 cli/ # CLI apps/tools
