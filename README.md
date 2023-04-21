@@ -15,19 +15,6 @@
 # ℹ️ Description
 Welcome to my dotfiles! I'm only using one host currenly, it's a Lenovo laptop with a Ryzen APU.
 
->**Warning** These dotfiles are incomplete, I'm still in the process or porting over the config files from arch.
-## 📊 Progress
-- [x] Hyprland
-- [x] Rofi
-- [x] Dunst
-- [x] GTK theme
-- [x] Neofetch
-- [ ] Neovim
-- [ ] Fish
-- [ ] Starship
-- [ ] Vencord
-- [x] Waybar
-
 ## 📑 Contents
 ```ini
 📂 dotfiles/
