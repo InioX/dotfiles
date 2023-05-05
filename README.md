@@ -45,16 +45,13 @@ Welcome to my dotfiles! My main goal was to have dynamic colors based on the wal
 # First, clone the repository
 git clone https://github.com/InioX/dotfiles && cd dotfiles
 
-# Enter shell with pip, python and matugen
-nix-shell
-
 # Rebuild the system 
 sudo nixos-rebuild switch --flake .#<hostname>
 
 # Generate templates from the config/templates/ folder
-matugen /path/to/wallpaper/
+matugen image /path/to/wallpaper/ -v
 ```
->**Note** Read matugen documentation [here](https://github.com/InioX/Matugen#usage).
+>**Note** Read matugen documentation [here](https://github.com/InioX/matugen-rs#usage).
 
 ### Adding new hosts
 ```nix
