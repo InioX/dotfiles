@@ -4,8 +4,7 @@
   lib,
   ...
 }:
-with lib;
-{
+with lib; {
   imports = [ ./hardware.nix ../../modules ];
 
   # Configure the bootloader

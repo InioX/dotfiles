@@ -15,8 +15,8 @@ window#waybar {
 }
 
 #workspaces {
-  background: @surfaceVariant;
-  color: @onSurface;
+  background: @surface_variant;
+  color: @on_surface;
   border: 2px solid @outline;
   padding: 0px 5px;
   margin: 5px;
@@ -24,7 +24,7 @@ window#waybar {
 }
 
 #workspaces button {
-  color: @onSurface;
+  color: @on_surface;
   padding: 4px;
   margin: 4px;
   border-radius: 30px;
@@ -33,7 +33,7 @@ window#waybar {
 
 #workspaces button.active {
   background: @primary;
-  color: @onSurface;
+  color: @on_surface;
   padding: 0px 20px;
   transition: all 0.2s ease-out;
 }
@@ -43,15 +43,15 @@ window#waybar {
 }
 
 tooltip {
-  background: @surfaceVariant;
+  background: @surface_variant;
   border-radius: 10px;
   border: 3px solid @outline;
-  color: @onSurfaceVariant;
+  color: @on_surface_variant;
 }
 
 #custom-mic, #custom-language, #custom-updates, #custom-caffeine, #clock, #battery, #pulseaudio, #network, #tray, #backlight, #custom-wl-gammarelay-brightness, #custom-wl-gammarelay-temperature {
-  background: @surfaceVariant;
-  color: @onSurface;
+  background: @surface_variant;
+  color: @on_surface;
   border: 2px solid @outline;
   padding: 0px 10px;
   margin: 7px 0px;

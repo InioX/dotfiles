@@ -26,7 +26,7 @@
         ];
         # Pass the variables to other modules
         specialArgs = {
-          inherit inputs stateVersion username hostName configFolder templateFolder;
+          inherit inputs stateVersion username hostName configFolder templateFolder system;
         };
       };
   in {
@@ -34,9 +34,15 @@
         # USAGE: addNewHost <hostname>
         laptop = addNewHost  "laptop";
     };
+
   };
 
   inputs = {
+    # Matugen
+    matugen = {
+      url = "github:/InioX/matugen-rs";
+    };
+
     # Nixpkgs
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-22.11";

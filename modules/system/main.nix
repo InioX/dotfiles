@@ -4,6 +4,8 @@
   hostName,
   stateVersion,
   username,
+  system,
+  inputs,
   ...
 }: {
   networking = { inherit hostName; };
@@ -39,6 +41,8 @@
       wget
       git
       htop
+
+      inputs.matugen.packages.${system}.default
     ];
 
     sessionVariables = {

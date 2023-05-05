@@ -26,6 +26,7 @@ in {
       slurp
       playerctl
       inputs.nixpkgs-wayland.packages.${system}.wl-gammarelay-rs
+      inputs.nixpkgs-wayland.packages.${system}.swww
       wf-recorder
     ];
 

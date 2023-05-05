@@ -1,21 +1,21 @@
 
-    @define-color accent_color @{primary.hex};
+    @define-color accent_color @{primary};
 
-    @define-color accent_bg_color @{primary.hex};
+    @define-color accent_bg_color @{primary};
 
-    @define-color window_bg_color @{surface.hex};
+    @define-color window_bg_color @{surface};
 
     @define-color window_fg_color white;
 
-    @define-color headerbar_bg_color @{surface.hex};
+    @define-color headerbar_bg_color @{surface};
 
     @define-color headerbar_fg_color white;
 
-    @define-color popover_bg_color @{surface.hex};
+    @define-color popover_bg_color @{surface};
 
     @define-color popover_fg_color white;
 
-    @define-color view_bg_color @{surfaceVariant.hex};
+    @define-color view_bg_color @{surface_variant};
 
     @define-color view_fg_color white;
 

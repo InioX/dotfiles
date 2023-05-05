@@ -26,40 +26,40 @@ window#waybar {
 }
 
 #custom-power {
-  background: @tertiaryContainer;
-  color: @onTertiaryContainer;
+  background: @tertiary_container;
+  color: @on_tertiary_container;
   padding: 15px;
   border-radius: 10px;
   font-size: 20px;
 }
 
 #workspaces {
-  background: @surfaceVariant;
-  color: @onSurfaceVariant;
+  background: @surface_variant;
+  color: @on_surface_variant;
   padding: 5px 0px;
   border-radius: 10px;
 }
 
 #workspaces button {
-  color: @onSurface;
+  color: @on_surface;
   border-radius: 30px;
   padding: 4px;
   margin: 4px;
 }
 
 #workspaces button.active {
-  color: @onPrimary;
+  color: @on_primary;
   background: @primary;
 }
 
 #workspaces button:hover {
-  background: @surfaceVariant;
-  color: @onSurface;
+  background: @surface_variant;
+  color: @on_surface;
 }
 
 #clock {
-  color: @onSurface;
-  background: @surfaceVariant;
+  color: @on_surface;
+  background: @surface_variant;
   padding: 10px;
   border-radius: 10px;
   font-size: 18px;
@@ -70,7 +70,7 @@ window#waybar {
 #custom-wl-gammarelay-brightness.icon
 {
   background: @primary;
-  color: @onPrimary;
+  color: @on_primary;
   font-size: 20px;
   border-radius: 10px 10px 0px 0px;
   padding: 3px;
@@ -82,8 +82,8 @@ window#waybar {
 #custom-wl-gammarelay-temperature.text,
 #custom-wl-gammarelay-brightness.text
 {
-  background: @surfaceVariant;
-  color: @onSurface;
+  background: @surface_variant;
+  color: @on_surface;
 
   border-radius: 0px 0px 10px 10px;
   padding: 3px;

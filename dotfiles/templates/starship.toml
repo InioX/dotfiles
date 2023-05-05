@@ -2,13 +2,13 @@ format="$directory$git_branch$character"
 
 # Prompt symbols 
 [character]
-success_symbol = "[🞈](@{tertiary.hex} bold)"
-error_symbol = "[🞈](@{error.hex})"
+success_symbol = "[🞈](@{tertiary} bold)"
+error_symbol = "[🞈](@{error})"
 vicmd_symbol = "[🞈](#f9e2af)"
 
 [directory]
-format = "[]($style)[(bg:@{primary.hex} fg:@{surfaceVariant.hex})$path](bg:@{surfaceVariant.hex} fg:@{primary.hex})[ ]($style)"
-style = "bg:@{surface.hex} fg:@{surfaceVariant.hex}"
+format = "[]($style)[(bg:@{primary} fg:@{surface_variant})$path](bg:@{surface_variant} fg:@{primary})[ ]($style)"
+style = "bg:@{surface} fg:@{surface_variant}"
 
 # [git_b# ranch]
 # format = "[]($style)[[ ](bg:#89b4fa fg:#49628a bold)$branch](bg:#89b4fa fg:#362f2b)[ ]($style)"

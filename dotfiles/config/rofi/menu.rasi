@@ -2,7 +2,7 @@
 
 * {
     background-color:  		        transparent;
-    text-color:        		        @onSurface;
+    text-color:        		        @on-surface;
     font:			                "Noto Sans 12";
 	
     width:      		            20%;
@@ -12,7 +12,7 @@
 }
 
 inputbar {
-   background-color:	        	@surfaceVariant;
+   background-color:	        	@surface-variant;
    padding:			                10px;
    border-radius:		            10px;
 }
@@ -30,9 +30,9 @@ mainbox {
 
 window {
     border: 			            4px;
-    border-color:		            @surfaceVariant;
+    border-color:		            @surface-variant;
     border-radius:      	        10px;
-    background-color:		        @surfaceVariant;
+    background-color:		        @surface-variant;
 }
 
 element {
@@ -41,7 +41,7 @@ element {
 }
 
 element selected {
-    text-color:        		        @onPrimary;
+    text-color:        		        @on-primary;
     background-color: 		        @primary;
     border-radius:		            10px;
 }
