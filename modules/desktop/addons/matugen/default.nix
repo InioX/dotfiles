@@ -18,7 +18,7 @@ in {
     zenyte.home.configFile."matugen/config.toml".text = ''
     [config]
     reload_apps = true
-    reload_gtk_theme = false
+    reload_gtk_theme = true
     set_wallpaper = true
     wallpaper_tool = 'Swww'
     prefix = '@'
