@@ -15,8 +15,6 @@
 # ℹ️ Description
 Welcome to my dotfiles! My main goal was to have dynamic colors based on the wallpaper. However, i couldnt figure of a good way to make this work with [Home Manager](https://github.com/nix-community/home-manager) without having to rebuild everytime... The folder structure is pretty messy but i did try my best to explain it below.
 
-[test](https://www.youtube.com/watch?v=lBlEEiwQzYA)
-
 ## 📑 Contents
 ```ini
 📂 dotfiles/
