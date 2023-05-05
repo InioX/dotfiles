@@ -8,7 +8,6 @@
 with lib;
 let
   cfg = config.zenyte.desktop.addons.gtk;
-
 in {
   options.zenyte.desktop.addons.gtk = {
     enable = mkEnableOption "Whether to enable gtk theme.";
@@ -19,7 +18,14 @@ in {
     environment.systemPackages = with pkgs; [
       lxappearance-gtk2
       libadwaita
+
+      gsettings-desktop-schemas
     ];
+
+    environment.sessionVariables = rec {
+      XDG_DATA_DIRS = pkgs.lib.mkOverride 0
+      "export XDG_DATA_DIRS=$(echo $(nix-build --no-out-link '<nixpkgs>' -A gsettings-desktop-schemas)/share/gsettings-schemas/gsettings-desktop-schemas-*):$XDG_DATA_DIRS";
+    };
 
     zenyte.home.extraOptions.gtk = {
       enable = true;
@@ -30,12 +36,13 @@ in {
       };
     };
 
-    zenyte.home.extraOptions = {
+    # TODO: Figure out why this doesnt work
+    # zenyte.home.extraOptions = {
       # This fixes the `no schemas installed` error with gsettings
-      xdg.systemDirs.data = [
-        "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/gsettings-desktop-schemas-/${pkgs.gsettings-desktop-schemas.version}"
-      ];
-    };
+      # xdg.systemDirs.data = [
+        # "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/gsettings-desktop-schemas-/${pkgs.gsettings-desktop-schemas.version}"
+      # ];
+    # };
 
     zenyte.home.configFile."gtk-2.0".source = configFolder + /gtk-2.0;
 
