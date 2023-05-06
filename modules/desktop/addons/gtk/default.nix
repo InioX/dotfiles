@@ -8,6 +8,17 @@
 with lib;
 let
   cfg = config.zenyte.desktop.addons.gtk;
+
+  schema = pkgs.gsettings-desktop-schemas;
+  datadir = "${schema}/share/gsettings-schemas/${schema.name}";
+
+  reload-theme = pkgs.writeShellScriptBin "reload-theme" ''
+  export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+
+  gsettings set org.gnome.desktop.interface gtk-theme ""
+  sleep 0.1
+  gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
+  '';
 in {
   options.zenyte.desktop.addons.gtk = {
     enable = mkEnableOption "Whether to enable gtk theme.";
@@ -20,6 +31,8 @@ in {
       libadwaita
 
       gsettings-desktop-schemas
+
+      reload-theme
     ];
 
     zenyte.home.extraOptions.gtk = {
@@ -32,9 +45,6 @@ in {
     };
 
     # This fixes the `no schemas installed` error with gsettings
-    zenyte.home.file.".bashrc".text = ''
-      XDG_DATA_DIRS=${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/gsettings-desktop-schemas-${pkgs.gsettings-desktop-schemas.name}:$XDG_DATA_DIRS
-    '';
 
     zenyte.home.configFile."gtk-2.0".source = configFolder + /gtk-2.0;
 
