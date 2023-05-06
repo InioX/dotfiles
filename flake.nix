@@ -40,10 +40,6 @@
       # USAGE: addNewHost <hostname>
       laptop = addNewHost "laptop";
     };
-
-    shellHook = ''
-      export XDG_DATA_DIRS=$(echo $(nix-build --no-out-link '<nixpkgs>' -A gsettings-desktop-schemas)/share/gsettings-schemas/gsettings-desktop-schemas-*):$XDG_DATA_DIRS
-    '';
   };
 
   inputs = {
