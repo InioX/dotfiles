@@ -22,11 +22,6 @@ in {
       gsettings-desktop-schemas
     ];
 
-    environment.sessionVariables = rec {
-      XDG_DATA_DIRS = pkgs.lib.mkOverride 0
-      "export XDG_DATA_DIRS=$(echo $(nix-build --no-out-link '<nixpkgs>' -A gsettings-desktop-schemas)/share/gsettings-schemas/gsettings-desktop-schemas-*):$XDG_DATA_DIRS";
-    };
-
     zenyte.home.extraOptions.gtk = {
       enable = true;
       # font.name = "Victor Mono SemiBold 12";
@@ -36,13 +31,10 @@ in {
       };
     };
 
-    # TODO: Figure out why this doesnt work
-    # zenyte.home.extraOptions = {
-      # This fixes the `no schemas installed` error with gsettings
-      # xdg.systemDirs.data = [
-        # "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/gsettings-desktop-schemas-/${pkgs.gsettings-desktop-schemas.version}"
-      # ];
-    # };
+    # This fixes the `no schemas installed` error with gsettings
+    zenyte.home.file.".bashrc".text = ''
+      XDG_DATA_DIRS=${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/gsettings-desktop-schemas-${pkgs.gsettings-desktop-schemas.name}:$XDG_DATA_DIRS
+    '';
 
     zenyte.home.configFile."gtk-2.0".source = configFolder + /gtk-2.0;
 
