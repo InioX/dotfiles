@@ -17,6 +17,19 @@
     <sub>My nixos dotfiles with  <a href="https://github.com/nix-community/home-manager">Home Manager</a>
 </div>
 
+## 📷 Showcase
+>**Warning** The showcase may be outdated and look differently.
+
+<details><summary>Expand to show</summary>
+<p>
+
+<img src="https://user-images.githubusercontent.com/81521595/236634805-15e68f9b-44a5-4efc-b275-0eb1f6a28bd9.gif" width="320" height="180"/>
+
+[![video showcase](https://markdown-videos.deta.dev/youtube/lBlEEiwQzYA)](https://youtu.be/lBlEEiwQzYA)
+
+</p>
+</details>
+
 ## ℹ️ Description
 Welcome to my dotfiles! My main goal was to have dynamic colors based on the wallpaper. However, i couldnt figure of a good way to make this work with [Home Manager](https://github.com/nix-community/home-manager) without having to rebuild everytime... The folder structure is pretty messy but i did try my best to explain it below.
 
@@ -74,20 +87,7 @@ in {
 }
 ```
 
-# 📷 Showcase
->**Warning** The showcase may be outdated and look differently.
-
-<details><summary>Expand to show</summary>
-<p>
-
-<img src="https://user-images.githubusercontent.com/81521595/236634805-15e68f9b-44a5-4efc-b275-0eb1f6a28bd9.gif" width="320" height="180"/>
-
-[![video showcase](https://markdown-videos.deta.dev/youtube/lBlEEiwQzYA)](https://youtu.be/lBlEEiwQzYA)
-
-</p>
-</details>
-
-# ✨ Acknowledgment
+## ✨ Acknowledgment
 
 First, special thanks to [jakehamilton](https://github.com/jakehamilton), my config is **heavily** inspired by [him](https://github.com/jakehamilton/config).
 
