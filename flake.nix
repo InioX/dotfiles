@@ -1,8 +1,7 @@
 {
   description = "My nixos dotfiles flake";
 
-  outputs = { nixpkgs, ... } @inputs: 
-  let
+  outputs = {nixpkgs, ...} @ inputs: let
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "22.11";
 
@@ -13,34 +12,47 @@
     system = "x86_64-linux";
     username = "ini";
 
-    addNewHost = hostName: with inputs;
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          # The main system configuration
-          ./modules/system
-          # The host specific configuration
-          ( ./. + "/hosts/${hostName}/")
-          # Nur overlay
-          { nixpkgs.overlays = [ nur.overlay ]; }
-        ];
-        # Pass the variables to other modules
-        specialArgs = {
-          inherit inputs stateVersion username hostName configFolder templateFolder system;
+    addNewHost = hostName:
+      with inputs;
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            # The main system configuration
+            ./modules/system
+            # The host specific configuration
+            (./. + "/hosts/${hostName}/")
+            {
+              # Nur overlay
+              nixpkgs.overlays = [nur.overlay];
+              environment.systemPackages = [
+                inputs.matugen.packages.${system}.default
+                alejandra.defaultPackage.${system}
+              ];
+            }
+          ];
+          # Pass the variables to other modules
+          specialArgs = {
+            inherit inputs stateVersion username hostName configFolder templateFolder system;
+          };
         };
-      };
   in {
     nixosConfigurations = {
-        # USAGE: addNewHost <hostname>
-        laptop = addNewHost  "laptop";
+      # USAGE: addNewHost <hostname>
+      laptop = addNewHost "laptop";
     };
 
     shellHook = ''
-        export XDG_DATA_DIRS=$(echo $(nix-build --no-out-link '<nixpkgs>' -A gsettings-desktop-schemas)/share/gsettings-schemas/gsettings-desktop-schemas-*):$XDG_DATA_DIRS
+      export XDG_DATA_DIRS=$(echo $(nix-build --no-out-link '<nixpkgs>' -A gsettings-desktop-schemas)/share/gsettings-schemas/gsettings-desktop-schemas-*):$XDG_DATA_DIRS
     '';
   };
 
   inputs = {
+    # Alejandra
+    alejandra = {
+      url = "github:kamadorueda/alejandra/3.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Matugen
     matugen = {
       url = "github:/InioX/matugen-rs";
