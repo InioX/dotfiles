@@ -25,7 +25,7 @@
               # Nur overlay
               nixpkgs.overlays = [nur.overlay];
               environment.systemPackages = [
-                inputs.matugen.packages.${system}.default
+                matugen.packages.${system}.default
                 alejandra.defaultPackage.${system}
               ];
             }
