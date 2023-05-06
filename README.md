@@ -4,8 +4,8 @@
 </div>
 
 <div align="center">
-  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-22.11-ebf0f3?style=for-the-badge&logo=NixOS&logoColor=white&labelColor=5e81ac" alt="NixOS - 22.11"></a>
-   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/InioX/dotfiles/check.yml?color=ebf0f3&logo=github&style=for-the-badge&labelColor=5e81ac"><br>
+  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-22.11-5176c1?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 22.11"></a>
+   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/InioX/dotfiles/check.yml?color=5176c1&logo=github&style=for-the-badge"><br>
    <a href="#package-installation">Installation</a>
     ·
   <a href="#%EF%B8%8F-usage">Usage</a>
@@ -14,7 +14,7 @@
 </div>
 
 <div align="center">
-    <sub>My nixos dotfiles with  <b><a href="https://github.com/nix-community/home-manager">Home Manager</a></b>
+    <sub>My nixos dotfiles with  <a href="https://github.com/nix-community/home-manager">Home Manager</a>
 </div>
 
 ## ℹ️ Description
@@ -80,7 +80,9 @@ in {
 <details><summary>Expand to show</summary>
 <p>
 
-[![](https://markdown-videos.deta.dev/youtube/lBlEEiwQzYA)](https://youtu.be/lBlEEiwQzYA)
+<img src="https://user-images.githubusercontent.com/81521595/236634805-15e68f9b-44a5-4efc-b275-0eb1f6a28bd9.gif" width="320" height="180"/>
+
+[![video showcase](https://markdown-videos.deta.dev/youtube/lBlEEiwQzYA)](https://youtu.be/lBlEEiwQzYA)
 
 </p>
 </details>
@@ -96,5 +98,3 @@ I also want to thank all the people mentioned below, they either helped me solve
 [NobbZ](https://github.com/NobbZ)
 •
 [gingkapls](https://github.com/gingkapls)
-•
-[fufexan](https://github.com/fufexan)
