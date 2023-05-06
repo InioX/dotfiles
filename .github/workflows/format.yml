@@ -1,5 +1,5 @@
-# From: https://github.com/fufexan/dotfiles/blob/main/.github/workflows/check.yml
-name: Check
+# From: https://github.com/fufexan/dotfiles/blob/main/.github/workflows/fmt.yml
+name: Formatting Check
 
 on: [push, pull_request, workflow_dispatch]
 
@@ -17,4 +17,4 @@ jobs:
           extra_nix_config: |
             auto-optimise-store = true
             experimental-features = nix-command flakes
-      - run: nix flake check
+      - run: nix run nixpkgs#alejandra -- -c .
