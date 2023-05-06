@@ -4,8 +4,8 @@
 </div>
 
 <div align="center">
-  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-22.11-5176c1?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 22.11"></a>
-   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/InioX/dotfiles/check.yml?color=5176c1&logo=github&style=for-the-badge"><br>
+  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-22.11-ebf0f3?style=for-the-badge&logo=NixOS&logoColor=white&labelColor=5e81ac" alt="NixOS - 22.11"></a>
+   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/InioX/dotfiles/check.yml?color=ebf0f3&logo=github&style=for-the-badge&labelColor=5e81ac"><br>
    <a href="#package-installation">Installation</a>
     ·
   <a href="#%EF%B8%8F-usage">Usage</a>
@@ -14,7 +14,7 @@
 </div>
 
 <div align="center">
-    <sub>My nixos dotfiles with  <a href="https://github.com/nix-community/home-manager">Home Manager</a>
+    <sub>My nixos dotfiles with  <b><a href="https://github.com/nix-community/home-manager">Home Manager</a></b>
 </div>
 
 ## ℹ️ Description
