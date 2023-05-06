@@ -4,8 +4,8 @@
 </div>
 
 <div align="center">
-   <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-22.11-5176c1?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 22.11"></a>
-   <a href="https://"><img src="https://img.shields.io/badge/MAINTAINED-YES-5176c1?style=for-the-badge" alt="MAINTAINED - YES"></a><br>
+  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-22.11-5176c1?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 22.11"></a>
+   <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/InioX/dotfiles/check.yml?color=5176c1&logo=github&style=for-the-badge"><br>
    <a href="#package-installation">Installation</a>
     ·
   <a href="#%EF%B8%8F-usage">Usage</a>
