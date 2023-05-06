@@ -4,18 +4,23 @@
 </div>
 
 <div align="center">
-    <p>My nixos dotfiles with  <a href="https://github.com/nix-community/home-manager">Home Manager</a></p>
+   <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-22.11-5176c1?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 22.11"></a>
+   <a href="https://"><img src="https://img.shields.io/badge/MAINTAINED-YES-5176c1?style=for-the-badge" alt="MAINTAINED - YES"></a><br>
+   <a href="#package-installation">Installation</a>
+    ·
+  <a href="#%EF%B8%8F-usage">Usage</a>
+    ·
+  <a href="#-showcase">Showcase</a>
 </div>
 
 <div align="center">
-   <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-22.11-5176c1?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 22.11"></a>
-   <a href="https://"><img src="https://img.shields.io/badge/MAINTAINED-YES-5176c1?style=for-the-badge" alt="MAINTAINED - YES"></a>
+    <sub>My nixos dotfiles with  <a href="https://github.com/nix-community/home-manager">Home Manager</a>
 </div>
 
-# ℹ️ Description
+## ℹ️ Description
 Welcome to my dotfiles! My main goal was to have dynamic colors based on the wallpaper. However, i couldnt figure of a good way to make this work with [Home Manager](https://github.com/nix-community/home-manager) without having to rebuild everytime... The folder structure is pretty messy but i did try my best to explain it below.
 
-## 📑 Contents
+### 📑 Contents
 ```ini
 📂 dotfiles/
 ├── ❄️ flake.nix
@@ -35,10 +40,7 @@ Welcome to my dotfiles! My main goal was to have dynamic colors based on the wal
         ├── 📄 default.nix
         └── 📄 hardware.nix
 ```
-
-## 🛠️ Usage
-
-### Installation
+## :package: Installation
 ```shell
 # First, clone the repository
 git clone https://github.com/InioX/dotfiles && cd dotfiles
@@ -50,6 +52,8 @@ sudo nixos-rebuild switch --flake .#<hostname>
 matugen image /path/to/wallpaper/ -v
 ```
 >**Note** Read matugen documentation [here](https://github.com/InioX/matugen-rs#usage).
+
+## 🛠️ Usage
 
 ### Adding new hosts
 ```nix
