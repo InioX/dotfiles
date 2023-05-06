@@ -5,8 +5,7 @@
   configFolder,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.zenyte.desktop.addons.kitty;
 in {
   options.zenyte.desktop.addons.kitty = {
@@ -14,7 +13,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-
     environment.systemPackages = with pkgs; [
       kitty
     ];

@@ -5,8 +5,7 @@
   inputs,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.zenyte.desktop.awesome;
 in {
   options.zenyte.desktop.awesome = {

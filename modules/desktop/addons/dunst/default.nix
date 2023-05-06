@@ -5,8 +5,7 @@
   configFolder,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.zenyte.desktop.addons.dunst;
 in {
   options.zenyte.desktop.addons.dunst = {
@@ -14,13 +13,12 @@ in {
   };
 
   config = mkIf cfg.enable {
-
     environment.systemPackages = with pkgs; [
       libnotify
     ];
 
     zenyte.home.configFile."dunst".source = configFolder + /dunst;
-    
+
     zenyte.home.extraOptions.services.dunst = {
       enable = true;
       package = pkgs.dunst.overrideAttrs (oldAttrs: {

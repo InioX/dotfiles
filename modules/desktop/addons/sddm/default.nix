@@ -5,8 +5,7 @@
   configFolder,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.zenyte.desktop.addons.sddm;
 in {
   options.zenyte.desktop.addons.sddm = {

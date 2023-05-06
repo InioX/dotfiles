@@ -5,19 +5,18 @@
   configFolder,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.zenyte.desktop.addons.gtk;
 
   schema = pkgs.gsettings-desktop-schemas;
   datadir = "${schema}/share/gsettings-schemas/${schema.name}";
 
   reload-theme = pkgs.writeShellScriptBin "reload-theme" ''
-  export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+    export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
 
-  gsettings set org.gnome.desktop.interface gtk-theme ""
-  sleep 0.1
-  gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
+    gsettings set org.gnome.desktop.interface gtk-theme ""
+    sleep 0.1
+    gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
   '';
 in {
   options.zenyte.desktop.addons.gtk = {
@@ -25,7 +24,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-
     environment.systemPackages = with pkgs; [
       lxappearance-gtk2
       libadwaita

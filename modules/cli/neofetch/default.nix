@@ -5,7 +5,8 @@
   inputs,
   configFolder,
   ...
-}: with lib; let
+}:
+with lib; let
   cfg = config.zenyte.cli.neofetch;
 in {
   options.zenyte.cli.neofetch = with types; {

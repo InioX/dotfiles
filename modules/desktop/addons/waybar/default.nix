@@ -7,8 +7,7 @@
   configFolder,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.zenyte.desktop.addons.waybar;
 in {
   options.zenyte.desktop.addons.waybar = {
@@ -19,7 +18,7 @@ in {
     nixpkgs.overlays = [
       (self: super: {
         waybar = super.waybar.overrideAttrs (oldAttrs: {
-          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+          mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
         });
       })
     ];

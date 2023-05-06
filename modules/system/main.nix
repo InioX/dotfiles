@@ -8,8 +8,8 @@
   inputs,
   ...
 }: {
-  networking = { inherit hostName; };
-  system = { inherit stateVersion; };
+  networking = {inherit hostName;};
+  system = {inherit stateVersion;};
 
   users.users.${username} = {
     isNormalUser = true;
@@ -22,10 +22,12 @@
   };
 
   fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [
-      "Iosevka"
-      "JetBrainsMono"
-    ];})
+    (nerdfonts.override {
+      fonts = [
+        "Iosevka"
+        "JetBrainsMono"
+      ];
+    })
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -57,7 +59,7 @@
 
   time.timeZone = "Europe/Prague";
 
-  i18n = let 
+  i18n = let
     cs = "cs_CZ.UTF-8";
   in {
     defaultLocale = "en_US.UTF-8";

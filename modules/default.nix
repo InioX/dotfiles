@@ -9,7 +9,7 @@
     ./desktop/hyprland
     ./desktop/xfce
     ./desktop/awesome
-    
+
     # Desktop addons
     ./desktop/addons/waybar
     ./desktop/addons/kitty
@@ -25,7 +25,7 @@
     # CLI
     ./cli/git
     ./cli/neofetch
-    
+
     # Home
     ./home
   ];

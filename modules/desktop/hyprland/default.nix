@@ -7,8 +7,7 @@
   configFolder,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.zenyte.desktop.hyprland;
 in {
   options.zenyte.desktop.hyprland = {
@@ -45,7 +44,7 @@ in {
     zenyte.cli = {
       neofetch.enable = true;
     };
-    
+
     # zenyte.home.configFile."hypr".source = configFolder + /hypr;
     zenyte.home.configFile."hypr/icons".source = configFolder + /hypr/icons;
     zenyte.home.configFile."hypr/scripts".source = configFolder + /hypr/scripts;

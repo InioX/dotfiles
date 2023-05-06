@@ -7,10 +7,9 @@
   stateVersion,
   ...
 }:
-with lib;
-let cfg = config.zenyte.home;
-in
-{
+with lib; let
+  cfg = config.zenyte.home;
+in {
   imports = with inputs; [
     home-manager.nixosModules.home-manager
   ];

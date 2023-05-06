@@ -5,8 +5,7 @@
   configFolder,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.zenyte.desktop.addons.rofi;
 in {
   options.zenyte.desktop.addons.rofi = {
@@ -14,7 +13,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-
     environment.systemPackages = with pkgs; [
       rofi-wayland
     ];

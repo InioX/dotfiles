@@ -5,7 +5,8 @@
   inputs,
   username,
   ...
-}: with lib; let
+}:
+with lib; let
   cfg = config.zenyte.cli.git;
 in {
   options.zenyte.cli.git = with types; {

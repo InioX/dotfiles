@@ -4,8 +4,7 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.zenyte.desktop.xfce;
 in {
   options.zenyte.desktop.xfce = {

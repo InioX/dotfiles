@@ -1,11 +1,11 @@
-{ 
+{
   config,
   pkgs,
   lib,
   ...
 }:
 with lib; {
-  imports = [ ./hardware.nix ../../modules ];
+  imports = [./hardware.nix ../../modules];
 
   # Configure the bootloader
   boot.loader = {

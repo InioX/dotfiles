@@ -4,13 +4,13 @@
   ...
 }: {
   users.users.ini = {
-      isNormalUser = true;
-      description = "ini";
-      extraGroups = [
-        "wheel"
-        "power"
-        "networkmanager"
-        "nix"
-      ];
+    isNormalUser = true;
+    description = "ini";
+    extraGroups = [
+      "wheel"
+      "power"
+      "networkmanager"
+      "nix"
+    ];
   };
 }
