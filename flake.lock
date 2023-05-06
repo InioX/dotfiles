@@ -141,11 +141,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1683364614,
-        "narHash": "sha256-c5/HgTL+Jf7s0SlzE67+v3gfoDS4B91sVzpNObEGDjc=",
+        "lastModified": 1683380167,
+        "narHash": "sha256-BNI5lEVU14S1/EaJQgdijd7qZ7KNHicOBgY48oI2Blo=",
         "owner": "InioX",
         "repo": "matugen-rs",
-        "rev": "bb3a1f83e4574fd45146b9a056b75b8b92de1371",
+        "rev": "ecc4c257c5eaecad153e0343f96d63ce4cd845a2",
         "type": "github"
       },
       "original": {
