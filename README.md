@@ -90,3 +90,5 @@ I also want to thank all the people mentioned below, they either helped me solve
 [sioodmy](https://github.com/sioodmy/dotfiles)
 •
 [NobbZ](https://github.com/NobbZ)
+•
+[gingkapls](https://github.com/gingkapls)
