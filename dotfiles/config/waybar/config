@@ -48,7 +48,7 @@
   },
 
   "custom/power": {
-    "format": ""
+    "format": "󰐥"
   },
 
   "custom/menu": {
@@ -61,11 +61,11 @@
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
+      "1": "󰅴",
+      "2": "󰈮", 
+      "3": "󰖟",
+      "4": "󰅺",
+      "5": "󰉋",
       "6": "",
       "7": "",
       "8": "",
@@ -82,7 +82,7 @@
 
   "pulseaudio#icon": {
     "format": "{icon}",
-    "format-muted": " ",
+    "format-muted": "",
     "scroll-step": 1,
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-click-middle": "pavucontrol",
@@ -94,7 +94,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", "墳", ""]
+      "default": ["󰖀", "󰖀", "墳", "󰕾"]
     },
   },
   "pulseaudio#text": {
@@ -106,7 +106,7 @@
   },
 
   "custom/wl-gammarelay-temperature#icon": {
-    "format": "",
+    "format": "󰔏",
     "on-scroll-up": "~/.config/hypr/scripts/brightness.sh temperature-up 100",
     "on-scroll-down": "~/.config/hypr/scripts/brightness.sh temperature-down 100"
   },
@@ -119,7 +119,7 @@
   },
 
   "custom/wl-gammarelay-brightness#icon": {
-    "format": "",
+    "format": "󰃟",
     "on-scroll-up": "~/.config/hypr/scripts/brightness.sh brightness-up 0.05",
     "on-scroll-down": "~/.config/hypr/scripts/brightness.sh brightness-down 0.05"
   },
