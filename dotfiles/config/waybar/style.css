@@ -21,7 +21,7 @@ window#waybar {
 }
 
 #custom-menu {
-  /* background: #25f2f5; */
+  color: @on_surface;
   font-size: 30px;
 }
 
