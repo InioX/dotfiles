@@ -4,6 +4,8 @@
   
   /* BOTTOM */
   "modules-right": [
+    "battery#icon",
+    "battery#text",
     "custom/wl-gammarelay-brightness#icon",
     "custom/wl-gammarelay-brightness#text",
     "custom/wl-gammarelay-temperature#icon",
@@ -23,6 +25,27 @@
     "custom/power",
     "wlr/workspaces"
   ],
+
+  "battery#icon": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
+  },
+
+  "battery#text": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+  },
 
   "custom/power": {
     "format": ""

@@ -65,6 +65,7 @@ window#waybar {
   font-size: 18px;
 }
 
+#battery.icon,
 #pulseaudio.icon,
 #custom-wl-gammarelay-temperature.icon,
 #custom-wl-gammarelay-brightness.icon
@@ -78,6 +79,7 @@ window#waybar {
   margin-bottom: 0px;
 }
 
+#battery.text,
 #pulseaudio.text,
 #custom-wl-gammarelay-temperature.text,
 #custom-wl-gammarelay-brightness.text
