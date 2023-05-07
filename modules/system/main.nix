@@ -37,12 +37,18 @@
     jetbrains-mono
   ];
 
+  programs.adb.enable = true;
+  services.gvfs.enable = true;
+
+  services.gnome.gnome-keyring.enable = true;
+
   environment = {
     systemPackages = with pkgs; [
       vim
       wget
       git
       htop
+      usbutils
 
       inputs.matugen.packages.${system}.default
     ];

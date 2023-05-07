@@ -32,10 +32,6 @@ with lib; {
     vscode
   ];
 
-  # TODO Maybe move this into system module
-  programs.adb.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-
   zenyte.desktop = {
     xfce.enable = true;
     awesome.enable = true;
