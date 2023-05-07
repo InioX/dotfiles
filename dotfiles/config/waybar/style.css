@@ -10,6 +10,7 @@
 
 window#waybar {
   background-color: @surface;
+  border-radius: 10px;
 }
 
 #custom-power,
