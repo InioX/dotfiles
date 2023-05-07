@@ -1,6 +1,10 @@
 {
   "layer": "top",
-  "position": "left", 
+  "position": "left",
+  "margin-left": 10,
+  "margin-bottom": 10,
+  "margin-top": 10,
+
   
   /* BOTTOM */
   "modules-right": [
