@@ -45,6 +45,7 @@ window#waybar {
   border-radius: 30px;
   padding: 4px;
   margin: 4px;
+  font-size: 20px;
 }
 
 #workspaces button.active {
@@ -66,9 +67,9 @@ window#waybar {
 }
 
 #battery.icon,
-#pulseaudio.icon,
+#custom-wl-gammarelay-brightness.icon,
 #custom-wl-gammarelay-temperature.icon,
-#custom-wl-gammarelay-brightness.icon
+#pulseaudio.icon
 {
   background: @primary;
   color: @on_primary;
@@ -80,9 +81,9 @@ window#waybar {
 }
 
 #battery.text,
-#pulseaudio.text,
+#custom-wl-gammarelay-brightness.text,
 #custom-wl-gammarelay-temperature.text,
-#custom-wl-gammarelay-brightness.text
+#pulseaudio.text
 {
   background: @surface_variant;
   color: @on_surface;
