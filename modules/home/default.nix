@@ -33,6 +33,12 @@ in {
         Options to pass directly to home-manager.
       '';
     };
+    programs = mkOption {
+      type = types.attrs;
+      description = ''
+        Options to pass directly to home-manager.
+      '';
+    };
   };
 
   config = {
@@ -41,6 +47,7 @@ in {
       home.file = mkAliasDefinitions options.zenyte.home.file;
       xdg.enable = true;
       xdg.configFile = mkAliasDefinitions options.zenyte.home.configFile;
+      programs = mkAliasDefinitions options.zenyte.home.programs;
     };
 
     home-manager = {
