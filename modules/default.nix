@@ -23,6 +23,7 @@
     ./apps/firefox
 
     # CLI
+    ./cli/zsh
     ./cli/git
     ./cli/neofetch
 

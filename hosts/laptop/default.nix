@@ -53,5 +53,6 @@ with lib; {
       email = "justimnix@gmail.com";
       name = "InioX";
     };
+    zsh.enable = true;
   };
 }
