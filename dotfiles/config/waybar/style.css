@@ -2,7 +2,8 @@
 
 * {
   /* all: initial; */
-  font-family: monospace;
+  /* font-family: monospace; */
+  font-family: Material Design Icons, Iosevka Nerd Font;
   min-height: 0;
   min-width: 20px;
   margin: 2px;

@@ -22,19 +22,12 @@
   };
 
   fonts.fonts = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "Iosevka"
-        "JetBrainsMono"
-      ];
-    })
+    (nerdfonts.override {fonts = ["Iosevka"];})
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
     noto-fonts-extra
     material-design-icons
-    material-icons
-    jetbrains-mono
   ];
 
   programs.adb.enable = true;
