@@ -61,7 +61,7 @@ git clone https://github.com/InioX/dotfiles && cd dotfiles
 # Rebuild the system 
 sudo nixos-rebuild switch --flake .#<hostname>
 
-# Generate templates from the config/templates/ folder
+# Generate templates from the dotfiles/templates/ folder
 matugen image /path/to/wallpaper/ -v
 ```
 >**Note** Read matugen documentation [here](https://github.com/InioX/matugen-rs#usage).
