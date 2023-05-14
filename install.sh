@@ -15,7 +15,7 @@ dependencies="rofi-lbonn-wayland-only-git hyprland kitty pcmanfm-gtk3 swaybg lxs
 dunst_dependencies="pod2man core/dbus libxinerama libxrandr libxss glib pango libnotify xdg-utils"
 starship_dependencies="fish lsd neofetch"
 paru_dependencies="cargo git"
-fonts="ttf-nerd-fonts-symbols-1000-em-mono ttf-nerd-fonts-symbols-common noto-fonts \
+fonts="ttf-nerd-fonts-symbols noto-fonts \
        noto-fonts-cjk noto-fonts-emoji noto-fonts-extra"
 icons="sardi-icons"
 optional_stuff="firefox github-cli pavucontrol"
