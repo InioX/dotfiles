@@ -13,13 +13,32 @@ in {
   };
 
   config = mkIf cfg.enable {
-    zenyte.home.extraOptions = {
-      xsession.windowManager.awesome = {
+    nixpkgs = {
+      overlays = [
+        (final: prev: {
+          awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
+        })
+      ];
+    };
+
+    zenyte.desktop.addons = {
+      sddm.enable = true;
+      gtk.enable = true;
+      matugen.enable = true;
+      alacritty.enable = true;
+    };
+
+    services.xserver = {
+      windowManager.awesome = {
         enable = true;
         luaModules = with pkgs.luaPackages; [
           luarocks # is the package manager for Lua modules
           luadbi-mysql # Database abstraction layer
         ];
+      };
+      libinput = {
+        enable = true;
+        touchpad = {naturalScrolling = true;};
       };
     };
   };

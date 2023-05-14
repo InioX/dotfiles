@@ -23,7 +23,11 @@
             (./. + "/hosts/${hostName}/")
             {
               # Nur overlay
-              nixpkgs.overlays = [nur.overlay];
+              nixpkgs.overlays = [
+                nur.overlay
+                nixpkgs-f2k.overlays.window-managers
+              ];
+
               environment.systemPackages = [
                 matugen.packages.${system}.default
                 alejandra.defaultPackage.${system}
@@ -78,6 +82,11 @@
     # Nixpkgs wayland
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
+    };
+
+    # For awesomewm-git version
+    nixpkgs-f2k = {
+      url = "github:fortuneteller2k/nixpkgs-f2k";
     };
   };
 }
