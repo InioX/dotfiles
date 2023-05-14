@@ -18,6 +18,7 @@
     ./desktop/addons/gtk
     ./desktop/addons/dunst
     ./desktop/addons/matugen
+    ./desktop/addons/alacritty
 
     # Apps
     ./apps/firefox
