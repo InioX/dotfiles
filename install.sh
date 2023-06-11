@@ -263,8 +263,8 @@ backup_config() {
 }
 
 install_config() {
-  git clone https://github.com/InioX/dotfiles-hyprland
-  cd dotfiles-hyprland
+  git clone -b arch https://github.com/InioX/dotfiles
+  cd dotfiles
 
   print_text "Copying files in $(pwd)/.config folder to ${HOME}/.config/"
   cp .config/. -ar ~/.config/
