@@ -30,6 +30,15 @@ with lib; {
     pavucontrol
     brave
     vscode
+
+    redshift
+
+    vhs
+    chromium
+
+    mpv
+
+    virt-manager
   ];
 
   zenyte.desktop = {
@@ -47,12 +56,17 @@ with lib; {
     };
   };
 
+  virtualisation.libvirtd.enable = true;
+  programs.dconf.enable = true;
+
+  users.users.ini.extraGroups = ["libvirtd"];
+
   zenyte.cli = {
     git = {
       enable = true;
       email = "justimnix@gmail.com";
       name = "InioX";
     };
-    # zsh.enable = true;
+    bash.enable = true;
   };
 }
