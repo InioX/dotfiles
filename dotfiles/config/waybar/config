@@ -37,6 +37,8 @@
       "critical": 20
     },
     "format": "{icon}",
+    "format-charging": " {icon}%",
+    "format-plugged": " {icon}%",
     "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
   },
 
@@ -47,8 +49,6 @@
       "critical": 20
     },
     "format": "{capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
   },
 
   "custom/power": {

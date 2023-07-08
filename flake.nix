@@ -30,6 +30,7 @@
 
               environment.systemPackages = [
                 matugen.packages.${system}.default
+                prism-launcher.packages.${system}.default
                 alejandra.defaultPackage.${system}
               ];
             }
@@ -56,6 +57,11 @@
     # Matugen
     matugen = {
       url = "github:/InioX/matugen-rs";
+    };
+
+    # Prism Launcher
+    prism-launcher = {
+      url = "github:Diegiwg/PrismLauncher-Cracked";
     };
 
     # Nixpkgs
