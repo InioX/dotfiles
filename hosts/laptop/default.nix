@@ -39,6 +39,8 @@ with lib; {
     mpv
 
     virt-manager
+
+    rare
   ];
 
   zenyte.desktop = {
