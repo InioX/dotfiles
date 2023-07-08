@@ -33,12 +33,14 @@
   "battery#icon": {
     "states": {
       "good": 95,
-      "warning": 30,
+      "warning": 62,
       "critical": 20
     },
     "format": "{icon}",
-    "format-charging": " {icon}%",
-    "format-plugged": " {icon}%",
+    "format-charging": " {icon}󱐌",
+    "format-plugged": " {icon}󱐋",
+    "format-warning": "{icon} 󰀪",
+    "format-critical": " {icon} 󰀪",
     "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
   },
 
