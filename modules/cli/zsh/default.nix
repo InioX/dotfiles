@@ -21,7 +21,7 @@ in {
       enable = true;
       shellAliases = {
         ll = "ls -l";
-        update = "sudo nixos-rebuild switch";
+        rebuild = "sudo nixos-rebuild switch --flake .#";
       };
       oh-my-zsh = {
         enable = true;
