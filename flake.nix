@@ -30,7 +30,6 @@
 
               environment.systemPackages = [
                 matugen.packages.${system}.default
-                prism-launcher.packages.${system}.default
                 alejandra.defaultPackage.${system}
               ];
             }

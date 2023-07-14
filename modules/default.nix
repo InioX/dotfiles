@@ -22,6 +22,7 @@
 
     # Apps
     ./apps/firefox
+    ./apps/prism-launcher
 
     # CLI
     ./cli/bash

@@ -56,6 +56,9 @@ with lib; {
         bitwarden
       ];
     };
+    prism-launcher = {
+      enable = true;
+    };
   };
 
   virtualisation.libvirtd.enable = true;
