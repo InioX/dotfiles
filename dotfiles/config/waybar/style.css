@@ -95,3 +95,22 @@ window#waybar {
   margin: 5px;
   margin-top: 0px;
 }
+
+@keyframes blink {
+  to {
+      background-color: #ffffff;
+      color: black;
+  }
+}
+
+#battery.icon.warning:not(.charging)
+#battery.icon.critical:not(.charging)
+{
+  background: @error;
+  color: @on_error;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}

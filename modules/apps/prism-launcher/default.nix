@@ -4,6 +4,7 @@
   lib,
   inputs,
   system,
+  configFolder,
   ...
 }:
 with lib; let
@@ -23,5 +24,6 @@ in {
     environment.systemPackages = [
       inputs.prism-launcher.packages.${system}.default
     ];
+    zenyte.home.dataFile."PrismLauncher/themes/dynamic".source = configFolder + /PrismLauncher/themes/dynamic;
   };
 }
