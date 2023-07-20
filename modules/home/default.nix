@@ -27,6 +27,12 @@ in {
         A set of files to be managed by home-manager's <option>xdg.configFile</option>.
       '';
     };
+    dataFile = mkOption {
+      type = types.attrs;
+      description = ''
+        A set of files to be managed by home-manager's <option>xdg.dataFile</option>.
+      '';
+    };
     extraOptions = mkOption {
       type = types.attrs;
       description = ''
@@ -47,6 +53,7 @@ in {
       home.file = mkAliasDefinitions options.zenyte.home.file;
       xdg.enable = true;
       xdg.configFile = mkAliasDefinitions options.zenyte.home.configFile;
+      xdg.dataFile = mkAliasDefinitions options.zenyte.home.dataFile;
       programs = mkAliasDefinitions options.zenyte.home.programs;
     };
 
