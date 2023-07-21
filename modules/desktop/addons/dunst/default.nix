@@ -21,14 +21,14 @@ in {
 
     zenyte.home.extraOptions.services.dunst = {
       enable = true;
-      package = pkgs.dunst.overrideAttrs (oldAttrs: {
-        src = pkgs.fetchFromGitHub {
-          owner = "k-vernooy";
-          repo = "dunst";
-          rev = "c7358148edef23e883586cca37c0c7ee4b363ce8";
-          sha256 = "eZoIeLERDbXIBBm/j9jgqvvul2h0YNjzedbnQGMxsiU=";
-        };
-      });
+      # package = pkgs.dunst.overrideAttrs (oldAttrs: {
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "k-vernooy";
+      #     repo = "dunst";
+      #     rev = "c7358148edef23e883586cca37c0c7ee4b363ce8";
+      #     sha256 = "eZoIeLERDbXIBBm/j9jgqvvul2h0YNjzedbnQGMxsiU=";
+      #   };
+      # });
     };
   };
 }
