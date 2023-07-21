@@ -4,7 +4,7 @@
 </div>
 
 <div align="center">
-  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-22.11-5176c1?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 22.11"></a>
+  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-23.05-5176c1?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 23.05"></a>
    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/InioX/dotfiles/check.yml?color=5176c1&logo=github&style=for-the-badge"><br>
    <a href="#package-installation">Installation</a>
     ·
