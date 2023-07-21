@@ -65,13 +65,12 @@
 
     # Nixpkgs
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-22.11";
+      url = "github:nixos/nixpkgs/nixos-23.05";
     };
 
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager/release-23.05";
     };
 
     # Hyprland
