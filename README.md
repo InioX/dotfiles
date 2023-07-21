@@ -30,7 +30,7 @@ nixos-install --flake .#hostname
 >**Warning** The arch branch may not be up to date, as i mainly use nixos now. I will still try update it from time to time if i can.
  
  <p float="left">
-    <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-22.11-5176c1?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 22.11"></a>
+    <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-23.05-5176c1?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 23.05"></a>
    <a href="https://"><img src="https://img.shields.io/badge/MAINTAINED-YES-5176c1?style=for-the-badge" alt="MAINTAINED - YES"></a>
  </p>
  
