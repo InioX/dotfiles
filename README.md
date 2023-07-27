@@ -22,11 +22,11 @@ The Arch branch has an installer thats best used after a fresh install, though i
 
 <table>
   <tr>
-    <th><a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-1793d1?style=for-the-badge&logo=Arch+Linux&logoColor=white" alt="Arch - LATEST"></a> </th>
+    <th><img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" alt="logo" width=15> Arch</th>
     <td><code>bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/arch/install.sh)</code></td>
   </tr>
   <tr>
-    <th><a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-23.05-5176c1?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 23.05"></th>
+    <th><img src="https://camo.githubusercontent.com/33a99d1ffcc8b23014fd5f6dd6bfad0f8923d44d61bdd2aad05f010ed8d14cb4/68747470733a2f2f6e69786f732e6f72672f6c6f676f2f6e69786f732d6c6f676f2d6f6e6c792d68697265732e706e67" alt="logo" width=15> NixOS</th>
     <td><code>nixos-install --flake .#hostname</code> and then run <a href="https://github.com/InioX/Matugen">Matugen</a> <sup>(or follow <a href="https://github.com/InioX/dotfiles/tree/nixos#package-installation">this</a>)</sup></td>
   </tr>
 </table>
@@ -35,9 +35,9 @@ The Arch branch has an installer thats best used after a fresh install, though i
 
 <table>
   <tr>
-    <td>Waybar <sup>(Arch)</sup></td>
-    <td>Dunst <sup>(Arch + NixOS)</sup></td>
-    <td>Discord Theme <sup>(Arch)</sup></td>
+    <td>Waybar <sup>(<img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" width=10> Arch)</sup></td>
+    <td>Dunst <sup>(<img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" width=10> Arch + <img src="https://camo.githubusercontent.com/33a99d1ffcc8b23014fd5f6dd6bfad0f8923d44d61bdd2aad05f010ed8d14cb4/68747470733a2f2f6e69786f732e6f72672f6c6f676f2f6e69786f732d6c6f676f2d6f6e6c792d68697265732e706e67" width=12> NixOS)</sup></td>
+    <td>Discord Theme <sup>(<img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" width=10> Arch)</sup></td>
   </tr>
   <tr>
     <td><img src="https://media.discordapp.net/attachments/1134177615964545024/1134178054596464760/image-7.png?width=1438&height=32"></td>
@@ -45,9 +45,9 @@ The Arch branch has an installer thats best used after a fresh install, though i
     <td><img src="https://media.discordapp.net/attachments/1134177615964545024/1134203686747385876/Picsart_23-07-27_21-20-16-233.jpg?width=1173&height=660"></td>
   </tr>
   <tr>
-    <td>Hyprland <sup>(NixOS)</sup></td>
-    <td>Hyprland <sup>(Arch)</sup></td>
-    <td>Waybar Privacy Indicators <sup>(NixOS)</sup></td>
+    <td>Hyprland <sup>(<img src="https://camo.githubusercontent.com/33a99d1ffcc8b23014fd5f6dd6bfad0f8923d44d61bdd2aad05f010ed8d14cb4/68747470733a2f2f6e69786f732e6f72672f6c6f676f2f6e69786f732d6c6f676f2d6f6e6c792d68697265732e706e67" width=12> NixOS)</sup></td>
+    <td>Hyprland <sup>(<img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" width=10> Arch)</sup></td>
+    <td>Waybar Privacy Indicators <sup>(<img src="https://camo.githubusercontent.com/33a99d1ffcc8b23014fd5f6dd6bfad0f8923d44d61bdd2aad05f010ed8d14cb4/68747470733a2f2f6e69786f732e6f72672f6c6f676f2f6e69786f732d6c6f676f2d6f6e6c792d68697265732e706e67" width=12> NixOS)</sup></td>
   </tr>
     <tr>
     <td><img src="https://user-images.githubusercontent.com/81521595/236634805-15e68f9b-44a5-4efc-b275-0eb1f6a28bd9.gif"></td>
@@ -72,18 +72,18 @@ The Arch branch has an installer thats best used after a fresh install, though i
 
 #### Apps
 
-|  Keybind | Action |
-| - | - |
-| <kbd>⊞ Super</kbd> <kbd>⏎ Enter</kbd> | Terminal <sup>(kitty)</sup> |
-| <kbd>⊞ Super</kbd> <kbd>W</kbd> | App Launcher <sup>(Rofi)</sup> |
+| Keybind                                                  | Action                           |
+| -------------------------------------------------------- | -------------------------------- |
+| <kbd>⊞ Super</kbd> <kbd>⏎ Enter</kbd>                    | Terminal <sup>(kitty)</sup>      |
+| <kbd>⊞ Super</kbd> <kbd>W</kbd>                          | App Launcher <sup>(Rofi)</sup>   |
 | <kbd>⊞ Super</kbd> <kbd>⇧ Shift</kbd> <kbd>⏎ Enter</kbd> | File manager <sup>(Thunar)</sup> |
 
 #### Other
 
-|  Keybind | Action |
-| - | - |
-| <kbd>⊞ Super</kbd> <kbd>[0,9]</kbd> | Change workspace |
+| Keybind                                                | Action                     |
+| ------------------------------------------------------ | -------------------------- |
+| <kbd>⊞ Super</kbd> <kbd>[0,9]</kbd>                    | Change workspace           |
 | <kbd>⊞ Super</kbd> <kbd>⇧ Shift</kbd> <kbd>[0,9]</kbd> | Move window to a workspace |
-| <kbd>⊞ Super</kbd> <kbd>Q</kbd> | Kill a window |
-|  <kbd>⊞ Super</kbd> <kbd>mouse:272</kbd> | Move a window |
-| <kbd>⊞ Super</kbd> <kbd>mouse:273</kbd> | Resize a window |
+| <kbd>⊞ Super</kbd> <kbd>Q</kbd>                        | Kill a window              |
+| <kbd>⊞ Super</kbd> <kbd>mouse:272</kbd>                | Move a window              |
+| <kbd>⊞ Super</kbd> <kbd>mouse:273</kbd>                | Resize a window            |
