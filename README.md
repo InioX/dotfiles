@@ -1,21 +1,32 @@
 <div align="center">
   <img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" alt="arch logo" width=125>
   <img src="https://nixos.org/logo/nixos-logo-only-hires.png" alt="nix logo" width=150>
+  <h1>LINUX DOTFILES</h1>
 </div>
 
-<h1 align="center">
-  LINUX DOTFILES<br>
+<div align="center">
   <a href="">
       <img src="https://img.shields.io/github/issues/InioX/dotfiles?color=5176c1&style=for-the-badge">
    </a>
    <a href="https://github.com/InioX/dotfiles/stargazers">
       <img src="https://img.shields.io/github/stars/InioX/dotfiles?color=7eb8e3&style=for-the-badge">
    </a>
+  <br>
   <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-23.05-5176c1?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 23.05">
-  <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-1793d1?style=for-the-badge&logo=Arch+Linux&logoColor=white" alt="Arch - LATEST"></a>
-</h1>
+  <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-1793d1?style=for-the-badge&logo=Arch+Linux&logoColor=white" alt="Arch - LATEST"></a><br>
+  <div>
+    <a href="#package-installation">Installation</a>
+    ·
+  <a href="#-showcase">Showcase</a>
+    ·
+  <a href="#keyboard-basic-keybindings">Keybindings</a>
+  </div>
+  <div align="center">
+    <sub>My Linux dotfiles for <a href="https://github.com/InioX/dotfiles/tree/arch">Arch</a> and <a href="https://github.com/InioX/dotfiles/tree/nixos">NixOS</a>
+  </div>
+</div>
 
-## 🛠️ Installation
+## :package: Installation
 >**Warning** The Arch branch may not be up to date, as i mainly use nixos now. I will still try update it from time to time if i can.
 
 The Arch branch has an installer thats best used after a fresh install, though it can be used on an already set up system too.
