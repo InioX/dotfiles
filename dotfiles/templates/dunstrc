@@ -3,8 +3,8 @@ monitor = 0
 follow = mouse
 # width = 320
 # height = 320
-width = 220
-height = 220
+width = 320
+height = 320
 origin = bottom-center
 offset = 15x15
 scale = 0
@@ -19,7 +19,6 @@ horizontal_padding = 10
 text_icon_padding = 0
 frame_width = 3
 gap_size = 0
-separator_color = frame
 sort = yes
 idle_threshold = 120
 font = Source Sans Pro 10
@@ -27,7 +26,8 @@ line_height = 0
 markup = full
 format = "<b>%s</b>\n%b"
 # format = "<b>%a</b>\n%s"
-alignment = left
+alignment = center
+align = center
 vertical_alignment = top
 show_age_threshold = 60
 ellipsize = middle
@@ -51,24 +51,25 @@ font = "Hack Nerd Font 11"
 
 progress_bar_corner_radius = 7
 
-frame_color = "@{outline}"
+frame_color = "@{primary.hex}"
 highlight = "@{primary.hex}"
+separator_color = "@{outline.hex}"
+
+gaps = true
+gap_size = 10
 
 [progress]
 appname = "progress"
-foreground = "@{error.hex}"
+background = "@{surface.hex}"
+foreground = "@{on_surface.hex}"
+frame_color = "@{surface.hex}"
 alignment = center
 hide_text = true
 icon_position = top
 
-[urgency_low]
-background = "@{surface.hex}"
-foreground = "@{on_surface.hex}"
-timeout = 10
-
 [urgency_normal]
-background = "@{surface.hex}"
-foreground = "@{on_surface.hex}"
+background = "@{primary.hex}"
+foreground = "@{on_primary.hex}"
 timeout = 10
 
 [urgency_critical]
