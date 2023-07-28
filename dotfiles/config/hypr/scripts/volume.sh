@@ -13,37 +13,32 @@ volume_input=$(pactl get-source-volume @DEFAULT_SOURCE@ | grep -Po '\d+(?=%)' | 
 is_muted_output=$(pactl get-sink-mute @DEFAULT_SINK@)
 is_muted_input=$(pactl get-source-mute @DEFAULT_SOURCE@)
 
-function get_volume {
-    if [[ "$1" -eq 100 ]]; then $1=100; else $1=$(($1 + $amount)); fi
-}
-
 function notification_bar {
-    notify-send -u low -r "$id" -a "${header}" -i "${icon}" -h int:value:"$volume" "${text}" -t $timeout
+    notify-send -u low -r "$id" -a "${header}" -i "${icon}" -h int:value:"$volume" "${text}" -t $timeout -a "progress"
 }
 
 function notification_mute {
-    notify-send "$text" -u low -r $id -a "$header" -i "${icon}" -t $timeout
+    notify-send "$text" -u low -r $id -a "$header" -i "${icon}" -t $timeout -a "progress"
 }
 
 case $1 in
 # Output
 output-up)
-    get_volume $volume_output
-    volume=$volume_output
+	pactl set-sink-volume @DEFAULT_SINK@ +$amount%
+    volume=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)
     header="Output volume"
     text="Currently at ${volume}%"
     icon="$icon_folder/vol-up.png"
     id=$id_output
-	amixer -D pulse sset Master "$amount"%+
 	notification_bar;;
 
 output-down)
-    volume=$(($volume_output - $amount))
+	pactl set-sink-volume @DEFAULT_SINK@ -$amount%
+    volume=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)
     header="Output volume"
     text="Currently at ${volume}%"
     icon="$icon_folder/vol-down.png"
     id=$id_output
-	amixer -D pulse sset Master "$amount"%-
 	notification_bar;;
 
 output-mute)
@@ -66,22 +61,21 @@ output-mute)
 
 # Input
 input-up)
-    get_volume $volume_input
-    volume=$volume_input
+	pactl set-source-volume @DEFAULT_SOURCE@ +$amount%
+    volume=$(pactl get-source-volume @DEFAULT_SOURCE@ | grep -Po '\d+(?=%)' | head -n 1)
     header="Input volume"
     text="Currently at ${volume}%"
     icon="$icon_folder/mic-up.png"
     id=$id_input
-	amixer -D pulse sset Capture "$amount"%+
 	notification_bar;;
 
 input-down)
-    volume=$(($volume_input - $amount))
+	pactl set-source-volume @DEFAULT_SOURCE@ -$amount%
+    volume=$(pactl get-source-volume @DEFAULT_SOURCE@ | grep -Po '\d+(?=%)' | head -n 1)
     header="Input volume"
     text="Currently at ${volume}%"
     icon="$icon_folder/mic-down.png"
     id=$id_input
-	amixer -D pulse sset Capture "$amount"%-
 	notification_bar;;
 
 input-mute)
