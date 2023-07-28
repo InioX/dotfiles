@@ -26,7 +26,8 @@ in {
           "center",
       ]
       run_after = [
-        [ "reload-theme" ]
+        [ "reload-theme" ],
+        [ "pkill", "dunst" ]
       ]
 
       [templates.waybar]
@@ -52,6 +53,10 @@ in {
       [templates.Hyprland-colors]
       input_path = "${templateFolder}/colors.conf"
       output_path = "~/.config/hypr/colors.conf"
+
+      [templates.dunst]
+      input_path = "${templateFolder}/dunstrc"
+      output_path = "~/.config/dunst/dunstrc"
 
       # [templates.starship]
       # input_path = "${templateFolder}/starship.toml"
