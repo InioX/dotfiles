@@ -37,7 +37,7 @@ brightness-down)
 
 # Temperature
 temperature-up)
-    value=$(($value_temperature + $amount))
+    value=$((($value_temperature + $amount) / 100))
     header="Temperature"
     text="Currently at ${value}K"
     icon="$icon_folder/temperature-up.png"
@@ -46,7 +46,7 @@ temperature-up)
 	notification_bar;;
 
 temperature-down)
-    value=$(($value_temperature - $amount))
+    value=$((($value_temperature - $amount) / 100))
     header="Temperature"
     text="Currently at ${value}K"
     icon="$icon_folder/temperature-down.png"
