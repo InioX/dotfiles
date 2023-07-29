@@ -60,9 +60,9 @@ gap_size = 10
 
 [progress]
 appname = "progress"
-background = "@{surface.hex}"
-foreground = "@{on_surface.hex}"
-frame_color = "@{surface.hex}"
+background = "@{surface_variant.hex}"
+foreground = "@{on_surface_variant.hex}"
+frame_color = "@{surface_variant.hex}"
 alignment = center
 hide_text = true
 icon_position = top
