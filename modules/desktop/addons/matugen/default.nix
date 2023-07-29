@@ -27,7 +27,8 @@ in {
       ]
       run_after = [
         [ "reload-theme" ],
-        [ "pkill", "dunst" ]
+        [ "pkill", "dunst" ],
+        ["notify-send", "  Sucessfully restarted all apps"]
       ]
 
       [templates.waybar]
