@@ -92,6 +92,8 @@ in {
           };
           settings = {
             "general.smoothScroll" = true;
+            "browser.startPage" = 3;
+            "browser.sessionstore.resume_session" = true;
           };
           # userChrome = ''
           #  a css
