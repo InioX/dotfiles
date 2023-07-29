@@ -4,6 +4,7 @@
   lib,
   configFolder,
   templateFolder,
+  username,
   ...
 }:
 with lib; let
@@ -14,6 +15,10 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      jq
+    ];
+
     zenyte.home.configFile."matugen/config.toml".text = ''
       [config]
       reload_apps = true
@@ -28,7 +33,8 @@ in {
       run_after = [
         [ "reload-theme" ],
         [ "pkill", "dunst" ],
-        ["notify-send", "  Sucessfully restarted all apps"]
+        [ "notify-send", "  Sucessfully restarted all apps" ],
+        [ "/home/${username}/.config/hypr/scripts/reload_firefox.sh" ]
       ]
 
       [templates.waybar]
