@@ -41,7 +41,7 @@
     "format-plugged": " {icon}󱐋",
     "format-warning": "{icon} 󰀪",
     "format-critical": " {icon} 󰀪",
-    "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
+    "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰂂"]
   },
 
   "battery#text": {
@@ -88,7 +88,7 @@
 
   "pulseaudio#icon": {
     "format": "{icon}",
-    "format-muted": "",
+    "format-muted": "󰝟",
     "scroll-step": 1,
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-click-middle": "pavucontrol",
@@ -96,11 +96,11 @@
     "format-icons": {
       "headphone": "",
       "hands-free": "",
-      "headset": "",
+      "headset": "󰋋",
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["󰖀", "󰖀", "墳", "󰕾"]
+      "default": ["󰖀", "󰖀", "󰕾", "󰕾"]
     },
   },
   "pulseaudio#text": {
