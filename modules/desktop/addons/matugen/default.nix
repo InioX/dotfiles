@@ -33,8 +33,8 @@ in {
       run_after = [
         [ "reload-theme" ],
         [ "pkill", "dunst" ],
-        [ "notify-send", "  Sucessfully restarted all apps" ],
-        [ "/home/${username}/.config/hypr/scripts/reload_firefox.sh" ]
+        [ "/home/${username}/.config/hypr/scripts/reload_firefox.sh" ],
+        [ "/home/${username}/.config/hypr/scripts/reload_dunst.sh" ],
       ]
 
       [templates.waybar]
