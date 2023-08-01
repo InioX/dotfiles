@@ -1,25 +1,60 @@
-@import                          "colors.rasi"
+@import                             "colors.rasi"
 
 * {
     background-color:  		        transparent;
     text-color:        		        @on-surface;
     font:			                "Noto Sans 12";
 	
-    width:      		            20%;
+    width:      		            15%;
     margin:     		            0px;
     padding:   			            0px;
     spacing:    		            0px;
 }
 
+window {
+    margin:                         10px;
+    anchor:                         east;
+    location:                       east;
+    border: 			            4px;
+    border-color:		            @surface-variant;
+    border-radius:      	        10px;
+    background-color:		        @surface;
+    children:                       [textbox-custom, mainbox];
+}
+
+textbox-custom {
+    expand:                         false;
+    content:                        "━━━";
+    text-style:                     bold;
+    font:                           "Noto Sans 15";
+    vertical-align:                 0.5;
+    horizontal-align:               0.5;
+}
+
 inputbar {
-   background-color:	        	@surface-variant;
-   padding:			                10px;
-   border-radius:		            10px;
+    children:                       [entry, prompt];
+}
+
+entry {
+    padding:			            7px;
+    background-color:	        	@surface-variant;
+    border-radius:		            10px;
+    placeholder:                    "Search...";
+    placeholder-color:              @on-surface-variant;
+}
+
+prompt {
+    padding:			            7px;
+    margin:                         0 0 0 5px;
+    border-radius:		            10px;
+    background-color:               @primary;
+    text-color:                     @on-primary;
 }
 
 listview {
-   lines:		                	5;
+    lines:		                	4;
 }
+
 
 mainbox {
     background-color:               @surface;
@@ -28,25 +63,32 @@ mainbox {
     padding:                        20px;
 }
 
-window {
-    border: 			            4px;
-    border-color:		            @surface-variant;
-    border-radius:      	        10px;
-    background-color:		        @surface-variant;
-}
-
 element {
+    margin:                         5px;
     padding: 			            5px;
     background-color:		        @surface;
+    orientation:                    vertical;
+    border:                         0px 0px 2px 0px;
+    border-color:                   @outline;
 }
 
 element selected {
-    text-color:        		        @on-primary;
-    background-color: 		        @primary;
+    border:                         0px;
+    background-color: 		        @surface-variant;
     border-radius:		            10px;
+}
+
+element-text {
+    vertical-align:                 0.5;
+    horizontal-align:               0.5;
+    margin:                         0px 0px 5px 0px;
+}
+
+element-text selected {
+    text-color:        		        @on-surface-variant;
 }
 
 element-icon {
     margin:		            	    0px 5px 0px 0px;
-    size:			                30px;
+    size:			                50px;
 }
