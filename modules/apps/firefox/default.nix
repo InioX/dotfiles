@@ -94,6 +94,11 @@ in {
             "general.smoothScroll" = true;
             "browser.startPage" = 3;
             "browser.sessionstore.resume_session" = true;
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            "layout.css.has-selector.enabled" = true;
+            "userChrome.TabSeparatorsLowSaturation-Enabled" = true;
+            "userChrome.Tabs.Option4.Enabled" = true;
+            "userChrome.FilledMenuIcons-Enabled" = true;
           };
           # userChrome = ''
           #  a css
