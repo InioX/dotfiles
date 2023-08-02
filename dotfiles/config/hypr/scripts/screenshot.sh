@@ -3,7 +3,7 @@ timeout=4000
 icon_folder="~/.config/hypr/icons"
 
 function notification {
-    notify-send "$text" -u low -a "$header" -i "${icon}" -t $timeout
+    notify-send "$text" -u low -a "$header" -i "${icon}" -t $timeout -
 }
 
 case $1 in

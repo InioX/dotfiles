@@ -67,6 +67,14 @@ alignment = center
 hide_text = true
 icon_position = top
 
+[Screenshot]
+appname = "Screenshot"
+background = "@{surface_variant.hex}"
+foreground = "@{on_surface_variant.hex}"
+frame_color = "@{surface_variant.hex}"
+alignment = center
+icon_position = top
+
 [urgency_normal]
 background = "@{primary.hex}"
 foreground = "@{on_primary.hex}"
