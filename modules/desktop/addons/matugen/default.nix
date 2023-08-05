@@ -69,9 +69,9 @@ in {
       input_path = "${templateFolder}/userChrome.css"
       output_path = "~/.mozilla/firefox/ini/chrome/userChrome.css"
 
-      # [templates.starship]
-      # input_path = "${templateFolder}/starship.toml"
-      # output_path = "~/.config/starship.toml"
+      [templates.starship]
+      input_path = "${templateFolder}/starship.toml"
+      output_path = "~/.config/starship.toml"
 
       [templates.kitty]
       input_path = "${templateFolder}/kitty.conf"

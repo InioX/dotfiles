@@ -29,6 +29,7 @@
     ./cli/zsh
     ./cli/git
     ./cli/neofetch
+    ./cli/starship
 
     # Home
     ./home

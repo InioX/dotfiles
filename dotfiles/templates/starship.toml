@@ -7,9 +7,10 @@ error_symbol = "[🞈](@{error})"
 vicmd_symbol = "[🞈](#f9e2af)"
 
 [directory]
-format = "[]($style)[(bg:@{primary} fg:@{surface_variant})$path](bg:@{surface_variant} fg:@{primary})[ ]($style)"
+format = "[]($style)[(bg:@{primary} fg:@{on_primary})$path ](fg:@{on_surface_variant} bg:@{surface_variant})[](fg:@{primary} bg:@{surface_variant})[󰉋](bg:@{primary} fg:@{on_primary})[ ](fg:@{primary})"
+
 style = "bg:@{surface} fg:@{surface_variant}"
 
-# [git_b# ranch]
-# format = "[]($style)[[ ](bg:#89b4fa fg:#49628a bold)$branch](bg:#89b4fa fg:#362f2b)[ ]($style)"
-# style = "bg:#1a1b26 fg:#89b4fa"
+[git_branch]
+format = "[](fg:@{surface_variant})[(bg:@{primary} fg:@{on_primary})$branch ](fg:@{on_surface_variant} bg:@{surface_variant})[](fg:@{primary} bg:@{surface_variant})[](bg:@{primary} fg:@{on_primary})[ ](fg:@{primary})"
+style = "bg:@{surface} fg:@{surface_variant}"

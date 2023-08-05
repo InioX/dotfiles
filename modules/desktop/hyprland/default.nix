@@ -43,6 +43,7 @@ in {
 
     zenyte.cli = {
       neofetch.enable = true;
+      starship.enable = true;
     };
 
     # zenyte.home.configFile."hypr".source = configFolder + /hypr;
