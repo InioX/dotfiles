@@ -22,7 +22,6 @@ in {
     zenyte.home.configFile."matugen/config.toml".text = ''
       [config]
       reload_apps = true
-      reload_gtk_theme = false
       set_wallpaper = true
       wallpaper_tool = 'Swww'
       prefix = '@'
@@ -32,10 +31,15 @@ in {
       ]
       run_after = [
         [ "reload-theme" ],
-        [ "pkill", "dunst" ],
         [ "/home/${username}/.config/hypr/scripts/reload_firefox.sh" ],
         [ "/home/${username}/.config/hypr/scripts/reload_dunst.sh" ],
       ]
+
+      [config.reload_apps_list]
+      waybar = true
+      kitty = true
+      dunst = true
+      gtk_theme = false
 
       [templates.waybar]
       input_path = "${templateFolder}/waybar-colors.css"
