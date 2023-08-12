@@ -19,8 +19,11 @@ with lib; {
     };
   };
 
-  # Enable networking
+  # Enable networking and bluetooth
   networking.networkmanager.enable = true;
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   # Additional packages to install
   environment.systemPackages = with pkgs; [
@@ -33,7 +36,6 @@ with lib; {
 
     redshift
 
-    vhs
     chromium
 
     mpv
@@ -42,6 +44,8 @@ with lib; {
 
     rare
   ];
+
+  programs.go.enable = true;
 
   zenyte.desktop = {
     xfce.enable = true;
