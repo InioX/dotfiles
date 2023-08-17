@@ -66,7 +66,7 @@ sudo nixos-rebuild switch --flake .#<hostname>
 matugen image /path/to/wallpaper/ -v
 ```
 > **Note**
-> Read matugen documentation [here](https://github.com/InioX/matugen-rs#usage).
+> Read matugen documentation [here](https://github.com/InioX/matugen#usage).
 
 ## 🛠️ Usage
 
