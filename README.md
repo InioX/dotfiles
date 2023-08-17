@@ -64,7 +64,8 @@ sudo nixos-rebuild switch --flake .#<hostname>
 # Generate templates from the dotfiles/templates/ folder
 matugen image /path/to/wallpaper/ -v
 ```
->**Note** Read matugen documentation [here](https://github.com/InioX/matugen-rs#usage).
+> **Note**
+> Read matugen documentation [here](https://github.com/InioX/matugen-rs#usage).
 
 ## 🛠️ Usage
 
