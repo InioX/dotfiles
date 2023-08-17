@@ -27,7 +27,8 @@
 </div>
 
 ## :package: Installation
->**Warning** The Arch branch may not be up to date, as i mainly use nixos now. I will still try update it from time to time if i can.
+> **Warning**
+> The Arch branch may not be up to date, as i mainly use nixos now. I will still try update it from time to time if i can.
 
 The Arch branch has an installer thats best used after a fresh install, though it can be used on an already set up system too.
 
@@ -79,7 +80,8 @@ The Arch branch has an installer thats best used after a fresh install, though i
 
 ## :keyboard: Basic keybindings
 
-> **Note** Left mouse click is `mouse:272`, right click is `mouse:273`, and `Super` the Windows key.
+> **Note**
+> Left mouse click is `mouse:272`, right click is `mouse:273`, and `Super` the Windows key.
 
 #### Apps
 
