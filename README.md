@@ -18,7 +18,8 @@
 </div>
 
 ## 📷 Showcase
->**Warning** The showcase may be outdated and look differently.
+> **Warning**
+> The showcase may be outdated and look differently.
 
 <details><summary>Expand to show</summary>
 <p>
