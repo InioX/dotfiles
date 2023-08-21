@@ -60,6 +60,15 @@ window#waybar {
   color: @on_surface;
 }
 
+#custom-mode {
+  background: @primary_container;
+  color: @on_primary_container;
+  border-radius: 10px;
+  padding: 4px;
+  margin: 4px;
+  font-size: 20px;
+}
+
 #clock {
   color: @on_surface;
   background: @surface_variant;

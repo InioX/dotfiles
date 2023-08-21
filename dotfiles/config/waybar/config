@@ -17,9 +17,10 @@
     "pulseaudio#icon",
     "pulseaudio#text"
   ],
-
+  
   /*CENTER */
   "modules-center": [ 
+    "custom/mode",
     "clock"
   ],
 
@@ -59,7 +60,12 @@
 
   "custom/menu": {
       "format": "󰍜"
-    },
+  },
+
+  "custom/mode": {
+    "format": "󰔎",
+    "on-click": "hyprctl dispatch exec ~/.config/hypr/scripts/switch-mode.sh"
+  },
 
   "wlr/workspaces": {
     "disable-scroll": true,

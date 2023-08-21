@@ -53,16 +53,27 @@ Welcome to my dotfiles! My main goal was to have dynamic colors based on the wal
         ├── 📄 default.nix
         └── 📄 hardware.nix
 ```
+
 ## :package: Installation
 ```shell
 # First, clone the repository
-git clone https://github.com/InioX/dotfiles && cd dotfiles
+git clone https://github.com/InioX/dotfiles
+cd dotfiles
 
-# Rebuild the system 
-sudo nixos-rebuild switch --flake .#<hostname>
+# Put this file in hosts/<hostname>/hardware.nix
+nixos-generate-config
+
+# Install the system 
+sudo nixos-install --flake .#<hostname>
 
 # Generate templates from the dotfiles/templates/ folder
-matugen image /path/to/wallpaper/ -v
+switch-theme /path/to/light/wallpaper /path/to/dark/wallpaper
+
+# To switch between light/dark modes
+switch-mode
+
+# Or if you want to, ignore the two steps above and run matugen directly
+matugen image /path/to/wallpaper/ -v <other-options>
 ```
 >**Note** Read matugen documentation [here](https://github.com/InioX/matugen-rs#usage).
 

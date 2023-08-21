@@ -18,6 +18,8 @@ in {
       shellAliases = {
         ll = "ls -l";
         rebuild = "sudo nixos-rebuild switch --flake .#";
+        switch-theme = "~/.config/hypr/scripts/switch-theme.sh";
+        switch-mode = "~/.config/hypr/scripts/switch-mode.sh";
       };
     };
 
