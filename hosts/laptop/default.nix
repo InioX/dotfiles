@@ -42,10 +42,13 @@ with lib; {
 
     virt-manager
 
+    ffmpeg
+    ttyd
+
     rare
   ];
 
-  programs.go.enable = true;
+  zenyte.home.programs.go.enable = true;
 
   zenyte.desktop = {
     xfce.enable = true;
