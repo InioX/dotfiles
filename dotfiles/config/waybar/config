@@ -4,32 +4,52 @@
   "margin-left": 10,
   "margin-bottom": 10,
   "margin-top": 10,
-
+  
   
   /* BOTTOM */
   "modules-right": [
+    "custom/next",
+    "custom/play_pause",
+    "custom/previous",
     "battery#icon",
-    "battery#text",
-    "custom/wl-gammarelay-brightness#icon",
-    "custom/wl-gammarelay-brightness#text",
-    "custom/wl-gammarelay-temperature#icon",
-    "custom/wl-gammarelay-temperature#text",
+    // "battery#text",
+    // "custom/wl-gammarelay-brightness#icon",
+    // "custom/wl-gammarelay-brightness#text",
+    // "custom/wl-gammarelay-temperature#icon",
+    // "custom/wl-gammarelay-temperature#text",
     "pulseaudio#icon",
-    "pulseaudio#text"
+    // "pulseaudio#text",
+    "custom/mode",
   ],
   
   /*CENTER */
   "modules-center": [ 
-    "custom/mode",
     "clock"
   ],
-
+  
   /* TOP */
   "modules-left": [
     "custom/menu",
     "custom/power",
     "wlr/workspaces"
   ],
+
+  "custom/next": {
+    "format": "󰒭",
+    "on-click": "playerctl next",
+  },
+
+  "custom/previous": {
+    "format": "󰒮",
+    "on-click": "playerctl previous",
+  },
+
+  "custom/play_pause": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "mediaplayer-waybar",
+    "on-click": "playerctl play-pause",
+  },
 
   "battery#icon": {
     "states": {
@@ -55,7 +75,7 @@
   },
 
   "custom/power": {
-    "format": "󰐥"
+    "format": "󰐥",
   },
 
   "custom/menu": {
@@ -90,7 +110,7 @@
   "clock": {
       "format": "{:<span weight=\"bold\">%H</span>\n<span weight=\"light\">%M</span>}",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    },
+  },
 
   "pulseaudio#icon": {
     "format": "{icon}",

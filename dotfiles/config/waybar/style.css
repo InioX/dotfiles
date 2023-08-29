@@ -14,6 +14,29 @@ window#waybar {
   border-radius: 10px;
 }
 
+#custom-play_pause, #custom-next, #custom-previous {
+  background-color: @primary_container;
+  margin: 0px 5px 0px 5px;
+  color: @on_primary_container;
+  font-size: 30px;
+}
+
+#custom-play_pause {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#custom-next {
+  padding-top: 20px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+#custom-previous {  
+  padding-bottom: 20px;
+  border-radius: 0px 0px 10px 10px;
+  margin-bottom: 5px;
+}
+
 #custom-power,
 #workspaces,
 #clock
@@ -37,7 +60,7 @@ window#waybar {
 
 #workspaces {
   background: @surface_variant;
-  color: @on_surface_variant;
+  color: @on_surface;
   padding: 5px 0px;
   border-radius: 10px;
 }
@@ -45,7 +68,7 @@ window#waybar {
 #workspaces button {
   color: @on_surface;
   border-radius: 30px;
-  padding: 4px;
+  padding: 5px 0px 5px 0px;
   margin: 4px;
   font-size: 20px;
 }
@@ -61,8 +84,8 @@ window#waybar {
 }
 
 #custom-mode {
-  background: @primary_container;
-  color: @on_primary_container;
+  background: @tertiary;
+  color: @on_tertiary;
   border-radius: 10px;
   padding: 4px;
   margin: 4px;
@@ -70,8 +93,8 @@ window#waybar {
 }
 
 #clock {
-  color: @on_surface;
   background: @surface_variant;
+  color: @on_surface_variant;
   padding: 10px;
   border-radius: 10px;
   font-size: 18px;
@@ -82,13 +105,13 @@ window#waybar {
 #custom-wl-gammarelay-temperature.icon,
 #pulseaudio.icon
 {
-  background: @primary;
-  color: @on_primary;
+  background: @surface_variant;
+  color: @on_surface_variant;
   font-size: 20px;
-  border-radius: 10px 10px 0px 0px;
-  padding: 3px;
+  /* border-radius: 10px 10px 0px 0px; */
+  border-radius: 10px 10px 10px 10px;
+  padding: 5px;
   margin: 5px;
-  margin-bottom: 0px;
 }
 
 #battery.text,
@@ -97,8 +120,7 @@ window#waybar {
 #pulseaudio.text
 {
   background: @surface_variant;
-  color: @on_surface;
-
+  color: @on_surface_variant;
   border-radius: 0px 0px 10px 10px;
   padding: 3px;
   margin: 5px;

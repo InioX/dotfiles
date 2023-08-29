@@ -9,6 +9,23 @@
 }:
 with lib; let
   cfg = config.zenyte.desktop.addons.waybar;
+  mediaplayer-waybar = pkgs.writeShellScriptBin "mediaplayer-waybar" ''
+    while true; do
+      sleep 0.5
+
+      playerctlstatus=$(playerctl status 2> /dev/null)
+
+      if [[ $playerctlstatus ==  "" ]]; then
+        echo '{ "text": "󰐍", "class": "none" }'
+      elif [[ $playerctlstatus =~ "Playing" ]]; then
+        echo '{ "text": "󰏦", "class": "playing" }'
+      else
+        echo '{ "text": "󰐍", "class": "paused" }'
+      fi
+
+      wait
+    done
+  '';
 in {
   options.zenyte.desktop.addons.waybar = {
     enable = mkEnableOption "Whether to enable waybar with experimental patches.";
@@ -24,7 +41,9 @@ in {
     ];
 
     environment.systemPackages = with pkgs; [
+      mediaplayer-waybar
       waybar
+      playerctl
     ];
 
     zenyte.home.configFile."waybar/config".source = configFolder + /waybar/config;
