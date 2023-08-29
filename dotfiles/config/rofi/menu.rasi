@@ -5,34 +5,60 @@
     text-color:        		        @on-surface;
     font:			                "Noto Sans 12";
 	
-    width:      		            15%;
+    height:      		            100%;
+    width:      		            20%;
     margin:     		            0px;
     padding:   			            0px;
     spacing:    		            0px;
 }
 
-window {
-    margin:                         10px;
-    anchor:                         east;
-    location:                       east;
-    border: 			            4px;
-    border-color:		            @surface-variant;
-    border-radius:      	        10px;
-    background-color:		        @surface;
-    children:                       [textbox-custom, mainbox];
+horibox {
+    children:                       [prompt, textbox-close];
+    orientation:                    horizontal;
+    margin:                         0px;
+    expand:                         false;
 }
 
-textbox-custom {
+window {
+    anchor:                         east;
+    location:                       east;
+    border: 			            0px 0px 0px 4px;
+    border-color:		            @surface-variant;
+    background-color:		        @surface;
+    children:                       [horibox, mainbox];
+}
+
+textbox-close {
     expand:                         false;
-    content:                        "━━━";
+    padding:                        0px;
+    margin:                         0px;
+    content:                        "󰅖";
+    text-style:                     bold;
+    font:                           "Noto Sans 25";
+    vertical-align:                 0.70;
+    orientation:                    horizontal;
+    margin:                         0px 20px 0px 200px;
+}
+
+textbox-arrow {
+    expand:                         false;
+    content:                        "󰅖";
     text-style:                     bold;
     font:                           "Noto Sans 15";
+    orientation:                    horizontal;
+}
+
+prompt {
+    expand:                         false;
+    margin:                         0px 0px 0px 20px;
+    border-radius:		            10px;
+    orientation:                    horizontal;
     vertical-align:                 0.5;
-    horizontal-align:               0.5;
+    font:			                "Noto Sans 20";
 }
 
 inputbar {
-    children:                       [entry, prompt];
+    children:                       [entry];
 }
 
 entry {
@@ -43,13 +69,6 @@ entry {
     placeholder-color:              @on-surface-variant;
 }
 
-prompt {
-    padding:			            7px;
-    margin:                         0 0 0 5px;
-    border-radius:		            10px;
-    background-color:               @primary;
-    text-color:                     @on-primary;
-}
 
 listview {
     lines:		                	4;
@@ -64,12 +83,11 @@ mainbox {
 }
 
 element {
-    margin:                         5px;
-    padding: 			            5px;
+    margin:                         5px 5px 10px 5px;
+    padding: 			            10px;
     background-color:		        @surface;
-    orientation:                    vertical;
-    border:                         0px 0px 2px 0px;
-    border-color:                   @outline;
+    orientation:                    horizontal;
+    children:                       [element-icon, element-text];
 }
 
 element selected {
@@ -90,5 +108,5 @@ element-text selected {
 
 element-icon {
     margin:		            	    0px 5px 0px 0px;
-    size:			                50px;
+    size:			                30px;
 }
