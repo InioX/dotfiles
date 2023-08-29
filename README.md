@@ -18,7 +18,8 @@
 </div>
 
 ## 📷 Showcase
->**Warning** The showcase may be outdated and look differently.
+> **Warning**
+> The showcase may be outdated and look differently.
 
 <details><summary>Expand to show</summary>
 <p>
@@ -75,7 +76,8 @@ switch-mode
 # Or if you want to, ignore the two steps above and run matugen directly
 matugen image /path/to/wallpaper/ -v <other-options>
 ```
->**Note** Read matugen documentation [here](https://github.com/InioX/matugen-rs#usage).
+> **Note**
+> Read matugen documentation [here](https://github.com/InioX/matugen#usage).
 
 ## 🛠️ Usage
 
