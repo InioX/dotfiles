@@ -19,6 +19,7 @@
     ./desktop/addons/dunst
     ./desktop/addons/matugen
     ./desktop/addons/alacritty
+    ./desktop/addons/ags
 
     # Apps
     ./apps/firefox

@@ -39,6 +39,7 @@ in {
       gtk.enable = true;
       dunst.enable = true;
       matugen.enable = true;
+      ags.enable = true;
     };
 
     zenyte.cli = {

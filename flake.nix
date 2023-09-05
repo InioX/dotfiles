@@ -73,6 +73,10 @@
       url = "github:nix-community/home-manager/release-23.05";
     };
 
+    ags = {
+      url = "github:Aylur/ags";
+    };
+
     # Hyprland
     hyprland = {
       url = "github:hyprwm/Hyprland";
