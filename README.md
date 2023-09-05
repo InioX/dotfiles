@@ -96,6 +96,49 @@ matugen image /path/to/wallpaper/ -v <other-options>
 ## 🛠️ Usage
 
 ### Adding new hosts
+
+The name of the folder should be your hostname and it should be located in `hosts/<hostName>`. Every host folder should contain a `default.nix` file and `hardware.nix`.
+
+To get a `hardware.nix` file:
+```sh
+nixos-generate-config
+```
+
+To get a `default.nix` file, you can modify this template:
+
+```nix
+
+# default.nix
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+with lib; {
+  imports = [./hardware.nix ../../modules];
+
+  # Configure the bootloader
+  boot.loader = {
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 5;
+    };
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
+    };
+  };
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Anything else here... You can also use `zenyte.<category>` to configure stuff.
+}
+```
+
+Finally, add the folder name as the hostname into `flake.nix`
+
 ```nix
 # flake.nix
 {
