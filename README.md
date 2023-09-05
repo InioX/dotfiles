@@ -18,6 +18,20 @@
 </div>
 
 ## 📷 Showcase
+<details><summary>Changes</summary>
+<h2>
+    Waybar <sup><a href="https://github.com/InioX/dotfiles/commit/fe65d8b40df74ed81d642d476181c75a6ae46f19">(fe65d8b) - 29/08/2023</a></sup>
+    <br><br>
+    <img src="https://media.discordapp.net/attachments/1134177615964545024/1146100066860404736/image.png?width=60&height=684">
+</h2>
+
+<h2>
+    Rofi <sup><a href="https://github.com/InioX/dotfiles/commit/3b4f381ae02b036f2960e76d4507e7c64c05b475">(3b4f381) - 29/08/2023</a></sup>
+    <br><br>
+    <img src="https://cdn.discordapp.com/attachments/1134177615964545024/1146100166668071054/image.png">
+</h2>
+</details>
+
 > **Warning**
 > The showcase may be outdated and look differently.
 
@@ -99,6 +113,41 @@ in {
   };
 }
 ```
+
+## ⚠️ Issues
+
+### Broken bootloader after dual booting Windows
+
+1. Boot the live usb and mount partitions
+    > **Warning**
+    > The partition and drive names will not be the same for everyone
+
+    ```sh
+    sudo mount /dev/nvme0n1p2 /mnt
+    sudo mount /dev/nvme0n1p1 /mnt/boot
+    ```
+
+2. Move `/mnt/boot/EFI/Microsoft` to `/mnt/boot/EFI/Microsoft.bak`
+
+    ```sh
+    sudo mv /mnt/boot/EFI/Microsoft /mnt/boot/EFI/Microsoft.bak
+    ```
+
+3. Reboot
+
+4. Everything should work now, except you can't choose Windows from the Bootloader
+
+5. Repeat step `1.`
+
+6. Move `/mnt/boot/EFI/Microsoft.bak` back to the original position of `/mnt/boot/EFI/Microsoft`
+
+   ```sh
+    sudo mv /mnt/boot/EFI/Microsoft /mnt/boot/EFI/Microsoft.bak
+    ```
+
+7. Reboot
+
+8. Everything should work again as intended
 
 ## ✨ Acknowledgment
 
