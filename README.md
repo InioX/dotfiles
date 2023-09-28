@@ -6,14 +6,14 @@
 
 <div align="center">
   <a href="">
-      <img src="https://img.shields.io/github/issues/InioX/dotfiles?color=5176c1&style=for-the-badge">
+      <img src="https://img.shields.io/github/issues/InioX/dotfiles?color=7eb8e3&style=for-the-badge">
    </a>
    <a href="https://github.com/InioX/dotfiles/stargazers">
       <img src="https://img.shields.io/github/stars/InioX/dotfiles?color=7eb8e3&style=for-the-badge">
    </a>
   <br>
-  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-23.05-5176c1?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 23.05">
-  <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-1793d1?style=for-the-badge&logo=Arch+Linux&logoColor=white" alt="Arch - LATEST"></a><br>
+  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-23.05-7eb8e3?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 23.05">
+  <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-7eb8e3?style=for-the-badge&logo=Arch+Linux&logoColor=white" alt="Arch - LATEST"></a><br>
   <div>
     <a href="#package-installation">Installation</a>
     ·
@@ -26,7 +26,15 @@
   </div>
 </div>
 
-## :package: Installation
+<h2>
+     <sub>
+          <img  src="https://github.com/InioX/dotfiles/assets/81521595/a3390c05-7444-4442-9758-fde507cb6f5d"
+           height="25"
+           width="25">
+     </sub>
+     Installation
+</h2>
+
 > **Warning**
 > The Arch branch may not be up to date, as i mainly use nixos now. I will still try update it from time to time if i can.
 
@@ -43,7 +51,14 @@ The Arch branch has an installer thats best used after a fresh install, though i
   </tr>
 </table>
       
-## 📷 Showcase
+<h2>
+     <sub>
+          <img  src="https://github.com/InioX/dotfiles/assets/81521595/bfaea58f-e251-40d4-bacd-a176b6f07abd"
+           height="25"
+           width="25">
+     </sub>
+     Showcase
+</h2>
 
 <table>
   <tr>
@@ -78,10 +93,17 @@ The Arch branch has an installer thats best used after a fresh install, though i
   </tr>
  </table>
 
-## :keyboard: Basic keybindings
+<h2>
+     <sub>
+          <img  src="https://github.com/InioX/dotfiles/assets/81521595/a52a0579-0785-46d2-b44d-fe1b66bcb347"
+           height="25"
+           width="25">
+     </sub>
+     Basic keybindings
+</h2>
 
 > **Note**
-> Left mouse click is `mouse:272`, right click is `mouse:273`, and `Super` the Windows key.
+> 🖱️ Left mouse click is `mouse:272`, 🖱️ right click is `mouse:273`, and `Super` the ⊞ Windows key.
 
 #### Apps
 
