@@ -32,7 +32,6 @@ with lib; {
     tdesktop
     pavucontrol
     brave
-    vscode
     redshift
     chromium
     mpv

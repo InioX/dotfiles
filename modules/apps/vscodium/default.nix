@@ -28,6 +28,7 @@ in {
             naumovs.color-highlight
             usernamehw.errorlens
             arrterian.nix-env-selector
+            pkief.material-icon-theme
           ]
           ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
             {
