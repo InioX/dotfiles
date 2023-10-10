@@ -35,7 +35,7 @@
 > **Warning**
 > The showcase may be outdated and look differently.
 
-<details><summary>Expand to show</summary>
+<details><summary>Click to show</summary>
 <p>
 
 <img src="https://user-images.githubusercontent.com/81521595/236634805-15e68f9b-44a5-4efc-b275-0eb1f6a28bd9.gif" width="320" height="180"/>
@@ -48,7 +48,8 @@
 ## ℹ️ Description
 Welcome to my dotfiles! My main goal was to have dynamic colors based on the wallpaper. However, i couldnt figure of a good way to make this work with [Home Manager](https://github.com/nix-community/home-manager) without having to rebuild everytime... The folder structure is pretty messy but i did try my best to explain it below.
 
-### 📑 Contents
+<details><summary>Click to show</summary>
+    
 ```ini
 📂 dotfiles/
 ├── ❄️ flake.nix
@@ -69,34 +70,48 @@ Welcome to my dotfiles! My main goal was to have dynamic colors based on the wal
         └── 📄 hardware.nix
 ```
 
+</details>
+
 ## :package: Installation
+First, clone the repository
 ```shell
-# First, clone the repository
 git clone https://github.com/InioX/dotfiles
 cd dotfiles
+```
 
-# Put this file in hosts/<hostname>/hardware.nix
+Put this file in hosts/<hostname>/hardware.nix
+```shell
 nixos-generate-config
+```
 
-# Install the system 
+Install the system 
+```shell
 sudo nixos-install --flake .#<hostname>
+```
 
-# Generate templates from the dotfiles/templates/ folder
+Generate templates from the dotfiles/templates/ folder
+```shell
 switch-theme /path/to/light/wallpaper /path/to/dark/wallpaper
+```
 
-# To switch between light/dark modes
+To switch between light/dark modes
+```shell
 switch-mode
+```
 
-# Or if you want to, ignore the two steps above and run matugen directly
+Or if you want to, ignore the two steps above and run matugen directly
+```shell
 matugen image /path/to/wallpaper/ -v <other-options>
 ```
+
 > **Note**
 > Read matugen documentation [here](https://github.com/InioX/matugen#usage).
 
 ## 🛠️ Usage
 
 ### Adding new hosts
-
+<details><summary>Click to show</summary>
+    
 The name of the folder should be your hostname and it should be located in `hosts/<hostName>`. Every host folder should contain a `default.nix` file and `hardware.nix`.
 
 To get a `hardware.nix` file:
@@ -157,9 +172,13 @@ in {
 }
 ```
 
+</details>
+
 ## ⚠️ Issues
 
 ### Broken bootloader after dual booting Windows
+
+<details><summary>Click to show</summary>
 
 1. Boot the live usb and mount partitions
     > **Warning**
@@ -191,6 +210,8 @@ in {
 7. Reboot
 
 8. Everything should work again as intended
+
+</details>
 
 ## ✨ Acknowledgment
 
