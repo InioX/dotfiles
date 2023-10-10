@@ -24,6 +24,7 @@
     # Apps
     ./apps/firefox
     ./apps/prism-launcher
+    ./apps/vscodium
 
     # CLI
     ./cli/bash

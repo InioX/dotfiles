@@ -33,22 +33,19 @@ with lib; {
     pavucontrol
     brave
     vscode
-
     redshift
-
     chromium
-
     mpv
-
     virt-manager
-
     ffmpeg
     ttyd
-
     rare
   ];
 
-  zenyte.home.programs.go.enable = true;
+  # Enable virtualisation
+  virtualisation.libvirtd.enable = true;
+  programs.dconf.enable = true;
+  users.users.ini.extraGroups = ["libvirtd"];
 
   zenyte.desktop = {
     xfce.enable = true;
@@ -59,19 +56,22 @@ with lib; {
   zenyte.apps = {
     firefox = {
       enable = true;
+      # Default extensions: `ublock-origin`, `plasma-integration`
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
       ];
     };
+
     prism-launcher = {
       enable = true;
     };
+
+    vscodium = {
+      enable = true;
+      extensions = with pkgs.vscode-extensions; [
+      ];
+    };
   };
-
-  virtualisation.libvirtd.enable = true;
-  programs.dconf.enable = true;
-
-  users.users.ini.extraGroups = ["libvirtd"];
 
   zenyte.cli = {
     git = {
@@ -79,6 +79,7 @@ with lib; {
       email = "justimnix@gmail.com";
       name = "InioX";
     };
+
     bash.enable = true;
   };
 }
