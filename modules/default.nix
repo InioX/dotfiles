@@ -1,39 +1,30 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
-  imports = [
-    # Desktop
-    ./desktop/hyprland
-    ./desktop/xfce
-    ./desktop/awesome
+{lib, ...}:
+with lib; let
+  # Recursively constructs an attrset of a given folder, recursing on directories, value of attrs is the filetype
+  getDir = dir:
+    mapAttrs
+    (
+      file: type:
+        if type == "directory"
+        then getDir "${dir}/${file}"
+        else type
+    )
+    (builtins.readDir dir);
 
-    # Desktop addons
-    ./desktop/addons/waybar
-    ./desktop/addons/kitty
-    ./desktop/addons/rofi
-    ./desktop/addons/sddm
-    ./desktop/addons/gtk
-    ./desktop/addons/dunst
-    ./desktop/addons/matugen
-    ./desktop/addons/alacritty
-    ./desktop/addons/ags
+  # Collects all files of a directory as a list of strings of paths
+  files = dir: collect isString (mapAttrsRecursive (path: type: concatStringsSep "/" path) (getDir dir));
 
-    # Apps
-    ./apps/firefox
-    ./apps/prism-launcher
-    ./apps/vscodium
-
-    # CLI
-    ./cli/bash
-    ./cli/zsh
-    ./cli/git
-    ./cli/neofetch
-    ./cli/starship
-
-    # Home
-    ./home
-  ];
+  # Filters out directories that don't end with .nix or are this file, also makes the strings absolute
+  validFiles = dir:
+    map
+    (file: ./. + "/${file}")
+    (filter
+      (file:
+        hasSuffix ".nix" file
+        && file != "default.nix"
+        && ! lib.hasPrefix "x/taffybar/" file
+        && ! lib.hasSuffix "-hm.nix" file)
+      (files dir));
+in {
+  imports = validFiles ./.;
 }
