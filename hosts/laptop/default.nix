@@ -62,7 +62,7 @@ with lib; {
     };
 
     prism-launcher = {
-      enable = true;
+      enable = false;
     };
 
     vscodium = {
