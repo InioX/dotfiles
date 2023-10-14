@@ -29,7 +29,13 @@ in {
       wf-recorder
     ];
 
-    programs.hyprland.enable = true;
+    zenyte.home.extraOptions.wayland.windowManager.hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.default.override {
+        enableNvidiaPatches = false;
+      };
+      systemdIntegration = true;
+    };
 
     zenyte.desktop.addons = {
       waybar.enable = true;
