@@ -49,7 +49,10 @@ with lib; {
   zenyte.desktop = {
     xfce.enable = true;
     awesome.enable = true;
-    hyprland.enable = true;
+    hyprland = {
+      enable = true;
+      nvidiaPatches = false;
+    };
   };
 
   zenyte.apps = {

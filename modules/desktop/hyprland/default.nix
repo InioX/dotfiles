@@ -12,6 +12,7 @@ with lib; let
 in {
   options.zenyte.desktop.hyprland = {
     enable = mkEnableOption "Whether to enable Hyprland, with other desktop addons.";
+    nvidiaPatches = mkEnableOption "Whether to enable nvidia patches for hyprland.";
   };
 
   imports = [
@@ -32,7 +33,7 @@ in {
     zenyte.home.extraOptions.wayland.windowManager.hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.default.override {
-        enableNvidiaPatches = false;
+        enableNvidiaPatches = cfg.nvidiaPatches;
       };
       systemdIntegration = true;
     };
