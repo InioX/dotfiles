@@ -12,7 +12,7 @@
       <img src="https://img.shields.io/github/stars/InioX/dotfiles?color=7eb8e3&style=for-the-badge">
    </a>
   <br>
-  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-23.05-7eb8e3?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - 23.05">
+  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-Unstable-7eb8e3?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - Unstable">
   <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-7eb8e3?style=for-the-badge&logo=Arch+Linux&logoColor=white" alt="Arch - LATEST"></a><br>
   <div>
     <a href="#package-installation">Installation</a>
