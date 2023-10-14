@@ -2,13 +2,15 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.desktop.xfce;
 in {
   options.zenyte.desktop.xfce = {
-    enable = mkEnableOption "Whether to enable xfce.";
+    enable = mkBoolOpt false "Whether to enable xfce.";
   };
 
   config = mkIf cfg.enable {

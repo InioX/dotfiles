@@ -2,9 +2,11 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.apps.vscodium;
 
   # Modified code from https://github.com/nix-community/home-manager/issues/3507#issuecomment-1616803481
@@ -17,7 +19,7 @@ with lib; let
   '';
 in {
   options.zenyte.apps.vscodium = with types; {
-    enable = mkEnableOption "Whether to enable vscodium.";
+    enable = mkBoolOpt false "Whether to enable vscodium.";
     extensions = mkOption {
       type = nullOr (listOf package);
       description = ''
@@ -117,7 +119,7 @@ in {
               "    cfg = config.zenyte.$1.$2;"
               "  in {"
               "    options.zenyte.$1.$2 = {"
-              "      enable = mkEnableOption \"Whether to enable $2.\";"
+              "      enable = mkBoolOpt false  \"Whether to enable $2.\";"
               "    };"
               ""
               "    config = mkIf cfg.enable {"

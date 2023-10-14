@@ -2,14 +2,16 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   inputs,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.desktop.awesome;
 in {
   options.zenyte.desktop.awesome = {
-    enable = mkEnableOption "Whether to enable awesomewm.";
+    enable = mkBoolOpt false "Whether to enable awesomewm.";
   };
 
   config = mkIf cfg.enable {

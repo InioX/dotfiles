@@ -2,17 +2,19 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   inputs,
   options,
   configFolder,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.desktop.hyprland;
 in {
   options.zenyte.desktop.hyprland = {
-    enable = mkEnableOption "Whether to enable Hyprland, with other desktop addons.";
-    nvidiaPatches = mkEnableOption "Whether to enable nvidia patches for hyprland.";
+    enable = mkBoolOpt false "Whether to enable Hyprland, with other desktop addons.";
+    nvidiaPatches = mkBoolOpt false "Whether to enable nvidia patches for hyprland.";
   };
 
   imports = [

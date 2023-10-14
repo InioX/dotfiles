@@ -2,15 +2,17 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   inputs,
   configFolder,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.cli.starship;
 in {
   options.zenyte.cli.starship = with types; {
-    enable = mkEnableOption "Whether to enable starship.";
+    enable = mkBoolOpt false "Whether to enable starship.";
   };
 
   config = mkIf cfg.enable {

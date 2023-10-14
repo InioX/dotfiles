@@ -2,10 +2,12 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   configFolder,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.apps.gmail;
 
   gmailIcon = let
@@ -31,7 +33,7 @@ with lib; let
   };
 in {
   options.zenyte.apps.gmail = {
-    enable = mkEnableOption "Whether to enable gmail as a desktop entry.";
+    enable = mkBoolOpt false "Whether to enable gmail as a desktop entry.";
   };
 
   config = mkIf cfg.enable {

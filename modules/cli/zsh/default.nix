@@ -2,15 +2,17 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   inputs,
   username,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.cli.zsh;
 in {
   options.zenyte.cli.zsh = with types; {
-    enable = mkEnableOption "Whether to set zsh as the default shell.";
+    enable = mkBoolOpt false "Whether to set zsh as the default shell.";
   };
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [

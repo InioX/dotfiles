@@ -2,14 +2,16 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   configFolder,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.desktop.addons.rofi;
 in {
   options.zenyte.desktop.addons.rofi = {
-    enable = mkEnableOption "Whether to enable rofi.";
+    enable = mkBoolOpt false "Whether to enable rofi.";
   };
 
   config = mkIf cfg.enable {

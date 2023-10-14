@@ -2,16 +2,18 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   configFolder,
   templateFolder,
   username,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.desktop.addons.matugen;
 in {
   options.zenyte.desktop.addons.matugen = {
-    enable = mkEnableOption "Whether to enable matugen.";
+    enable = mkBoolOpt false "Whether to enable matugen.";
   };
 
   config = mkIf cfg.enable {

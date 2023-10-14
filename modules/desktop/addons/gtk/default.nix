@@ -2,10 +2,12 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   configFolder,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.desktop.addons.gtk;
 
   schema = pkgs.gsettings-desktop-schemas;
@@ -20,7 +22,7 @@ with lib; let
   '';
 in {
   options.zenyte.desktop.addons.gtk = {
-    enable = mkEnableOption "Whether to enable gtk theme.";
+    enable = mkBoolOpt false "Whether to enable gtk theme.";
   };
 
   config = mkIf cfg.enable {

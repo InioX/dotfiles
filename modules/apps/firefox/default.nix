@@ -2,13 +2,15 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.apps.firefox;
 in {
   options.zenyte.apps.firefox = with types; {
-    enable = mkEnableOption "Whether to enable firefox.";
+    enable = mkBoolOpt false "Whether to enable firefox.";
     extensions = mkOption {
       type = nullOr (listOf package);
       description = ''

@@ -2,16 +2,18 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   inputs,
   system,
   configFolder,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.apps.prism-launcher;
 in {
   options.zenyte.apps.prism-launcher = with types; {
-    enable = mkEnableOption "Whether to enable Prism Launcher.";
+    enable = mkBoolOpt false "Whether to enable Prism Launcher.";
     extensions = mkOption {
       type = nullOr (listOf package);
       description = ''

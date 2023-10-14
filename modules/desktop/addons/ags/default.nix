@@ -2,16 +2,18 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   configFolder,
   system,
   inputs,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.desktop.addons.ags;
 in {
   options.zenyte.desktop.addons.ags = {
-    enable = mkEnableOption "Whether to enable ags.";
+    enable = mkBoolOpt false "Whether to enable ags.";
   };
 
   config = mkIf cfg.enable {

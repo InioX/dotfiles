@@ -2,12 +2,14 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   inputs,
   nixpkgs,
   configFolder,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.desktop.addons.waybar;
   mediaplayer-waybar = pkgs.writeShellScriptBin "mediaplayer-waybar" ''
     while true; do
@@ -28,7 +30,7 @@ with lib; let
   '';
 in {
   options.zenyte.desktop.addons.waybar = {
-    enable = mkEnableOption "Whether to enable waybar with experimental patches.";
+    enable = mkBoolOpt false "Whether to enable waybar with experimental patches.";
   };
 
   config = mkIf cfg.enable {

@@ -2,14 +2,16 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   configFolder,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.desktop.addons.dunst;
 in {
   options.zenyte.desktop.addons.dunst = {
-    enable = mkEnableOption "Whether to enable the k-vernooy dunst fork.";
+    enable = mkBoolOpt false "Whether to enable the k-vernooy dunst fork.";
   };
 
   config = mkIf cfg.enable {

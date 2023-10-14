@@ -2,15 +2,17 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   inputs,
   username,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.cli.git;
 in {
   options.zenyte.cli.git = with types; {
-    enable = mkEnableOption "Whether to enable git.";
+    enable = mkBoolOpt false "Whether to enable git.";
     email = mkOption {
       type = str;
       default = "";

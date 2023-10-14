@@ -2,14 +2,16 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   configFolder,
   ...
 }:
-with lib; let
+with lib;
+with zenyte-lib; let
   cfg = config.zenyte.desktop.addons.sddm;
 in {
   options.zenyte.desktop.addons.sddm = {
-    enable = mkEnableOption "Whether to enable sddm.";
+    enable = mkBoolOpt false "Whether to enable sddm.";
   };
 
   config = mkIf cfg.enable {
