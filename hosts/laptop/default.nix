@@ -2,9 +2,11 @@
   config,
   pkgs,
   lib,
+  zenyte-lib,
   ...
 }:
-with lib; {
+with lib;
+with zenyte-lib; {
   imports = [./hardware.nix ../../modules];
 
   # Configure the bootloader
@@ -86,6 +88,6 @@ with lib; {
       name = "InioX";
     };
 
-    bash.enable = true;
+    bash = enabled;
   };
 }

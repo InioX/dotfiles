@@ -5,6 +5,9 @@
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "22.11";
 
+    # Some functions
+    zenyte-lib = import ./lib {lib = nixpkgs.lib;};
+
     # Use a config folder for compatibility with arch
     configFolder = ./dotfiles/config;
     templateFolder = ./dotfiles/templates;
@@ -36,7 +39,7 @@
           ];
           # Pass the variables to other modules
           specialArgs = {
-            inherit inputs stateVersion username hostName configFolder templateFolder system;
+            inherit inputs stateVersion username hostName configFolder templateFolder system zenyte-lib;
           };
         };
   in {
