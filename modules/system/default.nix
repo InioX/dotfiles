@@ -1,11 +1,9 @@
 {
   config,
   pkgs,
+  zenyte-lib,
   ...
-}: {
-  imports = [
-    ./nix.nix
-    ./main.nix
-    ./sound.nix
-  ];
+}:
+with zenyte-lib; {
+  imports = validFiles ./.;
 }
