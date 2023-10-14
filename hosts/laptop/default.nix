@@ -70,6 +70,10 @@ with lib; {
       extensions = with pkgs.vscode-extensions; [
       ];
     };
+
+    gmail = {
+      enable = true;
+    };
   };
 
   zenyte.cli = {
