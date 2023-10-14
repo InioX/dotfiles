@@ -6,6 +6,15 @@
 }:
 with lib; let
   cfg = config.zenyte.apps.vscodium;
+
+  # Modified code from https://github.com/nix-community/home-manager/issues/3507#issuecomment-1616803481
+  fix-vscode-extensions = pkgs.writeShellScriptBin "fix-vscode-extensions" ''
+    # Quit VSCodium
+    echo "Moving $HOME/.vscode-oss/extensions into /tmp"
+    mv ~/.vscode-oss/extensions /tmp
+    echo "Restarting Home Manager for $USER"
+    sudo systemctl restart home-manager-$USER.service
+  '';
 in {
   options.zenyte.apps.vscodium = with types; {
     enable = mkEnableOption "Whether to enable vscodium.";
@@ -18,6 +27,10 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      fix-vscode-extensions
+    ];
+
     zenyte.home.extraOptions.programs.vscode = {
       enable = true;
       package = pkgs.vscodium;
@@ -38,6 +51,23 @@ in {
             bracketPairsHorizontal = true;
           };
         };
+
+        vscord.app.name = "VSCodium";
+        vscord.status = {
+          details.text = {
+            editing = "In {workspace} - at {git_branch}";
+            viewing = "In {workspace} - at {git_branch}";
+          };
+
+          state.text = {
+            viewing = "{folder_and_file} - {current_line}:{current_column}";
+            editing = "{folder_and_file} - {current_line}:{current_column}";
+          };
+
+          buttons.button1.active.enabled = true;
+        };
+
+        conventionalCommits.gitmoji = false;
       };
       extensions = with pkgs.vscode-extensions;
         [
@@ -61,6 +91,12 @@ in {
             publisher = "vivaxy";
             version = "1.25.0";
             sha256 = "sha256-KPP1suR16rIJkwj8Gomqa2ExaFunuG42fp14lBAZuwI=";
+          }
+          {
+            name = "vscord";
+            publisher = "LeonardSSH";
+            version = "5.1.18";
+            sha256 = "sha256-pJ9loVW1uhlITXSNBsCEgW+o3ABn0cxcZxg6S7cKWHI=";
           }
         ]
         ++ cfg.extensions;
