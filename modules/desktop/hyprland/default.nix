@@ -37,7 +37,6 @@ in {
       package = inputs.hyprland.packages.${pkgs.system}.default.override {
         enableNvidiaPatches = cfg.nvidiaPatches;
       };
-      systemdIntegration = true;
     };
 
     zenyte.desktop.addons = {
