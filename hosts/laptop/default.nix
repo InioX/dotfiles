@@ -88,6 +88,10 @@ with zenyte-lib; {
       name = "InioX";
     };
 
-    bash = enabled;
+    bash = {
+      enable = true;
+    };
+
+    eza = enabled;
   };
 }
