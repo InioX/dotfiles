@@ -21,7 +21,7 @@
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/eae80830-f035-4c03-8901-f481c858dcc5"
            height="25"
-           width="25">
+           width="25">     
      </sub>
      Showcase
 </h2>
@@ -42,10 +42,11 @@
 <details><summary>Showcase</summary>
 <p>
 
-<img src="https://user-images.githubusercontent.com/81521595/236634805-15e68f9b-44a5-4efc-b275-0eb1f6a28bd9.gif" width="320" height="180"/>
+![image](https://github.com/InioX/dotfiles/assets/81521595/d7e04e00-5c91-4946-b711-639c08575b71)
 
-[![video showcase](https://markdown-videos.deta.dev/youtube/lBlEEiwQzYA)](https://youtu.be/lBlEEiwQzYA)
+![image](https://github.com/InioX/dotfiles/assets/81521595/06f4cd5f-2a2e-4380-b610-3d655a5f0d57)
 
+<img src="https://user-images.githubusercontent.com/81521595/236634805-15e68f9b-44a5-4efc-b275-0eb1f6a28bd9.gif"/>
 </p>
 </details>
 
