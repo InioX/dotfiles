@@ -4,8 +4,6 @@
   "margin-left": 10,
   "margin-bottom": 10,
   "margin-top": 10,
-  
-  
   /* BOTTOM */
   "modules-right": [
     "custom/next",
@@ -21,36 +19,30 @@
     // "pulseaudio#text",
     "custom/mode",
   ],
-  
   /*CENTER */
-  "modules-center": [ 
+  "modules-center": [
     "clock"
   ],
-  
   /* TOP */
   "modules-left": [
     "custom/menu",
     "custom/power",
-    "wlr/workspaces"
+    "hyprland/workspaces"
   ],
-
   "custom/next": {
     "format": "󰒭",
     "on-click": "playerctl next",
   },
-
   "custom/previous": {
     "format": "󰒮",
     "on-click": "playerctl previous",
   },
-
   "custom/play_pause": {
     "format": "{}",
     "return-type": "json",
     "exec": "mediaplayer-waybar",
     "on-click": "playerctl play-pause",
   },
-
   "battery#icon": {
     "states": {
       "good": 95,
@@ -62,9 +54,14 @@
     "format-plugged": " {icon}󱐋",
     "format-warning": "{icon} 󰀪",
     "format-critical": " {icon} 󰀪",
-    "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰂂"]
+    "format-icons": [
+      "󰁺",
+      "󰁼",
+      "󰁾",
+      "󰂀",
+      "󰂂"
+    ]
   },
-
   "battery#text": {
     "states": {
       "good": 95,
@@ -73,28 +70,24 @@
     },
     "format": "{capacity}%",
   },
-
   "custom/power": {
     "format": "󰐥",
   },
-
   "custom/menu": {
-      "format": "󰍜"
+    "format": "󰍜"
   },
-
   "custom/mode": {
     "format": "󰔎",
     "on-click": "hyprctl dispatch exec ~/.config/hypr/scripts/switch-mode.sh"
   },
-
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
       "1": "󰅴",
-      "2": "󰈮", 
+      "2": "󰈮",
       "3": "󰖟",
       "4": "󰅺",
       "5": "󰉋",
@@ -106,12 +99,10 @@
       "default": "",
     }
   },
-
   "clock": {
-      "format": "{:<span weight=\"bold\">%H</span>\n<span weight=\"light\">%M</span>}",
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:<span weight=\"bold\">%H</span>\n<span weight=\"light\">%M</span>}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
   },
-
   "pulseaudio#icon": {
     "format": "{icon}",
     "format-muted": "󰝟",
@@ -126,7 +117,12 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["󰖀", "󰖀", "󰕾", "󰕾"]
+      "default": [
+        "󰖀",
+        "󰖀",
+        "󰕾",
+        "󰕾"
+      ]
     },
   },
   "pulseaudio#text": {
@@ -136,31 +132,26 @@
     "on-click-middle": "pavucontrol",
     "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
   },
-
   "custom/wl-gammarelay-temperature#icon": {
     "format": "󰔏",
     "on-scroll-up": "~/.config/hypr/scripts/brightness.sh temperature-up 100",
     "on-scroll-down": "~/.config/hypr/scripts/brightness.sh temperature-down 100"
   },
-
   "custom/wl-gammarelay-temperature#text": {
     "format": "{}",
     "exec": "wl-gammarelay-rs watch {t}",
     "on-scroll-up": "~/.config/hypr/scripts/brightness.sh temperature-up 100",
     "on-scroll-down": "~/.config/hypr/scripts/brightness.sh temperature-down 100"
   },
-
   "custom/wl-gammarelay-brightness#icon": {
     "format": "󰃟",
     "on-scroll-up": "~/.config/hypr/scripts/brightness.sh brightness-up 0.05",
     "on-scroll-down": "~/.config/hypr/scripts/brightness.sh brightness-down 0.05"
   },
-
   "custom/wl-gammarelay-brightness#text": {
     "format": "{}",
     "exec": "wl-gammarelay-rs watch {bp}",
     "on-scroll-up": "~/.config/hypr/scripts/brightness.sh brightness-up 100",
     "on-scroll-down": "~/.config/hypr/scripts/brightness.sh temperature-down 100"
   },
-
 }
