@@ -114,7 +114,7 @@ in {
               "    configFolder,"
               "    ..."
               "  }:"
-              "  with lib"
+              "  with lib;"
               "  with zenyte-lib; let"
               "    cfg = config.zenyte.$1.$2;"
               "  in {"
