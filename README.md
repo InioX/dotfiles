@@ -94,7 +94,8 @@ sudo nixos-install --flake .#<hostname>
 
 Generate templates from the dotfiles/templates/ folder
 ```shell
-switch-theme /path/to/light/wallpaper /path/to/dark/wallpaper
+# switch-theme /path/to/light/wallpaper /path/to/dark/wallpaper
+switch-theme ./dotfiles/wallpapers/whale/whale-light.jpg ./dotfiles/wallpapers/whale/whale-dark.jpg
 ```
 
 To switch between light/dark modes
