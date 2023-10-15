@@ -8,7 +8,6 @@
   inputs,
   ...
 }: {
-  networking = {inherit hostName;};
   system = {inherit stateVersion;};
 
   users.users.${username} = {

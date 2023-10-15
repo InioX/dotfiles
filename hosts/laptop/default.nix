@@ -21,12 +21,6 @@ with zenyte-lib; {
     };
   };
 
-  # Enable networking and bluetooth
-  networking.networkmanager.enable = true;
-
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
   # Additional packages to install
   environment.systemPackages = with pkgs; [
     discord
