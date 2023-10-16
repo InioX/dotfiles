@@ -4,7 +4,6 @@
   ...
 }: {
   nix = {
-    settings.auto-optimise-store = true;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -23,6 +22,8 @@
         "https://nixpkgs-wayland.cachix.org"
       ];
     };
+    optimise.automatic = true;
+    settings.auto-optimise-store = true;
   };
 
   nixpkgs.config.allowUnfree = true;
