@@ -33,4 +33,15 @@
       XDG_DESKTOP_DIR = "$HOME";
     };
   };
+
+  zenyte.home.extraOptions.xdg.userDirs = {
+    createDirectories = true;
+    documents = "$HOME/docs";
+    download = "$HOME/down";
+    pictures = "$HOME/pics";
+    videos = "$HOME/vids";
+    desktop = "";
+    music = "";
+    templates = "";
+  };
 }

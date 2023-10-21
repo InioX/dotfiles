@@ -6,6 +6,7 @@
   ...
 }: {
   users.users.${username} = {
+    createHome = true;
     isNormalUser = true;
     extraGroups = [
       "wheel"
