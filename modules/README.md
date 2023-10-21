@@ -11,6 +11,8 @@
 
 - 📁 [home/](./modules/home/) - Home Manager configuration
 
+- 📁 [services/](./modules/services/) - Programs running as services
+
 - 📁 [desktop/](./modules/desktop/) - DE/WM configurations
 
     - 📁 [addons/](./modules/desktop/addons/) - Additional apps that are required for DE/WM ([example](https://wiki.archlinux.org/title/Desktop_environment#Custom_environments))

@@ -42,6 +42,10 @@ with zenyte-lib; {
   programs.dconf.enable = true;
   users.users.ini.extraGroups = ["libvirtd"];
 
+  zenyte.services = {
+    syncthing.enable = true;
+  };
+
   zenyte.desktop = {
     xfce.enable = true;
     awesome.enable = true;
