@@ -21,6 +21,9 @@ with zenyte-lib; {
     };
   };
 
+  # To prevent freezing when compiling
+  nix.settings.cores = 1;
+
   # Additional packages to install
   environment.systemPackages = with pkgs; [
     discord
@@ -48,7 +51,7 @@ with zenyte-lib; {
 
   zenyte.desktop = {
     xfce.enable = true;
-    awesome.enable = true;
+    # awesome.enable = true;
     hyprland = {
       enable = true;
       nvidiaPatches = false;
