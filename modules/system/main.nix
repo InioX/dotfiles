@@ -31,17 +31,20 @@
       XDG_BIN_HOME = "$HOME/.local/bin";
       # To prevent firefox from creating ~/Desktop.
       XDG_DESKTOP_DIR = "$HOME";
+      XDG_DOCUMENTS_DIR = "$HOME/docs";
     };
   };
 
   zenyte.home.extraOptions.xdg.userDirs = {
     createDirectories = true;
+    enable = true;
     documents = "$HOME/docs";
     download = "$HOME/down";
     pictures = "$HOME/pics";
     videos = "$HOME/vids";
-    desktop = "";
-    music = "";
-    templates = "";
+    desktop = "$HOME";
+    music = "$HOME";
+    templates = "$HOME";
+    publicShare = "$HOME";
   };
 }

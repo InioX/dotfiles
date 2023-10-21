@@ -46,8 +46,8 @@ in {
       syncthing = {
         enable = true;
         user = username;
-        dataDir = "/home/${username}/Documents";
-        configDir = "/home/${username}/Documents/.config/syncthing";
+        dataDir = "/home/${username}/docs";
+        configDir = "/home/${username}/docs/.config/syncthing";
         overrideDevices = true; # overrides any devices added or deleted through the WebUI
         overrideFolders = true; # overrides any folders added or deleted through the WebUI
         settings = {
@@ -55,9 +55,9 @@ in {
             "Android" = {id = "DANRJA7-MMDLUM3-IJAKI7R-SDCQJR3-IC6SSMF-BWHBYXT-MFOZOM6-365ZZAJ";};
           };
           folders = {
-            "Documents" = {
+            "docs" = {
               # Name of folder in Syncthing, also the folder ID
-              path = "/home/ini/Documents"; # Which folder to add to Syncthing
+              path = "/home/ini/docs"; # Which folder to add to Syncthing
               devices = ["Android"]; # Which devices to share the folder with
             };
           };
