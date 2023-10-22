@@ -80,6 +80,8 @@ with zenyte-lib; {
     gmail = {
       enable = true;
     };
+
+    github.enable = true;
   };
 
   zenyte.cli = {
