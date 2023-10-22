@@ -83,6 +83,11 @@ git clone https://github.com/InioX/dotfiles
 cd dotfiles
 ```
 
+Checkout to the `nixos` branch
+```shell
+git checkout nixos
+```
+
 Put this file in hosts/<hostname>/hardware.nix
 ```shell
 nixos-generate-config
