@@ -50,7 +50,7 @@ with zenyte-lib; {
   };
 
   zenyte.desktop = {
-    xfce.enable = true;
+    # xfce.enable = true;
     # awesome.enable = true;
     hyprland = {
       enable = true;

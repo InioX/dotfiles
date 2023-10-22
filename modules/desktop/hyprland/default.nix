@@ -22,6 +22,8 @@ in {
   ];
 
   config = mkIf cfg.enable {
+    programs.hyprland.enable = true;
+
     environment.systemPackages = with pkgs; [
       wl-clipboard
       grim
@@ -48,6 +50,7 @@ in {
       dunst.enable = true;
       matugen.enable = true;
       ags.enable = true;
+      thunar.enable = true;
     };
 
     zenyte.cli = {
