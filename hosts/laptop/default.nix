@@ -25,7 +25,6 @@ with lib.zenyte; {
 
   # Additional packages to install
   environment.systemPackages = with pkgs; [
-    discord
     gh
     tdesktop
     pavucontrol
@@ -65,6 +64,8 @@ with lib.zenyte; {
         bitwarden
       ];
     };
+
+    discord.enable = true;
 
     prism-launcher = {
       enable = false;
