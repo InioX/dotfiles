@@ -3,7 +3,7 @@
   pkgs,
   lib,
   zenyte-lib,
-  configFolder,
+  default,
   ...
 }:
 with lib;

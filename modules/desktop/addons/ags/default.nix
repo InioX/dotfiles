@@ -3,8 +3,7 @@
   pkgs,
   lib,
   zenyte-lib,
-  configFolder,
-  system,
+  default,
   inputs,
   ...
 }:
@@ -18,7 +17,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      inputs.ags.packages.${system}.default
+      inputs.ags.packages.${default.system}.default
     ];
   };
 }

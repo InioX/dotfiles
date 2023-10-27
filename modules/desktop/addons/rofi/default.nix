@@ -3,7 +3,7 @@
   pkgs,
   lib,
   zenyte-lib,
-  configFolder,
+  default,
   ...
 }:
 with lib;
@@ -19,9 +19,9 @@ in {
       rofi-wayland
     ];
 
-    zenyte.home.configFile."rofi/config.rasi".source = configFolder + /rofi/config.rasi;
-    zenyte.home.configFile."rofi/powermenu.rasi".source = configFolder + /rofi/powermenu.rasi;
-    zenyte.home.configFile."rofi/menu.rasi".source = configFolder + /rofi/menu.rasi;
+    zenyte.home.configFile."rofi/config.rasi".source = default.configFolder + /rofi/config.rasi;
+    zenyte.home.configFile."rofi/powermenu.rasi".source = default.configFolder + /rofi/powermenu.rasi;
+    zenyte.home.configFile."rofi/menu.rasi".source = default.configFolder + /rofi/menu.rasi;
 
     # Matugen template
     zenyte.home.configFile."rofi/colors.rasi".source = "${config.programs.matugen.theme.files}/.config/rofi/colors.rasi";

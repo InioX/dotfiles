@@ -2,23 +2,25 @@
   description = "My nixos dotfiles flake";
 
   outputs = {nixpkgs, ...} @ inputs: let
-    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-    stateVersion = "22.11";
-
     # Some functions
     zenyte-lib = import ./lib {lib = nixpkgs.lib;};
 
-    # Use a config folder for compatibility with arch
-    configFolder = ./dotfiles/config;
-    templateFolder = ./dotfiles/templates;
+    default = {
+      # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+      stateVersion = "22.11";
 
-    system = "x86_64-linux";
-    username = "ini";
+      # Use a config folder for compatibility with arch
+      configFolder = ./dotfiles/config;
+      templateFolder = ./dotfiles/templates;
+
+      system = "x86_64-linux";
+      username = "ini";
+    };
 
     addNewHost = hostName:
       with inputs;
         nixpkgs.lib.nixosSystem {
-          inherit system;
+          system = default.system;
           modules = [
             # The main system configuration
             ./modules/system
@@ -32,15 +34,15 @@
               ];
 
               environment.systemPackages = [
-                matugen.packages.${system}.default
-                alejandra.defaultPackage.${system}
+                matugen.packages.${default.system}.default
+                alejandra.defaultPackage.${default.system}
               ];
             }
             inputs.matugen.nixosModules.default
           ];
           # Pass the variables to other modules
           specialArgs = {
-            inherit inputs stateVersion username hostName configFolder templateFolder system zenyte-lib;
+            inherit inputs hostName zenyte-lib default;
           };
         };
   in {

@@ -4,7 +4,7 @@
   lib,
   zenyte-lib,
   inputs,
-  username,
+  default,
   ...
 }:
 with lib;
@@ -38,7 +38,7 @@ in {
       ];
     };
 
-    users.users.${username} = {
+    users.users.${default.username} = {
       shell = pkgs.zsh;
     };
   };

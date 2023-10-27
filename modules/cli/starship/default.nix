@@ -4,7 +4,7 @@
   lib,
   zenyte-lib,
   inputs,
-  configFolder,
+  default,
   ...
 }:
 with lib;

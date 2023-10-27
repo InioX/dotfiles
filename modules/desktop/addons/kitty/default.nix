@@ -3,7 +3,7 @@
   pkgs,
   lib,
   zenyte-lib,
-  configFolder,
+  default,
   ...
 }:
 with lib;
@@ -19,7 +19,7 @@ in {
       kitty
     ];
 
-    zenyte.home.configFile."kitty/kitty.conf".source = configFolder + /kitty/kitty.conf;
+    zenyte.home.configFile."kitty/kitty.conf".source = default.configFolder + /kitty/kitty.conf;
     zenyte.home.configFile."kitty/colors.conf".source = "${config.programs.matugen.theme.files}/.config/kitty.conf";
   };
 }

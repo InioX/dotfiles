@@ -3,7 +3,7 @@
   pkgs,
   lib,
   zenyte-lib,
-  inputs,
+  default,
   ...
 }:
 with lib;

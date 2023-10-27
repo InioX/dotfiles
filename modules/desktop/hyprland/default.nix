@@ -5,7 +5,7 @@
   zenyte-lib,
   inputs,
   options,
-  configFolder,
+  default,
   ...
 }:
 with lib;
@@ -57,12 +57,12 @@ in {
       starship.enable = true;
     };
 
-    # zenyte.home.configFile."hypr".source = configFolder + /hypr;
-    zenyte.home.configFile."hypr/icons".source = configFolder + /hypr/icons;
-    zenyte.home.configFile."hypr/scripts".source = configFolder + /hypr/scripts;
-    zenyte.home.configFile."hypr/wallpapers".source = configFolder + /hypr/wallpapers;
-    zenyte.home.configFile."hypr/hyprland.conf".source = configFolder + /hypr/hyprland.conf;
-    zenyte.home.configFile."hypr/keybindings.conf".source = configFolder + /hypr/keybindings.conf;
+    # zenyte.home.configFile."hypr".source = default.configFolder + /hypr;
+    zenyte.home.configFile."hypr/icons".source = default.configFolder + /hypr/icons;
+    zenyte.home.configFile."hypr/scripts".source = default.configFolder + /hypr/scripts;
+    zenyte.home.configFile."hypr/wallpapers".source = default.configFolder + /hypr/wallpapers;
+    zenyte.home.configFile."hypr/hyprland.conf".source = default.configFolder + /hypr/hyprland.conf;
+    zenyte.home.configFile."hypr/keybindings.conf".source = default.configFolder + /hypr/keybindings.conf;
 
     zenyte.home.configFile."hypr/colors.conf".source = "${config.programs.matugen.theme.files}/.config/hypr/colors.conf";
     zenyte.home.configFile."hypr/autostart.conf".source = "${config.programs.matugen.theme.files}/.config/hypr/autostart.conf";

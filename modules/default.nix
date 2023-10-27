@@ -4,8 +4,7 @@
   lib,
   inputs,
   zenyte-lib,
-  configFolder,
-  templateFolder,
+  default,
   ...
 }:
 with lib;
@@ -21,43 +20,43 @@ in {
 
     templates = {
       "waybar-colors.css" = {
-        input_path = "${templateFolder}/waybar-colors.css";
+        input_path = "${default.templateFolder}/waybar-colors.css";
         output_path = "~/.config/waybar/colors.css";
       };
       "rofi" = {
-        input_path = "${templateFolder}/colors.rasi";
+        input_path = "${default.templateFolder}/colors.rasi";
         output_path = "~/.config/rofi/colors.rasi";
       };
       "GTK4" = {
-        input_path = "${templateFolder}/gtk.css";
+        input_path = "${default.templateFolder}/gtk.css";
         output_path = "~/.config/gtk-4.0/gtk.css";
       };
       "GTK3" = {
-        input_path = "${templateFolder}/gtk.css";
+        input_path = "${default.templateFolder}/gtk.css";
         output_path = "~/.config/gtk-3.0/colors.css";
       };
       "Hyprland-autostart" = {
-        input_path = "${templateFolder}/autostart.conf";
+        input_path = "${default.templateFolder}/autostart.conf";
         output_path = "~/.config/hypr/autostart.conf";
       };
       "Hyprland-colors" = {
-        input_path = "${templateFolder}/colors.conf";
+        input_path = "${default.templateFolder}/colors.conf";
         output_path = "~/.config/hypr/colors.conf";
       };
       "dunst" = {
-        input_path = "${templateFolder}/dunstrc";
+        input_path = "${default.templateFolder}/dunstrc";
         output_path = "~/.config/dunst/dunstrc";
       };
       "firefox" = {
-        input_path = "${templateFolder}/userChrome.css";
+        input_path = "${default.templateFolder}/userChrome.css";
         output_path = "~/.mozilla/firefox/ini/chrome/userChrome.css";
       };
       "starship" = {
-        input_path = "${templateFolder}/starship.toml";
+        input_path = "${default.templateFolder}/starship.toml";
         output_path = "~/.config/starship.toml";
       };
       "kitty" = {
-        input_path = "${templateFolder}/kitty.conf";
+        input_path = "${default.templateFolder}/kitty.conf";
         output_path = "~/.config/kitty/colors.conf";
       };
     };

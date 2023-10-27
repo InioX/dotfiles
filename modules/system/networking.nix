@@ -3,8 +3,7 @@
   pkgs,
   hostName,
   stateVersion,
-  username,
-  system,
+  default,
   inputs,
   ...
 }: {

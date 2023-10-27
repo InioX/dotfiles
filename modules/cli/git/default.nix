@@ -4,7 +4,7 @@
   lib,
   zenyte-lib,
   inputs,
-  username,
+  default,
   ...
 }:
 with lib;

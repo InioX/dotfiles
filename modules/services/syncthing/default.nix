@@ -4,7 +4,7 @@
   lib,
   zenyte-lib,
   configFolder,
-  username,
+  default,
   ...
 }:
 with lib;
@@ -45,9 +45,9 @@ in {
     services = {
       syncthing = {
         enable = true;
-        user = username;
-        dataDir = "/home/${username}/docs";
-        configDir = "/home/${username}/docs/.config/syncthing";
+        user = default.username;
+        dataDir = "/home/${default.username}/docs";
+        configDir = "/home/${default.username}/docs/.config/syncthing";
         overrideDevices = true; # overrides any devices added or deleted through the WebUI
         overrideFolders = true; # overrides any folders added or deleted through the WebUI
         settings = {

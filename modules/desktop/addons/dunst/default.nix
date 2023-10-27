@@ -3,7 +3,7 @@
   pkgs,
   lib,
   zenyte-lib,
-  configFolder,
+  default,
   ...
 }:
 with lib;
@@ -23,7 +23,7 @@ in {
 
     zenyte.home.configFile."dunst/dunstrc".source = "${config.programs.matugen.theme.files}/.config/dunst/dunstrc";
 
-    # zenyte.home.configFile."dunst".source = configFolder + /dunst;
+    # zenyte.home.configFile."dunst".source = default.configFolder + /dunst;
 
     # zenyte.home.extraOptions.services.dunst = {
     #   enable = true;

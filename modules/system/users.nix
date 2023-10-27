@@ -2,10 +2,10 @@
   config,
   pkgs,
   inputs,
-  username,
+  default,
   ...
 }: {
-  users.users.${username} = {
+  users.users.${default.username} = {
     createHome = true;
     isNormalUser = true;
     extraGroups = [

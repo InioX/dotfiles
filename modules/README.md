@@ -26,7 +26,7 @@
     pkgs,
     lib,
     zenyte-lib,
-    configFolder,
+    default.configFolder,
     ...
   }:
   with lib

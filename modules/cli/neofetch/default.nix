@@ -4,7 +4,7 @@
   lib,
   zenyte-lib,
   inputs,
-  configFolder,
+  default,
   ...
 }:
 with lib;
@@ -19,6 +19,6 @@ in {
     environment.systemPackages = with pkgs; [
       neofetch
     ];
-    zenyte.home.configFile."neofetch".source = configFolder + /neofetch;
+    zenyte.home.configFile."neofetch".source = default.configFolder + /neofetch;
   };
 }

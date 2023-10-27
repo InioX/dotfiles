@@ -2,11 +2,10 @@
   config,
   pkgs,
   inputs,
-  stateVersion,
-  system,
+  default,
   ...
 }: {
-  system = {inherit stateVersion;};
+  system.stateVersion = default.stateVersion;
 
   system.activationScripts.diff = ''
     if [[ -e /run/current-system ]]; then

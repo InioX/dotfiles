@@ -3,8 +3,7 @@
   config,
   lib,
   options,
-  username,
-  stateVersion,
+  default,
   ...
 }:
 with lib; let
@@ -60,7 +59,7 @@ in {
     home-manager = {
       useUserPackages = true;
 
-      users.${username} =
+      users.${default.username} =
         mkAliasDefinitions options.zenyte.home.extraOptions;
     };
   };
