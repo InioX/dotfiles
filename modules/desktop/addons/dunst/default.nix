@@ -21,6 +21,8 @@ in {
       pulseaudio
     ];
 
+    zenyte.home.configFile."dunst/dunstrc".source = "${config.programs.matugen.theme.files}/.config/dunst/dunstrc";
+
     # zenyte.home.configFile."dunst".source = configFolder + /dunst;
 
     # zenyte.home.extraOptions.services.dunst = {

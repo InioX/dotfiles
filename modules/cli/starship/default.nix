@@ -25,5 +25,7 @@ in {
     };
 
     programs.bash.promptInit = ''eval "$(${pkgs.starship}/bin/starship init bash)"'';
+
+    zenyte.home.configFile."starship.toml".source = "${config.programs.matugen.theme.files}/.config/starship.toml";
   };
 }

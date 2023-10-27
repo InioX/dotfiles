@@ -64,5 +64,8 @@ in {
     zenyte.home.configFile."hypr/wallpapers".source = configFolder + /hypr/wallpapers;
     zenyte.home.configFile."hypr/hyprland.conf".source = configFolder + /hypr/hyprland.conf;
     zenyte.home.configFile."hypr/keybindings.conf".source = configFolder + /hypr/keybindings.conf;
+
+    zenyte.home.configFile."hypr/colors.conf".source = "${config.programs.matugen.theme.files}/.config/hypr/colors.conf";
+    zenyte.home.configFile."hypr/autostart.conf".source = "${config.programs.matugen.theme.files}/.config/hypr/autostart.conf";
   };
 }

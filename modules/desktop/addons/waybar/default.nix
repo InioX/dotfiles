@@ -50,5 +50,8 @@ in {
 
     zenyte.home.configFile."waybar/config".source = configFolder + /waybar/config;
     zenyte.home.configFile."waybar/style.css".source = configFolder + /waybar/style.css;
+
+    # Matugen template
+    zenyte.home.configFile."waybar/colors.css".source = "${config.programs.matugen.theme.files}/.config/waybar/colors.css";
   };
 }

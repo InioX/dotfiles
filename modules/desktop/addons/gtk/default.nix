@@ -54,5 +54,9 @@ in {
 
     zenyte.home.configFile."gtk-4.0/colors.css".source = configFolder + /gtk-3.0/colors.css;
     zenyte.home.configFile."gtk-4.0/settings.ini".source = configFolder + /gtk-3.0/settings.ini;
+
+    # Matugen template
+    zenyte.home.configFile."gtk-4.0/gtk.css".source = "${config.programs.matugen.theme.files}/.config/gtk-4.0/gtk.css";
+    zenyte.home.configFile."gtk-3.0/colors.css".source = "${config.programs.matugen.theme.files}/.config/gtk-3.0/colors.css";
   };
 }

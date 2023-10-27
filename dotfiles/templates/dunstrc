@@ -1,8 +1,6 @@
 [global]
 monitor = 0
 follow = mouse
-# width = 320
-# height = 320
 width = 320
 height = 320
 origin = bottom-center

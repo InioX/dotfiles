@@ -117,5 +117,6 @@ in {
         };
       };
     };
+    zenyte.home.file."~/.mozilla/firefox/ini/chrome/userChrome.css".source = "${config.programs.matugen.theme.files}/.config/userChrome.css";
   };
 }
