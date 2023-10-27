@@ -6,7 +6,7 @@
 }:
 with lib;
 with lib.zenyte; {
-  imports = [./hardware.nix ../../modules];
+  imports = [./hardware.nix];
 
   # Configure the bootloader
   boot.loader = {

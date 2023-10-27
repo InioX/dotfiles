@@ -26,8 +26,7 @@
         nixpkgs.lib.nixosSystem {
           system = default.system;
           modules = [
-            # The main system configuration
-            ./modules/system
+            ./modules
             # The host specific configuration
             (./. + "/hosts/${hostName}/")
             {
