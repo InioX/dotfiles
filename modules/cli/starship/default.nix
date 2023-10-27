@@ -2,13 +2,12 @@
   config,
   pkgs,
   lib,
-  zenyte-lib,
   inputs,
   default,
   ...
 }:
 with lib;
-with zenyte-lib; let
+with lib.zenyte; let
   cfg = config.zenyte.cli.starship;
 in {
   options.zenyte.cli.starship = with types; {

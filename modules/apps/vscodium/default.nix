@@ -2,11 +2,10 @@
   config,
   pkgs,
   lib,
-  zenyte-lib,
   ...
 }:
 with lib;
-with zenyte-lib; let
+with lib.zenyte; let
   cfg = config.zenyte.apps.vscodium;
 
   # Modified code from https://github.com/nix-community/home-manager/issues/3507#issuecomment-1616803481
@@ -110,12 +109,12 @@ in {
               "    config,"
               "    pkgs,"
               "    lib,"
-              "    zenyte-lib,"
+              "    "
               "    default.configFolder,"
               "    ..."
               "  }:"
               "  with lib;"
-              "  with zenyte-lib; let"
+              "  with lib.zenyte; let"
               "    cfg = config.zenyte.$1.$2;"
               "  in {"
               "    options.zenyte.$1.$2 = {"

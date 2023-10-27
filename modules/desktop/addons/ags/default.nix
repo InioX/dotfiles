@@ -2,13 +2,12 @@
   config,
   pkgs,
   lib,
-  zenyte-lib,
   default,
   inputs,
   ...
 }:
 with lib;
-with zenyte-lib; let
+with lib.zenyte; let
   cfg = config.zenyte.desktop.addons.ags;
 in {
   options.zenyte.desktop.addons.ags = {

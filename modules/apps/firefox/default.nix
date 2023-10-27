@@ -2,11 +2,10 @@
   config,
   pkgs,
   lib,
-  zenyte-lib,
   ...
 }:
 with lib;
-with zenyte-lib; let
+with lib.zenyte; let
   cfg = config.zenyte.apps.firefox;
 in {
   options.zenyte.apps.firefox = with types; {

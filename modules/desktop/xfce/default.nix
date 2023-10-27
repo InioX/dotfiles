@@ -2,11 +2,10 @@
   config,
   pkgs,
   lib,
-  zenyte-lib,
   ...
 }:
 with lib;
-with zenyte-lib; let
+with lib.zenyte; let
   cfg = config.zenyte.desktop.xfce;
 in {
   options.zenyte.desktop.xfce = {

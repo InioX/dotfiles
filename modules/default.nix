@@ -3,14 +3,13 @@
   pkgs,
   lib,
   inputs,
-  zenyte-lib,
   default,
   ...
 }:
 with lib;
-with zenyte-lib; let
+with lib.zenyte; let
 in {
-  imports = validFiles ./.;
+  imports = lib.zenyte.validFiles ./.;
 
   programs.matugen = {
     enable = true;

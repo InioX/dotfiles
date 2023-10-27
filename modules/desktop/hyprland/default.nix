@@ -2,14 +2,13 @@
   config,
   pkgs,
   lib,
-  zenyte-lib,
   inputs,
   options,
   default,
   ...
 }:
 with lib;
-with zenyte-lib; let
+with lib.zenyte; let
   cfg = config.zenyte.desktop.hyprland;
 in {
   options.zenyte.desktop.hyprland = {

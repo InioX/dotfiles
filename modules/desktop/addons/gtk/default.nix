@@ -2,12 +2,11 @@
   config,
   pkgs,
   lib,
-  zenyte-lib,
   default,
   ...
 }:
 with lib;
-with zenyte-lib; let
+with lib.zenyte; let
   cfg = config.zenyte.desktop.addons.gtk;
 
   schema = pkgs.gsettings-desktop-schemas;

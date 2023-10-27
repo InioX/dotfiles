@@ -1,9 +1,9 @@
 {
   config,
   pkgs,
-  zenyte-lib,
+  lib,
   ...
 }:
-with zenyte-lib; {
+with lib.zenyte; {
   imports = validFiles ./.;
 }

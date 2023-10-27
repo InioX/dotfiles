@@ -2,13 +2,12 @@
   config,
   pkgs,
   lib,
-  zenyte-lib,
   inputs,
   default,
   ...
 }:
 with lib;
-with zenyte-lib; let
+with lib.zenyte; let
   cfg = config.zenyte.cli.neofetch;
 in {
   options.zenyte.cli.neofetch = with types; {

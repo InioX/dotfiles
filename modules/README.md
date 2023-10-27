@@ -25,12 +25,11 @@
     config,
     pkgs,
     lib,
-    zenyte-lib,
     default.configFolder,
     ...
   }:
   with lib
-  with zenyte-lib; let
+  with lib.zenyte; let
     cfg = config.zenyte.$1.$2;
   in {
     options.zenyte.$1.$2 = {

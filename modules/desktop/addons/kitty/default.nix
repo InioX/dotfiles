@@ -2,12 +2,11 @@
   config,
   pkgs,
   lib,
-  zenyte-lib,
   default,
   ...
 }:
 with lib;
-with zenyte-lib; let
+with lib.zenyte; let
   cfg = config.zenyte.desktop.addons.kitty;
 in {
   options.zenyte.desktop.addons.kitty = {

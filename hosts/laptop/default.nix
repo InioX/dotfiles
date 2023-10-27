@@ -2,11 +2,10 @@
   config,
   pkgs,
   lib,
-  zenyte-lib,
   ...
 }:
 with lib;
-with zenyte-lib; {
+with lib.zenyte; {
   imports = [./hardware.nix ../../modules];
 
   # Configure the bootloader

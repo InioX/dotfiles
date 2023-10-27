@@ -2,14 +2,13 @@
   config,
   pkgs,
   lib,
-  zenyte-lib,
   inputs,
   nixpkgs,
   default,
   ...
 }:
 with lib;
-with zenyte-lib; let
+with lib.zenyte; let
   cfg = config.zenyte.desktop.addons.waybar;
   mediaplayer-waybar = pkgs.writeShellScriptBin "mediaplayer-waybar" ''
     while true; do
