@@ -2,9 +2,6 @@
   description = "My nixos dotfiles flake";
 
   outputs = {nixpkgs, ...} @ inputs: let
-    # Some functions
-    zenyte-lib = import ./lib {lib = nixpkgs.lib;};
-
     default = {
       # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
       stateVersion = "22.11";
@@ -15,6 +12,16 @@
 
       system = "x86_64-linux";
       username = "ini";
+
+      wallpaper = let
+        url = "https://cdn.discordapp.com/attachments/635625973764849684/1162373070409965578/1328859.png";
+        sha256 = "084bndw73msb2r6d55f0nbklk2vnq4zaqndc5lyaf9s0ykdcxblw";
+        ext = nixpkgs.lib.last (nixpkgs.lib.splitString "." url);
+      in
+        builtins.fetchurl {
+          name = "wallpaper-${sha256}.${ext}";
+          inherit url sha256;
+        };
     };
 
     mkLib = nixpkgs:

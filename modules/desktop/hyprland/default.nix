@@ -29,8 +29,9 @@ in {
       slurp
       playerctl
       inputs.nixpkgs-wayland.packages.${system}.wl-gammarelay-rs
-      inputs.nixpkgs-wayland.packages.${system}.swww
+      # inputs.nixpkgs-wayland.packages.${system}.swww
       wf-recorder
+      hyprpaper
     ];
 
     zenyte.home.extraOptions.wayland.windowManager.hyprland = {
@@ -65,5 +66,10 @@ in {
 
     zenyte.home.configFile."hypr/colors.conf".source = "${config.programs.matugen.theme.files}/.config/hypr/colors.conf";
     zenyte.home.configFile."hypr/autostart.conf".source = "${config.programs.matugen.theme.files}/.config/hypr/autostart.conf";
+
+    zenyte.home.configFile."hypr/hyprpaper.conf".text = ''
+      preload = ${default.wallpaper}
+      wallpaper = eDP-1,${default.wallpaper}
+    '';
   };
 }

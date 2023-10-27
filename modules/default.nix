@@ -17,6 +17,8 @@ in {
     jsonFormat = "hex";
     palette = "default";
 
+    wallpaper = default.wallpaper;
+
     templates = {
       "waybar-colors.css" = {
         input_path = "${default.templateFolder}/waybar-colors.css";
