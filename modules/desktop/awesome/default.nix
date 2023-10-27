@@ -26,7 +26,6 @@ in {
     zenyte.desktop.addons = {
       sddm.enable = true;
       gtk.enable = true;
-      matugen.enable = true;
       alacritty.enable = true;
     };
 

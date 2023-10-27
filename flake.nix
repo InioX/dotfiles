@@ -36,6 +36,7 @@
                 alejandra.defaultPackage.${system}
               ];
             }
+            inputs.matugen.nixosModules.default
           ];
           # Pass the variables to other modules
           specialArgs = {
