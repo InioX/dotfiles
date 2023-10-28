@@ -11,34 +11,28 @@ with lib.zenyte; let
   cfg = config.zenyte.cli.zsh;
 in {
   options.zenyte.cli.zsh = with types; {
-    enable = mkBoolOpt false "Whether to set zsh as the default shell.";
+    enable = mkBoolOpt false "Whether to enable zsh.";
   };
-  config = mkIf cfg.enable {
+  config = mkIf (cfg.enable
+    || config.zenyte.system.defaultShell
+    == pkgs.zsh) {
     environment.systemPackages = with pkgs; [
       thefuck
     ];
+
+    programs.zsh.enable = true;
 
     zenyte.home.programs.zsh = {
       enable = true;
       shellAliases = {
         ll = "ls -l";
-        rebuild = "sudo nixos-rebuild switch --flake .#";
+        rebuild = ''sudo nixos-rebuild switch --flake .#laptop --log-format internal-json |& nom --json'';
+        switch-theme = "~/.config/hypr/scripts/switch-theme.sh";
+        switch-mode = "~/.config/hypr/scripts/switch-mode.sh";
       };
-      oh-my-zsh = {
-        enable = true;
-        plugins = ["git" "thefuck"];
-      };
-      plugins = [
-        {
-          name = "powerlevel10k";
-          src = pkgs.zsh-powerlevel10k;
-          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        }
-      ];
-    };
-
-    users.users.${default.username} = {
-      shell = pkgs.zsh;
+      enableCompletion = true;
+      syntaxHighlighting = enabled;
+      dotDir = ".config/zsh";
     };
   };
 }

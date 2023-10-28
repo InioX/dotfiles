@@ -11,9 +11,11 @@ with lib.zenyte; let
   cfg = config.zenyte.cli.bash;
 in {
   options.zenyte.cli.bash = with types; {
-    enable = mkBoolOpt false "Whether to set bash as the default shell.";
+    enable = mkBoolOpt false "Whether to enable bash.";
   };
-  config = mkIf cfg.enable {
+  config = mkIf (cfg.enable
+    || config.zenyte.system.defaultShell
+    == pkgs.bash) {
     zenyte.home.programs.bash = {
       enable = true;
       shellAliases = {
@@ -22,10 +24,6 @@ in {
         switch-theme = "~/.config/hypr/scripts/switch-theme.sh";
         switch-mode = "~/.config/hypr/scripts/switch-mode.sh";
       };
-    };
-
-    users.users.${default.username} = {
-      shell = pkgs.bash;
     };
   };
 }

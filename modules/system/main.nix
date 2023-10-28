@@ -12,9 +12,14 @@ with lib.zenyte; let
 in {
   options.zenyte.system = {
     diffScript = mkBoolOpt true "Enables showing what packages changes between generations on rebuild.";
+    defaultShell = mkOpt (types.enum [pkgs.bash pkgs.zsh]) pkgs.bash "Which shell to set the default as.";
   };
 
   config = {
+    users.users.${default.username} = {
+      shell = cfg.defaultShell;
+    };
+
     system.stateVersion = default.stateVersion;
 
     system.activationScripts.diff = mkIf cfg.diffScript ''

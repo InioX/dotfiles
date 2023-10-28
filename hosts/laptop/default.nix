@@ -41,6 +41,7 @@ with lib.zenyte; {
   zenyte.system = {
     diffScript = true;
     sound = enabled;
+    defaultShell = pkgs.zsh;
 
     networking = {
       bluetooth = true;
