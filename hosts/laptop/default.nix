@@ -39,7 +39,7 @@ with lib.zenyte; {
   ];
 
   zenyte.system = {
-    diffScript = enabled;
+    diffScript = true;
     sound = enabled;
 
     networking = {
