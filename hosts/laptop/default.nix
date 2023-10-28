@@ -38,10 +38,22 @@ with lib.zenyte; {
     rare
   ];
 
-  # Enable virtualisation
-  virtualisation.libvirtd.enable = true;
-  programs.dconf.enable = true;
-  users.users.ini.extraGroups = ["libvirtd"];
+  zenyte.system = {
+    diffScript = enabled;
+    sound = enabled;
+
+    networking = {
+      bluetooth = true;
+    };
+
+    fonts = {
+      nerd-fonts = true;
+    };
+
+    locale = {
+      timeZone = "Europe/Prague";
+    };
+  };
 
   zenyte.services = {
     syncthing.enable = true;

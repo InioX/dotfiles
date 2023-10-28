@@ -1,19 +1,26 @@
 {
   config,
   pkgs,
-  hostName,
-  stateVersion,
+  lib,
   default,
-  inputs,
+  hostName,
   ...
-}: {
-  networking = {
-    inherit hostName;
-    networkmanager.enable = true;
+}:
+with lib;
+with lib.zenyte; let
+  cfg = config.zenyte.system.networking;
+in {
+  options.zenyte.system.networking = {
+    bluetooth = mkBoolOpt false "Whether to enable bluetooth.";
   };
 
-  # Enable networking and bluetooth
+  config = {
+    networking = {
+      hostName = hostName;
+      networkmanager.enable = true;
+    };
 
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+    hardware.bluetooth.enable = cfg.bluetooth;
+    services.blueman.enable = cfg.bluetooth;
+  };
 }
