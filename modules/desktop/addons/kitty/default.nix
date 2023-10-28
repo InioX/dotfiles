@@ -19,6 +19,6 @@ in {
     ];
 
     zenyte.home.configFile."kitty/kitty.conf".source = default.configFolder + /kitty/kitty.conf;
-    zenyte.home.configFile."kitty/colors.conf".source = "${config.programs.matugen.theme.files}/.config/kitty.conf";
+    zenyte.home.configFile."kitty/colors.conf".source = "${config.programs.matugen.theme.files}/.config/kitty/colors.conf";
   };
 }
