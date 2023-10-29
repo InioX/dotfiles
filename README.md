@@ -1,19 +1,17 @@
 <div align="center">
-  <img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" alt="arch logo" width=125>
-  <img src="https://nixos.org/logo/nixos-logo-only-hires.png" alt="nix logo" width=150>
-  <h1>LINUX DOTFILES</h1>
+  <img src="https://socialify.git.ci/iniox/dotfiles/image?description=1&language=1&name=1&owner=1&theme=Dark">
 </div>
 
 <div align="center">
   <a href="">
-      <img src="https://img.shields.io/github/issues/InioX/dotfiles?color=7eb8e3&style=for-the-badge">
+      <img src="https://img.shields.io/github/issues/InioX/dotfiles?color=ffffff&style=for-the-badge">
    </a>
    <a href="https://github.com/InioX/dotfiles/stargazers">
-      <img src="https://img.shields.io/github/stars/InioX/dotfiles?color=7eb8e3&style=for-the-badge">
+      <img src="https://img.shields.io/github/stars/InioX/dotfiles?color=ffffff&style=for-the-badge">
    </a>
   <br>
-  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-Unstable-7eb8e3?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - Unstable">
-  <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-7eb8e3?style=for-the-badge&logo=Arch+Linux&logoColor=white" alt="Arch - LATEST"></a><br>
+  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-Unstable-ffffff?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - Unstable">
+  <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-ffffff?style=for-the-badge&logo=Arch+Linux&logoColor=white" alt="Arch - LATEST"></a><br>
   <div>
     <a href="#package-installation">Installation</a>
     ·
