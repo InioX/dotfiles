@@ -26,7 +26,7 @@
 
 <h2>
      <sub>
-          <img  src="https://github.com/InioX/dotfiles/assets/81521595/a3390c05-7444-4442-9758-fde507cb6f5d"
+          <img  src="https://github.com/InioX/dotfiles/assets/81521595/3b3dcf24-ceee-4577-b949-a268cc1eb896"
            height="25"
            width="25">
      </sub>
@@ -51,7 +51,7 @@ The Arch branch has an installer thats best used after a fresh install, though i
       
 <h2>
      <sub>
-          <img  src="https://github.com/InioX/dotfiles/assets/81521595/bfaea58f-e251-40d4-bacd-a176b6f07abd"
+          <img  src="https://github.com/InioX/dotfiles/assets/81521595/718ef5e6-39d8-40fd-82c6-e7ac9f5327ff"
            height="25"
            width="25">
      </sub>
@@ -93,7 +93,7 @@ The Arch branch has an installer thats best used after a fresh install, though i
 
 <h2>
      <sub>
-          <img  src="https://github.com/InioX/dotfiles/assets/81521595/a52a0579-0785-46d2-b44d-fe1b66bcb347"
+          <img  src="https://github.com/InioX/dotfiles/assets/81521595/79bffd6e-f4d8-4cbc-84e4-3d8b90124188"
            height="25"
            width="25">
      </sub>
