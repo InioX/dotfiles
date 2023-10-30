@@ -3,15 +3,10 @@
 </div>
 
 <div align="center">
-  <a href="">
-      <img src="https://img.shields.io/github/issues/InioX/dotfiles?color=ffffff&style=for-the-badge">
-   </a>
-   <a href="https://github.com/InioX/dotfiles/stargazers">
-      <img src="https://img.shields.io/github/stars/InioX/dotfiles?color=ffffff&style=for-the-badge">
-   </a>
-  <br>
   <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-Unstable-ffffff?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - Unstable">
   <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-ffffff?style=for-the-badge&logo=Arch+Linux&logoColor=white" alt="Arch - LATEST"></a><br>
+<a href="https://github.com/InioX/dotfiles/tree/android"><img src="https://img.shields.io/badge/Android-13%20Tiramisu-ffffff?style=for-the-badge&logo=Android&logoColor=white" alt="Android - A13 Tiramisu"></a>
+<a href="https://github.com/InioX/dotfiles/tree/android"><img src="https://img.shields.io/badge/Windows-10%2022H2-ffffff?style=for-the-badge&logo=Windows&logoColor=white" alt="Windows - 10 22H2"></a><br>
   <div>
     <a href="#package-installation">Installation</a>
     ·
@@ -20,7 +15,7 @@
   <a href="#keyboard-basic-keybindings">Keybindings</a>
   </div>
   <div align="center">
-    <sub>My Linux dotfiles for <a href="https://github.com/InioX/dotfiles/tree/arch">Arch</a> and <a href="https://github.com/InioX/dotfiles/tree/nixos">NixOS</a>
+    <sub>Every operating system's configuration is in it's own branch.</sub>
   </div>
 </div>
 
@@ -45,7 +40,16 @@ The Arch branch has an installer thats best used after a fresh install, though i
   </tr>
   <tr>
     <th><img src="https://camo.githubusercontent.com/33a99d1ffcc8b23014fd5f6dd6bfad0f8923d44d61bdd2aad05f010ed8d14cb4/68747470733a2f2f6e69786f732e6f72672f6c6f676f2f6e69786f732d6c6f676f2d6f6e6c792d68697265732e706e67" alt="logo" width=15> NixOS</th>
-    <td><code>nixos-install --flake .#hostname</code> and then run <a href="https://github.com/InioX/Matugen">Matugen</a> <sup>(or follow <a href="https://github.com/InioX/dotfiles/tree/nixos#package-installation">this</a>)</sup></td>
+    <td><code>nixos-install --flake .#hostname</code></td>
+  </tr>
+ <tr>
+    <th><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-plain.svg" alt="logo" width=15>Android</th>
+    <td>-</td>
+  </tr>
+  </tr>
+ <tr>
+    <th><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="logo" width=15>Windows</th>
+    <td>-</td>
   </tr>
 </table>
       
@@ -97,7 +101,7 @@ The Arch branch has an installer thats best used after a fresh install, though i
            height="25"
            width="25">
      </sub>
-     Basic keybindings
+     Basic keybindings (Linux systems)
 </h2>
 
 > **Note**
