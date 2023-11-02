@@ -48,7 +48,6 @@ in {
       sddm.enable = true;
       gtk.enable = true;
       dunst.enable = true;
-      ags.enable = true;
       thunar.enable = true;
     };
 
