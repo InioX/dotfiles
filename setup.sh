@@ -3,13 +3,13 @@
 main() {
   # open obtainium
   adb shell am start -n dev.imranr.obtainium/.MainActivity | sleep 1
-  push_backup
+  push_backup $1
   import_backup
   install_backup
 }
 
 push_backup() {
-  adb push backups/obtainium/obtainium-export.json /sdcard/1backups/
+  adb push $1 /sdcard/1backups/
 }
 
 grab_screen() {
