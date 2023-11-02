@@ -44,7 +44,7 @@ The Arch branch has an installer thats best used after a fresh install, though i
   </tr>
  <tr>
     <th><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-plain.svg" alt="logo" width=15> Android</th>
-    <td><code>bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/android/setup.sh) </path/to/obtainium.json></code></td>
+    <td><code>bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/android/setup.sh) path/to/obtainium.json </code></td>
   </tr>
   </tr>
  <tr>
