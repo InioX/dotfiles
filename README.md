@@ -6,7 +6,7 @@
   <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-Unstable-ffffff?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - Unstable">
   <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-ffffff?style=for-the-badge&logo=Arch+Linux&logoColor=white" alt="Arch - LATEST"></a><br>
 <a href="https://github.com/InioX/dotfiles/tree/android"><img src="https://img.shields.io/badge/Android-13%20Tiramisu-ffffff?style=for-the-badge&logo=Android&logoColor=white" alt="Android - A13 Tiramisu"></a>
-<a href="https://github.com/InioX/dotfiles/tree/android"><img src="https://img.shields.io/badge/Windows-10%2022H2-ffffff?style=for-the-badge&logo=Windows&logoColor=white" alt="Windows - 10 22H2"></a><br>
+<a href="https://github.com/InioX/dotfiles/tree/windows"><img src="https://img.shields.io/badge/Windows-10%2022H2-ffffff?style=for-the-badge&logo=Windows&logoColor=white" alt="Windows - 10 22H2"></a><br>
   <div>
     <a href="#package-installation">Installation</a>
     ·
@@ -62,36 +62,18 @@ The Arch branch has an installer thats best used after a fresh install, though i
      Showcase
 </h2>
 
+Every branch has its own showcase located at the top of the README.
+
+#### Changing branches
+
 <table>
   <tr>
-    <td>Waybar <sup>(<img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" width=10> Arch)</sup></td>
-    <td>Dunst <sup>(<img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" width=10> Arch + <img src="https://camo.githubusercontent.com/33a99d1ffcc8b23014fd5f6dd6bfad0f8923d44d61bdd2aad05f010ed8d14cb4/68747470733a2f2f6e69786f732e6f72672f6c6f676f2f6e69786f732d6c6f676f2d6f6e6c792d68697265732e706e67" width=12> NixOS)</sup></td>
-    <td>Discord Theme <sup>(<img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" width=10> Arch)</sup></td>
+    <td></sup>Trough Github UI</td>
+    <td></sup>Clicking on README Buttons</td>
   </tr>
   <tr>
-    <td><img src="https://media.discordapp.net/attachments/1134177615964545024/1134178054596464760/image-7.png?width=1438&height=32"></td>
-    <td><img src="https://cdn.discordapp.com/attachments/1134177615964545024/1134186572493897869/image-103.png"></td>
-    <td><img src="https://media.discordapp.net/attachments/1134177615964545024/1134203686747385876/Picsart_23-07-27_21-20-16-233.jpg?width=1173&height=660"></td>
-  </tr>
-  <tr>
-    <td>Hyprland <sup>(<img src="https://camo.githubusercontent.com/33a99d1ffcc8b23014fd5f6dd6bfad0f8923d44d61bdd2aad05f010ed8d14cb4/68747470733a2f2f6e69786f732e6f72672f6c6f676f2f6e69786f732d6c6f676f2d6f6e6c792d68697265732e706e67" width=12> NixOS)</sup></td>
-    <td>Hyprland <sup>(<img src="http://wiki.installgentoo.com/images/f/f9/Arch-linux-logo.png" width=10> Arch)</sup></td>
-    <td>Waybar Privacy Indicators <sup>(<img src="https://camo.githubusercontent.com/33a99d1ffcc8b23014fd5f6dd6bfad0f8923d44d61bdd2aad05f010ed8d14cb4/68747470733a2f2f6e69786f732e6f72672f6c6f676f2f6e69786f732d6c6f676f2d6f6e6c792d68697265732e706e67" width=12> NixOS)</sup></td>
-  </tr>
-    <tr>
-    <td><img src="https://user-images.githubusercontent.com/81521595/236634805-15e68f9b-44a5-4efc-b275-0eb1f6a28bd9.gif"></td>
-    <td><video src="https://user-images.githubusercontent.com/81521595/202860841-1ebc1d34-9aee-41cc-b16e-d1028548deb1.mp4"></td>
-    <td><img src="https://media.discordapp.net/attachments/1134177615964545024/1134178054835552306/image-9.png?width=1172&height=660"></td>
-  </tr>
-<tr>
-    <td>Bspwm <sup>(Unavailable)</sup></td>
-    <td>GNOME <sup>(Unavailable)</sup></td>
-    <td>Hyprland - old <sup>(Unavailable)</sup></td>
-  </tr>
-    <tr>
-    <td><img src="https://media.discordapp.net/attachments/1134177615964545024/1134178054235770920/image.png?width=1173&height=660"></td>
-    <td><img src="https://media.discordapp.net/attachments/1134177615964545024/1134177915114885251/image-5.png?width=1172&height=660"></td>
-    <td><img src="https://media.discordapp.net/attachments/1134177615964545024/1134177911885283389/4UbKh2z_1.png?width=1173&height=660"></td>
+    <td><img src="https://github.com/InioX/dotfiles/assets/81521595/2231c14b-d583-4ad6-a3ee-2fa80489cb44"></td>
+    <td><img src="https://github.com/InioX/dotfiles/assets/81521595/a77a85eb-1a32-4850-9b96-bde65a7122c6" width=1500></td>
   </tr>
  </table>
 
@@ -101,26 +83,64 @@ The Arch branch has an installer thats best used after a fresh install, though i
            height="25"
            width="25">
      </sub>
-     Basic keybindings (Linux systems)
+     Basic keybindings (Arch and NixOS)
 </h2>
 
 > **Note**
-> 🖱️ Left mouse click is `mouse:272`, 🖱️ right click is `mouse:273`, and `Super` the ⊞ Windows key.
+> 🖱️ Left mouse click is <kbd>mouse:272</kbd>, 🖱️ right click is <kbd>mouse:273</kbd>, and <kbd>⌘ Command</kbd> the ⊞ Windows key.
 
-#### Apps
-
-| Keybind                                                  | Action                           |
-| -------------------------------------------------------- | -------------------------------- |
-| <kbd>⊞ Super</kbd> <kbd>⏎ Enter</kbd>                    | Terminal <sup>(kitty)</sup>      |
-| <kbd>⊞ Super</kbd> <kbd>W</kbd>                          | App Launcher <sup>(Rofi)</sup>   |
-| <kbd>⊞ Super</kbd> <kbd>⇧ Shift</kbd> <kbd>⏎ Enter</kbd> | File manager <sup>(Thunar)</sup> |
-
-#### Other
-
-| Keybind                                                | Action                     |
-| ------------------------------------------------------ | -------------------------- |
-| <kbd>⊞ Super</kbd> <kbd>[0,9]</kbd>                    | Change workspace           |
-| <kbd>⊞ Super</kbd> <kbd>⇧ Shift</kbd> <kbd>[0,9]</kbd> | Move window to a workspace |
-| <kbd>⊞ Super</kbd> <kbd>Q</kbd>                        | Kill a window              |
-| <kbd>⊞ Super</kbd> <kbd>mouse:272</kbd>                | Move a window              |
-| <kbd>⊞ Super</kbd> <kbd>mouse:273</kbd>                | Resize a window            |
+ <table>
+  <tr>
+    <th>Apps</th>
+    <th>Other</th>
+  </tr>
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <td><kbd>⌘ Command</kbd> <kbd>⏎ Enter</kbd></td>
+          <td>Terminal <sup>(kitty)</sup></td>
+        </tr>
+        <tr>
+          <td><kbd>⌘ Command</kbd> <kbd>W</kbd> </td>
+          <td>App Launcher <sup>(Rofi)</sup></td>
+        </tr>
+        <tr>
+          <td><kbd>⌘ Command</kbd> <kbd>⇧ Shift</kbd> <kbd>⏎ Enter</kbd></td>
+          <td>File manager <sup>(Thunar)</sup></td>
+        </tr>
+        <tr>
+          <td><kbd>F12</kbd></td>
+          <td>Take a screenshot of region</td>
+        </tr>
+         <tr>
+          <td><kbd>⇧ Shift</kbd> <kbd>F12</kbd></td>
+          <td>Take a screenshot of screen</td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table>
+        <tr>
+          <td><kbd>⌘ Command</kbd> <kbd>⇧ Shift</kbd> <kbd>[0,9]</kbd></td>
+          <td>Move window to a workspace</td>
+        </tr>
+        <tr>
+          <td><kbd>⌘ Command</kbd> <kbd>[0,9]</kbd></td>
+          <td>Change workspace</td>
+        </tr>
+        <tr>
+          <td><kbd>⌘ Command</kbd> <kbd>Q</kbd></td>
+          <td>Kill a window</td>
+        </tr>
+        <tr>
+          <td><kbd>⌘ Command</kbd> <kbd>mouse:272</kbd</td>
+          <td>Move a window</td>
+        </tr>
+        <tr>
+          <td><kbd>⌘ Command</kbd> <kbd>mouse:273</kbd></td>
+          <td>Resize a window</td>
+        </tr>
+      </table>
+    </td>
+</table> 
