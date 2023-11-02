@@ -63,7 +63,7 @@ These dotfiles provide an install script that installs all apps trough [Obtainiu
 First, make sure your phone is connected to your pc trough adb and has USB Debugging enabled.
 
 ```sh
-bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/android/setup.sh) </path/to/obtainium.json>
+bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/android/setup.sh) /path/to/obtainium.json
 ```
 <h2>
      <sub>
