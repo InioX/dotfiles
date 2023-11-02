@@ -43,12 +43,12 @@ The Arch branch has an installer thats best used after a fresh install, though i
     <td><code>nixos-install --flake .#hostname</code></td>
   </tr>
  <tr>
-    <th><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-plain.svg" alt="logo" width=15>Android</th>
-    <td>-</td>
+    <th><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-plain.svg" alt="logo" width=15> Android</th>
+    <td><code>bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/android/setup.sh) </path/to/obtainium.json></code></td>
   </tr>
   </tr>
  <tr>
-    <th><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="logo" width=15>Windows</th>
+    <th><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="logo" width=15> Windows</th>
     <td>-</td>
   </tr>
 </table>
