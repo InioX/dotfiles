@@ -51,30 +51,18 @@
 
 Welcome to my dotfiles! These are my original dotfiles without dynamic color theming support, i might rework the config files to support them later. This branch is not really getting updated as i dont use Arch anymore.
 
-The folder structure is explained below:
-```ini
-📂 dotfiles/
-├── 📄 install.sh
-├── 📂 .config/ # Will get copied to ~/.config/
-│   ├── 📂 starship.toml
-│   ├── 📁 Vencord/
-│   ├── 📁 dunst/
-│   ├── 📁 fish/
-│   ├── 📁 gtk-3.0/
-│   ├── 📁 gtk-4.0/
-│   ├── 📂 hypr/
-│   │   ├── 📁 waybar/
-│   │   └── 📁 rofi/
-│   ├── 📁 kitty/
-│   ├── 📁 neofetch/
-│   └── 📁 nvim/
-├── 📂 home/ # Will get copied to ~/
-│   ├── 📄 .p10k.zsh
-│   └── 📄 .zshrc
-└── 📂 themes/ # Will get copied to /usr/share/themes
-    └── 📄 adw-gtk3-dark
-```
+#### Folder structure
 
+- 📂 [dotfiles/](./)
+  
+    - 📄 [install.sh](./install.sh)
+      
+    - 📂 [.config/](./.config/) - Will get copied to ~/.config/
+      
+    - 📂 [home/](./home/) - Will get copied to ~/
+      
+    - 📂 [themes/](./themes/) - Will get copied to /usr/share/themes
+                
 <h2 class="installation">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/37663833-5d34-492e-95ea-73528184a42b"
