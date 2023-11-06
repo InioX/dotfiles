@@ -56,14 +56,22 @@ in {
             [
               ublock-origin
               plasma-integration
+              darkreader
             ]
             ++ cfg.extensions;
           id = 0;
           name = "ini";
           search = {
             force = true;
-            default = "DuckDuckGo";
+            default = "Searx";
+            order = ["Searx" "Google"];
             engines = {
+              "Searx" = {
+                urls = [{template = "https://paulgo.io//?q={searchTerms}";}];
+                iconUpdateURL = "https://paulgo.io/static/themes/simple/img/favicon.png?60321eeb6e2f478f0e5704529308c594d5924246";
+                updateInterval = 24 * 60 * 60 * 1000; # every day
+                definedAliases = ["@searx"];
+              };
               "Nix Packages" = {
                 urls = [
                   {
@@ -99,7 +107,7 @@ in {
           };
           settings = {
             "general.smoothScroll" = true;
-            "browser.startPage" = 3;
+            "browser.startPage" = "https://paulgo.io/";
             "browser.sessionstore.resume_session" = true;
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
             "layout.css.has-selector.enabled" = true;
