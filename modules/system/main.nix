@@ -28,6 +28,14 @@ in {
       fi
     '';
 
+    boot.plymouth = {
+      enable = true;
+      themePackages = with pkgs; [
+        nixos-bgrt-plymouth
+      ];
+      theme = "nixos-bgrt";
+    };
+
     programs.adb.enable = true;
     services.gvfs.enable = true;
 
