@@ -60,7 +60,9 @@ These dotfiles provide an install script that installs all apps trough [Obtainiu
      Installation
 </h2>
 
-First, make sure your phone is connected to your pc trough adb and has USB Debugging enabled.
+> **Note**
+> Make sure your phone is connected to your pc trough adb and has USB Debugging enabled. It is also recommended to flash [orange_state_disabler_v0.3.zip](https://t.me/narzo30cloud/67) inside recovery to get rid of the "Bootloader Unlocked" warning. <br><br><img src="https://github.com/InioX/dotfiles/assets/81521595/b3ee05f7-e8d7-4bb1-bb20-6eda21c0e51a" width=300>
+
 
 ```sh
 bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/android/setup.sh) /path/to/obtainium.json
