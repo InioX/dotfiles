@@ -8,18 +8,6 @@ with lib;
 with lib.zenyte; {
   imports = [./hardware.nix];
 
-  # Configure the bootloader
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      configurationLimit = 5;
-    };
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
-    };
-  };
-
   # To prevent freezing when compiling
   nix.settings.cores = 1;
 
