@@ -14,16 +14,11 @@ with lib.zenyte; {
   # Additional packages to install
   environment.systemPackages = with pkgs; [
     gh
-    tdesktop
     pavucontrol
     brave
-    redshift
     chromium
     mpv
-    virt-manager
     ffmpeg
-    ttyd
-    rare
   ];
 
   zenyte.system = {
@@ -70,6 +65,7 @@ with lib.zenyte; {
       ];
     };
 
+    tdesktop.enable = true;
     discord.enable = true;
 
     prism-launcher = {
