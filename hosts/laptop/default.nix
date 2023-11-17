@@ -15,8 +15,6 @@ with lib.zenyte; {
   environment.systemPackages = with pkgs; [
     gh
     pavucontrol
-    brave
-    chromium
     mpv
     ffmpeg
   ];
@@ -56,7 +54,10 @@ with lib.zenyte; {
     };
   };
 
-  zenyte.apps = {
+  zenyte.browsers = {
+    brave.enable = false;
+    chromium.enable = false;
+
     firefox = {
       enable = true;
       # Default extensions: `ublock-origin`, `plasma-integration`
@@ -64,7 +65,9 @@ with lib.zenyte; {
         bitwarden
       ];
     };
+  };
 
+  zenyte.apps = {
     tdesktop.enable = true;
     discord.enable = true;
 

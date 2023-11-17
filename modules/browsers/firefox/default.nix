@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.zenyte; let
-  cfg = config.zenyte.apps.firefox;
+  cfg = config.zenyte.browsers.firefox;
 in {
-  options.zenyte.apps.firefox = with types; {
+  options.zenyte.browsers.firefox = with types; {
     enable = mkBoolOpt false "Whether to enable firefox.";
     extensions = mkOption {
       type = nullOr (listOf package);
