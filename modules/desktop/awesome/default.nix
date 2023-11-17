@@ -23,9 +23,9 @@ in {
     };
 
     zenyte.desktop.addons = {
-      sddm.enable = true;
-      gtk.enable = true;
-      alacritty.enable = true;
+      sddm = enabled;
+      gtk = enabled;
+      alacritty = enabled;
     };
 
     services.xserver = {

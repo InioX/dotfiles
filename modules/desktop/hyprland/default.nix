@@ -42,18 +42,18 @@ in {
     };
 
     zenyte.desktop.addons = {
-      waybar.enable = true;
-      kitty.enable = true;
-      rofi.enable = true;
-      sddm.enable = true;
-      gtk.enable = true;
-      dunst.enable = true;
-      thunar.enable = true;
+      waybar = enabled;
+      kitty = enabled;
+      rofi = enabled;
+      sddm = enabled;
+      gtk = enabled;
+      dunst = enabled;
+      thunar = enabled;
     };
 
     zenyte.cli = {
-      neofetch.enable = true;
-      starship.enable = true;
+      neofetch = enabled;
+      starship = enabled;
     };
 
     # zenyte.home.configFile."hypr".source = default.configFolder + /hypr;
