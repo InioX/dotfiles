@@ -39,7 +39,7 @@
   </tr>
  </table>
 
-> **Warning**
+> [!WARNING]
 > The showcase may be outdated and look differently.
 
 <h2 class="description">
@@ -86,16 +86,20 @@ bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/nixos/install.sh
      Adding new hosts
 </h3>
 
-<details><summary>Click to show</summary>
-    
-The name of the folder should be your hostname and it should be located in `hosts/<hostName>`. Every host folder should contain a `default.nix` file and `hardware.nix`.
+> [!IMPORTANT]
+> The name of the folder should be your hostname and it should be located in `hosts/<hostName>`. Every host folder should contain a `default.nix` file and `hardware.nix`.
 
-To get a `hardware.nix` file:
+1. Make a folder inside `hosts/`
 ```sh
-nixos-generate-config
+mkdir hosts/<hostName>
 ```
 
-To get a `default.nix` file, you can modify this template:
+2. Get a `hardware.nix` file and copy it into `hosts/`
+```sh
+nixos-generate-config && cp /etc/nixos/hardware-configuration.nix /hosts/<hostName>/hardware.nix
+```
+
+3. To get a `default.nix` file, you can modify this template.
 
 ```nix
 
@@ -107,7 +111,7 @@ To get a `default.nix` file, you can modify this template:
   ...
 }:
 with lib; {
-  imports = [./hardware.nix ../../modules];
+  imports = [./hardware.nix];
 
   # Configure the bootloader
   boot.loader = {
@@ -124,11 +128,43 @@ with lib; {
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Anything else here... You can also use `zenyte.<category>` to configure stuff.
+  zenyte.presets = {
+    common = enabled;
+    development = enabled;
+    social = enabled;
+  };
+
+  zenyte.system.locale.timeZone = "Europe/Prague";
+  zenyte.system.defaultShell = pkgs.zsh;
+
+  zenyte.desktop = {
+    # xfce.enable = true;
+    # awesome.enable = true;
+    hyprland = enabled;
+  };
+
+  zenyte.browsers = {
+    brave = disabled;
+    chromium = disabled;
+
+    firefox = {
+      enable = true;
+      # Default extensions: `ublock-origin`, `plasma-integration`
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        bitwarden
+      ];
+    };
+  };
+  # Anything else here... You can also use `zenyte.<option>` to configure stuff.
 }
 ```
 
-Finally, add the folder name as the hostname into `flake.nix`
+> [!TIP]
+> You can find out most of the options for `zenyte` by looking [here](./hosts/laptop/default.nix).
+
+4. After you have a `default.nix` file, move it into `hosts/<hostName>/default.nix`
+
+5. Finally, add the folder name as the hostname into `flake.nix`
 
 ```nix
 # flake.nix
@@ -148,8 +184,6 @@ in {
 }
 ```
 
-</details>
-
 <h2 class="issues">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/b9acc606-db85-4589-a5a4-3db0172068f0"
@@ -165,43 +199,40 @@ in {
            height="20"
            width="20">
      </sub>
-     Broken bootloader after dual booting Windows
+     Broken bootloader after dual booting Windows or updating BIOS
 </h3>
 
-<details><summary>Click to show</summary>
-
 1. Boot the live usb and mount partitions
-    > **Warning**
-    > The partition and drive names will not be the same for everyone
 
-    ```sh
-    sudo mount /dev/nvme0n1p2 /mnt
-    sudo mount /dev/nvme0n1p1 /mnt/boot
-    ```
+> [!CAUTION]
+> The partition and drive names will not be the same for everyone
 
-2. Move `/mnt/boot/EFI/Microsoft` to `/mnt/boot/EFI/Microsoft.bak`
+```sh
+sudo mount /dev/nvme0n1p2 /mnt
+sudo mount /dev/nvme0n1p1 /mnt/boot
+```
 
-    ```sh
-    sudo mv /mnt/boot/EFI/Microsoft /mnt/boot/EFI/Microsoft.bak
-    ```
+3. Move `/mnt/boot/EFI/Microsoft` to `/mnt/boot/EFI/Microsoft.bak`
 
-3. Reboot
+```sh
+sudo mv /mnt/boot/EFI/Microsoft /mnt/boot/EFI/Microsoft.bak
+```
 
-4. Everything should work now, except you can't choose Windows from the Bootloader
+4. Reboot
 
-5. Repeat step `1.`
+5. Everything should work now, except you can't choose Windows from the Bootloader
 
-6. Move `/mnt/boot/EFI/Microsoft.bak` back to the original position of `/mnt/boot/EFI/Microsoft`
+6. Repeat step `1.`
 
-   ```sh
-    sudo mv /mnt/boot/EFI/Microsoft /mnt/boot/EFI/Microsoft.bak
-    ```
+7. Move `/mnt/boot/EFI/Microsoft.bak` back to the original position of `/mnt/boot/EFI/Microsoft`
 
-7. Reboot
+```sh
+sudo mv /mnt/boot/EFI/Microsoft /mnt/boot/EFI/Microsoft.bak
+```
 
-8. Everything should work again as intended
+8. Reboot
 
-</details>
+9. Everything should work again as intended
 
 <h2 class="acknowledgements">
      <sub>
