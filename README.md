@@ -28,7 +28,7 @@
      Installation
 </h2>
 
-> **Warning**
+> [!CAUTION]
 > The Arch branch may not be up to date, as i mainly use nixos now. I will still try update it from time to time if i can.
 
 The Arch branch has an installer thats best used after a fresh install, though it can be used on an already set up system too.
@@ -86,7 +86,7 @@ Every branch has its own showcase located at the top of the README.
      Basic keybindings (Arch and NixOS)
 </h2>
 
-> **Note**
+> [!IMPORTANT]
 > 🖱️ Left mouse click is <kbd>mouse:272</kbd>, 🖱️ right click is <kbd>mouse:273</kbd>, and <kbd>⌘ Command</kbd> the ⊞ Windows key.
 
  <table>
