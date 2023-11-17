@@ -37,7 +37,7 @@
   </tr>
  </table>
 
-> **Warning**
+> [!WARNING]
 > The showcase may be outdated and look differently.
 
 <h2 class="description">
@@ -74,7 +74,8 @@ Welcome to my dotfiles! These are my original dotfiles without dynamic color the
 
 #### 1. Using the installer
 
-The install script will automatically install paru if it does not find the package, and has a prompt with what dependencies to install or not.
+> [!TIP]
+> The install script will automatically install paru if it does not find the package, and has a prompt where you can pick which dependencies to install.
 
 ```shell
 bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/arch/install.sh)
