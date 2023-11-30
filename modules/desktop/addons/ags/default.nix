@@ -18,5 +18,8 @@ in {
     environment.systemPackages = with pkgs; [
       inputs.ags.packages.${default.system}.default
     ];
+
+    # For the ags battery module
+    services.upower = enabled;
   };
 }

@@ -49,6 +49,7 @@ in {
       gtk = enabled;
       dunst = enabled;
       thunar = enabled;
+      ags = enabled;
     };
 
     zenyte.cli = {
