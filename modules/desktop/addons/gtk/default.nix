@@ -29,6 +29,8 @@ in {
       lxappearance-gtk2
       libadwaita
 
+      gnome.adwaita-icon-theme
+
       gsettings-desktop-schemas
 
       reload-theme
