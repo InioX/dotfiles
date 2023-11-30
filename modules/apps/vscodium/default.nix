@@ -72,6 +72,8 @@ in {
       };
       extensions = with pkgs.vscode-extensions;
         [
+          streetsidesoftware.code-spell-checker
+          eamodio.gitlens
           jnoortheen.nix-ide
           kamadorueda.alejandra
           naumovs.color-highlight
