@@ -17,6 +17,7 @@ in {
     fonts.packages = with pkgs; [
       (nerdfonts.override {fonts = ["Iosevka"];})
 
+      terminus_font_ttf
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji

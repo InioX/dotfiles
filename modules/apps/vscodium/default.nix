@@ -46,11 +46,18 @@ in {
           formatOnSave = true;
           formatOnPaste = true;
           minimap.enabled = false;
+          fontFamily = "Iosevka, 'Terminus (TTF)'";
+          fontSize = 16;
+          lineHeight = 18;
 
           guides = {
             bracketPairs = true;
             bracketPairsHorizontal = true;
           };
+        };
+
+        terminal.integrated = {
+          fontFamily = "'Iosevka'";
         };
 
         vscord.app.name = "VSCodium";
