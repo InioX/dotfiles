@@ -19,6 +19,16 @@ with lib.zenyte; {
     ffmpeg
   ];
 
+  zenyte.system.hosts.laptop.wallpaper = let
+    url = "https://media.discordapp.net/attachments/635625973764849684/1170373576713568286/SolarizedAngel.png";
+    sha256 = "0xzj28911hyba0rfgrnbqj7sbv33rl3nikh5vm910brp4wyxb0lg";
+    ext = lib.last (lib.splitString "." url);
+  in
+    builtins.fetchurl {
+      name = "wallpaper-${sha256}.${ext}";
+      inherit url sha256;
+    };
+
   zenyte.presets = {
     common = enabled;
     development = enabled;

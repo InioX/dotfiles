@@ -5,11 +5,17 @@
   inputs,
   options,
   default,
+  hostName,
   ...
 }:
 with lib;
 with lib.zenyte; let
   cfg = config.zenyte.desktop.hyprland;
+
+  wallpaper =
+    if builtins.hasAttr "wallpaper" options.zenyte.system.hosts.${hostName}
+    then config.zenyte.system.hosts.${hostName}.wallpaper
+    else default.wallpaper;
 in {
   options.zenyte.desktop.hyprland = {
     enable = mkBoolOpt false "Whether to enable Hyprland, with other desktop addons.";
@@ -68,8 +74,8 @@ in {
     zenyte.home.configFile."hypr/autostart.conf".source = "${config.programs.matugen.theme.files}/.config/hypr/autostart.conf";
 
     zenyte.home.configFile."hypr/hyprpaper.conf".text = ''
-      preload = ${default.wallpaper}
-      wallpaper = eDP-1,${default.wallpaper}
+      preload = ${wallpaper}
+      wallpaper = eDP-1,${wallpaper}
     '';
   };
 }

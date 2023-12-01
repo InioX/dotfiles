@@ -13,9 +13,10 @@
       system = "x86_64-linux";
       username = "ini";
 
+      # The default wallpaper to use when `zenyte.system.hosts.<hostName>.wallpaper` is not set
       wallpaper = let
-        url = "https://cdn.discordapp.com/attachments/635625973764849684/1162373070409965578/1328859.png";
-        sha256 = "084bndw73msb2r6d55f0nbklk2vnq4zaqndc5lyaf9s0ykdcxblw";
+        url = "https://w.wallha.com/ws/14/CgX5kJtd.png";
+        sha256 = "01157ryi41if7jy3hbx2fxc6llkaaqsl2c3ds3jbkjcf18lk1lkh";
         ext = nixpkgs.lib.last (nixpkgs.lib.splitString "." url);
       in
         builtins.fetchurl {

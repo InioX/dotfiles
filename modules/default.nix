@@ -3,11 +3,17 @@
   pkgs,
   lib,
   inputs,
+  options,
   default,
+  hostName,
   ...
 }:
 with lib;
 with lib.zenyte; let
+  wallpaper =
+    if builtins.hasAttr "wallpaper" options.zenyte.system.hosts.${hostName}
+    then config.zenyte.system.hosts.${hostName}.wallpaper
+    else default.wallpaper;
 in {
   imports = lib.zenyte.validFiles ./.;
 
@@ -17,7 +23,7 @@ in {
     jsonFormat = "hex";
     palette = "default";
 
-    wallpaper = default.wallpaper;
+    inherit wallpaper;
 
     templates = {
       "waybar-colors.css" = {
