@@ -31,6 +31,7 @@ in {
 
     environment.systemPackages = with pkgs; [
       wl-clipboard
+      wl-clip-persist
       grim
       slurp
       playerctl
@@ -51,7 +52,6 @@ in {
       waybar = enabled;
       kitty = enabled;
       rofi = enabled;
-      sddm = enabled;
       gtk = enabled;
       dunst = enabled;
       thunar = enabled;

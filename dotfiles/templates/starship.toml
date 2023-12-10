@@ -7,10 +7,10 @@ error_symbol = "[🞈](@{error})"
 vicmd_symbol = "[🞈](#f9e2af)"
 
 [directory]
-format = "[]($style)[(bg:@{primary} fg:@{on_primary})$path ](fg:@{on_surface_variant} bg:@{surface_variant})[](fg:@{primary} bg:@{surface_variant})[󰉋](bg:@{primary} fg:@{on_primary})[ ](fg:@{primary})"
+format = "[]($style)[(bg:@{primary_fixed_dim} fg:@{on_primary})$path ](fg:@{on_surface_variant} bg:@{surface_container})[](fg:@{primary_fixed_dim} bg:@{surface_container})[󰉋](bg:@{primary_fixed_dim} fg:@{on_primary})[ ](fg:@{primary_fixed_dim})"
 
-style = "bg:@{surface} fg:@{surface_variant}"
+style = "bg:@{surface_fixed_dim} fg:@{surface_container}"
 
 [git_branch]
-format = "[](fg:@{surface_variant})[(bg:@{primary} fg:@{on_primary})$branch ](fg:@{on_surface_variant} bg:@{surface_variant})[](fg:@{primary} bg:@{surface_variant})[](bg:@{primary} fg:@{on_primary})[ ](fg:@{primary})"
-style = "bg:@{surface} fg:@{surface_variant}"
+format = "[](fg:@{surface_container})[(bg:@{primary} fg:@{on_primary})$branch ](fg:@{on_surface_variant} bg:@{surface_container})[](fg:@{primary} bg:@{surface_container})[](bg:@{primary} fg:@{on_primary})[ ](fg:@{primary})"
+style = "bg:@{surface} fg:@{surface_container}"

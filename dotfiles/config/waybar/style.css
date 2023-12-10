@@ -14,7 +14,9 @@ window#waybar {
   border-radius: 10px;
 }
 
-#custom-play_pause, #custom-next, #custom-previous {
+#custom-play_pause,
+#custom-next,
+#custom-previous {
   background-color: @primary_container;
   margin: 0px 5px 0px 5px;
   color: @on_primary_container;
@@ -31,7 +33,7 @@ window#waybar {
   border-radius: 10px 10px 0px 0px;
 }
 
-#custom-previous {  
+#custom-previous {
   padding-bottom: 20px;
   border-radius: 0px 0px 10px 10px;
   margin-bottom: 5px;
@@ -39,9 +41,7 @@ window#waybar {
 
 #custom-power,
 #workspaces,
-#clock
-#custom-menu
-{
+#clock #custom-menu {
   margin: 5px;
 }
 
@@ -59,7 +59,6 @@ window#waybar {
 }
 
 #workspaces {
-  background: @surface_variant;
   color: @on_surface;
   padding: 5px 0px;
   border-radius: 10px;
@@ -75,11 +74,11 @@ window#waybar {
 
 #workspaces button.active {
   color: @on_primary;
-  background: @primary;
+  background: @primary_fixed_dim;
 }
 
 #workspaces button:hover {
-  background: @surface_variant;
+  background: @surface_container_highest;
   color: @on_surface;
 }
 
@@ -93,8 +92,7 @@ window#waybar {
 }
 
 #clock {
-  background: @surface_variant;
-  color: @on_surface_variant;
+  color: @on_surface;
   padding: 10px;
   border-radius: 10px;
   font-size: 18px;
@@ -103,9 +101,8 @@ window#waybar {
 #battery.icon,
 #custom-wl-gammarelay-brightness.icon,
 #custom-wl-gammarelay-temperature.icon,
-#pulseaudio.icon
-{
-  background: @surface_variant;
+#pulseaudio.icon {
+  background: @surface_container_highest;
   color: @on_surface_variant;
   font-size: 20px;
   /* border-radius: 10px 10px 0px 0px; */
@@ -117,9 +114,8 @@ window#waybar {
 #battery.text,
 #custom-wl-gammarelay-brightness.text,
 #custom-wl-gammarelay-temperature.text,
-#pulseaudio.text
-{
-  background: @surface_variant;
+#pulseaudio.text {
+  background: @surface_container_highest;
   color: @on_surface_variant;
   border-radius: 0px 0px 10px 10px;
   padding: 3px;
@@ -129,14 +125,12 @@ window#waybar {
 
 @keyframes blink {
   to {
-      background-color: #ffffff;
-      color: black;
+    background-color: #ffffff;
+    color: black;
   }
 }
 
-#battery.icon.warning:not(.charging)
-#battery.icon.critical:not(.charging)
-{
+#battery.icon.warning:not(.charging) #battery.icon.critical:not(.charging) {
   background: @error;
   color: @on_error;
   animation-name: blink;

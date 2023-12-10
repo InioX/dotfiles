@@ -49,15 +49,15 @@ in {
 
     zenyte.home.configFile."gtk-2.0".source = default.configFolder + /gtk-2.0;
 
-    zenyte.home.configFile."gtk-3.0/bookmarks".source = default.configFolder + /gtk-3.0/bookmarks;
-    zenyte.home.configFile."gtk-3.0/settings.ini".source = default.configFolder + /gtk-3.0/settings.ini;
-    zenyte.home.configFile."gtk-3.0/gtk.css".source = default.configFolder + /gtk-3.0/gtk.css;
+    # zenyte.home.configFile."gtk-3.0/bookmarks".source = default.configFolder + /gtk-3.0/bookmarks;
+    # zenyte.home.configFile."gtk-3.0/settings.ini".source = default.configFolder + /gtk-3.0/settings.ini;
+    # zenyte.home.configFile."gtk-3.0/gtk.css".source = default.configFolder + /gtk-3.0/gtk.css;
 
-    zenyte.home.configFile."gtk-4.0/colors.css".source = default.configFolder + /gtk-3.0/colors.css;
-    zenyte.home.configFile."gtk-4.0/settings.ini".source = default.configFolder + /gtk-3.0/settings.ini;
+    # zenyte.home.configFile."gtk-4.0/colors.css".source = default.configFolder + /gtk-3.0/colors.css;
+    # zenyte.home.configFile."gtk-4.0/settings.ini".source = default.configFolder + /gtk-3.0/settings.ini;
 
     # Matugen template
     zenyte.home.configFile."gtk-4.0/gtk.css".source = "${config.programs.matugen.theme.files}/.config/gtk-4.0/gtk.css";
-    zenyte.home.configFile."gtk-3.0/colors.css".source = "${config.programs.matugen.theme.files}/.config/gtk-3.0/colors.css";
+    zenyte.home.configFile."gtk-3.0/gtk.css".source = "${config.programs.matugen.theme.files}/.config/gtk-3.0/colors.css";
   };
 }

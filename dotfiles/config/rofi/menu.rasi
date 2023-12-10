@@ -63,7 +63,7 @@ inputbar {
 
 entry {
     padding:			            7px;
-    background-color:	        	@surface-variant;
+    background-color:	        	@surface-container-highest;
     border-radius:		            10px;
     placeholder:                    "Search...";
     placeholder-color:              @on-surface-variant;
@@ -92,7 +92,7 @@ element {
 
 element selected {
     border:                         0px;
-    background-color: 		        @surface-variant;
+    background-color: 		        @surface-container-highest;
     border-radius:		            10px;
 }
 

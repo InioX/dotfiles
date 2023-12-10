@@ -6,9 +6,9 @@
   "margin-top": 10,
   /* BOTTOM */
   "modules-right": [
-    "custom/next",
-    "custom/play_pause",
-    "custom/previous",
+    // "custom/next",
+    // "custom/play_pause",
+    // "custom/previous",
     "battery#icon",
     // "battery#text",
     // "custom/wl-gammarelay-brightness#icon",
