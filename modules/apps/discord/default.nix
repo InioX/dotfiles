@@ -30,19 +30,15 @@ in {
       {
         "SKIP_HOST_UPDATE": true,
         "openasar": {
-          "setup": false,
+          "setup": true,
           "noTyping": true,
+          "quickstart": true,
         },
-        "IS_MAXIMIZED": false,
+        "IS_MAXIMIZED": true,
         "IS_MINIMIZED": false,
-        "WINDOW_BOUNDS": {
-          "x": 92,
-          "y": 14,
-          "width": 1814,
-          "height": 1052
-        },
         "trayBalloonShown": true,
-        "MINIMIZE_TO_TRAY": false
+        "MINIMIZE_TO_TRAY": false,
+        "OPEN_ON_STARTUP": false,
       }
     '';
   };

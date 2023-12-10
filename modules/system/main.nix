@@ -64,6 +64,8 @@ in {
         # To prevent firefox from creating ~/Desktop.
         XDG_DESKTOP_DIR = "$HOME";
         XDG_DOCUMENTS_DIR = "$HOME/docs";
+
+        NIXOS_OZONE_WL = "1";
       };
     };
 
