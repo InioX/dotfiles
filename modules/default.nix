@@ -10,16 +10,13 @@
 }:
 with lib;
 with lib.zenyte; let
-  wallpaper =
-    if builtins.hasAttr "wallpaper" options.zenyte.system.hosts.${hostName}
-    then config.zenyte.system.hosts.${hostName}.wallpaper
-    else default.wallpaper;
+  wallpaper = config.zenyte.system.hosts.${hostName}.wallpaper or default.wallpaper;
 in {
   imports = lib.zenyte.validFiles ./.;
 
   programs.matugen = {
     enable = true;
-    variant = "dark";
+    variant = config.zenyte.system.hosts.${hostName}.variant or "dark";
     jsonFormat = "hex";
     palette = "default";
 
