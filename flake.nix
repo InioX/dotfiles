@@ -74,7 +74,7 @@
 
     # Matugen
     matugen = {
-      url = "github:/InioX/matugen/module";
+      url = "github:/InioX/matugen";
     };
 
     # Prism Launcher
