@@ -8,4 +8,4 @@ cd "$HOME/dotfiles" && git checkout android
 cp bashrc "$HOME/.bashrc"
 
 gh auth login
-termux-setup-sorage
+termux-setup-storage
