@@ -35,6 +35,6 @@ git config --global user.email "81521595+InioX@users.noreply.github.com"
 git config --global user.name "InioX"
 
 cp ${obtainium_backup} "${dotfiles_dir}/obtainium-export.json"
-cd ${dotfiles_dir} && git add $(get_latest_file_name ${obtainium_dir}) && git commit -m "${description}"
+cd ${dotfiles_dir} && git add "obtainium-export.json" && git commit -m "${description}"
 
 git push
