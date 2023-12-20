@@ -1,4 +1,4 @@
-pkg install jq cronie termux-services git gh
+pkg install jq cronie termux-services git gh vim
 sv-enable crond
 crontab -e
 
