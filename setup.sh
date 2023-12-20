@@ -1,11 +1,106 @@
-#!/bin/bash
+#!/usr/bin/env bash
+purple='\033[1;35m'
+red='\033[0;31m'
+green='\033[0;32m'
+blue='\033[0;94m'
+grey='\033[90m'
+normal='\033[0m'
+bold='\033[1m'
 
 main() {
-  # open obtainium
+  read -s -p "Github Token: " github_token
+  echo ""
+
+  setup_obtainium
+  setup_termux
+  configure_settings
+}
+
+setup_termux() {
+  print_header "Running Termux Setup"
+
+  print_text "Opening Termux"
+  adb shell am start -n com.termux/com.termux.HomeActivity | sleep 5
+
+  print_text "Setting Default Editor To Vim"
+  adb shell input text "export%sEDITOR\\='vim'"
+  adb shell input keyevent 66
+
+  print_text "Running Termux Setup Script From GitHub"
+  adb shell input text "bash%s\\<\\(curl%s\\-s%shttps://raw.githubusercontent.com/InioX/dotfiles/android/setup_termux.sh\\)"
+  adb shell input keyevent 66
+
+  adb shell input keyevent 66
+
+  print_text "Waiting 25s For Packages To Finish Installing"
+  sleep 25
+
+  adb shell input text "i"
+
+  adb shell input text "0%s1%s*%s*%s*%s\\~/dotfiles/auto_commit_dotfiles.sh"
+
+  adb shell input keyevent 111  
+  adb shell input text ":wq"
+  adb shell input keyevent 66
+
+  print_text "Waiting 25s For Git To Finish Cloning"
+  sleep 25
+
+  adb shell input keyevent 66
+  adb shell input keyevent 66
+  adb shell input text "y"
+  adb shell input keyevent 66
+
+  adb shell input keyevent 20
+  adb shell input keyevent 66
+
+  adb shell input text $github_token
+  adb shell input keyevent 66
+
+  print_text "Waiting 5s For The File Dialog"
+  sleep 5
+  grab_screen view
+  coords=$(grep -Po 'resource-id="com.android.permissioncontroller:id/permission_allow_button".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
+  adb shell input tap $coords
+}
+
+setup_obtainium() {
+  print_header "Running Obtainium Setup"
+  temp_file=$(mktemp)
+  echo $(curl -s https://raw.githubusercontent.com/InioX/dotfiles/android/obtainium-export.json) >> $temp_file
+
   adb shell am start -n dev.imranr.obtainium/.MainActivity | sleep 1
-  push_backup $1
+  push_backup $temp_file
   import_backup
+  sleep 2
   install_backup
+  rm $temp_file
+}
+
+print_header() {
+  header=$1
+  echo -e "${purple}==>${normal} ${bold}$header...${normal}"
+  sleep 0.3
+}
+
+print_text() {
+  echo -e "${blue}::${normal} ${bold}$1...${normal}"
+}
+
+open_browser() {
+    print_header "Opening Browser"
+    adb shell am start -a android.intent.action.VIEW -d $1
+}
+
+press_key_combination() {
+  adb shell sendevent /dev/input/event0 1 $1 1
+  adb shell sendevent /dev/input/event0 0 0 0
+  adb shell sendevent /dev/input/event0 1 $2 1
+  adb shell sendevent /dev/input/event0 0 0 0
+  adb shell sendevent /dev/input/event0 1 $1 0
+  adb shell sendevent /dev/input/event0 0 0 0
+  adb shell sendevent /dev/input/event0 1 $2 0
+  adb shell sendevent /dev/input/event0 0 0 0
 }
 
 set_wallpaper() {
@@ -13,7 +108,7 @@ set_wallpaper() {
 }
 
 push_backup() {
-  adb push $1 /sdcard/1backups/
+  adb push $1 /sdcard/1backups/obtainium-export.json
 }
 
 grab_screen() {
@@ -21,38 +116,39 @@ grab_screen() {
 }
 
 import_backup() {
-    # go to Import/Export tab
+    print_header "Importing Obtainium Backup"
+    print_text "Going To Import/Export Tab"
     grab_screen view
     coords=$(grep -Po 'content-desc="Import/Export.*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
     adb shell input tap $coords
 
-    # go to Obtanium Import button
+    print_text "Going To Obtanium Import Button"
     grab_screen view
     coords=$(grep -Po 'content-desc="Obtainium Import".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
     adb shell input tap $coords
 
-    # using AOSP file picker 
-    # navigate to exported json
+    print_text "Going To Exported JSON Using AOSP File Picker"
     grab_screen view
     coords=$(grep -Po 'content-desc="Show roots".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
     adb shell input tap $coords
 
     # index="6" may be different on your phone
+    print_text "Going To Home Directory"
     grab_screen view
     coords=$(grep -Po 'index="6" text="" resource-id="".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
     adb shell input tap $coords
 
-    # go to where backup json is located
+    print_text "Going To Folder Where obtainium-export.json Is Located"
     grab_screen view
     coords=$(grep -Po 'text="1backups".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
     adb shell input tap $coords
 
-    # select backup json
+    print_text "Selecting The obtainium-export.json File."
     grab_screen view
     coords=$(grep -Po 'text="obtainium-export.json".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
     adb shell input tap $coords
 
-    # go back to main Apps tab
+    print_text "Going Back To Main Apps Tab"
     grab_screen view
     coords=$(grep -Po 'content-desc="Apps.*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
     adb shell input tap $coords
@@ -62,32 +158,34 @@ import_backup() {
 }
 
 install_backup() {
-    # goto filter tab
+    print_header "Installing Apps In Obtainium"
+    
+    print_text "Going To Filter Tab"
     grab_screen view
     coords=$(grep -Po 'NAF="true" index="2".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
     adb shell input tap $coords && sleep 0.5
 
-    # set filter to only show uninstalled apps
+    print_text "Setting Filter To Only Show Uninstalled Apps"
     grab_screen view
     coords=$(grep -Po 'NAF="true" index="3" text="" resource-id="" class="android.widget.Switch".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
     adb shell input tap $coords && sleep 0.5
 
-    # click continue 
+    print_text "Clicking Continue"
     grab_screen view
     coords=$(grep -Po 'content-desc="Continue".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
     adb shell input tap $coords && sleep 0.5
 
-    # grab amount of uninstalled pkgs
+    print_text "Grabbing The Amount Of Uninstalled Apps"
     grab_screen installs
     grep -Po 'index="1" text="" resource-id="" class="android.widget.Button".*' /tmp/installs.xml | grep -Po 'content-desc="(\d+)"' | head -1 | grep -Po '(\d+)' > base_installs
     base_installs=$(cat base_installs)
 
-    # download all apks from import
+    print_text "Downloading All Apps From Import"
     grab_screen view
     coords=$(grep -Po 'NAF="true" index="3".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
     adb shell input tap $coords && sleep 0.5
 
-    # press continue on download button
+    print_text "Pressing Continue On Download Button"
     adb shell input keyevent 22 && sleep 0.2
     adb shell input keyevent 22 && sleep 0.2
     adb shell input keyevent 22 && sleep 0.2
@@ -106,10 +204,10 @@ install_backup() {
     adb shell input tap $continuee && sleep 0.5
     check_apk
     done
-    echo "Done 'Choosing' Apks"
+    print_text "Done 'Choosing' Apks"
 
     # install apks
-    echo "Installing Apps"
+    print_text "Installing Apps"
 
     current_installs_left=$base_installs
     logfile=packageoverlayed
@@ -132,7 +230,7 @@ install_backup() {
         adb logcat -c
         fi
     done
-    echo "Done Installing Apps"
+    print_text "Done Installing Apps"
 }
 
 check_apk() {
