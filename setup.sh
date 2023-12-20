@@ -8,6 +8,10 @@ main() {
   install_backup
 }
 
+set_wallpaper() {
+  adb shell am start -n com.android.settings/com.example.test.MainActivity
+}
+
 push_backup() {
   adb push $1 /sdcard/1backups/
 }
@@ -144,6 +148,60 @@ check_apk() {
 
 is_pkg_ready() {
     adb logcat -s ActivityTaskManager -v raw -d | grep -e "Displayed com.android.packageinstaller" > packageoverlayed
+}
+
+configure_single_setting() {
+  adb shell settings put $1 $2 $3
+  echo $2=$3
+}
+
+configure_settings() {
+    print_header "Configuring Settings"
+
+    print_text "Setting Night Display"
+    configure_single_setting "secure" "night_display_activated" "1"
+    configure_single_setting "secure" "night_display_auto_mode" "0"
+    configure_single_setting "secure" "night_display_color_temperature" "2775"
+
+    print_text "Setting Bluetooth Name"
+    configure_single_setting "secure" "bluetooth_name" "RMX2155"
+
+    # Make monet engine use wallpaper colors (some custom roms disable this)
+    print_text "Enabling Monet"
+    configure_single_setting "secure" "monet_engine_custom_bgcolor" "0"
+    configure_single_setting "secure" "monet_engine_custom_color" "0"
+
+    # Enables all privacy indicators in status bar
+    print_text "Enabling Privacy Indicators"
+    configure_single_setting "secure" "enable_camera_privacy_indicator" "1"
+    configure_single_setting "secure" "enable_location_privacy_indicator" "1"
+    configure_single_setting "secure" "enable_projection_privacy_indicator" "1"
+
+    # Disables these icons in status bar
+    print_text "Disabling Some Status Bar Icons"
+    configure_single_setting "secure" "icon_blacklist" "ethernet,rotate,volume,ims,mute,call_strength"
+
+    # Disable "three fingers to screenshot" finger gesture
+    print_text "Setting Gestures"
+    configure_single_setting "system" "three_finger_gesture" "0"
+
+    # Sets the screen timeout to 2 minutes
+    print_text "Setting Screen Timeout"
+    configure_single_setting "system" "screen_off_timeout" "120000"
+
+    # Sets the system languages
+    print_text "Setting System Languages"
+    configure_single_setting "system" "system_locales" "en-US,cs-CZ,ru-RU"
+
+    # System animation speed (default, make this lower to feel faster, 0.0 will disable animations)
+    print_text "Setting Animation Speed"
+    configure_single_setting "system" "transition_animation_scale" "1.0"
+
+    print_text "Setting Quick Settings Tiles"
+    configure_single_setting "secure" "sysui_qs_tiles" "internet,bt,flashlight,rotation,night,caffeine,cameratoggle,mictoggle,screenrecord,location,custom(com.x8bit.bitwarden/.MyVaultTileService),dnd"
+
+    print_text "Disabling Haptic Feedback"
+    configure_single_setting "system" "haptic_feedback_enabled" "0"
 }
 
 main "$@"
