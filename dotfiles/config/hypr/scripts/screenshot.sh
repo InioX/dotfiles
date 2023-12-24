@@ -11,13 +11,13 @@ case $1 in
     icon="${icon_folder}/copy.png"
     header="Screenshot"
     text="Copied screen"
-    grim - | wl-copy
+    grim - | wl-copy -t image/png
     notification;;
   copy_area)
     icon="${icon_folder}/copy.png"
     header="Screenshot"
     text="Copied region"
-    grim -g "$(slurp)" - | wl-copy
+    grim -g "$(slurp)" - | wl-copy -t image/png
     notification;;
   save)
     icon="${icon_folder}/save.png"
