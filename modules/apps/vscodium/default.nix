@@ -88,6 +88,10 @@ in {
           arrterian.nix-env-selector
           pkief.material-icon-theme
           vscodevim.vim
+
+          # Rust specific
+          serayuzgur.crates
+          rust-lang.rust-analyzer
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
