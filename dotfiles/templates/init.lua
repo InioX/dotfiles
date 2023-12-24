@@ -21,16 +21,16 @@ return {
           palettes = {
             global = {},             -- Globaly accessible palettes, theme palettes take priority.
             astrodark = {          -- Extend or modify astrodarks palette colors
-              bg = "@{surface}",
-              fg = "@{on_surface}",
-              blue = "@{primary}",
-              bg_1 = "@{surface_variant}",
-              black = "@{surface}", -- File picker dim
-              black_1 = "@{surface_variant}", -- Window dim
-              blue_2 = "@{surface}", -- File picker
-              grey_4 = "@{surface_variant}", -- Status line
-              grey_8 = "@{surface_variant}", -- Focused line
-              grey_9 = "@{surface_variant}",
+              bg = "{{colors.surface.default.hex}",
+              fg = "{{colors.on_surface.default.hex}",
+              blue = "{{colors.primary.default.hex}",
+              bg_1 = "{{colors.surface_variant.default.hex}",
+              black = "{{colors.surface.default.hex}", -- File picker dim
+              black_1 = "{{colors.surface_variant.default.hex}", -- Window dim
+              blue_2 = "{{colors.surface.default.hex}", -- File picker
+              grey_4 = "{{colors.surface_variant.default.hex}", -- Status line
+              grey_8 = "{{colors.surface_variant.default.hex}", -- Focused line
+              grey_9 = "{{colors.surface_variant.default.hex}",
             },
           },
 

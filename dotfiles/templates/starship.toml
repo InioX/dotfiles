@@ -2,15 +2,15 @@ format="$directory$git_branch$character"
 
 # Prompt symbols 
 [character]
-success_symbol = "[🞈](@{tertiary} bold)"
+success_symbol = "[🞈]({{colors.tertiary.default.hex}} bold)"
 error_symbol = "[🞈](@{error})"
 vicmd_symbol = "[🞈](#f9e2af)"
 
 [directory]
-format = "[]($style)[(bg:@{primary_fixed_dim} fg:@{on_primary})$path ](fg:@{on_surface_variant} bg:@{surface_container})[](fg:@{primary_fixed_dim} bg:@{surface_container})[󰉋](bg:@{primary_fixed_dim} fg:@{on_primary})[ ](fg:@{primary_fixed_dim})"
+format = "[]($style)[(bg:{{colors.primary_fixed_dim.default.hex}} fg:{{colors.on_primary.default.hex}})$path ](fg:{{colors.on_surface_variant.default.hex}} bg:{{colors.surface_container.default.hex}})[](fg:{{colors.primary_fixed_dim.default.hex}} bg:{{colors.surface_container.default.hex}})[󰉋](bg:{{colors.primary_fixed_dim.default.hex}} fg:{{colors.on_primary.default.hex}})[ ](fg:{{colors.primary_fixed_dim.default.hex}})"
 
-style = "bg:@{surface_fixed_dim} fg:@{surface_container}"
+style = "bg:{{colors.surface_dim.default.hex}} fg:{{colors.surface_container.default.hex}}"
 
 [git_branch]
-format = "[](fg:@{surface_container})[(bg:@{primary} fg:@{on_primary})$branch ](fg:@{on_surface_variant} bg:@{surface_container})[](fg:@{primary} bg:@{surface_container})[](bg:@{primary} fg:@{on_primary})[ ](fg:@{primary})"
-style = "bg:@{surface} fg:@{surface_container}"
+format = "[](fg:{{colors.surface_container.default.hex}})[(bg:{{colors.primary.default.hex}} fg:{{colors.on_primary.default.hex}})$branch ](fg:{{colors.on_surface_variant.default.hex}} bg:{{colors.surface_container.default.hex}})[](fg:{{colors.primary.default.hex}} bg:{{colors.surface_container.default.hex}})[](bg:{{colors.primary.default.hex}} fg:{{colors.on_primary.default.hex}})[ ](fg:{{colors.primary.default.hex}})"
+style = "bg:{{colors.surface.default.hex}} fg:{{colors.surface_container.default.hex}}"

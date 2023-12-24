@@ -49,38 +49,38 @@ font = "Hack Nerd Font 11"
 
 progress_bar_corner_radius = 7
 
-frame_color = "@{primary.hex}"
-highlight = "@{primary.hex}"
-separator_color = "@{outline.hex}"
+frame_color = "{{colors.primary.default.hex}}"
+highlight = "{{colors.primary.default.hex}}"
+separator_color = "{{colors.outline.default.hex}}"
 
 gaps = true
 gap_size = 10
 
 [progress]
 appname = "progress"
-background = "@{surface_variant.hex}"
-foreground = "@{on_surface_variant.hex}"
-frame_color = "@{surface_variant.hex}"
+background = "{{colors.surface_container_highest.default.hex}}"
+foreground = "{{colors.on_surface_variant.default.hex}}"
+frame_color = "{{colors.surface_container_highest.default.hex}}"
 alignment = center
 hide_text = true
 icon_position = top
 
 [Screenshot]
 appname = "Screenshot"
-background = "@{surface_variant.hex}"
-foreground = "@{on_surface_variant.hex}"
-frame_color = "@{surface_variant.hex}"
+background = "{{colors.surface_container_highest.default.hex}}"
+foreground = "{{colors.on_surface_variant.default.hex}}"
+frame_color = "{{colors.surface_container_highest.default.hex}}"
 alignment = center
 icon_position = top
 
 [urgency_normal]
-background = "@{primary.hex}"
-foreground = "@{on_primary.hex}"
+background = "{{colors.primary.default.hex}}"
+foreground = "{{colors.on_primary.default.hex}}"
 timeout = 10
 
 [urgency_critical]
-background = "@{error.hex}"
-foreground = "@{on_error.hex}"
-frame_color = "@{error.hex}"
+background = "{{colors.error.default.hex}}"
+foreground = "{{colors.on_error.default.hex}}"
+frame_color = "{{colors.error.default.hex}}"
 timeout = 0
 default_icon = /usr/share/icons/Paper/16x16/status/dialog-warning.png
