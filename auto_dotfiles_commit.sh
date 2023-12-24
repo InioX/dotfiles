@@ -1,3 +1,5 @@
+#!/bin/bash
+
 dotfiles_dir="$HOME/dotfiles"
 obtainium_dir="$HOME/storage/shared/backups/obtainium"
 
