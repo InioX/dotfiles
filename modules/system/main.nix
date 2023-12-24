@@ -9,6 +9,11 @@
 with lib;
 with lib.zenyte; let
   cfg = config.zenyte.system;
+  rebuild-script = pkgs.writeShellScriptBin "rebuild" ''
+    [ "$UID" -eq 0 ] || { echo "Error: This script must be run as root."; exit 1;}
+
+    sudo nixos-rebuild switch --flake .#laptop --log-format internal-json |& nom --json
+  '';
 in {
   options.zenyte.system = {
     diffScript = mkBoolOpt true "Enables showing what packages changes between generations on rebuild.";
@@ -54,6 +59,8 @@ in {
         usbutils
 
         inputs.matugen.packages.${system}.default
+
+        rebuild-script
       ];
 
       sessionVariables = {

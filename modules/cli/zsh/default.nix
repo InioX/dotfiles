@@ -26,7 +26,6 @@ in {
       enable = true;
       shellAliases = {
         ll = "ls -l";
-        rebuild = ''sudo nixos-rebuild switch --flake .#laptop --log-format internal-json |& nom --json'';
         switch-theme = "~/.config/hypr/scripts/switch-theme.sh";
         switch-mode = "~/.config/hypr/scripts/switch-mode.sh";
         edit-dots = "codium /home/${default.username}/dev/dotfiles/";
