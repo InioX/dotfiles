@@ -1,12 +1,16 @@
 <div align="center">
-  <img src="https://socialify.git.ci/iniox/dotfiles/image?description=1&language=1&name=1&owner=1&theme=Dark">
+  <img src="https://github.com/InioX/dotfiles/assets/81521595/39e2e902-7eac-4186-a960-bb136d2c3448" height="300">
+  <br>
+  <img src="https://github.com/InioX/dotfiles/assets/81521595/b72e5821-5209-4474-a551-c71395236587" height=60% width=60%>
 </div>
 
+<br>
+
 <div align="center">
-  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-Unstable-ffffff?style=for-the-badge&logo=NixOS&logoColor=white" alt="NixOS - Unstable">
-  <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-ffffff?style=for-the-badge&logo=Arch+Linux&logoColor=white" alt="Arch - LATEST"></a><br>
-<a href="https://github.com/InioX/dotfiles/tree/android"><img src="https://img.shields.io/badge/Android-13%20Tiramisu-ffffff?style=for-the-badge&logo=Android&logoColor=white" alt="Android - A13 Tiramisu"></a>
-<a href="https://github.com/InioX/dotfiles/tree/windows"><img src="https://img.shields.io/badge/Windows-10%2022H2-ffffff?style=for-the-badge&logo=Windows&logoColor=white" alt="Windows - 10 22H2"></a><br>
+  <a href="https://github.com/InioX/dotfiles/tree/nixos"><img src="https://img.shields.io/badge/NixOS-Unstable-39393B?style=for-the-badge&logo=NixOS&logoColor=081B3A&labelColor=B6C6EE" alt="NixOS - Unstable">
+  <a href="https://github.com/InioX/dotfiles/tree/arch/"><img src="https://img.shields.io/badge/Arch-LATEST-39393B?style=for-the-badge&logo=Arch+Linux&logoColor=081B3A&labelColor=B6C6EE" alt="Arch - LATEST"></a><br>
+<a href="https://github.com/InioX/dotfiles/tree/android"><img src="https://img.shields.io/badge/Android-13%20Tiramisu-39393B?style=for-the-badge&logo=Android&logoColor=081B3A&labelColor=B6C6EE" alt="Android - A13 Tiramisu"></a>
+<a href="https://github.com/InioX/dotfiles/tree/windows"><img src="https://img.shields.io/badge/Windows-10%2022H2-39393B?style=for-the-badge&logo=Windows&logoColor=081B3A&labelColor=B6C6EE" alt="Windows - 10 22H2"></a><br>
   <div>
     <a href="#package-installation">Installation</a>
     ·
@@ -15,8 +19,12 @@
   <a href="#keyboard-basic-keybindings">Keybindings</a>
   </div>
   <div align="center">
-    <sub>Every operating system's configuration is in it's own branch.</sub>
+    <sub>My personal dotfiles for NixOS, Arch, Windows, and Android.</sub>
   </div>
+</div>
+
+<div align="center">
+  <img src="https://github.com/InioX/dotfiles/assets/81521595/b9bf6b7b-12ef-494a-a614-c06ac419fe63">
 </div>
 
 <h2>
@@ -62,7 +70,7 @@ The Arch branch has an installer thats best used after a fresh install, though i
      Showcase
 </h2>
 
-Every branch has its own showcase located at the top of the README.
+Every branch has its own showcase located at the top of their README.
 
 #### Changing branches
 
@@ -73,7 +81,7 @@ Every branch has its own showcase located at the top of the README.
   </tr>
   <tr>
     <td><img src="https://github.com/InioX/dotfiles/assets/81521595/2231c14b-d583-4ad6-a3ee-2fa80489cb44"></td>
-    <td><img src="https://github.com/InioX/dotfiles/assets/81521595/a77a85eb-1a32-4850-9b96-bde65a7122c6" width=1500></td>
+    <td><img src="https://github.com/InioX/dotfiles/assets/81521595/70d39d7a-4640-4a43-8d4e-3c027ff396ef" width=1500></td>
   </tr>
  </table>
 
