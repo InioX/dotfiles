@@ -12,7 +12,11 @@ with lib.zenyte; let
   rebuild-script = pkgs.writeShellScriptBin "rebuild" ''
     [ "$UID" -eq 0 ] || { echo "Error: This script must be run as root."; exit 1;}
 
-    sudo nixos-rebuild switch --flake .# $@ --log-format internal-json |& nom --json
+    if [ "$1" = "fast" ]; then
+      sudo nixos-rebuild switch --flake .# --fast --show-trace --log-format internal-json |& nom --json
+    else
+      sudo nixos-rebuild switch --flake .# --log-format internal-json |& nom --json
+    fi;
   '';
 in {
   options.zenyte.system = {
