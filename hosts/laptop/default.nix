@@ -22,8 +22,10 @@ with lib.zenyte; {
   zenyte.system.hosts.laptop = {
     variant = "dark";
     wallpaper = let
-      url = "https://media.discordapp.net/attachments/635625973764849684/1170373576713568286/SolarizedAngel.png";
-      sha256 = "0xzj28911hyba0rfgrnbqj7sbv33rl3nikh5vm910brp4wyxb0lg";
+      image = import ./wallpaper.nix;
+
+      url = image.url;
+      sha256 = image.sha256;
       ext = lib.last (lib.splitString "." url);
     in
       builtins.fetchurl {
