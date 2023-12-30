@@ -23,15 +23,8 @@ with lib.zenyte; {
     variant = "dark";
     wallpaper = let
       image = import ./wallpaper.nix;
-
-      url = image.url;
-      sha256 = image.sha256;
-      ext = lib.last (lib.splitString "." url);
     in
-      builtins.fetchurl {
-        name = "wallpaper-${sha256}.${ext}";
-        inherit url sha256;
-      };
+      zenyte.fetchImage image.url image.sha256;
   };
 
   zenyte.presets = {
