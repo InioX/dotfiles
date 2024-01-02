@@ -167,6 +167,11 @@ setup_obtainium() {
   echo $(curl -s https://raw.githubusercontent.com/InioX/dotfiles/android/obtainium-export.json) >> $temp_file
 
   adb shell am start -n dev.imranr.obtainium/.MainActivity | sleep 1
+
+  grab_screen view
+  coords=$(grep -Po 'text="Allow".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
+  adb shell input tap $coords
+
   push_backup $temp_file
   import_backup
   sleep 2
