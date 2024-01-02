@@ -8,12 +8,109 @@ normal='\033[0m'
 bold='\033[1m'
 
 main() {
-  read -s -p "Github Token: " github_token
-  echo ""
+  # read -s -p "Github Token: " github_token
+  # echo ""
 
   setup_obtainium
-  setup_termux
+
+  # TODO: finish this
+  # setup_termux
+  
   configure_settings
+  setup_launcher
+  set_wallpaper
+  # get_all_activities com.android.documentsui
+}
+
+get_all_activities() {
+  adb shell dumpsys package | grep -Eo "^[[:space:]]+[0-9a-f]+[[:space:]]+$1/[^[:space:]]+" | grep -oE "[^[:space:]]+$"
+}
+
+push_file() {
+  file=$1
+  dest=$2"${file##*/}"
+  print_text "Pushing ${1} to ${2}"
+  adb push "$file" "$dest"
+}
+
+set_wallpaper() {
+  temp_file=$(mktemp)
+  echo $(curl -s https://raw.githubusercontent.com/InioX/dotfiles/android/wall.jpg) >> $temp_file
+  push_file $temp_file /sdcard/Download/wall.jpg
+  
+  dest=/sdcard/Download/wall.jpg
+  adb shell am start \
+      -a android.intent.action.ATTACH_DATA \
+      -c android.intent.category.DEFAULT \
+      -d file://"$dest" \
+      -t 'image/*' \
+      -e mimeType 'image/*' \
+      -n 'ginlemon.flowerfree/ginlemon.flower.wallpaperCropUi.WallpaperCropActivity'
+  
+  grab_screen view
+  coords=$(grep -Po 'index="3".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
+  adb shell input tap $coords
+
+  grab_screen view
+  coords=$(grep -Po 'index="6".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
+  adb shell input tap $coords
+}
+
+setup_launcher() {
+  print_header "Running Launcher Setup"
+
+  adb shell am start -n ginlemon.flowerfree/ginlemon.flower.HomeScreen
+  grab_screen view
+  coords=$(grep -Po 'text="Get started".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
+  adb shell input tap $coords
+
+  grab_screen view
+  coords=$(grep -Po 'resource-id="ginlemon.flowerfree:id/termsAcceptCb".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
+  adb shell input tap $coords
+
+  grab_screen view
+  coords=$(grep -Po 'text="Confirm" resource-id="ginlemon.flowerfree:id/confirm".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
+  adb shell input tap $coords
+
+  # echo "continue"
+  grab_screen view
+  coords=$(grep -Po 'resource-id="ginlemon.flowerfree:id/next".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
+  echo $coords
+  adb shell input tap $coords
+  
+  sleep 1
+
+  adb shell input keyevent 4 
+
+  sleep 5
+
+  adb shell input keyevent 4 
+
+  adb shell cmd package set-home-activity ginlemon.flowerfree/ginlemon.flower.HomeScreen
+
+  push_file ./launcher_backup.slbk /sdcard/1backups/launcher_backup.slbk
+
+  print_text "Importing Launcher Backup"
+
+  adb shell am start -n com.android.documentsui/.files.FilesActivity
+
+  print_text "Going To Folder Where obtainium-export.json Is Located"
+  grab_screen view
+  coords=$(grep -Po 'text="1backups".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
+  adb shell input tap $coords
+
+  print_text "Selecting The obtainium-export.json File."
+  grab_screen view
+  coords=$(grep -Po 'text="launcher_backup.slbklauncher_backup.slbk".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
+  adb shell input tap $coords
+
+  grab_screen view
+  coords=$(grep -Po 'text="Just once".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
+  adb shell input tap $coords
+
+  grab_screen view
+  coords=$(grep -Po 'text="OK".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
+  adb shell input tap $coords
 }
 
 setup_termux() {
@@ -101,10 +198,6 @@ press_key_combination() {
   adb shell sendevent /dev/input/event0 0 0 0
   adb shell sendevent /dev/input/event0 1 $2 0
   adb shell sendevent /dev/input/event0 0 0 0
-}
-
-set_wallpaper() {
-  adb shell am start -n com.android.settings/com.example.test.MainActivity
 }
 
 push_backup() {
