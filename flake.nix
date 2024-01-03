@@ -46,7 +46,6 @@
 
               environment.systemPackages = [
                 matugen.packages.${default.system}.default
-                alejandra.defaultPackage.${default.system}
               ];
             }
             inputs.matugen.nixosModules.default
@@ -63,6 +62,45 @@
       # USAGE: addNewHost <hostname>
       laptop = addNewHost "laptop";
     };
+    devShell.x86_64-linux = with import nixpkgs {system = "x86_64-linux";};
+      mkShell {
+        buildInputs = [
+          inputs.alejandra.defaultPackage.${system}
+          shellcheck
+          shfmt
+          (
+            pkgs.writeShellScriptBin "rebuild" ''
+              [ "$UID" -eq 0 ] || { echo "Error: This script must be run as root."; exit 1;}
+
+              if [ "$1" = "fast" ]; then
+                sudo nixos-rebuild switch --flake .# --fast --show-trace --log-format internal-json |& nom --json
+              else
+                sudo nixos-rebuild switch --flake .# --log-format internal-json |& nom --json
+              fi;
+            ''
+          )
+          (
+            pkgs.writeShellScriptBin "wallfetch" ''
+              if [ ! -f flake.nix ]; then echo "This script is supposed to be ran from flake root." && exit 1; fi;
+
+              path="hosts/$(hostname)/wallpaper.nix"
+
+              sha256=$(curl $1 | sha256sum | cut -d ' ' -f 1 )
+
+              if [ ! -f $path ]; then
+                  touch $path
+              fi
+
+              echo $sha256
+
+              echo "{
+                url = \"$1\";
+                sha256 = \"$sha256\";
+              }" > $path
+            ''
+          )
+        ];
+      };
   };
 
   inputs = {

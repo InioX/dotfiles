@@ -30,6 +30,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       fix-vscode-extensions
+      direnv
     ];
 
     zenyte.home.extraOptions.programs.vscode = {
@@ -88,6 +89,11 @@ in {
           arrterian.nix-env-selector
           pkief.material-icon-theme
           vscodevim.vim
+
+          mkhl.direnv
+
+          # Shell scripts
+          timonwong.shellcheck
 
           # Rust specific
           serayuzgur.crates
