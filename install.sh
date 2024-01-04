@@ -2,4 +2,4 @@
 
 git clone https://github.com/InioX/dotfiles && cd dotfiles
 git checkout nixos
-sudo nixos-install --flake .$1
+sudo nixos-install --flake ".#${1}"
