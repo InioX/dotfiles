@@ -53,8 +53,7 @@
           # Pass the variables to other modules
           specialArgs = {
             lib = mkLib inputs.nixpkgs;
-            inherit (lib.zenyte);
-            inherit inputs hostName zenyte-lib default;
+            inherit inputs hostName default;
           };
         };
   in {
@@ -68,6 +67,7 @@
           inputs.alejandra.defaultPackage.${system}
           shellcheck
           shfmt
+          nil
           (
             pkgs.writeShellScriptBin "rebuild" ''
               [ "$UID" -eq 0 ] || { echo "Error: This script must be run as root."; exit 1;}

@@ -43,6 +43,9 @@ in {
           iconTheme = "material-icon-theme";
         };
 
+        nix.enableLanguageServer = true;
+        nix.serverPath = "nil";
+
         editor = {
           formatOnSave = true;
           formatOnPaste = true;
