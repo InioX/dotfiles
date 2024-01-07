@@ -34,26 +34,31 @@ push_file() {
 }
 
 set_wallpaper() {
-  temp_file=$(mktemp)
-  echo $(curl -s https://raw.githubusercontent.com/InioX/dotfiles/android/wall.jpg) >> $temp_file
-  push_file $temp_file /sdcard/Download/wall.jpg
+  tmp_file=/tmp/wall.jpg
+  dest=/sdcard/DCIM/Wallpapers/wall.jpg
+  curl -s https://raw.githubusercontent.com/InioX/dotfiles/android/wall.jpg -o "$tmp_file"
+  push_file "$tmp_file" "/sdcard/DCIM/Wallpapers/"
+  push_file "wall.jpg" "/sdcard/DCIM/Wallpapers/"
   
-  dest=/sdcard/Download/wall.jpg
   adb shell am start \
       -a android.intent.action.ATTACH_DATA \
       -c android.intent.category.DEFAULT \
-      -d file://"$dest" \
+      -d file://$dest \
       -t 'image/*' \
       -e mimeType 'image/*' \
-      -n 'ginlemon.flowerfree/ginlemon.flower.wallpaperCropUi.WallpaperCropActivity'
+      -n 'org.fossify.gallery/org.fossify.gallery.activities.SetWallpaperActivity'
+
+  rm "$tmp_file"
   
   grab_screen view
-  coords=$(grep -Po 'index="3".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
+  coords=$(grep -Po 'content-desc="Save".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
   adb shell input tap $coords
 
   grab_screen view
-  coords=$(grep -Po 'index="6".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
+  coords=$(grep -Po 'text="Home and lock screen".*' /tmp/view.xml | grep -Po '\[\d+,\d+\]\[\d+,\d+\]' | head -1 | sed 's/\[//g' | sed 's/\]/ /g' | sed 's/,/ /g' | awk '{printf ("%d %d\n", ($1+$3)/2, ($2+$4)/2)}')
   adb shell input tap $coords
+
+  sleep 2
 }
 
 setup_launcher() {
