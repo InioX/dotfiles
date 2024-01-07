@@ -91,7 +91,7 @@ in {
           usernamehw.errorlens
           arrterian.nix-env-selector
           pkief.material-icon-theme
-          vscodevim.vim
+          # vscodevim.vim
 
           mkhl.direnv
 
@@ -120,6 +120,12 @@ in {
             publisher = "LeonardSSH";
             version = "5.1.18";
             sha256 = "sha256-pJ9loVW1uhlITXSNBsCEgW+o3ABn0cxcZxg6S7cKWHI=";
+          }
+          {
+            name = "better-comments";
+            publisher = "aaron-bond";
+            version = "3.0.2";
+            sha256 = "sha256-hQmA8PWjf2Nd60v5EAuqqD8LIEu7slrNs8luc3ePgZc=";
           }
         ]
         ++ cfg.extensions;
