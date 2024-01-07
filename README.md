@@ -68,6 +68,9 @@ The `dotfiles/config` folder is there for compability reasons for arch, some fil
 bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/nixos/install.sh) <hostname>
 ```
 
+> [!TIP]
+> After you are done installing and you want to make any changes to the dotfiles, make sure you clone the repository into `~/dev/do
+
 <h2 class="usage">
      <sub>
           <img  src="https://github.com/InioX/dotfiles/assets/81521595/4e2f040e-977b-43e2-8465-6915817475c7"
