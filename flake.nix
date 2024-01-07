@@ -9,6 +9,7 @@
       # Use a config folder for compatibility with arch
       configFolder = ./dotfiles/config;
       templateFolder = ./dotfiles/templates;
+      configFlakeFolder = "/home/${default.username}/dev/dotfiles/dotfiles/config";
 
       system = "x86_64-linux";
       username = "ini";

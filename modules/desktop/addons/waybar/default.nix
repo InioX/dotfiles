@@ -47,8 +47,10 @@ in {
       playerctl
     ];
 
-    zenyte.home.configFile."waybar/config".source = default.configFolder + /waybar/config;
-    zenyte.home.configFile."waybar/style.css".source = default.configFolder + /waybar/style.css;
+    # ! Moved to <flake-root>/modules/home.nix,
+    # ! changed to `mkOutOfStoreSymlink` instead for easier editing
+    # zenyte.home.configFile."waybar/config".source = default.configFolder + /waybar/config;
+    # zenyte.home.configFile."waybar/style.css".source = default.configFolder + /waybar/style.css;
 
     # Matugen template
     zenyte.home.configFile."waybar/colors.css".source = "${config.programs.matugen.theme.files}/.config/waybar/colors.css";
