@@ -8,11 +8,13 @@ normal='\033[0m'
 bold='\033[1m'
 
 main() {
-  # read -s -p "Github Token: " github_token
-  # echo ""
+  # if [[ $(grep -i Microsoft /proc/version) ]]; then
+    
+  # fi
 
+  install_obtainium
   setup_obtainium
-
+  
   # TODO: finish this
   # setup_termux
   
@@ -20,6 +22,17 @@ main() {
   setup_launcher
   set_wallpaper
   # get_all_activities com.android.documentsui
+}
+
+install_obtainium() {
+  filename="app-arm64-v8a-release.apk"
+  wget $(wget -q -O - https://api.github.com/repos/ImranR98/Obtainium/releases/latest  |  jq -r '.assets[] | select(.name==("'"$filename"'")) | .browser_download_url')
+  adb install $filename
+}
+
+get_gh_token() {
+  read -s -p "Github Token: " github_token
+  echo ""
 }
 
 get_all_activities() {
@@ -170,6 +183,8 @@ setup_obtainium() {
   print_header "Running Obtainium Setup"
   temp_file=$(mktemp)
   echo $(curl -s https://raw.githubusercontent.com/InioX/dotfiles/android/obtainium-export.json) >> $temp_file
+
+  adb shell pm grant dev.imranr.obtainium android.permission.REQUEST_INSTALL_PACKAGES
 
   adb shell am start -n dev.imranr.obtainium/.MainActivity | sleep 1
 
