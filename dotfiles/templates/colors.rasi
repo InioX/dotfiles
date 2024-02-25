@@ -44,29 +44,4 @@
     surface-container: {{colors.surface_container.default.hex}};
     surface-container-high: {{colors.surface_container_high.default.hex}};
     surface-container-highest: {{colors.surface_container_highest.default.hex}};
-
-    color-accent-primary: {{colors.color_accent_primary.default.hex}};
-    color-accent-primary-variant: {{colors.color_accent_primary_variant.default.hex}};
-    color-accent-secondary: {{colors.color_accent_secondary.default.hex}};
-    color-accent-secondary-variant: {{colors.color_accent_secondary_variant.default.hex}};
-    color-accent-tertiary: {{colors.color_accent_tertiary.default.hex}};
-    color-accent-tertiary-variant: {{colors.color_accent_tertiary_variant.default.hex}};
-    text-color-primary: {{colors.text_color_primary.default.hex}};
-    text-color-secondary: {{colors.text_color_secondary.default.hex}};
-    text-color-tertiary: {{colors.text_color_tertiary.default.hex}};
-    text-color-primary-inverse: {{colors.text_color_primary_inverse.default.hex}};
-    text-color-secondary-inverse: {{colors.text_color_secondary_inverse.default.hex}};
-    text-color-tertiary-inverse: {{colors.text_color_tertiary_inverse.default.hex}};
-    color-background: {{colors.color_background.default.hex}};
-    color-background-floating: {{colors.color_background_floating.default.hex}};
-    color-surface: {{colors.color_surface.default.hex}};
-    color-surface-variant: {{colors.color_surface_variant.default.hex}};
-    color-surface-highlight: {{colors.color_surface_highlight.default.hex}};
-    surface-header: {{colors.surface_header.default.hex}};
-    under-surface: {{colors.under_surface.default.hex}};
-    off-state: {{colors.off_state.default.hex}};
-    accent-surface: {{colors.accent_surface.default.hex}};
-    text-primary-on-accent: {{colors.text_primary_on_accent.default.hex}};
-    text-secondary-on-accent: {{colors.text_secondary_on_accent.default.hex}};
-    volume-background: {{colors.volume_background.default.hex}};
 }

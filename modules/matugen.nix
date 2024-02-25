@@ -15,7 +15,7 @@ in {
     enable = true;
     variant = config.zenyte.system.hosts.${hostName}.variant or "dark";
     jsonFormat = "hex";
-    palette = "default";
+    # type = "default";
 
     inherit wallpaper;
 
