@@ -21,6 +21,7 @@ with lib.zenyte; {
 
   zenyte.system.hosts.laptop = {
     variant = "dark";
+    type = "scheme-neutral";
     wallpaper = let
       image = import ./wallpaper.nix;
     in

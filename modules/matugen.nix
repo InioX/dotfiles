@@ -15,7 +15,7 @@ in {
     enable = true;
     variant = config.zenyte.system.hosts.${hostName}.variant or "dark";
     jsonFormat = "hex";
-    # type = "default";
+    type = config.zenyte.system.hosts.${hostName}.type or "scheme-tonal-spot";
 
     inherit wallpaper;
 
