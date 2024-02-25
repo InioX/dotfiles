@@ -69,7 +69,7 @@ bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/nixos/install.sh
 ```
 
 > [!TIP]
-> After you are done installing and you want to make any changes to the dotfiles, make sure you clone the repository into `~/dev/do
+> After you are done installing and you want to make any changes to the dotfiles, make sure you clone the repository into `~/dev/dotfiles`
 
 <h2 class="usage">
      <sub>
