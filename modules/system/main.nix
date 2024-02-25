@@ -29,7 +29,7 @@ in {
     '';
 
     boot.plymouth = {
-      enable = true;
+      enable = false;
       themePackages = with pkgs; [
         nixos-bgrt-plymouth
       ];
@@ -65,7 +65,7 @@ in {
         XDG_DESKTOP_DIR = "$HOME";
         XDG_DOCUMENTS_DIR = "$HOME/docs";
 
-        NIXOS_OZONE_WL = "1";
+        #NIXOS_OZONE_WL = "1";
       };
     };
 
