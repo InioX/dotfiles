@@ -24,6 +24,10 @@ in {
         input_path = "${default.templateFolder}/waybar-colors.css";
         output_path = "~/.config/waybar/colors.css";
       };
+      "ags" = {
+        input_path = "${default.templateFolder}/colors.scss";
+        output_path = "~/.config/ags/scss/colors.scss";
+      };
       "rofi" = {
         input_path = "${default.templateFolder}/colors.rasi";
         output_path = "~/.config/rofi/colors.rasi";

@@ -17,9 +17,14 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       inputs.ags.packages.${default.system}.default
+      brightnessctl
+      inotify-tools
+      sass
     ];
 
     # For the ags battery module
     services.upower = enabled;
+
+    zenyte.home.configFile."colors.scss".source = "${config.programs.matugen.theme.files}/.config/ags/scss/colors.scss";
   };
 }
