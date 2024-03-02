@@ -75,7 +75,29 @@ in {
               "rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink "${default.configFlakeFolder}/rofi/config.rasi";
               "rofi/powermenu.rasi".source = config.lib.file.mkOutOfStoreSymlink "${default.configFlakeFolder}/rofi/powermenu.rasi";
               "rofi/menu.rasi".source = config.lib.file.mkOutOfStoreSymlink "${default.configFlakeFolder}/rofi/menu.rasi";
+
+              # Ags
+              "ags" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.configFlakeFolder}/ags";
+                recursive = true;
+              };
             };
+
+            # Setup basic directories
+            home.activation.createDevFolder = lib.hm.dag.entryAfter ["writeBoundary"] ''
+              baseDir="/home/${default.username}/dev/"
+              if [ ! -d "$baseDir" ]; then
+                mkdir $baseDir
+              fi
+            '';
+
+            # Clone dotfiles repo inside ~/dev/dotfiles
+            home.activation.cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+              baseDir="/home/${default.username}/dev/dotfiles"
+              if [ ! -d "$baseDir" ]; then
+                git clone https://github.com/InioX/dotfiles $baseDir
+              fi
+            '';
           }
         ];
     };
