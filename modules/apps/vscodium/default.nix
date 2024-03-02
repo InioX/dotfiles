@@ -53,6 +53,9 @@ in {
           fontFamily = "Iosevka, 'Terminus (TTF)'";
           fontSize = 16;
           lineHeight = 18;
+          cursorSmoothCaretAnimation = "on";
+          editor.smoothScrolling = true;
+          editor.cursorBlinking = "phase";
 
           guides = {
             bracketPairs = true;
