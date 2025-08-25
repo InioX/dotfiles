@@ -15,13 +15,9 @@ in {
 
   config = {
     fonts.packages = with pkgs; [
-      (nerdfonts.override {fonts = ["Iosevka"];})
-
-      terminus_font_ttf
+      nerd-fonts.iosevka
       noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      noto-fonts-extra
+      terminus_font_ttf
       material-design-icons
     ];
   };
