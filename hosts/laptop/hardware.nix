@@ -35,8 +35,13 @@
   };
 
   fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-uuid/2A99-8470";
+    device = "/dev/disk/by-label/NIXOSBOOT";
     fsType = "vfat";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "ext4";
   };
 
   swapDevices = [];
@@ -51,7 +56,6 @@
 
   hardware.opengl = {
     enable = true;
-    driSupport = true;
     extraPackages = with pkgs; [
       amdvlk
     ];
