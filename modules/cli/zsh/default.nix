@@ -16,9 +16,6 @@ in {
   config = mkIf (cfg.enable
     || config.zenyte.system.defaultShell
     == pkgs.zsh) {
-    environment.systemPackages = with pkgs; [
-      thefuck
-    ];
 
     programs.zsh.enable = true;
 
