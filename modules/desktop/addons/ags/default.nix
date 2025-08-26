@@ -24,7 +24,5 @@ in {
 
     # For the ags battery module
     services.upower = enabled;
-
-    zenyte.home.configFile."colors.scss".source = "${config.programs.matugen.theme.files}/.config/ags/scss/colors.scss";
   };
 }

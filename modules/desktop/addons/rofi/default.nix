@@ -23,8 +23,5 @@ in {
     # zenyte.home.configFile."rofi/config.rasi".source = default.configFolder + /rofi/config.rasi;
     # zenyte.home.configFile."rofi/powermenu.rasi".source = default.configFolder + /rofi/powermenu.rasi;
     # zenyte.home.configFile."rofi/menu.rasi".source = default.configFolder + /rofi/menu.rasi;
-
-    # Matugen template
-    zenyte.home.configFile."rofi/colors.rasi".source = "${config.programs.matugen.theme.files}/.config/rofi/colors.rasi";
   };
 }

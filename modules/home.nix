@@ -4,10 +4,12 @@
   lib,
   options,
   default,
+  hostName,
   ...
 }:
 with lib; let
   cfg = config.zenyte.home;
+  wallpaper = config.zenyte.system.hosts.${hostName}.wallpaper or default.wallpaper;
 in {
   imports = with inputs; [
     home-manager.nixosModules.home-manager
@@ -62,10 +64,10 @@ in {
       users.${default.username} = {config, ...}:
         mkMerge [
           (mkAliasDefinitions options.zenyte.home.extraOptions)
- 
-         {
+
+          {
             # * For easier editing, use `mkOutOfStoreSymlink` instead. This is only for files
-            # * that I will be editing often. You cannot use `config.lib.file` in normal NixOS
+            # * that I will be editing often. (Or matugen themed files) You cannot use `config.lib.file` in normal NixOS
             # * modules so I have to use it this way instead.
             xdg.configFile = {
               # Waybar
@@ -78,7 +80,7 @@ in {
               "rofi/menu.rasi".source = config.lib.file.mkOutOfStoreSymlink "${default.configFlakeFolder}/rofi/menu.rasi";
 
               # Ags
-              "ags" = {
+              "ags/" = {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.configFlakeFolder}/ags";
                 recursive = true;
               };

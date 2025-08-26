@@ -69,13 +69,5 @@ in {
     zenyte.home.configFile."hypr/wallpapers".source = default.configFolder + /hypr/wallpapers;
     zenyte.home.configFile."hypr/hyprland.conf".source = default.configFolder + /hypr/hyprland.conf;
     zenyte.home.configFile."hypr/keybindings.conf".source = default.configFolder + /hypr/keybindings.conf;
-
-    zenyte.home.configFile."hypr/colors.conf".source = "${config.programs.matugen.theme.files}/.config/hypr/colors.conf";
-    zenyte.home.configFile."hypr/autostart.conf".source = "${config.programs.matugen.theme.files}/.config/hypr/autostart.conf";
-
-    zenyte.home.configFile."hypr/hyprpaper.conf".text = ''
-      preload = ${wallpaper}
-      wallpaper = eDP-1,${wallpaper}
-    '';
   };
 }
