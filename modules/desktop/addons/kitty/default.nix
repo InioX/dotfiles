@@ -16,6 +16,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       kitty
+      jq
     ];
 
     zenyte.home.configFile."kitty/kitty.conf".source = default.configFolder + /kitty/kitty.conf;

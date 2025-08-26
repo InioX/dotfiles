@@ -38,7 +38,7 @@ in {
       inputs.nixpkgs-wayland.packages.${system}.wl-gammarelay-rs
       # inputs.nixpkgs-wayland.packages.${system}.swww
       wf-recorder
-      hyprpaper
+      swww
     ];
 
     zenyte.home.extraOptions.wayland.windowManager.hyprland = {
