@@ -22,7 +22,7 @@ in {
     # The lines below fix playerctl not being able to detect firefox as a player.
     # https://github.com/nix-community/home-manager/issues/1586#issuecomment-1140424730
     nixpkgs.config.firefox-unwrapped.enablePlasmaBrowserIntegration = true;
-    zenyte.home.file.".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json".source = "${pkgs.plasma-browser-integration}/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
+    # zenyte.home.file.".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json".source = "${pkgs.plasma-browser-integration}/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
 
     zenyte.home.extraOptions.programs.firefox = {
       enable = true;

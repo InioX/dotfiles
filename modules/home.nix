@@ -62,7 +62,8 @@ in {
       users.${default.username} = {config, ...}:
         mkMerge [
           (mkAliasDefinitions options.zenyte.home.extraOptions)
-          {
+ 
+         {
             # * For easier editing, use `mkOutOfStoreSymlink` instead. This is only for files
             # * that I will be editing often. You cannot use `config.lib.file` in normal NixOS
             # * modules so I have to use it this way instead.
@@ -92,12 +93,12 @@ in {
             '';
 
             # Clone dotfiles repo inside ~/dev/dotfiles
-            home.activation.cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
-              baseDir="/home/${default.username}/dev/dotfiles"
-              if [ ! -d "$baseDir" ]; then
-                git clone https://github.com/InioX/dotfiles $baseDir
-              fi
-            '';
+            #home.activation.cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+            #  baseDir="/home/${default.username}/dev/dotfiles"
+            #  if [ ! -d "$baseDir" ]; then
+            #    git clone https://github.com/InioX/dotfiles $baseDir
+            #  fi
+            #'';
           }
         ];
     };
