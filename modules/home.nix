@@ -59,7 +59,8 @@ in {
     };
 
     home-manager = {
-      useUserPackages = true;
+      # useUserPackages = true;
+      useGlobalPkgs = true;
 
       users.${default.username} = {config, ...}:
         mkMerge [

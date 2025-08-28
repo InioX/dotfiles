@@ -60,30 +60,28 @@ in {
     input_path = "${default.templateFolder}/colors.conf"
     output_path = "~/.config/hypr/colors.conf"
 
-    [templates.firefox]
-    input_path = "${default.templateFolder}/userChrome.css"
-    output_path = "~/.mozilla/firefox/ini/chrome/userChrome.css"
-
     [templates.starship]
     input_path = "${default.templateFolder}/starship.toml"
     output_path = "~/.config/starship.toml"
+
+    [templates.pywalfox]
+    input_path = '${default.templateFolder}/pywalfox-colors.json'
+    output_path = '~/.cache/wal/colors.json'
+    post_hook = 'pywalfox update'
+
+    [templates.vscode]
+    input_path = "${default.templateFolder}/hyprlunavsc.json"
+    output_path = "~/.vscode/extensions/hyprluna.hyprluna-theme-1.0.2/themes/hyprluna.json"
   '';
 
-  systemd.services.run-matugen-once = {
-    description = "Run matugen only once after install";
-    wantedBy = ["multi-user.target"];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = ''
-        ${pkgs.bash}/bin/bash -c '
-          if [ ! -f /var/lib/matugen-ran-once ]; then
-            ${pkgs.matugen} image ${wallpaper}
-            touch /var/lib/matugen-ran-once
-          fi
-        '
-      '';
-    };
-  };
+  system.activationScripts.run-matugen-once = ''
+    if [ ! -f /home/${default.username}/.local/share/matugen-ran-once ]; then
+      su -u ini ${pkgs.vscode}/bin/code --install-extension HyprLuna.hyprluna-theme
+      su -u ini ${pkgs.matugen}/bin/matugen image ${wallpaper}
+
+      touch /home/${default.username}/.local/share/matugen-ran-once
+    fi
+  '';
 
   programs.matugen = {
     enable = true;

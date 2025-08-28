@@ -16,7 +16,6 @@ in {
   config = mkIf (cfg.enable
     || config.zenyte.system.defaultShell
     == pkgs.zsh) {
-
     programs.zsh.enable = true;
 
     zenyte.home.programs.zsh = {

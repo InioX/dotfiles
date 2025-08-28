@@ -35,11 +35,11 @@ in {
 
     zenyte.home.extraOptions.programs.vscode = {
       enable = true;
-      package = pkgs.vscodium;
+      # package = pkgs.vscodium;
       userSettings = {
         window.zoomLevel = 2;
         workbench = {
-          colorTheme = "Default Dark Modern";
+          colorTheme = "HyprLuna Material";
           iconTheme = "material-icon-theme";
         };
 
@@ -86,7 +86,7 @@ in {
       };
       extensions = with pkgs.vscode-extensions;
         [
-          streetsidesoftware.code-spell-checker
+          # streetsidesoftware.code-spell-checker
           eamodio.gitlens
           jnoortheen.nix-ide
           kamadorueda.alejandra
@@ -106,6 +106,13 @@ in {
           rust-lang.rust-analyzer
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          # Need to install manutally
+          # {
+          #   name = "hyprluna-theme";
+          #   publisher = "hyprluna";
+          #   version = "1.0.2";
+          #   sha256 = "sha256-OTamsH3NQ1VbhJRM/4Lrd8VjlW9Jrti5beRUGLvP1kE=";
+          # }
           {
             name = "vscode-git-extension-pack";
             publisher = "sugatoray";

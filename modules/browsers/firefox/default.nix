@@ -19,6 +19,10 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      pywalfox-native
+    ];
+
     # The lines below fix playerctl not being able to detect firefox as a player.
     # https://github.com/nix-community/home-manager/issues/1586#issuecomment-1140424730
     nixpkgs.config.firefox-unwrapped.enablePlasmaBrowserIntegration = true;
@@ -57,14 +61,15 @@ in {
               ublock-origin
               plasma-integration
               darkreader
+              pywalfox
             ]
             ++ cfg.extensions;
           id = 0;
           name = "ini";
           search = {
             force = true;
-            default = "Searx";
-            order = ["Searx" "Google"];
+            default = "DuckDuckGo";
+            order = ["DuckDuckGo" "Google"];
             engines = {
               "Searx" = {
                 urls = [{template = "https://paulgo.io//?q={searchTerms}";}];
