@@ -46,6 +46,8 @@ in {
         nix.enableLanguageServer = true;
         nix.serverPath = "nil";
 
+        git.allowForcePush = true;
+
         editor = {
           formatOnSave = true;
           formatOnPaste = true;
