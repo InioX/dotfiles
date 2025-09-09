@@ -29,6 +29,7 @@ in {
       enableCompletion = true;
       syntaxHighlighting = enabled;
       dotDir = ".config/zsh";
+      autosuggestion.enable = true;
     };
   };
 }
