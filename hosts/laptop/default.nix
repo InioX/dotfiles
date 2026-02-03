@@ -11,6 +11,9 @@ with lib.zenyte; {
   # To prevent freezing when compiling
   nix.settings.cores = 1;
 
+  # To fix dual booting clock issue
+  time.hardwareClockInLocalTime = true;
+
   # Additional packages to install
   environment.systemPackages = with pkgs; [
     gh
