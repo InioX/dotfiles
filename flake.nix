@@ -71,7 +71,7 @@
           nil
           (
             pkgs.writeShellScriptBin "rebuild" ''
-              [ "$UID" -eq 0 ] || { echo "Error: This script must be run as root."; exit 1;}
+              # [ "$UID" -eq 0 ] || { echo "Error: This script must be run as root."; exit 1;}
 
               if [ "$1" = "fast" ]; then
                 sudo nixos-rebuild switch --flake .# --fast --show-trace --log-format internal-json |& nom --json

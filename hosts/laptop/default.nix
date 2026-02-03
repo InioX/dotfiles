@@ -8,6 +8,8 @@ with lib;
 with lib.zenyte; {
   imports = [./hardware.nix];
 
+  boot.supportedFilesystems = ["ntfs"];
+
   # To prevent freezing when compiling
   nix.settings.cores = 1;
 
