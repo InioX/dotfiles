@@ -18,8 +18,8 @@ in {
     [config]
 
     [config.wallpaper]
-    command = "swww"
-    arguments = ["img", "--transition-type", "center"]
+    command = "swww img --transition-type center {{ image }}"
+    # arguments = ["img", "--transition-type", "center"]
 
     [templates.waybar]
     input_path = "${default.templateFolder}/waybar-colors.css"
@@ -72,6 +72,10 @@ in {
     [templates.vscode]
     input_path = "${default.templateFolder}/hyprlunavsc.json"
     output_path = "~/.vscode/extensions/hyprluna.hyprluna-theme-1.0.2/themes/hyprluna.json"
+
+    [templates.alacritty]
+    input_path = "${default.templateFolder}/colors.toml"
+    output_path = "~/.config/alacritty/colors.toml"
   '';
 
   system.activationScripts.run-matugen-once = ''

@@ -1,5 +1,5 @@
 configuration {
-    show-icons: true;
+    show-icons: false;
     terminal: "kitty";
     kb-cancel: "Escape,Control+g,Control+bracketleft";
     click-to-exit: true;

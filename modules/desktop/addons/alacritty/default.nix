@@ -17,5 +17,7 @@ in {
     environment.systemPackages = with pkgs; [
       alacritty
     ];
+
+    zenyte.home.configFile."alacritty/alacritty.toml".source = default.configFolder + /alacritty/alacritty.toml;
   };
 }

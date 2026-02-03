@@ -17,6 +17,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       neofetch
+      fastfetch
     ];
     zenyte.home.configFile."neofetch".source = default.configFolder + /neofetch;
   };

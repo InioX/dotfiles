@@ -139,6 +139,12 @@ in {
             version = "3.0.2";
             sha256 = "sha256-hQmA8PWjf2Nd60v5EAuqqD8LIEu7slrNs8luc3ePgZc=";
           }
+          {
+            name = "hyprluna-theme";
+            publisher = "hyprluna";
+            version = "1.0.2";
+            sha256 = "sha256-OTamsH3NQ1VbhJRM/4Lrd8VjlW9Jrti5beRUGLvP1kE=";
+          }
         ]
         ++ cfg.extensions;
       languageSnippets = {

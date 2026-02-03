@@ -2,9 +2,9 @@ format="$directory$git_branch$character"
 
 # Prompt symbols 
 [character]
-success_symbol = "[🞈]({{colors.tertiary.default.hex}} bold)"
-error_symbol = "[🞈](@{error})"
-vicmd_symbol = "[🞈](#f9e2af)"
+success_symbol = "[🞈 ]({{colors.tertiary.default.hex}} bold)"
+error_symbol = "[🞈 ](@{error})"
+vicmd_symbol = "[🞈 ](#f9e2af)"
 
 [directory]
 format = "[]($style)[(bg:{{colors.primary_fixed_dim.default.hex}} fg:{{colors.on_primary.default.hex}})$path ](fg:{{colors.on_surface_variant.default.hex}} bg:{{colors.surface_container.default.hex}})[](fg:{{colors.primary_fixed_dim.default.hex}} bg:{{colors.surface_container.default.hex}})[󰉋](bg:{{colors.primary_fixed_dim.default.hex}} fg:{{colors.on_primary.default.hex}})[ ](fg:{{colors.primary_fixed_dim.default.hex}})"

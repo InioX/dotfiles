@@ -1,0 +1,141 @@
+@import "colors.css";
+
+* {
+  /* all: initial; */
+  /* font-family: monospace; */
+  font-family: Material Design Icons, Iosevka Nerd Font;
+  min-height: 0;
+  min-width: 20px;
+  margin: 2px;
+}
+
+window#waybar {
+  background-color: @surface;
+  border-radius: 10px;
+}
+
+#custom-play_pause,
+#custom-next,
+#custom-previous {
+  background-color: @primary_container;
+  margin: 0px 5px 0px 5px;
+  color: @on_primary_container;
+  font-size: 30px;
+}
+
+#custom-play_pause {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#custom-next {
+  padding-top: 20px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+#custom-previous {
+  padding-bottom: 20px;
+  border-radius: 0px 0px 10px 10px;
+  margin-bottom: 5px;
+}
+
+#custom-power,
+#workspaces,
+#clock #custom-menu {
+  margin: 5px;
+}
+
+#custom-menu {
+  color: @on_surface;
+  font-size: 30px;
+}
+
+#custom-power {
+  background: @tertiary_container;
+  color: @on_tertiary_container;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+#workspaces {
+  color: @on_surface;
+  padding: 5px 0px;
+  border-radius: 10px;
+}
+
+#workspaces button {
+  color: @on_surface;
+  border-radius: 30px;
+  padding: 5px 0px 5px 0px;
+  margin: 4px;
+  font-size: 20px;
+}
+
+#workspaces button.active {
+  color: @on_primary;
+  background: @primary_fixed_dim;
+}
+
+#workspaces button:hover {
+  background: @surface_container_highest;
+  color: @on_surface;
+}
+
+#custom-mode {
+  background: @tertiary;
+  color: @on_tertiary;
+  border-radius: 10px;
+  padding: 4px;
+  margin: 4px;
+  font-size: 20px;
+}
+
+#clock {
+  color: @on_surface;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+#battery.icon,
+#custom-wl-gammarelay-brightness.icon,
+#custom-wl-gammarelay-temperature.icon,
+#pulseaudio.icon {
+  background: @surface_container_highest;
+  color: @on_surface_variant;
+  font-size: 20px;
+  /* border-radius: 10px 10px 0px 0px; */
+  border-radius: 10px 10px 10px 10px;
+  padding: 5px;
+  margin: 5px;
+}
+
+#battery.text,
+#custom-wl-gammarelay-brightness.text,
+#custom-wl-gammarelay-temperature.text,
+#pulseaudio.text {
+  background: @surface_container_highest;
+  color: @on_surface_variant;
+  border-radius: 0px 0px 10px 10px;
+  padding: 3px;
+  margin: 5px;
+  margin-top: 0px;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: black;
+  }
+}
+
+#battery.icon.warning:not(.charging) #battery.icon.critical:not(.charging) {
+  background: @error;
+  color: @on_error;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}

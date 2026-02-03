@@ -85,6 +85,11 @@ in {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.configFlakeFolder}/ags";
                 recursive = true;
               };
+
+              # Hyprland
+              "hypr/windowrules.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFlakeFolder}/hypr/windowrules.conf";
+
+              "discord/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${default.configFlakeFolder}/discord/settings.json";
             };
 
             # Setup basic directories

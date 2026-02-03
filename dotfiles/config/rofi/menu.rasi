@@ -1,112 +1,52 @@
-@import                             "colors.rasi"
+@import "colors.rasi"
+
+/**
+ * ROFI Color theme
+ * User: Qball
+ * Copyright: Dave Davenport
+ */
 
 * {
-    background-color:  		        transparent;
-    text-color:        		        @on-surface;
-    font:			                "Noto Sans 12";
-	
-    height:      		            100%;
-    width:      		            20%;
-    margin:     		            0px;
-    padding:   			            0px;
-    spacing:    		            0px;
-}
-
-horibox {
-    children:                       [prompt, textbox-close];
-    orientation:                    horizontal;
-    margin:                         0px;
-    expand:                         false;
+    background-color: @surface;
+    text-color: @on-surface;
+    font: "Iosevka Nerd Font 16";
 }
 
 window {
-    anchor:                         east;
-    location:                       east;
-    border: 			            0px 0px 0px 4px;
-    border-color:		            @surface-variant;
-    background-color:		        @surface;
-    children:                       [horibox, mainbox];
+    anchor: north;
+    location: north;
+    width: 100%;
+    padding: 4px;
+    children: [ horibox ];
+    background-color: @surface;
 }
 
-textbox-close {
-    expand:                         false;
-    padding:                        0px;
-    margin:                         0px;
-    content:                        "󰅖";
-    text-style:                     bold;
-    font:                           "Noto Sans 25";
-    vertical-align:                 0.70;
-    orientation:                    horizontal;
-    margin:                         0px 20px 0px 200px;
+horibox {
+    orientation: horizontal;
+    children: [ prompt, entry, listview ];
 }
 
-textbox-arrow {
-    expand:                         false;
-    content:                        "󰅖";
-    text-style:                     bold;
-    font:                           "Noto Sans 15";
-    orientation:                    horizontal;
-}
-
-prompt {
-    expand:                         false;
-    margin:                         0px 0px 0px 20px;
-    border-radius:		            10px;
-    orientation:                    horizontal;
-    vertical-align:                 0.5;
-    font:			                "Noto Sans 20";
-}
-
-inputbar {
-    children:                       [entry];
+listview {
+    layout: horizontal;
+    spacing: 5px;
+    lines: 100;
 }
 
 entry {
-    padding:			            7px;
-    background-color:	        	@surface-container-highest;
-    border-radius:		            10px;
-    placeholder:                    "Search...";
-    placeholder-color:              @on-surface-variant;
-}
-
-
-listview {
-    lines:		                	4;
-}
-
-
-mainbox {
-    background-color:               @surface;
-    children:                       [ inputbar, listview ];
-    spacing:                        15px;
-    padding:                        20px;
+    expand: false;
+    width: 10em;
 }
 
 element {
-    margin:                         5px 5px 10px 5px;
-    padding: 			            10px;
-    background-color:		        @surface;
-    orientation:                    horizontal;
-    children:                       [element-icon, element-text];
+    padding: 0px 2px;
 }
 
 element selected {
-    border:                         0px;
-    background-color: 		        @surface-container-highest;
-    border-radius:		            10px;
+    background-color: @primary-fixed-dim;
+    text-color: @on-primary;
 }
 
-element-text {
-    vertical-align:                 0.5;
-    horizontal-align:               0.5;
-    margin:                         0px 0px 5px 0px;
-}
-
-element-text selected {
-    text-color:        		        @on-surface-variant;
-}
-
-element-icon {
-    margin:		            	    0px 5px 0px 0px;
-    size:			                30px;
+element-text, element-icon {
+  background-color: inherit;
+  text-color: inherit;
 }

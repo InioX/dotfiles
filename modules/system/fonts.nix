@@ -19,6 +19,7 @@ in {
       noto-fonts
       terminus_font_ttf
       material-design-icons
+      cozette
     ];
   };
 }

@@ -1,0 +1,6 @@
+[general]
+import = ["colors.toml"]
+
+[font]
+normal = { family = "Cozette", style = "Regular" }
+size = 20.0
