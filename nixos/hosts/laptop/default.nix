@@ -37,6 +37,7 @@ with lib.zenyte; {
     common = enabled;
     development = enabled;
     social = enabled;
+    gaming = enabled;
   };
 
   zenyte.system.locale.timeZone = "Europe/Prague";

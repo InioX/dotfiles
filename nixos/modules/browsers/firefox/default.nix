@@ -56,7 +56,7 @@ in {
       };
       profiles = {
         ini = {
-          extensions = with pkgs.nur.repos.rycee.firefox-addons;
+          extensions.packages = with pkgs.nur.repos.rycee.firefox-addons;
             [
               ublock-origin
               plasma-integration
@@ -68,15 +68,9 @@ in {
           name = "ini";
           search = {
             force = true;
-            default = "DuckDuckGo";
-            order = ["DuckDuckGo" "Google"];
+            default = "google";
+            order = ["google" "ddg"];
             engines = {
-              "Searx" = {
-                urls = [{template = "https://paulgo.io//?q={searchTerms}";}];
-                iconUpdateURL = "https://paulgo.io/static/themes/simple/img/favicon.png?60321eeb6e2f478f0e5704529308c594d5924246";
-                updateInterval = 24 * 60 * 60 * 1000; # every day
-                definedAliases = ["@searx"];
-              };
               "Nix Packages" = {
                 urls = [
                   {
@@ -98,7 +92,7 @@ in {
               };
               "NixOS Wiki" = {
                 urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
-                iconUpdateURL = "https://nixos.wiki/favicon.png";
+                icon = "https://nixos.wiki/favicon.png";
                 updateInterval = 24 * 60 * 60 * 1000;
                 definedAliases = ["@nw"];
               };
@@ -107,12 +101,10 @@ in {
                 definedAliases = ["@yt"];
               };
               "Wikipedia (en)".metaData.alias = "@wiki";
-              "Google".metaData.hidden = true;
             };
           };
           settings = {
             "general.smoothScroll" = true;
-            "browser.startPage" = "https://paulgo.io/";
             "browser.sessionstore.resume_session" = true;
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
             "layout.css.has-selector.enabled" = true;
