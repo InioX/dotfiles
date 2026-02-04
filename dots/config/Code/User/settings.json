@@ -65,5 +65,10 @@
     "workbench": {
         "colorTheme": "HyprLuna Material",
         "iconTheme": "material-icon-theme"
-    }
+    },
+    "explorer.confirmDelete": false,
+    "workbench.settings.applyToAllProfiles": [
+        "editor.formatOnPaste"
+    ],
+    "editor.formatOnPaste": true
 }
