@@ -36,56 +36,56 @@ in {
     zenyte.home.extraOptions.programs.vscode = {
       enable = true;
       # package = pkgs.vscodium;
-      userSettings = {
-        window.zoomLevel = 2;
-        workbench = {
-          colorTheme = "HyprLuna Material";
-          iconTheme = "material-icon-theme";
-        };
+      # userSettings = {
+      #   window.zoomLevel = 2;
+      #   workbench = {
+      #     colorTheme = "HyprLuna Material";
+      #     iconTheme = "material-icon-theme";
+      #   };
 
-        nix.enableLanguageServer = true;
-        nix.serverPath = "nil";
+      #   nix.enableLanguageServer = true;
+      #   nix.serverPath = "nil";
 
-        git.allowForcePush = true;
+      #   git.allowForcePush = true;
 
-        editor = {
-          formatOnSave = true;
-          formatOnPaste = true;
-          minimap.enabled = false;
-          fontFamily = "Iosevka, 'Terminus (TTF)'";
-          fontSize = 16;
-          lineHeight = 18;
-          cursorSmoothCaretAnimation = "on";
-          editor.smoothScrolling = true;
-          editor.cursorBlinking = "phase";
+      #   editor = {
+      #     formatOnSave = true;
+      #     formatOnPaste = true;
+      #     minimap.enabled = false;
+      #     fontFamily = "Iosevka, 'Terminus (TTF)'";
+      #     fontSize = 16;
+      #     lineHeight = 18;
+      #     cursorSmoothCaretAnimation = "on";
+      #     editor.smoothScrolling = true;
+      #     editor.cursorBlinking = "phase";
 
-          guides = {
-            bracketPairs = true;
-            bracketPairsHorizontal = true;
-          };
-        };
+      #     guides = {
+      #       bracketPairs = true;
+      #       bracketPairsHorizontal = true;
+      #     };
+      #   };
 
-        terminal.integrated = {
-          fontFamily = "'Iosevka'";
-        };
+      #   terminal.integrated = {
+      #     fontFamily = "'Iosevka'";
+      #   };
 
-        vscord.app.name = "VSCodium";
-        vscord.status = {
-          details.text = {
-            editing = "In {workspace} - at {git_branch}";
-            viewing = "In {workspace} - at {git_branch}";
-          };
+      #   vscord.app.name = "VSCodium";
+      #   vscord.status = {
+      #     details.text = {
+      #       editing = "In {workspace} - at {git_branch}";
+      #       viewing = "In {workspace} - at {git_branch}";
+      #     };
 
-          state.text = {
-            viewing = "{folder_and_file} - {current_line}:{current_column}";
-            editing = "{folder_and_file} - {current_line}:{current_column}";
-          };
+      #     state.text = {
+      #       viewing = "{folder_and_file} - {current_line}:{current_column}";
+      #       editing = "{folder_and_file} - {current_line}:{current_column}";
+      #     };
 
-          buttons.button1.active.enabled = true;
-        };
+      #     buttons.button1.active.enabled = true;
+      #   };
 
-        conventionalCommits.gitmoji = false;
-      };
+      #   conventionalCommits.gitmoji = false;
+      # };
       extensions = with pkgs.vscode-extensions;
         [
           # streetsidesoftware.code-spell-checker

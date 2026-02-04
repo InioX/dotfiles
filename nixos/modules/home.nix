@@ -108,6 +108,9 @@ in {
 
               # Kitty
               "kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/kitty/kitty.conf";
+
+              # Vscode
+              "Code/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/Code/User/settings.json";
             };
 
             # Setup basic directories

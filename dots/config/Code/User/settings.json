@@ -1,0 +1,69 @@
+{
+    "conventionalCommits": {
+        "gitmoji": false
+    },
+    "editor": {
+        "cursorSmoothCaretAnimation": "on",
+        "editor": {
+            "cursorBlinking": "phase",
+            "smoothScrolling": true
+        },
+        "fontFamily": "Iosevka, 'Terminus (TTF)'",
+        "fontSize": 16,
+        "formatOnPaste": true,
+        "formatOnSave": true,
+        "guides": {
+            "bracketPairs": true,
+            "bracketPairsHorizontal": true
+        },
+        "lineHeight": 18,
+        "minimap": {
+            "enabled": false
+        }
+    },
+    "git": {
+        "allowForcePush": true
+    },
+    "nix": {
+        "enableLanguageServer": true,
+        "serverPath": "nil"
+    },
+    "terminal": {
+        "integrated": {
+            "fontFamily": "'Iosevka'"
+        }
+    },
+    "vscord": {
+        "app": {
+            "name": "VSCodium"
+        },
+        "status": {
+            "buttons": {
+                "button1": {
+                    "active": {
+                        "enabled": true
+                    }
+                }
+            },
+            "details": {
+                "text": {
+                    "editing": "In {workspace} - at {git_branch}",
+                    "viewing": "In {workspace} - at {git_branch}"
+                }
+            },
+            "state": {
+                "text": {
+                    "editing": "{folder_and_file} - {current_line}:{current_column}",
+                    "viewing": "{folder_and_file} - {current_line}:{current_column}"
+                }
+            }
+        }
+    },
+    "window": {
+        "zoomLevel": 2
+    },
+    "workbench": {
+        "colorTheme": "HyprLuna Material",
+        "iconTheme": "material-icon-theme"
+    }
+}
