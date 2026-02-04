@@ -1,0 +1,22 @@
+{
+  config,
+  pkgs,
+  lib,
+  default,
+  ...
+}:
+with lib;
+with lib.zenyte; let
+  cfg = config.zenyte.desktop.addons.kitty;
+in {
+  options.zenyte.desktop.addons.kitty = {
+    enable = mkBoolOpt false "Whether to enable kitty.";
+  };
+
+  config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      kitty
+      jq
+    ];
+  };
+}
