@@ -76,7 +76,7 @@
 
               nixos-rebuild switch \
                 --flake ${default.flakePath}/nixos \
-                --fast \
+                --no-reexec \
                 --show-trace \
                 --log-format \
                 internal-json |& nom --json
