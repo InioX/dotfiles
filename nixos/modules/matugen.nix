@@ -76,6 +76,10 @@ in {
     [templates.alacritty]
     input_path = "${default.templateFolder}/colors.toml"
     output_path = "~/.config/alacritty/colors.toml"
+
+    [templates.discord]
+    input_path = "${default.templateFolder}/discord.css"
+    output_path = "~/.config/Vencord/themes/midnight-discord.css"
   '';
 
   system.activationScripts.run-matugen-once = ''
