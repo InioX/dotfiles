@@ -39,6 +39,9 @@ in {
       # inputs.nixpkgs-wayland.packages.${system}.swww
       wf-recorder
       swww
+
+      # Cursor theme
+      inputs.mcmojave-hyprcursor.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
     zenyte.home.extraOptions.wayland.windowManager.hyprland = {

@@ -104,6 +104,11 @@
   };
 
   inputs = {
+    # Mcmojave cursor
+    mcmojave-hyprcursor = {
+      url = "github:libadoxon/mcmojave-hyprcursor";
+    };
+
     # Alejandra
     alejandra = {
       url = "github:kamadorueda/alejandra/4.0.0";
