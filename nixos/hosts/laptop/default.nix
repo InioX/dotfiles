@@ -10,9 +10,6 @@ with lib.zenyte; {
 
   boot.supportedFilesystems = ["ntfs"];
 
-  # To prevent freezing when compiling
-  nix.settings.cores = 1;
-
   # To fix dual booting clock issue
   time.hardwareClockInLocalTime = true;
 

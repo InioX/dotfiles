@@ -7,8 +7,9 @@
       stateVersion = "22.11";
 
       # Use a config folder for compatibility with arch
-      templateFolder = "/home/${default.username}/dev/dotfiles/dots/templates";
-      configFolder = "/home/${default.username}/dev/dotfiles/dots/config";
+      flakePath = "/home/${default.username}/dev/dotfiles";
+      templateFolder = "${default.flakePath}/dots/templates";
+      configFolder = "${default.flakePath}/dots/config";
 
       system = "x86_64-linux";
       username = "ini";
@@ -70,13 +71,15 @@
           nil
           (
             pkgs.writeShellScriptBin "rebuild" ''
-              # [ "$UID" -eq 0 ] || { echo "Error: This script must be run as root."; exit 1;}
+              set -e
+              sudo -v
 
-              if [ "$1" = "fast" ]; then
-                sudo nixos-rebuild switch --flake .# --fast --show-trace --log-format internal-json |& nom --json
-              else
-                sudo nixos-rebuild switch --flake .# --log-format internal-json |& nom --json
-              fi;
+              nixos-rebuild switch \
+                --flake ${default.flakePath}/nixos \
+                --fast \
+                --show-trace \
+                --log-format \
+                internal-json |& nom --json
             ''
           )
           (
