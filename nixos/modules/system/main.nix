@@ -9,6 +9,18 @@
 with lib;
 with lib.zenyte; let
   cfg = config.zenyte.system;
+
+  rebuild = pkgs.writeShellScriptBin "rebuild" ''
+    set -e
+    sudo -v
+
+    nixos-rebuild switch \
+      --flake ${default.flakePath}/nixos \
+      --no-reexec \
+      --show-trace \
+      --log-format \
+      internal-json |& nom --json
+  '';
 in {
   options.zenyte.system = {
     diffScript = mkBoolOpt true "Enables showing what packages changes between generations on rebuild.";
@@ -45,11 +57,13 @@ in {
         # For more information when doing nixos-rebuild
         choose
         nix-output-monitor
+        rebuild
 
         vim
         wget
         git
         htop
+        mission-center
         usbutils
 
         inputs.matugen.packages.${system}.default
