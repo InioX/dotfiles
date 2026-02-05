@@ -68,6 +68,13 @@ The `dotfiles/config` folder is there for compability reasons for arch, some fil
 bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/nixos/install.sh) <hostname>
 ```
 
+Also make sure to run
+```
+mkdir -p ~/.local/share/themes
+cd ~/.local/share/themes
+git clone https://github.com/lassekongo83/adw-gtk3
+```
+
 > [!TIP]
 > After you are done installing and you want to make any changes to the dotfiles, make sure you clone the repository into `~/dev/dotfiles`
 

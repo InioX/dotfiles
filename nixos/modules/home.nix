@@ -103,14 +103,20 @@ in {
               # Alacritty
               "alacritty/alacritty.toml".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/alacritty/alacritty.toml";
 
-              # GTK 2.0
+              # GTK
               "gtk-2.0".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-2.0";
+              # "gtk-3.0/gtk.css".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-3.0/gtk.css";
+              # "gtk-4.0/gtk.css".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-4.0/gtk.css";
 
               # Kitty
               "kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/kitty/kitty.conf";
 
               # Vscode
               "Code/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/Code/User/settings.json";
+
+              # Qt
+              "qt5ct/qt5ct.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/qt5ct/qt5ct.conf";
+              "qt6ct/qt6ct.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/qt6ct/qt6ct.conf";
             };
 
             # Setup basic directories

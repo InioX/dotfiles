@@ -40,6 +40,9 @@ in {
       wf-recorder
       swww
 
+      # For theme management
+      nwg-look
+
       # Cursor theme
       inputs.mcmojave-hyprcursor.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
@@ -60,6 +63,7 @@ in {
       dunst = enabled;
       thunar = enabled;
       ags = enabled;
+      qt = enabled;
     };
 
     zenyte.cli = {

@@ -50,7 +50,7 @@ in {
 
     [templates.GTK3]
     input_path = "${default.templateFolder}/gtk.css"
-    output_path = "~/.config/gtk-3.0/colors.css"
+    output_path = "~/.config/gtk-3.0/gtk.css"
 
     [templates.Hyprland-autostart]
     input_path = "${default.templateFolder}/autostart.conf"
@@ -80,6 +80,10 @@ in {
     [templates.discord]
     input_path = "${default.templateFolder}/discord.css"
     output_path = "~/.config/Vencord/themes/midnight-discord.css"
+
+    [templates.qtct]
+    input_path = "${default.templateFolder}/Matugen.colors"
+    output_path = "~/.local/share/color-schemes/Matugen.colors"
   '';
 
   system.activationScripts.run-matugen-once = ''
