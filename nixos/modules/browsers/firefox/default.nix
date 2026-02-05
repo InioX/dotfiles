@@ -66,6 +66,66 @@ in {
             ++ cfg.extensions;
           id = 0;
           name = "ini";
+          bookmarks = {
+            force = true;
+            settings = [
+              {
+                name = "Stuff";
+                toolbar = true;
+                bookmarks = [
+                  {
+                    name = "P-Stream";
+                    url = "https://pstream.mov/";
+                  }
+                  {
+                    name = "YouTube";
+                    url = "https://www.youtube.com/";
+                  }
+                  {
+                    name = "Gmail";
+                    url = "https://mail.google.com/mail/u/3/";
+                  }
+                  {
+                    name = "Google Translate";
+                    url = "https://translate.google.com/?sl=auto&tl=en&op=translate";
+                  }
+                  {
+                    name = "FitGirl Repacks";
+                    url = "https://fitgirl-repacks.site/";
+                  }
+                  {
+                    name = "CS.RIN.RU";
+                    url = "https://cs.rin.ru/forum/";
+                  }
+                  {
+                    name = "FMHY";
+                    url = "https://fmhy.net/video";
+                  }
+                  {
+                    name = "YarrList";
+                    url = "https://yarrlist.net/";
+                  }
+                  {
+                    name = "Bitwarden Vault";
+                    url = "https://vault.bitwarden.com/#/vault";
+                  }
+                  {
+                    name = "GitHub";
+                    url = "https://github.com/";
+                  }
+                  {
+                    name = "Discord";
+                    url = "https://discord.com/channels/1304762650651000883/1304762650651000886";
+                  }
+                  {
+                    name = "Twitch";
+                    url = "https://www.twitch.tv/";
+                  }
+                ];
+              }
+            ];
+          };
+
           search = {
             force = true;
             default = "google";
@@ -96,11 +156,11 @@ in {
                 updateInterval = 24 * 60 * 60 * 1000;
                 definedAliases = ["@nw"];
               };
-              "YouTube" = {
+              "youtube" = {
                 urls = [{template = "https://www.youtube.com/results?search_query={searchTerms}";}];
                 definedAliases = ["@yt"];
               };
-              "Wikipedia (en)".metaData.alias = "@wiki";
+              "wikipedia".metaData.alias = "@wiki";
             };
           };
           settings = {

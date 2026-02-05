@@ -39,12 +39,5 @@ in {
     environment.systemPackages = with pkgs; [
       githubDesktopItem
     ];
-
-    zenyte.home.extraOptions.programs.firefox.profiles.ini.bookmarks = [
-      {
-        name = "GitHub";
-        url = "https://github.com/";
-      }
-    ];
   };
 }
