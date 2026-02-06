@@ -19,6 +19,9 @@ in {
   };
 
   config = mkIf cfg.enable {
+    # ! After installing the browser, install the p-stream extension manually by downloading the xpi from:
+    # ! https://github.com/p-stream/extension/releases/download/1.3.5/firefox-mv3-prod.xpi
+
     environment.systemPackages = with pkgs; [
       pywalfox-native
     ];
@@ -28,9 +31,9 @@ in {
     nixpkgs.config.firefox-unwrapped.enablePlasmaBrowserIntegration = true;
     # zenyte.home.file.".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json".source = "${pkgs.plasma-browser-integration}/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
 
-    zenyte.home.extraOptions.programs.firefox = {
+    zenyte.home.extraOptions.programs.floorp = {
       enable = true;
-      package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
+      package = pkgs.wrapFirefox pkgs.floorp-bin-unwrapped {
         extraPolicies = {
           CaptivePortal = false;
           DisableFirefoxStudies = true;
@@ -41,6 +44,9 @@ in {
           OfferToSaveLogins = false;
           OfferToSaveLoginsDefault = false;
           PasswordManagerEnabled = false;
+          Preferences = {
+            "xpinstall.signatures.required" = false;
+          };
           FirefoxHome = {
             Search = true;
             Pocket = false;
