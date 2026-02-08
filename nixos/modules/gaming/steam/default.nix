@@ -24,7 +24,13 @@ in {
 
     environment.systemPackages = with pkgs; [
       mangohud
+      goverlay
     ];
+
+    programs.gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
 
     programs.gamemode.enable = true;
 
@@ -35,6 +41,7 @@ in {
         proton-ge-bin
         # protontricks
       ];
+      gamescopeSession.enable = true;
     };
   };
 }

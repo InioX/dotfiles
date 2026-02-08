@@ -12,8 +12,6 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
-
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
@@ -47,7 +45,11 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    configurationLimit = 5;
+  };
+
   boot.loader.efi.canTouchEfiVariables = true;
 
   # swapDevices = [
@@ -66,7 +68,17 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
 
-  # start
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernel.sysctl = {
+    "kernel.split_lock_mitigate" = 0;
+    "kernel.nmi_watchdog" = 0;
+    "kernel.sched_bore" = "1";
+  };
+
+  boot.kernelParams = [
+    "quiet"
+    "splash"
+  ];
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod"];
   boot.initrd.kernelModules = [];
