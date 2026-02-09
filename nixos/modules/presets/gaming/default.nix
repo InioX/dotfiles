@@ -16,6 +16,7 @@ in {
   config = mkIf cfg.enable {
     zenyte.gaming = {
       steam = enabled;
+      lutris = enabled;
     };
   };
 }
