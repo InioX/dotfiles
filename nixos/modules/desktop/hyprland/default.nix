@@ -64,6 +64,7 @@ in {
       thunar = enabled;
       ags = enabled;
       qt = enabled;
+      quickshell = enabled;
     };
 
     zenyte.cli = {
