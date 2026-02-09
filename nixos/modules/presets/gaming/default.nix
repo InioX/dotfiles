@@ -14,6 +14,8 @@ in {
   };
 
   config = mkIf cfg.enable {
+    boot.kernel.sysctl."vm.max_map_count" = 2147483642;
+
     zenyte.gaming = {
       steam = enabled;
       lutris = enabled;
