@@ -68,22 +68,43 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
-  boot.kernel.sysctl = {
-    "kernel.split_lock_mitigate" = 0;
-    "kernel.nmi_watchdog" = 0;
-    "kernel.sched_bore" = "1";
+  boot = {
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernel.sysctl = {
+      "kernel.split_lock_mitigate" = 0;
+      "kernel.nmi_watchdog" = 0;
+      "kernel.sched_bore" = "1";
+    };
+
+    kernelParams = [
+      "quiet"
+      "udev.log_level=3"
+      "systemd.show_status=auto"
+    ];
+
+    plymouth = {
+      enable = true;
+      themePackages = with pkgs; [
+        nixos-bgrt-plymouth
+      ];
+      theme = "nixos-bgrt";
+    };
+    consoleLogLevel = 3;
+
+    initrd = {
+      verbose = false;
+      availableKernelModules = ["nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod"];
+      kernelModules = [];
+    };
+
+    kernelModules = ["kvm-amd"];
+    extraModulePackages = [];
+
+    # Hide the OS choice for bootloaders.
+    # It's still possible to open the bootloader list by pressing any key
+    # It will just not appear on screen unless a key is pressed
+    loader.timeout = 0;
   };
-
-  boot.kernelParams = [
-    "quiet"
-    "splash"
-  ];
-
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-amd"];
-  boot.extraModulePackages = [];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/0178df82-bedf-46f7-844a-15eee20d014c";

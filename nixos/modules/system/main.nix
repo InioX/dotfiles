@@ -40,14 +40,6 @@ in {
       fi
     '';
 
-    boot.plymouth = {
-      enable = false;
-      themePackages = with pkgs; [
-        nixos-bgrt-plymouth
-      ];
-      theme = "nixos-bgrt";
-    };
-
     services.gvfs.enable = true;
 
     services.gnome.gnome-keyring.enable = true;
