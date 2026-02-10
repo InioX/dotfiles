@@ -48,9 +48,13 @@ with lib.zenyte; {
   zenyte.services = {
     syncthing = disabled;
     tlp = {
-      enable = true;
-      radeonDPM = true;
+      enable = false;
+      # radeonDPM = true;
     };
+    auto-cpufreq = {
+      enable = true;
+    };
+    thermald.enable = true;
   };
 
   zenyte.desktop = {
