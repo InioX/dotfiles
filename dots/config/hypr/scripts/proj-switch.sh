@@ -10,6 +10,6 @@ project=$(find "$DEV_DIR" -mindepth 1 -maxdepth 1 -type d \
 
 cd "$DEV_DIR/$project" || exit 1
 
-alacritty --working-directory "$DEV_DIR/$project" &
+# alacritty --working-directory "$DEV_DIR/$project" &
 
 code "$DEV_DIR/$project" &
