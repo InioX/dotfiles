@@ -84,10 +84,8 @@
 
     plymouth = {
       enable = true;
-      themePackages = with pkgs; [
-        nixos-bgrt-plymouth
-      ];
-      theme = "nixos-bgrt";
+      themePackages = [pkgs.mac-style-plymouth];
+      theme = "mac-style";
     };
     consoleLogLevel = 3;
 

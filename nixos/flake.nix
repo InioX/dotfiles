@@ -43,6 +43,7 @@
               nixpkgs.overlays = [
                 nur.overlays.default
                 nixpkgs-f2k.overlays.window-managers
+                inputs.mac-style-plymouth.overlays.default
               ];
 
               environment.systemPackages = [
@@ -107,6 +108,12 @@
   };
 
   inputs = {
+    # Mac style plymouth theme
+    mac-style-plymouth = {
+      url = "github:SergioRibera/s4rchiso-plymouth-theme";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Mcmojave cursor
     mcmojave-hyprcursor = {
       url = "github:libadoxon/mcmojave-hyprcursor";
