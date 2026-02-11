@@ -117,15 +117,16 @@ in {
               # Qt
               "qt5ct/qt5ct.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/qt5ct/qt5ct.conf";
               "qt6ct/qt6ct.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/qt6ct/qt6ct.conf";
+
+              # Quickshell
+              "quickshell".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/quickshell";
             };
 
             # Setup basic directories
-            home.activation.createDevFolder = lib.hm.dag.entryAfter ["writeBoundary"] ''
-              baseDir="/home/${default.username}/dev/"
-              if [ ! -d "$baseDir" ]; then
-                mkdir $baseDir
-              fi
-            '';
+            # home.activation.createDevFolder = lib.hm.dag.entryAfter ["writeBoundary"] ''
+            # mkdir -p $HOME/dev/
+            # mkdir -p $HOME/games/
+            # '';
 
             # Clone dotfiles repo inside ~/dev/dotfiles
             #home.activation.cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
