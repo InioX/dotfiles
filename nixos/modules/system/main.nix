@@ -11,15 +11,13 @@ with lib.zenyte; let
   cfg = config.zenyte.system;
 
   rebuild = pkgs.writeShellScriptBin "rebuild" ''
-    set -e
-    sudo -v
+    set -euo pipefail
 
-    nixos-rebuild switch \
+    sudo nixos-rebuild switch \
       --flake ${default.flakePath}/nixos \
       --no-reexec \
-      --show-trace \
-      --log-format \
-      internal-json |& nom --json
+      --log-format internal-json \
+      |& nom --json
   '';
 in {
   options.zenyte.system = {

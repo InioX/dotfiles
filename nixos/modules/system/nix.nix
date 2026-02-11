@@ -35,7 +35,12 @@ in {
         ];
       };
       optimise.automatic = true;
-      settings.auto-optimise-store = true;
+      settings = {
+        auto-optimise-store = true;
+        max-jobs = 8;
+        cores = 8;
+        eval-cache = true;
+      };
     };
 
     nixpkgs.config.allowUnfree = true;

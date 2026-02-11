@@ -71,19 +71,6 @@
           shfmt
           nil
           (
-            pkgs.writeShellScriptBin "rebuild" ''
-              set -e
-              sudo -v
-
-              nixos-rebuild switch \
-                --flake ${default.flakePath}/nixos \
-                --no-reexec \
-                --show-trace \
-                --log-format \
-                internal-json |& nom --json
-            ''
-          )
-          (
             pkgs.writeShellScriptBin "wallfetch" ''
               if [ ! -f flake.nix ]; then echo "This script is supposed to be ran from flake root." && exit 1; fi;
 
