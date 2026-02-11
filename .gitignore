@@ -1,4 +1,4 @@
 result/
 .vscode/
 .direnv
-dotfiles/config/ags/*
+dots/config/quickshell/Colors.qml

@@ -6,6 +6,10 @@ Scope {
   id: root
   property string time
 
+  Colors{
+    id: colors
+  }
+
   Variants {
     model: Quickshell.screens
 

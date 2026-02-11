@@ -84,6 +84,10 @@ in {
     [templates.qtct]
     input_path = "${default.templateFolder}/Matugen.colors"
     output_path = "~/.local/share/color-schemes/Matugen.colors"
+
+    [templates.quickshell]
+    input_path = "${default.templateFolder}/quickshell.qml"
+    output_path = "~/.config/quickshell/Colors.qml"
   '';
 
   system.activationScripts.run-matugen-once = ''
