@@ -11,8 +11,8 @@ with lib.zenyte; let
   # Modified code from https://github.com/nix-community/home-manager/issues/3507#issuecomment-1616803481
   fix-vscode-extensions = pkgs.writeShellScriptBin "fix-vscode-extensions" ''
     # Quit VSCodium
-    echo "Moving $HOME/.vscode-oss/extensions into /tmp"
-    mv ~/.vscode-oss/extensions /tmp
+    echo "Moving $HOME/.vscode/extensions into /tmp"
+    mv ~/.vscode/extensions /tmp
     echo "Restarting Home Manager for $USER"
     sudo systemctl restart home-manager-$USER.service
   '';
@@ -94,8 +94,8 @@ in {
           kamadorueda.alejandra
           naumovs.color-highlight
           usernamehw.errorlens
-          arrterian.nix-env-selector
           pkief.material-icon-theme
+          # arrterian.nix-env-selector
           # vscodevim.vim
 
           mkhl.direnv
@@ -104,11 +104,11 @@ in {
           timonwong.shellcheck
 
           # Rust specific
-          serayuzgur.crates
+          fill-labs.dependi
           rust-lang.rust-analyzer
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-          # Need to install manutally
+          # Need to install manually
           # {
           #   name = "hyprluna-theme";
           #   publisher = "hyprluna";
@@ -140,10 +140,16 @@ in {
             sha256 = "sha256-hQmA8PWjf2Nd60v5EAuqqD8LIEu7slrNs8luc3ePgZc=";
           }
           {
-            name = "hyprluna-theme";
-            publisher = "hyprluna";
-            version = "1.0.2";
-            sha256 = "sha256-OTamsH3NQ1VbhJRM/4Lrd8VjlW9Jrti5beRUGLvP1kE=";
+            name = "qt-qml";
+            publisher = "theqtcompany";
+            version = "1.10.0";
+            sha256 = "sha256-5k80WTSDwdf3WeePUt2CgTd3dTejj0+fKnbjzNfMXng=";
+          }
+          {
+            name = "qt-core";
+            publisher = "theqtcompany";
+            version = "1.10.0";
+            sha256 = "sha256-jMXC9UqvVxlvNSAMoInv3wCKyDwL/1I0TbftYjJphdU=";
           }
         ]
         ++ cfg.extensions;
