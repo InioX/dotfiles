@@ -61,7 +61,7 @@ in {
       rofi = enabled;
       gtk = enabled;
       dunst = enabled;
-      thunar = enabled;
+      dolphin = enabled;
       ags = enabled;
       qt = enabled;
       quickshell = enabled;
