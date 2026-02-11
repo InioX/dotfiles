@@ -81,9 +81,13 @@ in {
     input_path = "${default.templateFolder}/discord.css"
     output_path = "~/.config/Vencord/themes/midnight-discord.css"
 
-    [templates.qtct]
-    input_path = "${default.templateFolder}/Matugen.colors"
-    output_path = "~/.local/share/color-schemes/Matugen.colors"
+    [templates.qt5ct]
+    input_path = "${default.templateFolder}/matugen.conf"
+    output_path = "~/.config/qt5ct/colors/matugen.conf"
+
+    [templates.qt6ct]
+    input_path = "${default.templateFolder}/matugen.conf"
+    output_path = "~/.config/qt6ct/colors/matugen.conf"
 
     [templates.quickshell]
     input_path = "${default.templateFolder}/quickshell.qml"

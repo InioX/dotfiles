@@ -117,6 +117,7 @@ in {
               # Qt
               "qt5ct/qt5ct.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/qt5ct/qt5ct.conf";
               "qt6ct/qt6ct.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/qt6ct/qt6ct.conf";
+              "kdeglobals".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/kdeglobals";
 
               # Quickshell
               "quickshell".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/quickshell";
