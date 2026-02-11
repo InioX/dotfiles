@@ -14,7 +14,16 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.xserver.enable = true;
-    services.xserver.displayManager.sddm.enable = true;
+    services.displayManager = {
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        autoNumlock = true;
+      };
+      autoLogin = {
+        enable = true;
+        user = "${default.username}";
+      };
+    };
   };
 }

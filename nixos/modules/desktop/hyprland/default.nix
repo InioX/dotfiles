@@ -65,6 +65,7 @@ in {
       ags = enabled;
       qt = enabled;
       quickshell = enabled;
+      sddm = enabled;
     };
 
     zenyte.cli = {
