@@ -70,5 +70,6 @@
     "workbench.settings.applyToAllProfiles": [
         "editor.formatOnPaste"
     ],
-    "editor.formatOnPaste": true
+    "editor.formatOnPaste": true,
+    "rust-analyzer.server.path": "rust-analyzer"
 }
