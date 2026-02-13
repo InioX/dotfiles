@@ -92,6 +92,10 @@ in {
     [templates.quickshell]
     input_path = "${default.templateFolder}/quickshell.qml"
     output_path = "~/.config/quickshell/Colors.qml"
+
+    [templates.firefox-website-colors]
+    input_path = "${default.templateFolder}/firefox-colors.css"
+    output_path = "~/.floorp/ini/chrome/colors.css"
   '';
 
   system.activationScripts.run-matugen-once = ''

@@ -123,6 +123,10 @@ in {
               "quickshell".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/quickshell";
             };
 
+            home.file = {
+              ".floorp/ini/chrome/userContent.css".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/floorp/userContent.css";
+            };
+
             # Setup basic directories
             # home.activation.createDevFolder = lib.hm.dag.entryAfter ["writeBoundary"] ''
             # mkdir -p $HOME/dev/
