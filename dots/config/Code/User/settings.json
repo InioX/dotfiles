@@ -8,7 +8,7 @@
             "cursorBlinking": "phase",
             "smoothScrolling": true
         },
-        "fontFamily": "Iosevka, 'Terminus (TTF)'",
+        "fontFamily": "Iosevka Nerd Font Mono",
         "fontSize": 16,
         "formatOnPaste": true,
         "formatOnSave": true,
