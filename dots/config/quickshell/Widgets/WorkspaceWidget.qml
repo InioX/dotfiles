@@ -5,7 +5,7 @@ import Quickshell.Hyprland
 
 Rectangle {
     color: colors.surface
-    height: 35
+    height: root.showWorkspaceNumber ? 40 : 30
     width: layout.width + 15
     radius: root.cornerRadius
 
@@ -43,25 +43,42 @@ Rectangle {
                 property bool isActive: Hyprland.focusedWorkspace && Hyprland.focusedWorkspace.id === wid
 
                 width: Math.max(20, iconsRow.width + (isActive ? 30 : 16))
-                height: 30
+                height: root.showWorkspaceNumber ? 40 : 30
                 radius: 6
-                color: isActive ? colors.primary : colors.surface_container_highest
+                color: isActive ? colors.primary : colors.surface
 
-                Row {
-                    id: iconsRow
-
-                    spacing: 6
+                Column {
                     anchors.centerIn: parent
+                    spacing: 2
 
-                    Repeater {
-                        model: clients
+                    // 1. The Icons Row
+                    Row {
+                        id: iconsRow
 
-                        delegate: Text {
-                            font.pixelSize: root.iconSize
-                            color: isActive ? colors.on_primary : colors.on_surface_variant
-                            text: typeof textIconForClass !== "undefined" ? textIconForClass(modelData.lastIpcObject.class) : "•"
+                        spacing: 6
+                        anchors.horizontalCenter: parent.horizontalCenter
+
+                        Repeater {
+                            model: clients
+
+                            delegate: Text {
+                                font.pixelSize: root.iconSize
+                                color: isActive ? colors.on_primary : colors.on_surface_variant
+                                text: textIconForClass(modelData.lastIpcObject.class)
+                                font.bold: isActive ? true : false
+                            }
+
                         }
 
+                    }
+
+                    Text {
+                        visible: root.showWorkspaceNumber
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: wid
+                        font.pixelSize: 12
+                        font.bold: isActive ? true : false
+                        color: isActive ? colors.on_primary : colors.on_surface_variant
                     }
 
                 }

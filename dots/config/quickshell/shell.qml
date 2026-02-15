@@ -22,6 +22,7 @@ Scope {
         "org.pulseaudio.pavucontrol": "󰓃"
     })
     property var distroIcon: ""
+    property bool showWorkspaceNumber: false
 
     function textIconForClass(cls) {
         return textIconMap[cls] || "";
