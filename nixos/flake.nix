@@ -70,6 +70,7 @@
           shellcheck
           shfmt
           nil
+          libsForQt5.qt5.qttools
           (
             pkgs.writeShellScriptBin "wallfetch" ''
               if [ ! -f flake.nix ]; then echo "This script is supposed to be ran from flake root." && exit 1; fi;

@@ -51,9 +51,9 @@ with lib.zenyte; {
       enable = false;
       # radeonDPM = true;
     };
-    auto-cpufreq = {
-      enable = true;
-    };
+    # auto-cpufreq = {
+    #   enable = true;
+    # };
     thermald.enable = true;
   };
 

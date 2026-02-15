@@ -1,51 +1,93 @@
+import "./Services"
+import "./Widgets"
+import QtQuick
+import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
-import QtQuick
 
 Scope {
-  id: root
-  property string time
+    id: root
 
-  Colors{
-    id: colors
-  }
+    property int panelHeight: 55
+    property int moduleMargin: 10
+    property real iconSize: 22.5
+    property int cornerRadius: 6
+    property var textIconMap: ({
+        "floorp": "󰈹",
+        "Alacritty": "",
+        "kitty": "",
+        "code": "󰨞",
+        "discord": "",
+        "steam": "󰓓",
+        "org.pulseaudio.pavucontrol": "󰓃"
+    })
+    property var distroIcon: ""
 
-  Variants {
-    model: Quickshell.screens
-
-    PanelWindow {
-      required property var modelData
-      screen: modelData
-
-      anchors {
-        top: true
-        left: true
-        right: true
-      }
-
-      implicitHeight: 30
-
-      Text {
-        anchors.centerIn: parent
-        text: root.time
-      }
+    function textIconForClass(cls) {
+        return textIconMap[cls] || "";
     }
-  }
 
-  Process {
-    id: dateProc
-    command: ["date"]
-    running: true
-
-    stdout: StdioCollector {
-      onStreamFinished: root.time = this.text
+    Colors {
+        id: colors
     }
-  }
 
-  Timer {
-    interval: 1000
-    running: true
-    repeat: true
-    onTriggered: dateProc.running = true
-  }
+    Variants {
+        model: Quickshell.screens
+
+        PanelWindow {
+            required property var modelData
+
+            // color: "transparent"
+            color: colors.surface
+            screen: modelData
+            implicitHeight: root.panelHeight
+
+            anchors {
+                top: true
+                left: true
+                right: true
+                bottom: false
+            }
+
+            Item {
+                anchors.fill: parent
+                anchors.leftMargin: 10
+                anchors.rightMargin: 10
+
+                RowLayout {
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    spacing: 10
+
+                    DistroWidget {
+                    }
+
+                    WindowTitleWidget {
+                    }
+
+                }
+
+                WorkspaceWidget {
+                    anchors.centerIn: parent
+                }
+
+                RowLayout {
+                    spacing: 10
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    BatteryWidget {
+                    }
+
+                    ClockWidget {
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
 }

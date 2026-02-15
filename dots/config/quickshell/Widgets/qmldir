@@ -1,0 +1,6 @@
+module Widgets
+ClockWidget 1.0 ClockWidget.qml
+WorkspaceWidget 1.0 WorkspaceWidget.qml
+DistroWidget 1.0 DistroWidget.qml
+WindowTitleWidget 1.0 WindowTitleWidget.qml
+BatteryWidget 1.0 BatteryWidget.qml

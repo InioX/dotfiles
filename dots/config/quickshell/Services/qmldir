@@ -1,0 +1,4 @@
+module Services
+singleton TimeService 1.0 TimeService.qml
+singleton CpuService 1.0 CpuService.qml
+singleton HyprlandService 1.0 HyprlandService.qml
