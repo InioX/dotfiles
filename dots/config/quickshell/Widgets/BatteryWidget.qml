@@ -1,91 +1,75 @@
 import QtQuick
-import QtQuick.Effects
-import QtQuick.Shapes
 import Quickshell
 import Quickshell.Services.UPower
 
 Rectangle {
+    id: batteryRoot
+
     property var device: UPower.displayDevice
-    property int percentage: device.percentage * 100
+    property real ratio: device.percentage
+    property int percentage: ratio * 100
+    property int fontSize: 18
 
-    width: 90
-    height: 40
-    radius: root.cornerRadius
+    width: textContainer.width + 35
+    height: 30
+    radius: 8
     color: colors.primary_container
+    clip: true
 
-    Row {
-        anchors.centerIn: parent
-        spacing: 10
+    Item {
+        id: textContainer
 
-        Item {
-            width: 32
-            height: 32
+        anchors.fill: parent
 
-            Shape {
-                anchors.fill: parent
-                layer.enabled: true
-                layer.samples: 4
-
-                ShapePath {
-                    fillColor: "transparent"
-                    strokeColor: colors.surface_container_highest
-                    strokeWidth: 3
-                    capStyle: ShapePath.RoundCap
-
-                    PathAngleArc {
-                        centerX: 16
-                        centerY: 16
-                        radiusX: 14
-                        radiusY: 14
-                        startAngle: -90
-                        sweepAngle: 360
-                    }
-
-                }
-
-                ShapePath {
-                    fillColor: "transparent"
-                    strokeColor: percentage < 20 ? colors.error : colors.primary
-                    strokeWidth: 3
-                    capStyle: ShapePath.RoundCap
-
-                    PathAngleArc {
-                        centerX: 16
-                        centerY: 16
-                        radiusX: 14
-                        radiusY: 14
-                        startAngle: -90
-                        sweepAngle: (360 * (percentage / 100))
-
-                        Behavior on sweepAngle {
-                            NumberAnimation {
-                                duration: 800
-                                easing.type: Easing.OutQuint
-                            }
-
-                        }
-
-                    }
-
-                }
-
-            }
+        Row {
+            anchors.centerIn: parent
+            spacing: 6
 
             Text {
-                anchors.centerIn: parent
-                font.pixelSize: 14
-                color: colors.on_surface
-                text: device.isCharging ? "󱐋" : (percentage < 20 ? "󰂃" : "󰁿")
+                text: percentage + "%"
+                font.pixelSize: batteryRoot.fontSize
+                font.bold: true
+                color: colors.on_primary_container
             }
 
         }
 
-        Text {
-            anchors.verticalCenter: parent.verticalCenter
-            text: percentage + "%"
-            font.pixelSize: 14
-            font.bold: true
-            color: colors.on_surface
+    }
+
+    Rectangle {
+        id: fillBar
+
+        height: parent.height
+        width: parent.width * batteryRoot.ratio
+        color: colors.primary
+        radius: parent.radius
+        clip: true
+
+        Item {
+            width: batteryRoot.width
+            height: batteryRoot.height
+
+            Row {
+                anchors.centerIn: parent
+                spacing: 6
+
+                Text {
+                    text: percentage + "%"
+                    font.pixelSize: batteryRoot.fontSize
+                    font.bold: true
+                    color: colors.on_primary
+                }
+
+            }
+
+        }
+
+        Behavior on width {
+            NumberAnimation {
+                duration: 400
+                easing.type: Easing.OutCubic
+            }
+
         }
 
     }
