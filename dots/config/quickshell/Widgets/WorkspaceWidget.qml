@@ -4,29 +4,19 @@ import Quickshell
 import Quickshell.Hyprland
 
 Rectangle {
-    color: colors.surface
-    height: root.showWorkspaceNumber ? 40 : 30
+    color: colors.surface_container
+    height: layout.height + root.showWorkspaceNumber ? 40 : 20
     width: layout.width + 15
     radius: root.cornerRadius
 
     Row {
         id: layout
 
+        anchors.centerIn: parent
         spacing: 8
 
         Repeater {
-            model: {
-                const clients = HyprlandService.allClients;
-                const activeWorkspaces = new Set();
-                for (let i = 0; i < clients.length; i++) {
-                    if (clients[i].workspace && clients[i].workspace.id > 0)
-                        activeWorkspaces.add(clients[i].workspace.id);
-
-                }
-                return Array.from(activeWorkspaces).sort((a, b) => {
-                    return a - b;
-                });
-            }
+            model: 5
 
             delegate: Rectangle {
                 property int wid: index + 1
@@ -44,19 +34,24 @@ Rectangle {
 
                 width: Math.max(20, iconsRow.width + (isActive ? 30 : 16))
                 height: root.showWorkspaceNumber ? 40 : 30
-                radius: 6
-                color: isActive ? colors.primary : colors.surface
+                radius: 20
+                color: isActive ? colors.primary : colors.surface_container_highest
 
                 Column {
                     anchors.centerIn: parent
                     spacing: 2
 
-                    // 1. The Icons Row
                     Row {
                         id: iconsRow
 
                         spacing: 6
                         anchors.horizontalCenter: parent.horizontalCenter
+
+                        Text {
+                            visible: clients.length === 0
+                            text: root.defaultEmptyWorkspaceIcon
+                            color: colors.outline_variant
+                        }
 
                         Repeater {
                             model: clients

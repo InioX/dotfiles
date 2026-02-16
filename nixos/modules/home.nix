@@ -2,6 +2,7 @@
   inputs,
   config,
   lib,
+  pkgs,
   options,
   default,
   hostName,
@@ -80,12 +81,6 @@ in {
               "rofi/powermenu.rasi".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/rofi/powermenu.rasi";
               "rofi/menu.rasi".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/rofi/menu.rasi";
 
-              # Ags
-              "ags/" = {
-                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/ags";
-                recursive = true;
-              };
-
               # Hyprland
               "hypr/windowrules.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/windowrules.conf";
               "hypr/icons".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/icons";
@@ -125,6 +120,11 @@ in {
 
             home.file = {
               ".floorp/ini/chrome/userContent.css".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/floorp/userContent.css";
+
+              "pics/icon.jpg".source = pkgs.fetchurl {
+                url = "https://avatars.githubusercontent.com/u/81521595?v=4";
+                sha256 = "sha256-N55B0KWROQ3nOqPk908yrCRy9B4FM3/OmxuHDVgtius=";
+              };
             };
 
             # Setup basic directories

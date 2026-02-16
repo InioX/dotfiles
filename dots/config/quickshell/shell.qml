@@ -8,10 +8,10 @@ import Quickshell.Io
 Scope {
     id: root
 
-    property int panelHeight: 55
+    property int panelHeight: 60
     property int moduleMargin: 10
     property real iconSize: 22.5
-    property int cornerRadius: 6
+    property int cornerRadius: 16
     property var textIconMap: ({
         "floorp": "󰈹",
         "Alacritty": "",
@@ -23,6 +23,7 @@ Scope {
     })
     property var distroIcon: ""
     property bool showWorkspaceNumber: false
+    property var defaultEmptyWorkspaceIcon: ""
 
     function textIconForClass(cls) {
         return textIconMap[cls] || "";
@@ -39,7 +40,7 @@ Scope {
             required property var modelData
 
             // color: "transparent"
-            color: colors.surface
+            color: colors.surface_dim
             screen: modelData
             implicitHeight: root.panelHeight
 
@@ -73,11 +74,14 @@ Scope {
                 }
 
                 RowLayout {
-                    spacing: 10
+                    // BatteryWidget {
+                    // }
+
+                    spacing: 0
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
 
-                    BatteryWidget {
+                    QsBarWidget {
                     }
 
                     ClockWidget {

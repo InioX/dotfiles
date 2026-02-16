@@ -8,10 +8,10 @@ Rectangle {
     property var device: UPower.displayDevice
     property real ratio: device.percentage
     property int percentage: ratio * 100
-    property int fontSize: 18
+    property int fontSize: 12
 
-    width: textContainer.width + 35
-    height: 30
+    width: textContainer.width + 30
+    height: 17
     radius: 8
     color: colors.primary_container
     clip: true
