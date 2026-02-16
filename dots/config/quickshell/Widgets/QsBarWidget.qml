@@ -1,6 +1,7 @@
 import "../Services"
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Io
 import Quickshell.Services.Pipewire
 import Quickshell.Services.UPower
 
@@ -8,19 +9,68 @@ Item {
     id: qsRoot
 
     property var device: UPower.displayDevice
-    property real ratio: device.percentage
-    property int percentage: ratio * 100
-    property int fontSize: 14
-    property int iconFontSize: 20
+    property real ratio: device ? device.percentage : 0
+    property int percentage: Math.round(ratio * 100)
     readonly property PwNode sink: Pipewire.defaultAudioSink
     readonly property PwNode source: Pipewire.defaultAudioSource
-    readonly property bool mutedSource: source.audio.muted
-    readonly property bool mutedSink: sink.audio.muted
-    readonly property int volumeSource: source.audio.volume * 100
-    readonly property int volumeSink: sink.audio.volume * 100
+    readonly property bool mutedSource: source.audio.muted ?? true
+    readonly property bool mutedSink: sink.audio.muted ?? true
+    readonly property int volumeSource: source.audio ? (source.audio.volume * 100) : 0
+    readonly property int volumeSink: sink.audio ? (sink.audio.volume * 100) : 0
+    property int fontSize: 14
+    property int iconFontSize: 20
+    property bool isShutterClosed: false
 
-    width: layout.width + 20
+    width: 230
     height: layout.height + 20
+
+    Process {
+        id: networkMonitor
+
+        running: true
+        command: ["nmcli", "monitor"]
+    }
+
+    Connections {
+        // connected / disconnected
+
+        function onRead(data) {
+            const text = String(data).trim();
+            console.log("nmcli:", text);
+            if (text.startsWith("STATE"))
+                networkState = text.split(/\s+/)[1];
+            else if (text.startsWith("DEVICE"))
+                activeDevice = text.split(/\s+/)[1]; // e.g., wlan0
+        }
+
+        target: networkMonitor.stdout
+    }
+
+    Process {
+        id: camCheck
+
+        running: true
+        command: ["v4l2-ctl", "-d", "/dev/video0", "--get-ctrl=privacy"]
+
+        stdout: StdioCollector {
+            onStreamFinished: {
+                const text = String(data).trim();
+                isShutterClosed = text.includes("privacy: 1");
+            }
+        }
+
+    }
+
+    Timer {
+        interval: 3000
+        running: true
+        repeat: true
+        triggeredOnStart: true
+        onTriggered: {
+            camCheck.running = false;
+            camCheck.running = true;
+        }
+    }
 
     PwObjectTracker {
         objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
@@ -81,6 +131,13 @@ Item {
 
                         Text {
                             text: mutedSource ? "󰍭" : "󰍬"
+                            color: colors.on_surface
+                            font.bold: true
+                            font.pixelSize: qsRoot.iconFontSize
+                        }
+
+                        Text {
+                            text: isShutterClosed ? "󰗟" : "󰄀"
                             color: colors.on_surface
                             font.bold: true
                             font.pixelSize: qsRoot.iconFontSize

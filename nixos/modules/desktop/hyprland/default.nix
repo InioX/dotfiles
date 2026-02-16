@@ -40,6 +40,9 @@ in {
       wf-recorder
       swww
 
+      adwaita-icon-theme
+      hicolor-icon-theme
+
       # For theme management
       nwg-look
 

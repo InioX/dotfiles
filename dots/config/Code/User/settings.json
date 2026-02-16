@@ -71,5 +71,6 @@
         "editor.formatOnPaste"
     ],
     "editor.formatOnPaste": false,
-    "rust-analyzer.server.path": "rust-analyzer"
+    "rust-analyzer.server.path": "rust-analyzer",
+    "qt-qml.qmlls.useQmlImportPathEnvVar": true
 }

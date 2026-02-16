@@ -21,6 +21,8 @@ in {
 
     environment.systemPackages = with pkgs; [
       quickshell
+      # For camera privacy shutter
+      v4l-utils
     ];
   };
 }

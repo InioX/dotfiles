@@ -59,7 +59,7 @@ Rectangle {
                             delegate: Text {
                                 font.pixelSize: root.iconSize
                                 color: isActive ? colors.on_primary : colors.on_surface_variant
-                                text: textIconForClass(modelData.lastIpcObject.class)
+                                text: root.textIconForClass(modelData.lastIpcObject.class)
                                 font.bold: isActive ? true : false
                             }
 

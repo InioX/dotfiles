@@ -5,3 +5,6 @@ DistroWidget 1.0 DistroWidget.qml
 WindowTitleWidget 1.0 WindowTitleWidget.qml
 BatteryWidget 1.0 BatteryWidget.qml
 QsBarWidget 1.0 QsBarWidget.qml
+OverlayWidget 1.0 OverlayWidget.qml
+OverlayWidget 1.0 OverlayWidget.qml
+AppLauncherWidget 1.0 AppLauncherWidget.qml

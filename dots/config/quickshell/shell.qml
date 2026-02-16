@@ -5,92 +5,43 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 
-Scope {
+ShellRoot {
     id: root
 
-    property int panelHeight: 60
-    property int moduleMargin: 10
-    property real iconSize: 22.5
-    property int cornerRadius: 16
-    property var textIconMap: ({
-        "floorp": "󰈹",
-        "Alacritty": "",
-        "kitty": "",
-        "code": "󰨞",
-        "discord": "",
-        "steam": "󰓓",
-        "org.pulseaudio.pavucontrol": "󰓃"
-    })
-    property var distroIcon: ""
-    property bool showWorkspaceNumber: false
-    property var defaultEmptyWorkspaceIcon: ""
-
-    function textIconForClass(cls) {
-        return textIconMap[cls] || "";
-    }
+    property bool shouldShowOsd: false
+    property bool launcherVisible: false
 
     Colors {
         id: colors
     }
+    
+    IpcHandler {
+        target: "root"
 
-    Variants {
-        model: Quickshell.screens
+        function toggleLauncher(): void { 
+            root.launcherVisible = !root.launcherVisible
+            console.log(root.launcherVisible)
+        }
+    }
 
-        PanelWindow {
-            required property var modelData
+    Loader {
+        active: launcherVisible
 
-            // color: "transparent"
-            color: colors.surface_dim
-            screen: modelData
-            implicitHeight: root.panelHeight
+        sourceComponent: AppLauncher {
+        }
 
-            anchors {
-                top: true
-                left: true
-                right: true
-                bottom: false
-            }
+    }
 
-            Item {
-                anchors.fill: parent
-                anchors.leftMargin: 10
-                anchors.rightMargin: 10
+    Loader {
 
-                RowLayout {
-                    anchors.left: parent.left
-                    anchors.verticalCenter: parent.verticalCenter
-                    spacing: 10
+        sourceComponent: OverlayWidget {
+        }
 
-                    DistroWidget {
-                    }
+    }
 
-                    WindowTitleWidget {
-                    }
+    Loader {
 
-                }
-
-                WorkspaceWidget {
-                    anchors.centerIn: parent
-                }
-
-                RowLayout {
-                    // BatteryWidget {
-                    // }
-
-                    spacing: 0
-                    anchors.right: parent.right
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    QsBarWidget {
-                    }
-
-                    ClockWidget {
-                    }
-
-                }
-
-            }
-
+        sourceComponent: Bar {
         }
 
     }

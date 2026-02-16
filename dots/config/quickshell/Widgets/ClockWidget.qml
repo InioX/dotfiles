@@ -71,7 +71,6 @@ RowLayout {
         topRightRadius: root.cornerRadius
         bottomRightRadius: root.cornerRadius
         color: primaryContainer ? colors.primary_container : colors.surface_variant
-        anchors.verticalCenter: parent.verticalCenter
 
         Text {
             anchors.centerIn: parent
