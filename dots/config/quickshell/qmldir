@@ -1,3 +1,4 @@
 Bar 1.0 Bar.qml
 Colors 1.0 Colors.qml
 AppLauncher 1.0 AppLauncher.qml
+IpcHandlers 1.0 IpcHandlers.qml

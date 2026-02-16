@@ -3,7 +3,6 @@ import "./Widgets"
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import Quickshell.Io
 
 ShellRoot {
     id: root
@@ -14,18 +13,12 @@ ShellRoot {
     Colors {
         id: colors
     }
-    
-    IpcHandler {
-        target: "root"
 
-        function toggleLauncher(): void { 
-            root.launcherVisible = !root.launcherVisible
-            console.log(root.launcherVisible)
-        }
+    IpcHandlers {
     }
 
     Loader {
-        active: launcherVisible
+        active: root.launcherVisible
 
         sourceComponent: AppLauncher {
         }
@@ -39,11 +32,7 @@ ShellRoot {
 
     }
 
-    Loader {
-
-        sourceComponent: Bar {
-        }
-
+    Bar {
     }
 
 }

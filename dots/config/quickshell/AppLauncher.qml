@@ -15,7 +15,7 @@ WlrLayershell {
     
     width: 560
     height: 360
-    color: colors.surface
+    color: "transparent"
     
     exclusionMode: ExclusionMode.None
 
@@ -30,9 +30,17 @@ WlrLayershell {
         }
     }
 
-    ColumnLayout {
+    Rectangle {
+        id: background
         anchors.fill: parent
-        spacing: 8
+        color: colors.surface
+        radius: 20
+        clip: true
+
+        ColumnLayout {
+            anchors.fill: parent
+            anchors.margins: 10
+            spacing: 8
 
         RowLayout {
             IconImage {
@@ -153,5 +161,5 @@ WlrLayershell {
             // Enter also works while ListView has focus
             Keys.onReturnPressed: launcher.launchSelected()
         }
-    }
+           }   }
 }
