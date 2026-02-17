@@ -32,11 +32,22 @@ in {
 
     system.stateVersion = default.stateVersion;
 
-    system.activationScripts.diff = mkIf cfg.diffScript ''
-      if [[ -e /run/current-system ]]; then
-        ${pkgs.nix}/bin/nix store diff-closures /run/current-system "$systemConfig" | grep -w "→" | grep -w "KiB" | column --table --separator " ,:" | ${pkgs.choose}/bin/choose 0:1 -4:-1 | ${pkgs.gawk}/bin/awk '{s=$0; gsub(/\033\[[ -?]*[@-~]/,"",s); print s "\t" $0}' | sort -k5,5gr | ${pkgs.choose}/bin/choose 6:-1 | column --table
-      fi
-    '';
+    # system.activationScripts.diff = mkIf cfg.diffScript ''
+    #   if [[ -e /run/current-system ]]; then
+    #     ${pkgs.nix}/bin/nix store diff-closures /run/current-system "$systemConfig" | grep -w "→" | grep -w "KiB" | column --table --separator " ,:" | ${pkgs.choose}/bin/choose 0:1 -4:-1 | ${pkgs.gawk}/bin/awk '{s=$0; gsub(/\033\[[ -?]*[@-~]/,"",s); print s "\t" $0}' | sort -k5,5gr | ${pkgs.choose}/bin/choose 6:-1 | column --table
+    #   fi
+    # '';
+
+    programs.nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      # flake = "${default.flakePath}/nixos";
+    };
+
+    environment.variables = {
+      NH_OS_FLAKE = "${default.flakePath}/nixos";
+    };
 
     services.gvfs.enable = true;
 
