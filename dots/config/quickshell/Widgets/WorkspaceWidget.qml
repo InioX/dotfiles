@@ -5,8 +5,8 @@ import Quickshell.Hyprland
 
 Rectangle {
     color: colors.surface_container
-    width: layout.width + 30
-    height: 45
+    width: layout.width + 20
+    height: 50
     radius: root.cornerRadius
 
     WheelHandler {

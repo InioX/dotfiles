@@ -86,7 +86,7 @@ Item {
 
             Rectangle {
                 width: batteryRow.width + 20
-                height: batteryRow.height + 15
+                height: batteryRow.height + 20
                 color: colors.surface_container_highest
                 topLeftRadius: root.cornerRadius
                 bottomLeftRadius: root.cornerRadius
@@ -120,7 +120,7 @@ Item {
 
                 Rectangle {
                     width: generalRow.width + 20
-                    height: generalRow.height + 15
+                    height: generalRow.height + 20
                     color: colors.surface_container_highest
 
                     RowLayout {
@@ -154,7 +154,7 @@ Item {
 
                 Rectangle {
                     width: volumeRow.width + 20
-                    height: volumeRow.height + 15
+                    height: volumeRow.height + 20
                     color: colors.surface_container_highest
                     topRightRadius: root.cornerRadius
                     bottomRightRadius: root.cornerRadius

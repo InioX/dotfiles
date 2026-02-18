@@ -7,7 +7,7 @@ import Quickshell
 ShellRoot {
     id: root
 
-    property int panelHeight: 60
+    property int panelHeight: 70
     property int moduleMargin: 10
     property real iconSize: 22.5
     property int cornerRadius: 16
