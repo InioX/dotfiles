@@ -37,11 +37,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.sessionVariables = {
-      NIXOS_OZONE_WL = "1"; # Most Electron Applications
-      USE_WAYLAND = "1"; # ArmCord
-    };
-
     environment.systemPackages = with pkgs; [
       (pkgs.discord.override {
         withOpenASAR = true;
