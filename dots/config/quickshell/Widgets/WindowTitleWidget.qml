@@ -15,7 +15,7 @@ Column {
         width: Math.min(implicitWidth, 650)
         elide: Text.ElideRight
         verticalAlignment: Text.AlignVCenter
-        text: HyprlandService.activeWindow.title
+        text: HyprlandService.activeWindow.title || "Desktop"
         color: colors.on_surface
         font.bold: true
     }
@@ -24,7 +24,7 @@ Column {
         width: Math.min(implicitWidth, 650)
         elide: Text.ElideRight
         verticalAlignment: Text.AlignVCenter
-        text: HyprlandService.activeWindow.class
+        text: HyprlandService.activeWindow.class || "No programs running"
         color: colors.outline
         font.bold: true
     }
