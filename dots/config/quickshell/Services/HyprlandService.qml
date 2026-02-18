@@ -21,6 +21,7 @@ Singleton {
     property var workspaceIds: []
     property var workspaceById: ({})
     property var activeWorkspace: null
+    property var activeWindow: null
     property var monitors: []
     property var layers: ({})
 
@@ -70,8 +71,6 @@ Singleton {
         updateMonitors();
         updateLayers();
         updateWorkspaces();
-
-        // console.log(hyprlandClientsForWorkspace(1)[0].class)
     }
 
     function biggestWindowForWorkspace(workspaceId) {
@@ -107,6 +106,11 @@ Singleton {
                 let tempWinByAddress = {};
                 for (var i = 0; i < root.windowList.length; ++i) {
                     var win = root.windowList[i];
+
+                    if (win.focusHistoryID === 0) {
+                        root.activeWindow = win
+                    } 
+
                     tempWinByAddress[win.address] = win;
                 }
                 root.windowByAddress = tempWinByAddress;
