@@ -5,9 +5,19 @@ import Quickshell.Hyprland
 
 Rectangle {
     color: colors.surface_container
-    height: layout.height + root.showWorkspaceNumber ? 40 : 20
-    width: layout.width + 15
+    width: layout.width + 30
+    height: 45
     radius: root.cornerRadius
+
+    WheelHandler {
+        onWheel: (event) => {
+            if (event.angleDelta.y < 0)
+                Hyprland.dispatch(`workspace r+1`);
+            else if (event.angleDelta.y > 0)
+                Hyprland.dispatch(`workspace r-1`);
+        }
+        acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+    }
 
     Row {
         id: layout
@@ -20,20 +30,11 @@ Rectangle {
 
             delegate: Rectangle {
                 property int wid: index + 1
-                property var clients: {
-                    const out = [];
-                    const all = HyprlandService.allClients;
-                    for (let i = 0; i < all.length; i++) {
-                        if (all[i].workspace && all[i].workspace.id === wid)
-                            out.push(all[i]);
-
-                    }
-                    return out;
-                }
                 property bool isActive: Hyprland.focusedWorkspace && Hyprland.focusedWorkspace.id === wid
+                property var clients: HyprlandService.hyprlandClientsForWorkspace(wid)
 
-                width: Math.max(20, iconsRow.width + (isActive ? 30 : 16))
-                height: root.showWorkspaceNumber ? 40 : 30
+                width: Math.max(20, iconsRow.width + (isActive ? 35 : 20))
+                height: root.showWorkspaceNumber ? 40 : 35
                 radius: 20
                 color: isActive ? colors.primary : colors.surface_container_highest
 
@@ -48,6 +49,7 @@ Rectangle {
                         anchors.horizontalCenter: parent.horizontalCenter
 
                         Text {
+                            verticalAlignment: Text.AlignVCenter
                             visible: clients.length === 0
                             text: root.defaultEmptyWorkspaceIcon
                             color: colors.outline_variant
@@ -57,9 +59,10 @@ Rectangle {
                             model: clients
 
                             delegate: Text {
+                                verticalAlignment: Text.AlignVCenter
                                 font.pixelSize: root.iconSize
                                 color: isActive ? colors.on_primary : colors.on_surface_variant
-                                text: root.textIconForClass(modelData.lastIpcObject.class)
+                                text: root.textIconForClass(modelData.class)
                                 font.bold: isActive ? true : false
                             }
 
@@ -74,6 +77,7 @@ Rectangle {
                         font.pixelSize: 12
                         font.bold: isActive ? true : false
                         color: isActive ? colors.on_primary : colors.on_surface_variant
+                        verticalAlignment: Text.AlignVCenter
                     }
 
                 }

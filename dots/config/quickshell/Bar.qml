@@ -46,6 +46,7 @@ Scope {
 
                 WorkspaceWidget {
                     anchors.centerIn: parent
+                    anchors.verticalCenter: parent.verticalCenter
                 }
 
                 RowLayout {

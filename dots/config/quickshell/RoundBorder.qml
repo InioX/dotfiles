@@ -4,67 +4,52 @@ import Quickshell
 
 // qmllint disable uncreatable-type
 Scope {
+    // PanelWindow {
+    //     id: top
+    //     implicitHeight: border.borderWidth
+    //     color: border.borderColor
+    //     anchors {
+    //         top: true
+    //         left: true
+    //         right: true
+    //     }
+    // }
+    // PanelWindow {
+    //     id: left
+    //     implicitWidth: border.borderWidth
+    //     color: border.borderColor
+    //     anchors {
+    //         top: true
+    //         left: true
+    //         bottom: true
+    //     }
+    // }
+    // PanelWindow {
+    //     id: bottom
+    //     implicitHeight: border.borderWidth
+    //     color: border.borderColor
+    //     anchors {
+    //         bottom: true
+    //         left: true
+    //         right: true
+    //     }
+    // }
+    // PanelWindow {
+    //     id: right
+    //     implicitWidth: border.borderWidth
+    //     color: border.borderColor
+    //     anchors {
+    //         top: true
+    //         right: true
+    //         bottom: true
+    //     }
+    // }
+
     id: border
 
     property real borderWidth: 10
     property real cornerRadius: 25
     property color borderColor: colors.surface
-
-    PanelWindow {
-        id: top
-
-        implicitHeight: border.borderWidth
-        color: border.borderColor
-
-        anchors {
-            top: true
-            left: true
-            right: true
-        }
-
-    }
-
-    PanelWindow {
-        id: left
-
-        implicitWidth: border.borderWidth
-        color: border.borderColor
-
-        anchors {
-            top: true
-            left: true
-            bottom: true
-        }
-
-    }
-
-    PanelWindow {
-        id: bottom
-
-        implicitHeight: border.borderWidth
-        color: border.borderColor
-
-        anchors {
-            bottom: true
-            left: true
-            right: true
-        }
-
-    }
-
-    PanelWindow {
-        id: right
-
-        implicitWidth: border.borderWidth
-        color: border.borderColor
-
-        anchors {
-            top: true
-            right: true
-            bottom: true
-        }
-
-    }
 
     PanelWindow {
         id: topLeftCorner
