@@ -119,7 +119,10 @@ in {
             };
 
             home.file = {
-              ".floorp/ini/chrome/userContent.css".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/floorp/userContent.css";
+              ".floorp/ini/chrome/" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/floorp/";
+                recursive = true;
+              };
 
               "pics/icon.jpg".source = pkgs.fetchurl {
                 url = "https://avatars.githubusercontent.com/u/81521595?v=4";
