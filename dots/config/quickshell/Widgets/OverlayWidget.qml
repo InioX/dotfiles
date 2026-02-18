@@ -31,7 +31,7 @@ Scope {
 
         PanelWindow {
             anchors.bottom: true
-            margins.bottom: screen.height / 5
+            margins.bottom: screen.height / 120
             exclusiveZone: 0
             implicitWidth: 400
             implicitHeight: 50
@@ -40,18 +40,21 @@ Scope {
             Rectangle {
                 anchors.fill: parent
                 radius: height / 2
-                color: colors.surface_variant
+                color: colors.surface_container
 
                 RowLayout {
+                    spacing: 10
+
                     anchors {
                         fill: parent
-                        leftMargin: 10
-                        rightMargin: 15
+                        leftMargin: 20
+                        rightMargin: 20
                     }
 
-                    IconImage {
-                        implicitSize: 30
-                        source: Quickshell.iconPath("audio-volume-high-symbolic")
+                    Text {
+                        font.pixelSize: 30
+                        text: "󰕾"
+                        color: colors.on_surface
                     }
 
                     Rectangle {

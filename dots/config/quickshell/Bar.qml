@@ -6,28 +6,7 @@ import Quickshell
 import Quickshell.Io
 
 Scope {
-    id: root
-
-    property int panelHeight: 60
-    property int moduleMargin: 10
-    property real iconSize: 22.5
-    property int cornerRadius: 16
-    property var textIconMap: ({
-        "floorp": "󰈹",
-        "Alacritty": "",
-        "kitty": "",
-        "code": "󰨞",
-        "discord": "",
-        "steam": "󰓓",
-        "org.pulseaudio.pavucontrol": "󰓃"
-    })
-    property var distroIcon: ""
-    property bool showWorkspaceNumber: false
-    property var defaultEmptyWorkspaceIcon: ""
-
-    function textIconForClass(cls) {
-        return textIconMap[cls] || "";
-    }
+    id: barRoot
 
     Variants {
         model: Quickshell.screens

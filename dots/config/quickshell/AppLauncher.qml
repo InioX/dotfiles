@@ -13,9 +13,15 @@ WlrLayershell {
     
     keyboardFocus: WlrKeyboardFocus.Exclusive
     
-    width: 560
-    height: 360
+    width: 400
+    height: 600
     color: "transparent"
+
+    anchors {
+        top: true
+        right: true
+        bottom: true
+    }
     
     exclusionMode: ExclusionMode.None
 
@@ -34,7 +40,7 @@ WlrLayershell {
         id: background
         anchors.fill: parent
         color: colors.surface
-        radius: 20
+        // bottomRightRadius: 20
         clip: true
 
         ColumnLayout {
@@ -42,21 +48,15 @@ WlrLayershell {
             anchors.margins: 10
             spacing: 8
 
-        RowLayout {
-            IconImage {
-                Layout.leftMargin: 10
-                source: Quickshell.iconPath("nix-snowflake", true)
-                Layout.preferredWidth: 25
-                Layout.preferredHeight: 25
-            }
-
             TextField {
-                id: input
                 Layout.fillWidth: true
+
+                id: input
                 placeholderText: "Run…"
                 font.pixelSize: 18
-                color: "white"
                 focus: true
+                color: colors.on_surface
+                placeholderTextColor: colors.on_surface
 
                 padding: 15
 
@@ -67,7 +67,8 @@ WlrLayershell {
 
                 background: Rectangle {
                     border.width: 0
-                    color: "transparent"
+                    color: colors.surface_container
+                    radius: root.cornerRadius
                 }
 
                 Keys.onEscapePressed: root.launcherVisible = false
@@ -90,76 +91,91 @@ WlrLayershell {
                     }
                 }
             }
-        }
+        
+        
 
         // Filtered model: only items matching the query
-        ScriptModel {
-            id: filtered
-            values: {
-                const allEntries = [...DesktopEntries.applications.values];
-                const q = launcher.query.trim();
+            ScriptModel {
+                id: filtered
+                values: {
+                    const allEntries = [...DesktopEntries.applications.values];
+                    const q = launcher.query.trim();
 
-                if (q === "") {
-                    return allEntries;
-                } else {
-                    return allEntries.filter(d => d.name && d.name.toLowerCase().includes(q));
-                }
-            }
-        }
-
-        ListView {
-            id: list
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            clip: true
-            model: filtered.values
-            currentIndex: filtered.values.length > 0 ? 0 : -1
-            keyNavigationWraps: true
-            preferredHighlightBegin: 0
-            preferredHighlightEnd: height
-            highlightRangeMode: ListView.ApplyRange
-            highlightMoveDuration: 80
-            highlight: Rectangle {
-                radius: 4
-                color: input.palette.highlight
-            }
-
-            delegate: Item {
-                id: entry
-                required property var modelData
-                required property int index
-                width: ListView.view.width
-                height: 50
-
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: list.currentIndex = entry.index
-                    onDoubleClicked: launcher.launchSelected()
-                }
-
-                Row {
-                    anchors.fill: parent
-                    anchors.margins: 8
-                    spacing: 10
-
-                    IconImage {
-                        source: Quickshell.iconPath(modelData.icon, true)
-                        width: 35
-                        height: 35
-                    }
-                    Text {
-                        id: label
-                        color: "white"
-                        text: modelData.name
-                        font.pointSize: 20
-                        elide: Text.ElideRight
-                        verticalAlignment: Text.AlignVCenter
+                    if (q === "") {
+                        return allEntries;
+                    } else {
+                        return allEntries.filter(d => d.name && d.name.toLowerCase().includes(q));
                     }
                 }
             }
 
-            // Enter also works while ListView has focus
-            Keys.onReturnPressed: launcher.launchSelected()
-        }
-           }   }
+            ListView {
+                id: list
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                clip: true
+                model: filtered.values
+                currentIndex: filtered.values.length > 0 ? 0 : -1
+                keyNavigationWraps: true
+                preferredHighlightBegin: 0
+                preferredHighlightEnd: height
+                highlightRangeMode: ListView.ApplyRange
+                highlightMoveDuration: 80
+                highlight: Rectangle {
+                    radius: root.cornerRadius
+                    color: colors.primary_container
+                }
+
+                delegate: Item {
+                    id: entry
+                    required property var modelData
+                    required property int index
+                    width: ListView.view.width
+                    height: 50
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: list.currentIndex = entry.index
+                        onDoubleClicked: launcher.launchSelected()
+                    }
+
+                    Row {
+                        anchors.fill: parent
+                        anchors.margins: 8
+                        spacing: 10
+
+                        IconImage {
+                            source: Quickshell.iconPath(modelData.icon, true)
+                            width: 35
+                            height: 35
+                        }
+
+                        Column {
+                            Text {
+                                id: labelName
+                                color: list.currentIndex === index ? colors.on_primary_container : colors.on_surface
+                                text: modelData.name
+                                font.pointSize: 15
+                                elide: Text.ElideRight
+                                verticalAlignment: Text.AlignVCenter
+                            }
+
+                            Text {
+                                id: labelDesc
+                                color: list.currentIndex === index ? colors.on_primary_container : colors.outline
+                                text: modelData.comment || "No description provided."
+                                font.pointSize: 8
+                                elide: Text.ElideRight
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                        }
+
+                    }
+                }
+
+                // Enter also works while ListView has focus
+                Keys.onReturnPressed: launcher.launchSelected()
+            }
+        }   
+    }
 }
