@@ -41,6 +41,7 @@
             {
               # Nur overlay
               nixpkgs.overlays = [
+                nix-cachyos-kernel.overlays.pinned
                 nur.overlays.default
                 nixpkgs-f2k.overlays.window-managers
                 inputs.mac-style-plymouth.overlays.default
@@ -96,6 +97,11 @@
   };
 
   inputs = {
+    # CachyOS kernel
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel/release";
+    };
+
     # Mac style plymouth theme
     mac-style-plymouth = {
       url = "github:SergioRibera/s4rchiso-plymouth-theme";

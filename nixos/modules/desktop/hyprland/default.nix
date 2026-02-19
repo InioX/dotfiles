@@ -26,13 +26,13 @@ in {
     inputs.hyprland.nixosModules.default
   ];
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    USE_WAYLAND = "1";
-  };
-
   config = mkIf cfg.enable {
     programs.hyprland.enable = true;
+
+    environment.sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      USE_WAYLAND = "1";
+    };
 
     environment.systemPackages = with pkgs; [
       wl-clipboard

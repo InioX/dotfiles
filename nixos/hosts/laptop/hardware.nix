@@ -26,7 +26,27 @@
     powerManagement.finegrained = false;
     open = true;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
+    dynamicBoost.enable = true;
+    # package = config.boot.kernelPackages.nvidiaPackages.latest;
+    package = let
+      base = config.boot.kernelPackages.nvidiaPackages.latest;
+      cachyos-nvidia-patch = pkgs.fetchpatch {
+        url = "https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/master/nvidia/nvidia-utils/kernel-6.19.patch";
+        sha256 = "sha256-YuJjSUXE6jYSuZySYGnWSNG5sfVei7vvxDcHx3K+IN4=";
+      };
+
+      # Patch the appropriate driver based on config.hardware.nvidia.open
+      driverAttr =
+        if config.hardware.nvidia.open
+        then "open"
+        else "bin";
+    in
+      base
+      // {
+        ${driverAttr} = base.${driverAttr}.overrideAttrs (oldAttrs: {
+          patches = (oldAttrs.patches or []) ++ [cachyos-nvidia-patch];
+        });
+      };
   };
 
   boot.loader.systemd-boot = {
@@ -53,7 +73,8 @@
   networking.useDHCP = lib.mkDefault true;
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    # kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
     kernel.sysctl = {
       "kernel.split_lock_mitigate" = 0;
       "kernel.nmi_watchdog" = 0;
