@@ -109,7 +109,7 @@ Singleton {
 
                     if (win.focusHistoryID === 0) {
                         root.activeWindow = win
-                    } 
+                    }
 
                     tempWinByAddress[win.address] = win;
                 }

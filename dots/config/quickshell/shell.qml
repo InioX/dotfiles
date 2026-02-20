@@ -18,6 +18,8 @@ ShellRoot {
         "code": "󰨞",
         "discord": "",
         "steam": "󰓓",
+        "net.lutris.Lutris": "󰒓",
+        "steam_app_default": "󰊗",
         "org.pulseaudio.pavucontrol": "󰓃"
     })
     property var distroIcon: ""

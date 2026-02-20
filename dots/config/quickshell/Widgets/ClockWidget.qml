@@ -9,7 +9,7 @@ RowLayout {
 
     property bool primaryContainer: true
 
-    spacing: 3
+    spacing: 4
 
     Rectangle {
         width: 200
@@ -66,7 +66,7 @@ RowLayout {
     }
 
     Rectangle {
-        width: 30
+        width: 40
         height: 40
         topRightRadius: root.cornerRadius
         bottomRightRadius: root.cornerRadius
@@ -75,10 +75,10 @@ RowLayout {
         Text {
             anchors.centerIn: parent
             verticalAlignment: Text.AlignVCenter
-            text: " "
+            text: "󰐥 "
             color: primaryContainer ? colors.on_primary_container : colors.on_surface_variant
             font.bold: true
-            font.pixelSize: 20
+            font.pixelSize: 24
         }
 
     }

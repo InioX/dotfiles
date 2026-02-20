@@ -53,13 +53,14 @@ WlrLayershell {
                 Layout.fillWidth: true
 
                 id: input
-                placeholderText: "Run…"
-                font.pixelSize: 18
+                placeholderText: "󰍉"
+                font.bold: true
+                font.pixelSize: 20
                 focus: true
                 color: colors.on_surface
                 placeholderTextColor: colors.on_surface
 
-                padding: 15
+                padding: 10
 
                 onTextChanged: {
                     launcher.query = text;
@@ -157,6 +158,7 @@ WlrLayershell {
                                 color: list.currentIndex === index ? colors.on_primary_container : colors.on_surface
                                 text: modelData.name
                                 font.pointSize: 15
+                                font.bold: true
                                 elide: Text.ElideRight
                                 verticalAlignment: Text.AlignVCenter
                             }
@@ -166,6 +168,7 @@ WlrLayershell {
                                 color: list.currentIndex === index ? colors.on_primary_container : colors.outline
                                 text: modelData.comment || "No description provided."
                                 font.pointSize: 8
+                                font.bold: true
                                 elide: Text.ElideRight
                                 verticalAlignment: Text.AlignVCenter
                             }
