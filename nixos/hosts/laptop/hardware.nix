@@ -22,7 +22,7 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = false;
+    powerManagement.enable = true;
     powerManagement.finegrained = false;
     open = true;
     nvidiaSettings = true;
@@ -100,8 +100,11 @@
       kernelModules = [];
     };
 
-    kernelModules = ["kvm-amd"];
-    extraModulePackages = [];
+    kernelModules = [
+      "kvm-amd"
+      "lenovo-legion-module"
+    ];
+    extraModulePackages = [config.boot.kernelPackages.lenovo-legion-module];
 
     # Hide the OS choice for bootloaders.
     # It's still possible to open the bootloader list by pressing any key
