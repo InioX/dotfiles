@@ -16,6 +16,19 @@ in {
   config = mkIf cfg.enable {
     boot.kernel.sysctl."vm.max_map_count" = 2147483642;
 
+    environment.systemPackages = with pkgs; [
+      mangohud
+      goverlay
+      protonup-qt
+    ];
+
+    programs.gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
+
+    programs.gamemode.enable = true;
+
     zenyte.gaming = {
       steam = enabled;
       lutris = enabled;
