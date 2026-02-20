@@ -19,11 +19,9 @@ WlrLayershell {
 
     anchors {
         top: true
-        right: true
-        bottom: true
     }
     
-    exclusionMode: ExclusionMode.None
+    exclusionMode: ExclusionMode.Ignore
 
     property string query: ""
 
@@ -37,10 +35,13 @@ WlrLayershell {
     }
 
     Rectangle {
+        anchors.topMargin: root.panelHeight
+
         id: background
         anchors.fill: parent
         color: colors.surface
-        // bottomRightRadius: 20
+        bottomRightRadius: 20
+        bottomLeftRadius: 20
         clip: true
 
         ColumnLayout {

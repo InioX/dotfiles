@@ -1,6 +1,7 @@
 import "../Services"
 import QtQuick
 import QtQuick.Layouts
+import Quickshell
 import Quickshell.Io
 import Quickshell.Services.Pipewire
 import Quickshell.Services.UPower
@@ -153,6 +154,8 @@ Item {
                 spacing: 6
 
                 Rectangle {
+                    id: volumeContainer
+
                     width: volumeRow.width + 20
                     height: volumeRow.height + 20
                     color: colors.surface_container_highest
@@ -177,6 +180,39 @@ Item {
                             color: colors.on_surface
                             font.bold: true
                             font.pixelSize: qsRoot.fontSize
+                        }
+
+                        PopupWindow {
+                            id: volumePopup
+
+                            visible: false
+                            anchor.window: barWindow
+                            anchor.rect: {
+                                var pos = volumeContainer.mapToItem(null, 0, 0);
+                                return [pos.x, pos.y, volumeContainer.width, volumeContainer.height];
+                            }
+                            anchor.edges: Edges.Top | Edges.Right
+
+                            Rectangle {
+                                width: 100
+                                height: 50
+                                color: colors.surface_container
+                                border.color: colors.outline
+                                radius: 8
+
+                                Text {
+                                    anchors.centerIn: parent
+                                    text: "Volume: " + qsRoot.volumeSink + "%"
+                                    color: colors.on_surface
+                                }
+
+                            }
+
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: volumePopup.visible = !volumePopup.visible
                         }
 
                     }
