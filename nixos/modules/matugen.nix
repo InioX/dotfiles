@@ -99,6 +99,8 @@ in {
   '';
 
   system.activationScripts.run-matugen-once = ''
+    set -e
+
     if [ ! -f /home/${default.username}/.local/share/matugen-ran-once ]; then
       su -u ini ${pkgs.vscode}/bin/code --install-extension HyprLuna.hyprluna-theme
       su -u ini ${pkgs.matugen}/bin/matugen image ${wallpaper}

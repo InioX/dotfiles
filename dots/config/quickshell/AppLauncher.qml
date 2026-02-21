@@ -13,8 +13,8 @@ WlrLayershell {
     
     keyboardFocus: WlrKeyboardFocus.Exclusive
     
-    width: 400
-    height: 600
+    implicitWidth: 400
+    implicitHeight: 600
     color: "transparent"
 
     anchors {

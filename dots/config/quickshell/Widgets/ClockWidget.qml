@@ -87,7 +87,6 @@ RowLayout {
             anchors.fill: parent
             onClicked: {
                 root.powerMenuVisible = !root.powerMenuVisible;
-                console.log("Status is now: " + root.powerMenuVisible);
             }
         }
 

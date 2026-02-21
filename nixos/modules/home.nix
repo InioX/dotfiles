@@ -138,7 +138,6 @@ in {
 
             # Clone dotfiles repo inside ~/dev/dotfiles
             home.activation.cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
-              # Clone main dotfiles
               baseDir="/home/${default.username}/dev/dotfiles"
               if [ ! -d "$baseDir" ]; then
                 ${pkgs.git}/bin/git clone https://github.com/InioX/dotfiles "$baseDir"
@@ -150,6 +149,15 @@ in {
                 ${pkgs.git}/bin/git clone https://github.com/InioX/matugen-themes "$themesDir"
               fi
             '';
+
+            # home.activation.symlinkDotfiles = lib.hm.dag.entryAfter ["cloneDotfiles"] ''
+            #   repoDir="${default.flakePath}/dots/config/floorp/websites"
+            #   targetDir="/home/${default.username}/dev/matugen-themes/"
+
+            #   if [ -d "$repoDir" ] && [ ! -L "$targetDir" ]; then
+            #     ln -s "$repoDir" "$targetDir"
+            #   fi
+            # '';
           }
         ];
     };
