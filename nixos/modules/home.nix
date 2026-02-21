@@ -131,18 +131,25 @@ in {
             };
 
             # Setup basic directories
-            # home.activation.createDevFolder = lib.hm.dag.entryAfter ["writeBoundary"] ''
-            # mkdir -p $HOME/dev/
-            # mkdir -p $HOME/games/
-            # '';
+            home.activation.createDevFolder = lib.hm.dag.entryAfter ["writeBoundary"] ''
+              mkdir -p $HOME/dev/
+              mkdir -p $HOME/games/
+            '';
 
             # Clone dotfiles repo inside ~/dev/dotfiles
-            #home.activation.cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
-            #  baseDir="/home/${default.username}/dev/dotfiles"
-            #  if [ ! -d "$baseDir" ]; then
-            #    git clone https://github.com/InioX/dotfiles $baseDir
-            #  fi
-            #'';
+            home.activation.cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+              # Clone main dotfiles
+              baseDir="/home/${default.username}/dev/dotfiles"
+              if [ ! -d "$baseDir" ]; then
+                ${pkgs.git}/bin/git clone https://github.com/InioX/dotfiles "$baseDir"
+              fi
+
+              # Clone matugen-themes
+              themesDir="/home/${default.username}/dev/matugen-themes"
+              if [ ! -d "$themesDir" ]; then
+                ${pkgs.git}/bin/git clone https://github.com/InioX/matugen-themes "$themesDir"
+              fi
+            '';
           }
         ];
     };
