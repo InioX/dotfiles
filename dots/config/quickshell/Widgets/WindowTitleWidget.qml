@@ -1,32 +1,30 @@
 import "../Services"
 import QtQuick
 import Quickshell
+import Quickshell.Hyprland
 import Quickshell.Io
 import Quickshell.Wayland
-import Quickshell.Hyprland
 
 Column {
     id: windowTitle
-    readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
 
+    readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
     property string activeWindowAddress: `0x${activeWindow?.HyprlandToplevel?.address}`
 
-    Text {
-        width: Math.min(implicitWidth, 650)
-        elide: Text.ElideRight
-        verticalAlignment: Text.AlignVCenter
-        text: HyprlandService.activeWindow.title || "Desktop"
-        color: colors.on_surface
-        font.bold: true
+    readonly property string currentTitle: HyprlandService.activeWindow.title || "Desktop"
+    readonly property string currentClass: HyprlandService.activeWindow.class || "No programs running"
+    
+    spacing: 2
+
+    AnimatedTextWidget {
+        displayText: windowTitle.currentTitle
+        textColor: colors.on_surface
+        fontSize: 14
     }
 
-    Text {
-        width: Math.min(implicitWidth, 650)
-        elide: Text.ElideRight
-        verticalAlignment: Text.AlignVCenter
-        text: HyprlandService.activeWindow.class || "No programs running"
-        color: colors.outline
-        font.bold: true
+    AnimatedTextWidget {
+        displayText: windowTitle.currentClass
+        textColor: colors.outline
+        fontSize: 11
     }
-
 }

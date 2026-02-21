@@ -4,7 +4,8 @@ import QtQuick
 Rectangle {
     id: iconBg
 
-    property bool pulsing: root.launcherVisible
+    // property bool pulsing: root.launcherVisible
+    property bool pulsing: false
     property var primaryContainerFocusedBg: root.launcherVisible ? colors.primary : colors.primary_container
     property var primaryContainerFocusedFg: root.launcherVisible ? colors.on_primary : colors.on_primary_container
     readonly property int size: Math.max(layout.width, layout.height)
@@ -51,6 +52,13 @@ Rectangle {
 
         }
 
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            root.launcherVisible = !root.launcherVisible;
+        }
     }
 
 }

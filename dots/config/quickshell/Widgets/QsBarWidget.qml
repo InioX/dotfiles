@@ -163,6 +163,13 @@ Item {
                     bottomRightRadius: root.cornerRadius
 
                     RowLayout {
+                        // Text {
+                        //     text: qsRoot.volumeSink + "%"
+                        //     color: colors.on_surface
+                        //     font.bold: true
+                        //     font.pixelSize: qsRoot.fontSize
+                        // }
+
                         id: volumeRow
 
                         anchors.centerIn: parent
@@ -175,11 +182,11 @@ Item {
                             font.pixelSize: qsRoot.iconFontSize
                         }
 
-                        Text {
-                            text: qsRoot.volumeSink + "%"
-                            color: colors.on_surface
-                            font.bold: true
-                            font.pixelSize: qsRoot.fontSize
+                        AnimatedTextWidget {
+                            displayText: qsRoot.volumeSink + "%"
+                            textColor: colors.on_surface
+                            fontSize: qsRoot.fontSize
+                            isBold: true
                         }
 
                     }
