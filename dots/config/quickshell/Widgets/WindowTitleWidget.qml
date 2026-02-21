@@ -11,8 +11,8 @@ Column {
     readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
     property string activeWindowAddress: `0x${activeWindow?.HyprlandToplevel?.address}`
 
-    readonly property string currentTitle: HyprlandService.activeWindow.title || "Desktop"
-    readonly property string currentClass: HyprlandService.activeWindow.class || "No programs running"
+    readonly property string currentTitle: HyprlandService.activeWindow?.title || "Desktop"
+    readonly property string currentClass: HyprlandService.activeWindow?.class || "No active window"
     
     spacing: 2
 

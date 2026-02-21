@@ -64,6 +64,7 @@ Singleton {
     function updateWorkspaces() {
         getWorkspaces.running = true;
         getActiveWorkspace.running = true;
+        getActiveWindow.running = true;
     }
 
     function updateAll() {
@@ -97,6 +98,23 @@ Singleton {
     }
 
     Process {
+    id: getActiveWindow
+    command: ["hyprctl", "activewindow", "-j"]
+    stdout: StdioCollector {
+        id: activeWindowCollector
+        onStreamFinished: {
+            const data = JSON.parse(activeWindowCollector.text);
+            
+            if (data && data.address) {
+                    root.activeWindow = data;
+                } else {
+                    root.activeWindow = null;
+                }
+            }
+        }
+    }
+
+    Process {
         id: getClients
         command: ["hyprctl", "clients", "-j"]
         stdout: StdioCollector {
@@ -106,11 +124,6 @@ Singleton {
                 let tempWinByAddress = {};
                 for (var i = 0; i < root.windowList.length; ++i) {
                     var win = root.windowList[i];
-
-                    if (win.focusHistoryID === 0) {
-                        root.activeWindow = win
-                    }
-
                     tempWinByAddress[win.address] = win;
                 }
                 root.windowByAddress = tempWinByAddress;
