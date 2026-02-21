@@ -31,9 +31,47 @@ in {
     nixpkgs.config.firefox-unwrapped.enablePlasmaBrowserIntegration = true;
     # zenyte.home.file.".mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json".source = "${pkgs.plasma-browser-integration}/lib/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json";
 
+    # zenyte.home.extraOptions.home.file = {
+    #   ".floorp/ini/chrome/utils/chrome.manifest".text = ''
+    #     content  userchromejs  content/
+    #     resource userchromejs  scripts/
+    #   '';
+
+    #   # This is the actual reload script that listens for F9
+    #   ".floorp/ini/chrome/reloader.uc.js".text = ''
+    #     (function() {
+    #       const sss = Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService);
+
+    #       function reloadCSS() {
+    #         ["userContent.css", "userChrome.css"].forEach(name => {
+    #           let file = Services.dirsvc.get("UChrm", Ci.nsIFile);
+    #           file.append(name);
+    #           if (file.exists()) {
+    #             let uri = Services.io.newFileURI(file);
+    #             if (sss.sheetRegistered(uri, sss.USER_SHEET)) sss.unregisterSheet(uri, sss.USER_SHEET);
+    #             sss.loadAndRegisterSheet(uri, sss.USER_SHEET);
+    #           }
+    #         });
+    #         console.log("Styles reloaded!");
+    #       }
+
+    #       window.addEventListener("keydown", e => {
+    #         if (e.key === "F9") reloadCSS();
+    #       });
+    #     })();
+    #   '';
+    # };
+
     zenyte.home.extraOptions.programs.floorp = {
       enable = true;
       package = pkgs.wrapFirefox pkgs.floorp-bin-unwrapped {
+        extraPrefsFiles = [
+          (pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/master/program/config.js";
+            sha256 = "1mx679fbc4d9x4bnqajqx5a95y1lfasvf90pbqkh9sm3ch945p40";
+          })
+        ];
+
         extraPolicies = {
           CaptivePortal = false;
           DisableFirefoxStudies = true;
@@ -45,6 +83,7 @@ in {
           OfferToSaveLoginsDefault = false;
           PasswordManagerEnabled = false;
           Preferences = {
+            "general.config.sandbox_enabled" = false;
             "xpinstall.signatures.required" = false;
           };
           FirefoxHome = {

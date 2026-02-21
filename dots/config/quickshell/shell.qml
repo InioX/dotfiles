@@ -27,6 +27,7 @@ ShellRoot {
     property var defaultEmptyWorkspaceIcon: ""
     property bool shouldShowOsd: false
     property bool launcherVisible: false
+    property bool powerMenuVisible: false
 
     function textIconForClass(cls) {
         return textIconMap[cls] || "";

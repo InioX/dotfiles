@@ -22,7 +22,7 @@ Item {
     property int iconFontSize: 20
     property bool isShutterClosed: false
 
-    width: layout.width
+    width: 230
     height: layout.height + 20
 
     Process {

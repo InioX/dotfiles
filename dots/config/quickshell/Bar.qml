@@ -55,7 +55,7 @@ Scope {
                     // BatteryWidget {
                     // }
 
-                    spacing: 10
+                    spacing: 0
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
 
