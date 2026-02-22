@@ -28,6 +28,7 @@ ShellRoot {
     property bool shouldShowOsd: false
     property bool launcherVisible: false
     property bool powerMenuVisible: false
+    property bool qsMenuVisible: false
 
     function textIconForClass(cls) {
         return textIconMap[cls] || "";
@@ -38,6 +39,14 @@ ShellRoot {
     }
 
     IpcHandlers {
+    }
+
+    Loader {
+        active: root.qsMenuVisible
+
+        sourceComponent: QsPopout {
+        }
+
     }
 
     Loader {

@@ -77,12 +77,20 @@ Item {
         objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
     }
 
+    MouseArea {
+        anchors.fill: parent
+
+        onClicked: {
+            root.qsMenuVisible = !root.qsMenuVisible
+        }
+    }
+
     Row {
         id: layout
 
         anchors.centerIn: parent
 
-        Row {
+        Row {            
             spacing: 3
 
             Rectangle {
@@ -182,12 +190,20 @@ Item {
                             font.pixelSize: qsRoot.iconFontSize
                         }
 
-                        AnimatedTextWidget {
-                            displayText: qsRoot.volumeSink + "%"
-                            textColor: colors.on_surface
-                            fontSize: qsRoot.fontSize
-                            isBold: true
+
+                        Text {
+                            text: qsRoot.volumeSink + "%"
+                            color: colors.on_surface
+                            font.bold: true
+                            font.pixelSize: qsRoot.fontSize
                         }
+
+                        // AnimatedTextWidget {
+                        //     displayText: 
+                        //     textColor: colors.on_surface
+                        //     fontSize: qsRoot.fontSize
+                        //     isBold: true
+                        // }
 
                     }
 
