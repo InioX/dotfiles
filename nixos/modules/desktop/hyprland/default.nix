@@ -29,6 +29,8 @@ in {
   config = mkIf cfg.enable {
     programs.hyprland.enable = true;
 
+    programs.gpu-screen-recorder.enable = true;
+
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
       USE_WAYLAND = "1";
@@ -53,6 +55,16 @@ in {
 
       # Cursor theme
       inputs.mcmojave-hyprcursor.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+      gpu-screen-recorder-gtk
+      (pkgs.runCommand "gpu-screen-recorder" {
+          nativeBuildInputs = [pkgs.makeWrapper];
+        } ''
+          mkdir -p $out/bin
+          makeWrapper ${pkgs.gpu-screen-recorder}/bin/gpu-screen-recorder $out/bin/gpu-screen-recorder \
+            --prefix LD_LIBRARY_PATH : ${pkgs.libglvnd}/lib \
+            --prefix LD_LIBRARY_PATH : ${config.boot.kernelPackages.nvidia_x11}/lib
+        '')
     ];
 
     zenyte.home.extraOptions.wayland.windowManager.hyprland = {
