@@ -14,10 +14,10 @@ Item {
     property int percentage: Math.round(ratio * 100)
     readonly property PwNode sink: Pipewire.defaultAudioSink
     readonly property PwNode source: Pipewire.defaultAudioSource
-    readonly property bool mutedSource: source.audio.muted ?? true
-    readonly property bool mutedSink: sink.audio.muted ?? true
-    readonly property int volumeSource: source.audio ? (source.audio.volume * 100) : 0
-    readonly property int volumeSink: sink.audio ? (sink.audio.volume * 100) : 0
+    readonly property bool mutedSource: source?.audio.muted ?? true
+    readonly property bool mutedSink: sink?.audio.muted ?? true
+    readonly property int volumeSource: source?.audio ? (source.audio.volume * 100) : 0
+    readonly property int volumeSink: sink?.audio ? (sink.audio.volume * 100) : 0
     property int fontSize: 14
     property int iconFontSize: 20
     property bool isShutterClosed: false
