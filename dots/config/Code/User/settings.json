@@ -73,5 +73,7 @@
     "editor.formatOnPaste": false,
     "rust-analyzer.server.path": "rust-analyzer",
     "qt-qml.qmlls.useQmlImportPathEnvVar": true,
-    "qt-qml.doNotAskForQmllsDownload": true
+    "qt-qml.doNotAskForQmllsDownload": true,
+    "liveServer.settings.donotVerifyTags": true,
+    "liveServer.settings.useLocalIp": true
 }

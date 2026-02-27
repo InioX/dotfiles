@@ -28,7 +28,6 @@ in {
     environment.systemPackages = with pkgs; [
       lxappearance-gtk2
       libadwaita
-      adw-gtk3
 
       # gnome.adwaita-icon-theme
 

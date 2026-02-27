@@ -1,5 +1,5 @@
 {
-  "SKIP_HOST_UPDATE": true,
+  "SKIP_HOST_UPDATE": false,
   "BACKGROUND_COLOR": "#000000",
   "openasar": {
     "setup": true,

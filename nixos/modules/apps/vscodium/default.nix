@@ -28,6 +28,9 @@ in {
   };
 
   config = mkIf cfg.enable {
+    # For live server extension
+    networking.firewall.allowedTCPPorts = [5500];
+
     environment.systemPackages = with pkgs; [
       fix-vscode-extensions
       direnv

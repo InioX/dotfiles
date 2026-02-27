@@ -21,7 +21,7 @@ in {
     environment.systemPackages = with pkgs; [
       # lutris
       winetricks
-      wineWowPackages.stable
+      # wineWowPackages.stable
     ];
   };
 }

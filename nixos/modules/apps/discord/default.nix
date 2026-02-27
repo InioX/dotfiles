@@ -44,6 +44,7 @@ in {
       })
 
       krisp-patcher
+      qtscrcpy
     ];
 
     # zenyte.home.configFile."discord/settings.json".text = ''
