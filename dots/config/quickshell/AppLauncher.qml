@@ -6,6 +6,7 @@ import Quickshell
 import Quickshell.Widgets
 import Quickshell.Wayland
 import Quickshell.Io
+import "./Services"
        
 WlrLayershell {
     id: launcher
@@ -147,7 +148,7 @@ WlrLayershell {
                         spacing: 10
 
                         IconImage {
-                            source: Quickshell.iconPath(modelData.icon, true)
+                            source: Quickshell.iconPath(AppSearch.guessIcon(modelData.icon), "image-missing")
                             width: 35
                             height: 35
                         }

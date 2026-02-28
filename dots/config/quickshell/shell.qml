@@ -28,6 +28,7 @@ ShellRoot {
     property bool shouldShowOsd: false
     property bool launcherVisible: false
     property bool powerMenuVisible: false
+    property bool dockVisible: true
     property bool qsMenuVisible: false
     property bool borderEnabled: false
     property int borderWidth: 1
@@ -56,6 +57,14 @@ ShellRoot {
         active: root.launcherVisible
 
         sourceComponent: AppLauncher {
+        }
+
+    }
+
+    Loader {
+        active: root.dockVisible
+
+        sourceComponent: Dock {
         }
 
     }

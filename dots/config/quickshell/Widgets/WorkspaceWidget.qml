@@ -86,7 +86,7 @@ Rectangle {
 
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: Hyprland.dispatch(`workspace ${wid}`)
+                    onClicked: Hyprland.dispatch(`focuswindow address:${modelData.address}`)
                 }
 
                 Behavior on width {

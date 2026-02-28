@@ -5,3 +5,4 @@ IpcHandlers 1.0 IpcHandlers.qml
 RoundBorder 1.0 RoundBorder.qml
 PowerMenu 1.0 PowerMenu.qml
 QsPopout 1.0 QsPopout.qml
+Dock 1.0 Dock.qml

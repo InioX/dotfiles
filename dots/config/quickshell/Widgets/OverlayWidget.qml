@@ -30,12 +30,12 @@ Scope {
         }
 
         PanelWindow {
-            anchors.bottom: true
+            anchors.top: true
             margins.bottom: screen.height / 120
-            exclusiveZone: 0
             implicitWidth: 400
             implicitHeight: 50
             color: "transparent"
+            exclusionMode: ExclusionMode.Normal
 
             Rectangle {
                 anchors.fill: parent

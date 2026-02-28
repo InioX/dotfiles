@@ -6,6 +6,9 @@ IpcHandler {
 
     function toggleLauncher(): void { 
         root.launcherVisible = !root.launcherVisible
-        console.log(root.launcherVisible)
+    }
+
+    function toggleDock(): void { 
+        root.dockVisible = !root.dockVisible
     }
 }
