@@ -10,8 +10,9 @@ Item {
     property color textColor
     property int fontSize
     property bool isBold: true
+    property int maxWidth: 700
 
-    width: hiddenText.implicitWidth
+    width: Math.min(hiddenText.implicitWidth, maxWidth)
     height: hiddenText.implicitHeight
     clip: true
 
