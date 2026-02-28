@@ -7,6 +7,7 @@ Singleton {
     id: root
 
     property string time
+    property string month
 
     Process {
         id: dateProc
@@ -20,11 +21,26 @@ Singleton {
 
     }
 
+    Process {
+        id: monthProc
+
+        command: ["date", "+%A, %B %d"]
+        running: true
+
+        stdout: StdioCollector {
+            onStreamFinished: root.month = this.text
+        }
+
+    }
+
     Timer {
         interval: 1000
         running: true
         repeat: true
-        onTriggered: dateProc.running = true
+        onTriggered: {
+            dateProc.running = true;
+            monthProc.running = true;
+        }
     }
 
 }

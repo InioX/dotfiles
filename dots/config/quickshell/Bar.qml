@@ -46,9 +46,13 @@ Scope {
 
                 }
 
-                WorkspaceWidget {
+                RowLayout {
                     anchors.centerIn: parent
                     anchors.verticalCenter: parent.verticalCenter
+
+                    ClockWidget {
+                    }
+
                 }
 
                 RowLayout {
@@ -62,7 +66,12 @@ Scope {
                     QsBarWidget {
                     }
 
-                    ClockWidget {
+                    RowLayout {
+                        spacing: 10
+
+                        SearchWidget {
+                        }
+
                     }
 
                 }

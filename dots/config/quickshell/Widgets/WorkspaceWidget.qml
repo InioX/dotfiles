@@ -4,9 +4,11 @@ import Quickshell
 import Quickshell.Hyprland
 
 Rectangle {
-    color: colors.surface_container
+    color: "transparent"
     width: layout.width + 20
     height: 50
+    border.width: root.borderEnabled ? root.borderWidth : 0
+    border.color: root.borderColor
     radius: root.cornerRadius
 
     WheelHandler {
@@ -36,7 +38,7 @@ Rectangle {
                 width: Math.max(20, iconsRow.width + (isActive ? 35 : 20))
                 height: root.showWorkspaceNumber ? 40 : 35
                 radius: 20
-                color: isActive ? colors.primary : colors.surface_container_highest
+                color: isActive ? colors.secondary_container : colors.surface_container_highest
 
                 Column {
                     anchors.centerIn: parent
@@ -52,7 +54,7 @@ Rectangle {
                             verticalAlignment: Text.AlignVCenter
                             visible: clients.length === 0
                             text: root.defaultEmptyWorkspaceIcon
-                            color: colors.outline_variant
+                            color: isActive ? colors.on_secondary_container : colors.outline_variant
                         }
 
                         Repeater {
@@ -61,7 +63,7 @@ Rectangle {
                             delegate: Text {
                                 verticalAlignment: Text.AlignVCenter
                                 font.pixelSize: root.iconSize
-                                color: isActive ? colors.on_primary : colors.on_surface_variant
+                                color: isActive ? colors.on_secondary_container : colors.on_surface_variant
                                 text: root.textIconForClass(modelData.class)
                                 font.bold: isActive ? true : false
                             }
@@ -76,7 +78,7 @@ Rectangle {
                         text: wid
                         font.pixelSize: 12
                         font.bold: isActive ? true : false
-                        color: isActive ? colors.on_primary : colors.on_surface_variant
+                        color: isActive ? colors.on_secondary_container : colors.on_surface_variant
                         verticalAlignment: Text.AlignVCenter
                     }
 

@@ -75,5 +75,9 @@
     "qt-qml.qmlls.useQmlImportPathEnvVar": true,
     "qt-qml.doNotAskForQmllsDownload": true,
     "liveServer.settings.donotVerifyTags": true,
-    "liveServer.settings.useLocalIp": true
+    "liveServer.settings.useLocalIp": true,
+    "workbench.editorAssociations": {
+        "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.qrc": "default",
+        "*.qrc": "qt-core.qrcEditor"
+    }
 }

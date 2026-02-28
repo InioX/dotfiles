@@ -1,5 +1,6 @@
 import "../Services"
 import QtQuick
+import QtQuick.Effects
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
@@ -9,43 +10,12 @@ import Quickshell.Services.UPower
 Item {
     id: qsRoot
 
-    property var device: UPower.displayDevice
-    property real ratio: device ? device.percentage : 0
-    property int percentage: Math.round(ratio * 100)
-    readonly property PwNode sink: Pipewire.defaultAudioSink
-    readonly property PwNode source: Pipewire.defaultAudioSource
-    readonly property bool mutedSource: source?.audio.muted ?? true
-    readonly property bool mutedSink: sink?.audio.muted ?? true
-    readonly property int volumeSource: source?.audio ? (source.audio.volume * 100) : 0
-    readonly property int volumeSink: sink?.audio ? (sink.audio.volume * 100) : 0
     property int fontSize: 14
     property int iconFontSize: 20
     property bool isShutterClosed: false
 
-    width: 230
+    width: 210
     height: layout.height + 20
-
-    Process {
-        id: networkMonitor
-
-        running: true
-        command: ["nmcli", "monitor"]
-    }
-
-    Connections {
-        // connected / disconnected
-
-        function onRead(data) {
-            const text = String(data).trim();
-            console.log("nmcli:", text);
-            if (text.startsWith("STATE"))
-                networkState = text.split(/\s+/)[1];
-            else if (text.startsWith("DEVICE"))
-                activeDevice = text.split(/\s+/)[1]; // e.g., wlan0
-        }
-
-        target: networkMonitor.stdout
-    }
 
     Process {
         id: camCheck
@@ -73,15 +43,10 @@ Item {
         }
     }
 
-    PwObjectTracker {
-        objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
-    }
-
     MouseArea {
         anchors.fill: parent
-
         onClicked: {
-            root.qsMenuVisible = !root.qsMenuVisible
+            root.qsMenuVisible = !root.qsMenuVisible;
         }
     }
 
@@ -90,22 +55,39 @@ Item {
 
         anchors.centerIn: parent
 
-        Row {            
-            spacing: 3
+        Item {
+            // RectangularShadow {
+            //     id: shadow
+            //     anchors.fill: qsRect
+            //     height: qsRect.height
+            //     radius: qsRect.radius
+            //     blur: 40
+            //     spread: 0
+            //     color: colors.shadow
+            // }
+
+            id: container
+
+            width: qsRow.width + 30
+            height: qsRow.height + 20
 
             Rectangle {
-                width: batteryRow.width + 20
-                height: batteryRow.height + 20
-                color: colors.surface_container_highest
-                topLeftRadius: root.cornerRadius
-                bottomLeftRadius: root.cornerRadius
+                id: qsRect
+
+                anchors.fill: parent
+                color: colors.surface_container
+                radius: 60
+                border.width: root.borderEnabled ? root.borderWidth : 0
+                border.color: root.borderColor
+            }
+
+            RowLayout {
+                id: qsRow
+
+                anchors.centerIn: parent
+                spacing: 10
 
                 RowLayout {
-                    id: batteryRow
-
-                    anchors.centerIn: parent
-                    spacing: 6
-
                     Text {
                         text: "󰁿"
                         color: colors.on_surface
@@ -114,7 +96,7 @@ Item {
                     }
 
                     Text {
-                        text: percentage + "%"
+                        text: BatteryService.percentage + "%"
                         color: colors.on_surface
                         font.bold: true
                         font.pixelSize: qsRoot.fontSize
@@ -122,89 +104,36 @@ Item {
 
                 }
 
-            }
+                RowLayout {
+                    Text {
+                        text: PipewireService.mutedSource ? "󰍭" : "󰍬"
+                        color: colors.on_surface
+                        font.bold: true
+                        font.pixelSize: qsRoot.iconFontSize
+                    }
 
-            Row {
-                spacing: 6
-
-                Rectangle {
-                    width: generalRow.width + 20
-                    height: generalRow.height + 20
-                    color: colors.surface_container_highest
-
-                    RowLayout {
-                        id: generalRow
-
-                        anchors.centerIn: parent
-                        spacing: 6
-
-                        Text {
-                            text: mutedSource ? "󰍭" : "󰍬"
-                            color: colors.on_surface
-                            font.bold: true
-                            font.pixelSize: qsRoot.iconFontSize
-                        }
-
-                        Text {
-                            text: isShutterClosed ? "󰗟" : "󰄀"
-                            color: colors.on_surface
-                            font.bold: true
-                            font.pixelSize: qsRoot.iconFontSize
-                        }
-
+                    Text {
+                        text: isShutterClosed ? "󰗟" : "󰄀"
+                        color: colors.on_surface
+                        font.bold: true
+                        font.pixelSize: qsRoot.iconFontSize
                     }
 
                 }
 
-            }
+                RowLayout {
+                    Text {
+                        text: PipewireService.mutedSink ? "󰝟" : "󰕾"
+                        color: colors.on_surface
+                        font.bold: true
+                        font.pixelSize: qsRoot.iconFontSize
+                    }
 
-            Row {
-                spacing: 6
-
-                Rectangle {
-                    id: volumeContainer
-
-                    width: volumeRow.width + 20
-                    height: volumeRow.height + 20
-                    color: colors.surface_container_highest
-                    topRightRadius: root.cornerRadius
-                    bottomRightRadius: root.cornerRadius
-
-                    RowLayout {
-                        // Text {
-                        //     text: qsRoot.volumeSink + "%"
-                        //     color: colors.on_surface
-                        //     font.bold: true
-                        //     font.pixelSize: qsRoot.fontSize
-                        // }
-
-                        id: volumeRow
-
-                        anchors.centerIn: parent
-                        spacing: 6
-
-                        Text {
-                            text: mutedSink ? "󰝟" : "󰕾"
-                            color: colors.on_surface
-                            font.bold: true
-                            font.pixelSize: qsRoot.iconFontSize
-                        }
-
-
-                        Text {
-                            text: qsRoot.volumeSink + "%"
-                            color: colors.on_surface
-                            font.bold: true
-                            font.pixelSize: qsRoot.fontSize
-                        }
-
-                        // AnimatedTextWidget {
-                        //     displayText: 
-                        //     textColor: colors.on_surface
-                        //     fontSize: qsRoot.fontSize
-                        //     isBold: true
-                        // }
-
+                    Text {
+                        text: PipewireService.volumeSink + "%"
+                        color: colors.on_surface
+                        font.bold: true
+                        font.pixelSize: qsRoot.fontSize
                     }
 
                 }

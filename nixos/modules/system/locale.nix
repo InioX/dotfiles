@@ -18,6 +18,7 @@ in {
 
     i18n = let
       cs = "cs_CZ.UTF-8";
+      en = "en_US.UTF-8";
     in {
       defaultLocale = "en_US.UTF-8";
       extraLocaleSettings = {
@@ -29,7 +30,7 @@ in {
         LC_NUMERIC = cs;
         LC_PAPER = cs;
         LC_TELEPHONE = cs;
-        LC_TIME = cs;
+        LC_TIME = en;
       };
     };
   };

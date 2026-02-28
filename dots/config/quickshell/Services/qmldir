@@ -2,3 +2,5 @@ module Services
 singleton TimeService 1.0 TimeService.qml
 singleton CpuService 1.0 CpuService.qml
 singleton HyprlandService 1.0 HyprlandService.qml
+singleton PipewireService 1.0 PipewireService.qml
+singleton BatteryService 1.0 BatteryService.qml

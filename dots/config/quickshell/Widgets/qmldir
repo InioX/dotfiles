@@ -9,3 +9,5 @@ OverlayWidget 1.0 OverlayWidget.qml
 OverlayWidget 1.0 OverlayWidget.qml
 AppLauncherWidget 1.0 AppLauncherWidget.qml
 AnimatedTextWidget 1.0 AnimatedTextWidget.qml
+SearchWidget 1.0 SearchWidget.qml
+PowerButtonWidget 1.0 PowerButtonWidget.qml

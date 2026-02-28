@@ -1,3 +1,4 @@
+import "./Services"
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
@@ -11,8 +12,8 @@ WlrLayershell {
     id: qsPopout
 
     layer: WlrLayer.Overlay
-    implicitWidth: 600
-    implicitHeight: 400
+    implicitWidth: 500
+    implicitHeight: 300
     color: "transparent"
     exclusionMode: ExclusionMode.Normal
 
@@ -30,52 +31,122 @@ WlrLayershell {
         bottomLeftRadius: 20
 
         ColumnLayout {
+            id: layout
+
             anchors.fill: parent
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.margins: 20
 
-            RowLayout {
-                Rectangle {
-                    id: wifiButton
+            ColumnLayout {
+                spacing: 20
 
-                    property string ssid: "Searching..."
-
-                    height: 30
-                    width: 250
-                    color: colors.primary_container
+                RowLayout {
+                    spacing: 20
 
                     Text {
-                        id: wifiText
-
-                        text: "   " + wifiButton.ssid
+                        text: "󰕾"
+                        color: colors.on_surface
+                        font.bold: true
                         font.pixelSize: 25
-                        color: colors.on_primary_container
                     }
 
-                    Process {
-                        id: wifiProcess
+                    Slider {
+                        value: PipewireService.volumeSink
+                    }
 
-                        command: ["nmcli", "-t", "-f", "ACTIVE,SSID", "dev", "wifi"]
-                        running: true
+                }
 
-                        stdout: SplitParser {
-                            onRead: (line) => {
-                                if (line.startsWith("yes:")) {
-                                    let parts = line.split(":");
-                                    if (parts.length > 1)
-                                        wifiButton.ssid = parts[1];
+                RowLayout {
+                    spacing: 20
 
-                                } else if (line === "") {
-                                    wifiButton.ssid = "Disconnected";
-                                }
-                            }
+                    Text {
+                        text: "󰃠"
+                        color: colors.on_surface
+                        font.bold: true
+                        font.pixelSize: 25
+                    }
+
+                    Slider {
+                        value: 100
+                    }
+
+                }
+
+            }
+
+            ColumnLayout {
+                spacing: 20
+
+                RowLayout {
+                    spacing: 20
+
+                    Rectangle {
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: 220
+                        height: 40
+                        color: colors.primary_container
+
+                        Text {
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            verticalAlignment: Text.AlignVCenter
+                            text: "HIIIIIII"
+                            color: colors.on_primary_container
                         }
 
                     }
 
-                    Timer {
-                        id: restartTimer
+                    Rectangle {
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: 220
+                        height: 40
+                        color: colors.primary_container
 
-                        interval: 2000
-                        onTriggered: wifiProcess.running = true
+                        Text {
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            verticalAlignment: Text.AlignVCenter
+                            text: "HIIIIIII"
+                            color: colors.on_primary_container
+                        }
+
+                    }
+
+                }
+
+                RowLayout {
+                    spacing: 20
+
+                    Rectangle {
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: 220
+                        height: 40
+                        color: colors.primary_container
+
+                        Text {
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            verticalAlignment: Text.AlignVCenter
+                            text: "HIIIIIII"
+                            color: colors.on_primary_container
+                        }
+
+                    }
+
+                    Rectangle {
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: 220
+                        height: 40
+                        color: colors.primary_container
+
+                        Text {
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            verticalAlignment: Text.AlignVCenter
+                            text: "HIIIIIII"
+                            color: colors.on_primary_container
+                        }
+
                     }
 
                 }

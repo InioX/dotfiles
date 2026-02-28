@@ -99,9 +99,9 @@ in {
               "alacritty/alacritty.toml".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/alacritty/alacritty.toml";
 
               # GTK
-              "gtk-2.0".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-2.0";
-              "gtk-3.0/gtk.css".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-3.0/gtk.css";
-              "gtk-4.0/gtk.css".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-4.0/gtk.css";
+              # "gtk-2.0".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-2.0";
+              # "gtk-3.0/gtk.css".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-3.0/gtk.css";
+              # "gtk-4.0/gtk.css".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-4.0/gtk.css";
 
               # Kitty
               "kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/kitty/kitty.conf";
