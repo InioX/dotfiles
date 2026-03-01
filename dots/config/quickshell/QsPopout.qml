@@ -12,8 +12,8 @@ WlrLayershell {
     id: qsPopout
 
     layer: WlrLayer.Overlay
-    implicitWidth: 500
-    implicitHeight: 300
+    implicitWidth: 520
+    implicitHeight: 320
     color: "transparent"
     exclusionMode: ExclusionMode.Normal
 
@@ -25,10 +25,11 @@ WlrLayershell {
     Rectangle {
         id: background
 
+        anchors.topMargin: 20
+        anchors.rightMargin: 20
         anchors.fill: parent
         color: colors.surface
-        bottomRightRadius: 20
-        bottomLeftRadius: 20
+        radius: 20
 
         ColumnLayout {
             id: layout
@@ -51,6 +52,7 @@ WlrLayershell {
                     }
 
                     Slider {
+                        Layout.fillWidth: true
                         value: PipewireService.volumeSink
                     }
 
@@ -67,6 +69,7 @@ WlrLayershell {
                     }
 
                     Slider {
+                        Layout.fillWidth: true
                         value: 100
                     }
 

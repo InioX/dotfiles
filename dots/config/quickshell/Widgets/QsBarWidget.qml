@@ -68,17 +68,20 @@ Item {
 
             id: container
 
-            width: qsRow.width + 30
-            height: qsRow.height + 20
+            width: qsRow.width + 30 - 1
+            height: qsRow.height + 20 - 1
 
             Rectangle {
+                // border.width: root.borderEnabled ? root.borderWidth : 0
+                // border.color: root.borderColor
+
                 id: qsRect
 
+                border.color: colors.outline_variant
+                border.width: 1
                 anchors.fill: parent
-                color: colors.surface_container
+                color: colors.surface_container_high
                 radius: 60
-                border.width: root.borderEnabled ? root.borderWidth : 0
-                border.color: root.borderColor
             }
 
             RowLayout {
