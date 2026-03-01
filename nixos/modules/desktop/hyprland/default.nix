@@ -77,7 +77,7 @@ in {
     zenyte.desktop.addons = {
       waybar = enabled;
       kitty = enabled;
-      alacritty = enabled;
+      alacritty = disabled;
       rofi = enabled;
       gtk = enabled;
       dunst = enabled;
