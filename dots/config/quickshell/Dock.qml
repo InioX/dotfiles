@@ -1,11 +1,12 @@
 import "./Services"
+import "./Widgets"
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Effects
 import QtQuick.Layouts
 import QtQuick.LocalStorage
 import Quickshell
 import Quickshell.Hyprland
-import Quickshell.Io
 import Quickshell.Wayland
 import Quickshell.Widgets
 
@@ -29,17 +30,29 @@ WlrLayershell {
 
         anchors.bottomMargin: 20
         anchors.fill: parent
-        color: colors.surface
+        color: colors.surface_container
+        border.color: colors.outline_variant
+        border.width: 1
         radius: 20
-        clip: true
 
         RowLayout {
+            // WorkspaceWidget {
+            // }
+            // Text {
+            //     color: colors.outline_variant
+            //     text: "|"
+            //     font.pixelSize: 25
+            //     verticalAlignment: Text.AlignVCenter
+            //     font.bold: true
+            // }
+
             id: layout
 
             spacing: 10
             anchors.fill: parent
             anchors.leftMargin: 10
             anchors.rightMargin: 10
+            anchors.verticalCenter: parent.verticalCenter
 
             Repeater {
                 model: HyprlandService.windowList.slice().sort((a, b) => {
@@ -50,31 +63,53 @@ WlrLayershell {
                     anchors.verticalCenter: parent.verticalCenter
                     spacing: 5
 
-                    IconImage {
-                        source: Quickshell.iconPath(AppSearch.guessIcon(modelData.class), "image-missing")
-                        implicitSize: 40
+                    Rectangle {
+                        width: imageIcon.width + 10
+                        height: imageIcon.height + 10
+                        color: colors.primary_container
+                        radius: 20
 
-                        MouseArea {
-                            id: mouseArea
+                        IconImage {
+                            id: imageIcon
 
-                            hoverEnabled: true
-                            anchors.fill: parent
-                            onClicked: Hyprland.dispatch(`workspace ${modelData.workspace.id}`)
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            // visible: false
+                            source: Quickshell.iconPath(AppSearch.guessIcon(modelData.class), "image-missing")
+                            implicitSize: 40
+                            layer.enabled: true
+                            layer.smooth: true
 
-                            ToolTip {
-                                visible: mouseArea.containsMouse
-                                delay: 500
+                            MultiEffect {
+                                source: imageIcon
+                                anchors.fill: imageIcon
+                                colorization: 1
+                                colorizationColor: colors.on_primary_container
+                            }
 
-                                contentItem: Text {
-                                    text: modelData.title || "Window"
-                                    color: colors.on_surface
-                                    font.pixelSize: 12
-                                }
+                            MouseArea {
+                                id: mouseArea
 
-                                background: Rectangle {
-                                    color: colors.surface
-                                    border.color: colors.primary
-                                    radius: 10
+                                hoverEnabled: true
+                                anchors.fill: parent
+                                onClicked: Hyprland.dispatch(`workspace ${modelData.workspace.id}`)
+
+                                ToolTip {
+                                    visible: mouseArea.containsMouse
+                                    delay: 500
+
+                                    contentItem: Text {
+                                        text: modelData.title || "Window"
+                                        color: colors.on_surface
+                                        font.pixelSize: 12
+                                    }
+
+                                    background: Rectangle {
+                                        color: colors.surface
+                                        border.color: colors.primary
+                                        radius: 10
+                                    }
+
                                 }
 
                             }
@@ -92,6 +127,33 @@ WlrLayershell {
                         font.pixelSize: 12
                     }
 
+                }
+
+            }
+
+            Text {
+                color: colors.outline_variant
+                text: "|"
+                font.pixelSize: 25
+                verticalAlignment: Text.AlignVCenter
+                font.bold: true
+            }
+
+            Rectangle {
+                color: colors.surface_variant
+                width: launcherIcon.width + 25
+                height: launcherIcon.height
+                radius: 20
+
+                Text {
+                    id: launcherIcon
+
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: colors.on_surface
+                    text: "󰀻"
+                    font.pixelSize: 40
+                    verticalAlignment: Text.AlignVCenter
                 }
 
             }

@@ -17,8 +17,8 @@ in {
     zenyte.apps = {
       tdesktop = enabled;
       discord = enabled;
-      gmail = enabled;
-      github = enabled;
+      # gmail = enabled;
+      # github = enabled;
     };
   };
 }

@@ -28,7 +28,9 @@ ShellRoot {
     property bool shouldShowOsd: false
     property bool launcherVisible: false
     property bool powerMenuVisible: false
-    property bool dockVisible: true
+    property bool dockVisible: false
+    property bool dockOpenedManually: false
+    property bool launcherOpenedOnce: false
     property bool qsMenuVisible: false
     property bool borderEnabled: false
     property int borderWidth: 1

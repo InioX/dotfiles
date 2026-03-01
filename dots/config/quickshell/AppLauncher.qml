@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.LocalStorage
+import QtQuick.Effects
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Wayland
@@ -11,19 +12,18 @@ import "./Services"
 WlrLayershell {
     id: launcher
     layer: WlrLayer.Overlay
+    exclusionMode: ExclusionMode.Normal
     
-    keyboardFocus: WlrKeyboardFocus.Exclusive
+    keyboardFocus: WlrKeyboardFocus.OnDemand
     
     implicitWidth: 400
-    implicitHeight: 600
+    implicitHeight: 680
     color: "transparent"
 
     anchors {
-        top: true
+        bottom: true
     }
     
-    exclusionMode: ExclusionMode.Ignore
-
     property string query: ""
 
 
@@ -36,14 +36,15 @@ WlrLayershell {
     }
 
     Rectangle {
-        anchors.topMargin: root.panelHeight
+        anchors.bottomMargin: 120
 
         id: background
         anchors.fill: parent
-        color: colors.surface
-        bottomRightRadius: 20
-        bottomLeftRadius: 20
+        color: colors.surface_container
+        radius: 20
         clip: true
+        border.color: colors.outline_variant
+        border.width: 1
 
         ColumnLayout {
             anchors.fill: parent
@@ -70,7 +71,7 @@ WlrLayershell {
 
                 background: Rectangle {
                     border.width: 0
-                    color: colors.surface_container
+                    color: colors.surface_container_highest
                     radius: root.cornerRadius
                 }
 
@@ -134,7 +135,7 @@ WlrLayershell {
                     required property var modelData
                     required property int index
                     width: ListView.view.width
-                    height: 50
+                    height: 60
 
                     MouseArea {
                         anchors.fill: parent
@@ -147,10 +148,60 @@ WlrLayershell {
                         anchors.margins: 8
                         spacing: 10
 
-                        IconImage {
-                            source: Quickshell.iconPath(AppSearch.guessIcon(modelData.icon), "image-missing")
-                            width: 35
-                            height: 35
+                        Rectangle {
+                            
+                            width: imageIcon.width + 10
+                            height: imageIcon.height + 6
+                            color: colors.primary_container
+                            radius: 20
+
+                            IconImage {
+                                id: imageIcon
+
+                                anchors.verticalCenter: parent.verticalCenter
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                // visible: false
+                                source: Quickshell.iconPath(AppSearch.guessIcon(modelData.icon), "image-missing")
+                                implicitSize: 40
+                                layer.enabled: true
+                                layer.smooth: true
+
+                                MultiEffect {
+                                    source: imageIcon
+                                    anchors.fill: imageIcon
+                                    colorization: 1
+                                    colorizationColor: colors.on_primary_container
+                                }
+
+                                MouseArea {
+                                    id: mouseArea
+
+                                    hoverEnabled: true
+                                    anchors.fill: parent
+                                    onClicked: Hyprland.dispatch(`workspace ${modelData.workspace.id}`)
+
+                                    ToolTip {
+                                        visible: mouseArea.containsMouse
+                                        delay: 500
+
+                                        contentItem: Text {
+                                            text: modelData.title || "Window"
+                                            color: colors.on_surface
+                                            font.pixelSize: 12
+                                        }
+
+                                        background: Rectangle {
+                                            color: colors.surface
+                                            border.color: colors.primary
+                                            radius: 10
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+
                         }
 
                         Column {

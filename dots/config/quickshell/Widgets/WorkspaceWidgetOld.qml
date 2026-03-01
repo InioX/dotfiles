@@ -5,7 +5,7 @@ import Quickshell.Hyprland
 
 Rectangle {
     color: "transparent"
-    width: layout.width
+    width: layout.width + 20
     height: 50
     border.width: root.borderEnabled ? root.borderWidth : 0
     border.color: root.borderColor
@@ -35,8 +35,8 @@ Rectangle {
                 property bool isActive: Hyprland.focusedWorkspace && Hyprland.focusedWorkspace.id === wid
                 property var clients: HyprlandService.hyprlandClientsForWorkspace(wid)
 
-                width: Math.max(20, iconsRow.width + (isActive ? 45 : 30))
-                height: root.showWorkspaceNumber ? 50 : 45
+                width: Math.max(20, iconsRow.width + (isActive ? 35 : 20))
+                height: root.showWorkspaceNumber ? 40 : 35
                 radius: 20
                 color: isActive ? colors.secondary_container : colors.surface_container_highest
 
@@ -62,7 +62,7 @@ Rectangle {
 
                             delegate: Text {
                                 verticalAlignment: Text.AlignVCenter
-                                font.pixelSize: 30
+                                font.pixelSize: root.iconSize
                                 color: isActive ? colors.on_secondary_container : colors.on_surface_variant
                                 text: root.textIconForClass(modelData.class)
                                 font.bold: isActive ? true : false
