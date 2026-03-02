@@ -90,7 +90,10 @@ in {
               "hypr/keybindings.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/keybindings.conf";
 
               # Discord
-              "discord/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/discord/settings.json";
+              "discord/settings.json" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/discord/settings.json";
+                force = true;
+              };
 
               # Neofetch
               "neofetch".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/neofetch";
@@ -100,8 +103,18 @@ in {
 
               # GTK
               # "gtk-2.0".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-2.0";
-              # "gtk-3.0/gtk.css".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-3.0/gtk.css";
-              # "gtk-4.0/gtk.css".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-4.0/gtk.css";
+              "gtk-3.0/gtk.css" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-3.0/gtk.css";
+                force = true;
+              };
+              "gtk-4.0/gtk.css" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-4.0/gtk.css";
+                force = true;
+              };
+              "gtk-4.0/settings.ini" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-4.0/settings.ini";
+                force = true;
+              };
 
               # Kitty
               "kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/kitty/kitty.conf";

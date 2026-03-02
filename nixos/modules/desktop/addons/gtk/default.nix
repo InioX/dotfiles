@@ -30,6 +30,7 @@ in {
       libadwaita
 
       # gnome.adwaita-icon-theme
+      # adw-gtk3
 
       gsettings-desktop-schemas
 

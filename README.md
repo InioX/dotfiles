@@ -71,8 +71,7 @@ bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/nixos/install.sh
 Also make sure to run
 ```
 mkdir -p ~/.local/share/themes
-cd ~/.local/share/themes
-git clone https://github.com/lassekongo83/adw-gtk3
+curl -L https://github.com/lassekongo83/adw-gtk3/releases/download/v6.4/adw-gtk3v6.4.tar.xz | tar -xJ -C ~/.local/share/themes/
 ```
 
 > [!TIP]
