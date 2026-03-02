@@ -18,6 +18,7 @@ Singleton {
         "wps": "wps-office2019-kprometheus",
         "wpsoffice": "wps-office2019-kprometheus",
         "footclient": "foot",
+        "sober": "org.vinegarhq.Sober"
     })
     property var regexSubstitutions: [
         {
