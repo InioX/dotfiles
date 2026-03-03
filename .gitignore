@@ -2,3 +2,4 @@ result/
 .vscode/
 .direnv
 dots/config/quickshell/Colors.qml
+dots/config/floorp/colors.css

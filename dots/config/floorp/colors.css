@@ -1,205 +1,205 @@
 :root {
 
-    --background: #12140d;
+    --background: #0f1416;
 
     --error: #ffb4ab;
 
     --error_container: #93000a;
 
-    --inverse_on_surface: #2f3129;
+    --inverse_on_surface: #2c3134;
 
-    --inverse_primary: #516527;
+    --inverse_primary: #07677f;
 
-    --inverse_surface: #e3e3d8;
+    --inverse_surface: #dee3e6;
 
-    --on_background: #e3e3d8;
+    --on_background: #dee3e6;
 
     --on_error: #690005;
 
     --on_error_container: #ffdad6;
 
-    --on_primary: #253600;
+    --on_primary: #003543;
 
-    --on_primary_container: #d3ec9e;
+    --on_primary_container: #b7eaff;
 
-    --on_primary_fixed: #141f00;
+    --on_primary_fixed: #001f28;
 
-    --on_primary_fixed_variant: #3a4d11;
+    --on_primary_fixed_variant: #004e61;
 
-    --on_secondary: #2c331d;
+    --on_secondary: #1e333b;
 
-    --on_secondary_container: #dee6c5;
+    --on_secondary_container: #cfe6f1;
 
-    --on_secondary_fixed: #171e0a;
+    --on_secondary_fixed: #071e26;
 
-    --on_secondary_fixed_variant: #424a32;
+    --on_secondary_fixed_variant: #344a52;
 
-    --on_surface: #e3e3d8;
+    --on_surface: #dee3e6;
 
-    --on_surface_variant: #c6c8b9;
+    --on_surface_variant: #bfc8cc;
 
-    --on_tertiary: #013732;
+    --on_tertiary: #2c2e4d;
 
-    --on_tertiary_container: #bcece4;
+    --on_tertiary_container: #e1e0ff;
 
-    --on_tertiary_fixed: #00201d;
+    --on_tertiary_fixed: #171837;
 
-    --on_tertiary_fixed_variant: #204e49;
+    --on_tertiary_fixed_variant: #424465;
 
-    --outline: #8f9284;
+    --outline: #8a9296;
 
-    --outline_variant: #45483c;
+    --outline_variant: #40484c;
 
-    --primary: #b7d085;
+    --primary: #88d1ec;
 
-    --primary_container: #3a4d11;
+    --primary_container: #004e61;
 
-    --primary_fixed: #d3ec9e;
+    --primary_fixed: #b7eaff;
 
-    --primary_fixed_dim: #b7d085;
+    --primary_fixed_dim: #88d1ec;
 
     --scrim: #000000;
 
-    --secondary: #c2caab;
+    --secondary: #b3cad4;
 
-    --secondary_container: #424a32;
+    --secondary_container: #344a52;
 
-    --secondary_fixed: #dee6c5;
+    --secondary_fixed: #cfe6f1;
 
-    --secondary_fixed_dim: #c2caab;
+    --secondary_fixed_dim: #b3cad4;
 
     --shadow: #000000;
 
-    --source_color: #809457;
+    --source_color: #b9dae8;
 
-    --surface: #12140d;
+    --surface: #0f1416;
 
-    --surface_bright: #383a32;
+    --surface_bright: #353a3c;
 
-    --surface_container: #1e2019;
+    --surface_container: #1b2023;
 
-    --surface_container_high: #292b23;
+    --surface_container_high: #252b2d;
 
-    --surface_container_highest: #34362e;
+    --surface_container_highest: #303638;
 
-    --surface_container_low: #1a1c15;
+    --surface_container_low: #171c1f;
 
-    --surface_container_lowest: #0d0f09;
+    --surface_container_lowest: #0a0f11;
 
-    --surface_dim: #12140d;
+    --surface_dim: #0f1416;
 
-    --surface_tint: #b7d085;
+    --surface_tint: #88d1ec;
 
-    --surface_variant: #45483c;
+    --surface_variant: #40484c;
 
-    --tertiary: #a0d0c8;
+    --tertiary: #c3c3eb;
 
-    --tertiary_container: #204e49;
+    --tertiary_container: #424465;
 
-    --tertiary_fixed: #bcece4;
+    --tertiary_fixed: #e1e0ff;
 
-    --tertiary_fixed_dim: #a0d0c8;
+    --tertiary_fixed_dim: #c3c3eb;
 
 
 
-    --background_rgb: 18 20 13;
+    --background_rgb: 15 20 22;
 
     --error_rgb: 255 180 171;
 
     --error_container_rgb: 147 0 10;
 
-    --inverse_on_surface_rgb: 47 49 41;
+    --inverse_on_surface_rgb: 44 49 52;
 
-    --inverse_primary_rgb: 81 101 39;
+    --inverse_primary_rgb: 7 103 127;
 
-    --inverse_surface_rgb: 227 227 216;
+    --inverse_surface_rgb: 222 227 230;
 
-    --on_background_rgb: 227 227 216;
+    --on_background_rgb: 222 227 230;
 
     --on_error_rgb: 105 0 5;
 
     --on_error_container_rgb: 255 218 214;
 
-    --on_primary_rgb: 37 54 0;
+    --on_primary_rgb: 0 53 67;
 
-    --on_primary_container_rgb: 211 236 158;
+    --on_primary_container_rgb: 183 234 255;
 
-    --on_primary_fixed_rgb: 20 31 0;
+    --on_primary_fixed_rgb: 0 31 40;
 
-    --on_primary_fixed_variant_rgb: 58 77 17;
+    --on_primary_fixed_variant_rgb: 0 78 97;
 
-    --on_secondary_rgb: 44 51 29;
+    --on_secondary_rgb: 30 51 59;
 
-    --on_secondary_container_rgb: 222 230 197;
+    --on_secondary_container_rgb: 207 230 241;
 
-    --on_secondary_fixed_rgb: 23 30 10;
+    --on_secondary_fixed_rgb: 7 30 38;
 
-    --on_secondary_fixed_variant_rgb: 66 74 50;
+    --on_secondary_fixed_variant_rgb: 52 74 82;
 
-    --on_surface_rgb: 227 227 216;
+    --on_surface_rgb: 222 227 230;
 
-    --on_surface_variant_rgb: 198 200 185;
+    --on_surface_variant_rgb: 191 200 204;
 
-    --on_tertiary_rgb: 1 55 50;
+    --on_tertiary_rgb: 44 46 77;
 
-    --on_tertiary_container_rgb: 188 236 228;
+    --on_tertiary_container_rgb: 225 224 255;
 
-    --on_tertiary_fixed_rgb: 0 32 29;
+    --on_tertiary_fixed_rgb: 23 24 55;
 
-    --on_tertiary_fixed_variant_rgb: 32 78 73;
+    --on_tertiary_fixed_variant_rgb: 66 68 101;
 
-    --outline_rgb: 143 146 132;
+    --outline_rgb: 138 146 150;
 
-    --outline_variant_rgb: 69 72 60;
+    --outline_variant_rgb: 64 72 76;
 
-    --primary_rgb: 183 208 133;
+    --primary_rgb: 136 209 236;
 
-    --primary_container_rgb: 58 77 17;
+    --primary_container_rgb: 0 78 97;
 
-    --primary_fixed_rgb: 211 236 158;
+    --primary_fixed_rgb: 183 234 255;
 
-    --primary_fixed_dim_rgb: 183 208 133;
+    --primary_fixed_dim_rgb: 136 209 236;
 
     --scrim_rgb: 0 0 0;
 
-    --secondary_rgb: 194 202 171;
+    --secondary_rgb: 179 202 212;
 
-    --secondary_container_rgb: 66 74 50;
+    --secondary_container_rgb: 52 74 82;
 
-    --secondary_fixed_rgb: 222 230 197;
+    --secondary_fixed_rgb: 207 230 241;
 
-    --secondary_fixed_dim_rgb: 194 202 171;
+    --secondary_fixed_dim_rgb: 179 202 212;
 
     --shadow_rgb: 0 0 0;
 
-    --source_color_rgb: 128 148 87;
+    --source_color_rgb: 185 218 232;
 
-    --surface_rgb: 18 20 13;
+    --surface_rgb: 15 20 22;
 
-    --surface_bright_rgb: 56 58 50;
+    --surface_bright_rgb: 53 58 60;
 
-    --surface_container_rgb: 30 32 25;
+    --surface_container_rgb: 27 32 35;
 
-    --surface_container_high_rgb: 41 43 35;
+    --surface_container_high_rgb: 37 43 45;
 
-    --surface_container_highest_rgb: 52 54 46;
+    --surface_container_highest_rgb: 48 54 56;
 
-    --surface_container_low_rgb: 26 28 21;
+    --surface_container_low_rgb: 23 28 31;
 
-    --surface_container_lowest_rgb: 13 15 9;
+    --surface_container_lowest_rgb: 10 15 17;
 
-    --surface_dim_rgb: 18 20 13;
+    --surface_dim_rgb: 15 20 22;
 
-    --surface_tint_rgb: 183 208 133;
+    --surface_tint_rgb: 136 209 236;
 
-    --surface_variant_rgb: 69 72 60;
+    --surface_variant_rgb: 64 72 76;
 
-    --tertiary_rgb: 160 208 200;
+    --tertiary_rgb: 195 195 235;
 
-    --tertiary_container_rgb: 32 78 73;
+    --tertiary_container_rgb: 66 68 101;
 
-    --tertiary_fixed_rgb: 188 236 228;
+    --tertiary_fixed_rgb: 225 224 255;
 
-    --tertiary_fixed_dim_rgb: 160 208 200;
+    --tertiary_fixed_dim_rgb: 195 195 235;
 
 }
