@@ -15,6 +15,8 @@ with lib.zenyte; let
     mv ~/.vscode/extensions /tmp
     echo "Restarting Home Manager for $USER"
     sudo systemctl restart home-manager-$USER.service
+
+    code --install-extension HyprLuna.hyprluna-theme
   '';
 in {
   options.zenyte.apps.vscodium = with types; {
@@ -153,6 +155,12 @@ in {
             publisher = "theqtcompany";
             version = "1.10.0";
             sha256 = "sha256-jMXC9UqvVxlvNSAMoInv3wCKyDwL/1I0TbftYjJphdU=";
+          }
+          {
+            name = "five-server";
+            publisher = "yandeu";
+            version = "0.3.11";
+            sha256 = "sha256-G+gajWeRepK3qIe3BTjLqmpe14NNB9sYfGmzDFRbkZ0=";
           }
         ]
         ++ cfg.extensions;

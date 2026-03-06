@@ -103,14 +103,14 @@ in {
 
               # GTK
               # "gtk-2.0".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-2.0";
-              "gtk-3.0/gtk.css" = {
-                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-3.0/gtk.css";
-                force = true;
-              };
-              "gtk-4.0/gtk.css" = {
-                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-4.0/gtk.css";
-                force = true;
-              };
+              # "gtk-3.0/gtk.css" = {
+              #   source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-3.0/gtk.css";
+              #   force = true;
+              # };
+              # "gtk-4.0/gtk.css" = {
+              #   source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-4.0/gtk.css";
+              #   force = true;
+              # };
               "gtk-4.0/settings.ini" = {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-4.0/settings.ini";
                 force = true;
