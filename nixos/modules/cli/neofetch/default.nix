@@ -16,7 +16,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      neofetch
+      # neofetch
       fastfetch
     ];
   };

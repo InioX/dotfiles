@@ -15,7 +15,7 @@ in {
 
   config = mkIf cfg.enable {
     zenyte.apps = {
-      tdesktop = enabled;
+      # tdesktop = enabled;
       discord = enabled;
       # gmail = enabled;
       # github = enabled;

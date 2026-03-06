@@ -96,7 +96,7 @@ in {
               };
 
               # Neofetch
-              "neofetch".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/neofetch";
+              # "neofetch".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/neofetch";
 
               # Alacritty
               "alacritty/alacritty.toml".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/alacritty/alacritty.toml";
