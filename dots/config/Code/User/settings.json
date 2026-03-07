@@ -86,5 +86,9 @@
     "editor.cursorBlinking": "smooth",
     "material-icon-theme.folders.color": "#ffffff",
     "material-icon-theme.files.color": "#ffffff",
-    "material-icon-theme.saturation": 0.35
+    "material-icon-theme.saturation": 0.35,
+    "workbench.navigationControl.enabled": false,
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "workbench.sideBar.location": "right",
 }

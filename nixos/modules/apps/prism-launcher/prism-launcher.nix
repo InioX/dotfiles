@@ -24,6 +24,5 @@ in {
     environment.systemPackages = [
       inputs.prism-launcher.packages.${system}.default
     ];
-    zenyte.home.dataFile."PrismLauncher/themes/dynamic".source = default.configFolder + /PrismLauncher/themes/dynamic;
   };
 }
