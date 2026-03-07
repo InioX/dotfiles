@@ -78,14 +78,11 @@ in {
 
               # Rofi
               "rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/rofi/config.rasi";
-              "rofi/powermenu.rasi".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/rofi/powermenu.rasi";
               "rofi/menu.rasi".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/rofi/menu.rasi";
 
               # Hyprland
               "hypr/windowrules.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/windowrules.conf";
-              "hypr/icons".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/icons";
               "hypr/scripts".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/scripts";
-              "hypr/wallpapers".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/wallpapers";
               "hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/hyprland.conf";
               "hypr/keybindings.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/keybindings.conf";
 
