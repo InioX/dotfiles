@@ -39,13 +39,16 @@ in {
     environment.systemPackages = with pkgs; [
       wl-clipboard
       wl-clip-persist
-      grim
-      slurp
+      # grim
+      # slurp
       playerctl
       inputs.nixpkgs-wayland.packages.${system}.wl-gammarelay-rs
       # inputs.nixpkgs-wayland.packages.${system}.swww
       wf-recorder
       swww
+
+      hyprshot
+      hyprpicker
 
       adwaita-icon-theme
       hicolor-icon-theme
