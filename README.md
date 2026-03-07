@@ -267,7 +267,7 @@ sudo mv /mnt/boot/EFI/Microsoft /mnt/boot/EFI/Microsoft.bak
      Acknowledgements
 </h2>
 
-First, special thanks to [jakehamilton](https://github.com/jakehamilton), my config is **heavily** inspired by [him](https://github.com/jakehamilton/config).
+First, special thanks to [jakehamilton](https://github.com/jakehamilton), my config is **heavily** inspired by [them](https://github.com/jakehamilton/config).
 
 I also want to thank all the people mentioned below, they either helped me solve issues or i copied from them.
 
