@@ -32,12 +32,14 @@ in {
     zenyte.home.extraOptions = {
       programs.git = {
         enable = true;
-        userEmail = config.zenyte.cli.git.email;
-        userName = config.zenyte.cli.git.name;
-        aliases = {
-          s = "status";
-          a = "add";
-          c = "commit";
+        settings = {
+          user.email = config.zenyte.cli.git.email;
+          user.name = config.zenyte.cli.git.name;
+          alias = {
+            s = "status";
+            a = "add";
+            c = "commit";
+          };
         };
       };
     };
