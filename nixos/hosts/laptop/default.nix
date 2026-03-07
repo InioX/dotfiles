@@ -23,6 +23,8 @@ with lib.zenyte; {
     ffmpeg
   ];
 
+  zenyte.home.extraOptions.programs.obs-studio.enable = true;
+
   zenyte.system.hosts.laptop = {
     variant = "dark";
     type = "scheme-neutral";
