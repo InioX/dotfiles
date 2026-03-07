@@ -83,5 +83,8 @@
     "editor.smoothScrolling": true,
     "workbench.list.smoothScrolling": true,
     "terminal.integrated.smoothScrolling": true,
-    "editor.cursorBlinking": "smooth"
+    "editor.cursorBlinking": "smooth",
+    "material-icon-theme.folders.color": "#ffffff",
+    "material-icon-theme.files.color": "#ffffff",
+    "material-icon-theme.saturation": 0.35
 }

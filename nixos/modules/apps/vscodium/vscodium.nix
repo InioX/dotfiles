@@ -11,6 +11,8 @@ with lib.zenyte; let
   # Modified code from https://github.com/nix-community/home-manager/issues/3507#issuecomment-1616803481
   fix-vscode-extensions = pkgs.writeShellScriptBin "fix-vscode-extensions" ''
     # Quit VSCodium
+    echo "Removing previous files from /tmp/extensions"
+    rm -rf /tmp/extensions
     echo "Moving $HOME/.vscode/extensions into /tmp"
     mv ~/.vscode/extensions /tmp
     echo "Restarting Home Manager for $USER"
@@ -145,81 +147,81 @@ in {
             ];
           };
         };
-
-        extensions = with pkgs.vscode-extensions;
-          [
-            # streetsidesoftware.code-spell-checker
-            eamodio.gitlens
-            jnoortheen.nix-ide
-            kamadorueda.alejandra
-            naumovs.color-highlight
-            usernamehw.errorlens
-            pkief.material-icon-theme
-            # arrterian.nix-env-selector
-            # vscodevim.vim
-
-            mkhl.direnv
-
-            # Shell scripts
-            timonwong.shellcheck
-
-            # Rust specific
-            fill-labs.dependi
-            rust-lang.rust-analyzer
-          ]
-          ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-            # Need to install manually
-            # {
-            #   name = "hyprluna-theme";
-            #   publisher = "hyprluna";
-            #   version = "1.0.2";
-            #   sha256 = "sha256-OTamsH3NQ1VbhJRM/4Lrd8VjlW9Jrti5beRUGLvP1kE=";
-            # }
-            {
-              name = "vscode-git-extension-pack";
-              publisher = "sugatoray";
-              version = "1.1.1";
-              sha256 = "sha256-0b1H5mzhBkf4By67rF3xZXRkfzoNYlvoYCGG+F7Kans=";
-            }
-            {
-              name = "vscode-conventional-commits";
-              publisher = "vivaxy";
-              version = "1.25.0";
-              sha256 = "sha256-KPP1suR16rIJkwj8Gomqa2ExaFunuG42fp14lBAZuwI=";
-            }
-            {
-              name = "vscord";
-              publisher = "LeonardSSH";
-              version = "5.1.18";
-              sha256 = "sha256-pJ9loVW1uhlITXSNBsCEgW+o3ABn0cxcZxg6S7cKWHI=";
-            }
-            {
-              name = "better-comments";
-              publisher = "aaron-bond";
-              version = "3.0.2";
-              sha256 = "sha256-hQmA8PWjf2Nd60v5EAuqqD8LIEu7slrNs8luc3ePgZc=";
-            }
-            {
-              name = "qt-qml";
-              publisher = "theqtcompany";
-              version = "1.10.0";
-              sha256 = "sha256-5k80WTSDwdf3WeePUt2CgTd3dTejj0+fKnbjzNfMXng=";
-            }
-            {
-              name = "qt-core";
-              publisher = "theqtcompany";
-              version = "1.10.0";
-              sha256 = "sha256-jMXC9UqvVxlvNSAMoInv3wCKyDwL/1I0TbftYjJphdU=";
-            }
-            {
-              name = "five-server";
-              publisher = "yandeu";
-              version = "0.3.11";
-              sha256 = "sha256-G+gajWeRepK3qIe3BTjLqmpe14NNB9sYfGmzDFRbkZ0=";
-            }
-          ]
-          ++ cfg.extensions;
       };
+
+      extensions = with pkgs.vscode-extensions;
+        [
+          # streetsidesoftware.code-spell-checker
+          eamodio.gitlens
+          jnoortheen.nix-ide
+          kamadorueda.alejandra
+          naumovs.color-highlight
+          usernamehw.errorlens
+          pkief.material-icon-theme
+          # arrterian.nix-env-selector
+          # vscodevim.vim
+
+          mkhl.direnv
+
+          # Shell scripts
+          timonwong.shellcheck
+
+          # Rust specific
+          fill-labs.dependi
+          rust-lang.rust-analyzer
+        ]
+        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          # Need to install manually
+          # {
+          #   name = "hyprluna-theme";
+          #   publisher = "hyprluna";
+          #   version = "1.0.2";
+          #   sha256 = "sha256-OTamsH3NQ1VbhJRM/4Lrd8VjlW9Jrti5beRUGLvP1kE=";
+          # }
+          {
+            name = "vscode-git-extension-pack";
+            publisher = "sugatoray";
+            version = "1.1.1";
+            sha256 = "sha256-0b1H5mzhBkf4By67rF3xZXRkfzoNYlvoYCGG+F7Kans=";
+          }
+          {
+            name = "vscode-conventional-commits";
+            publisher = "vivaxy";
+            version = "1.25.0";
+            sha256 = "sha256-KPP1suR16rIJkwj8Gomqa2ExaFunuG42fp14lBAZuwI=";
+          }
+          {
+            name = "vscord";
+            publisher = "LeonardSSH";
+            version = "5.1.18";
+            sha256 = "sha256-pJ9loVW1uhlITXSNBsCEgW+o3ABn0cxcZxg6S7cKWHI=";
+          }
+          {
+            name = "better-comments";
+            publisher = "aaron-bond";
+            version = "3.0.2";
+            sha256 = "sha256-hQmA8PWjf2Nd60v5EAuqqD8LIEu7slrNs8luc3ePgZc=";
+          }
+          {
+            name = "qt-qml";
+            publisher = "theqtcompany";
+            version = "1.10.0";
+            sha256 = "sha256-5k80WTSDwdf3WeePUt2CgTd3dTejj0+fKnbjzNfMXng=";
+          }
+          {
+            name = "qt-core";
+            publisher = "theqtcompany";
+            version = "1.10.0";
+            sha256 = "sha256-jMXC9UqvVxlvNSAMoInv3wCKyDwL/1I0TbftYjJphdU=";
+          }
+          {
+            name = "five-server";
+            publisher = "yandeu";
+            version = "0.3.11";
+            sha256 = "sha256-G+gajWeRepK3qIe3BTjLqmpe14NNB9sYfGmzDFRbkZ0=";
+          }
+        ]
+        ++ cfg.extensions;
     };
 
     # environment.systemPackages = with pkgs; [
