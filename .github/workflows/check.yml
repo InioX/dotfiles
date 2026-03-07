@@ -17,4 +17,4 @@ jobs:
           extra_nix_config: |
             auto-optimise-store = true
             experimental-features = nix-command flakes
-      - run: nix flake check
+      - run: nix flake check ./nixos
