@@ -91,4 +91,5 @@
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": false,
     "workbench.sideBar.location": "right",
+    "workbench.iconTheme": "material-icon-theme",
 }
