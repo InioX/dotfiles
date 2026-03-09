@@ -1,0 +1,19 @@
+[Desktop Entry]
+Type=Application
+Name=Sober
+GenericName=Roblox Player
+Comment=Play, chat & explore on Roblox
+Icon=org.vinegarhq.Sober
+Keywords=roblox;vinegar;game;gaming;social;experience;launcher;
+MimeType=x-scheme-handler/roblox;x-scheme-handler/roblox-player;
+Categories=GNOME;GTK;Game;
+Terminal=false
+PrefersNonDefaultGPU=true
+SingleMainWindow=true
+Exec=flatpak run --branch=stable --arch=x86_64 --command=sober --file-forwarding org.vinegarhq.Sober -- @@u %u @@
+Actions=open-settings;
+X-Flatpak=org.vinegarhq.Sober
+
+[Desktop Action open-settings]
+Name=Settings
+Exec=flatpak run --branch=stable --arch=x86_64 --command=sober org.vinegarhq.Sober config

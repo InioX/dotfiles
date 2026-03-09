@@ -138,6 +138,12 @@ in {
                 url = "https://avatars.githubusercontent.com/u/81521595?v=4";
                 sha256 = "sha256-N55B0KWROQ3nOqPk908yrCRy9B4FM3/OmxuHDVgtius=";
               };
+
+              # Desktop entries
+              ".local/share/applications/org.vinegarhq.Sober.desktop" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.desktopEntryFolder}/org.vinegarhq.Sober.desktop";
+                recursive = true;
+              };
             };
 
             # Setup basic directories
