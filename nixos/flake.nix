@@ -10,6 +10,7 @@
       flakePath = "/home/${default.username}/dev/dotfiles";
       templateFolder = "${default.flakePath}/dots/templates";
       configFolder = "${default.flakePath}/dots/config";
+      desktopEntryFolder = "${default.flakePath}/dots/desktop-entries";
 
       system = "x86_64-linux";
       username = "ini";

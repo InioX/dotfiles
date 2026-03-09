@@ -53,6 +53,8 @@ in {
       adwaita-icon-theme
       hicolor-icon-theme
 
+      imagemagick
+
       # For theme management
       nwg-look
 
