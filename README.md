@@ -81,6 +81,7 @@ Install flatpaks:
 ```
 flatpak install flathub org.vinegarhq.Sober
 flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+flatpak install flathub org.upscayl.Upscayl
 
 sudo flatpak override --filesystem=xdg-data/themes
 sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3
@@ -91,6 +92,8 @@ Install HyprLuna
 ```
 code --install-extension HyprLuna.hyprluna-theme
 ```
+
+Install or update [hdrop](https://github.com/Schweber/hdrop) (already included in dotfiles)
 
 <h2 class="usage">
      <sub>
