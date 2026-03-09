@@ -10,7 +10,7 @@ Categories=GNOME;GTK;Game;
 Terminal=false
 PrefersNonDefaultGPU=true
 SingleMainWindow=true
-Exec=flatpak run --branch=stable --arch=x86_64 --command=sober --file-forwarding org.vinegarhq.Sober -- @@u %u @@
+Exec=sh -c "NVPRESENT_ENABLE_SMOOTH_MOTION=1 flatpak run --branch=stable --arch=x86_64 --command=sober --file-forwarding org.vinegarhq.Sober -- @@u %u @@"
 Actions=open-settings;
 X-Flatpak=org.vinegarhq.Sober
 

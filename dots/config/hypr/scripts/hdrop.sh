@@ -1,0 +1,353 @@
+#!/usr/bin/env bash
+
+# shellcheck disable=SC2004 # $ sign needed for the calculations to take place
+
+print_help() {
+  echo ""
+  echo "Usage: hdrop [OPTIONS] [COMMAND]"
+  echo ""
+  echo "Command:"
+  echo "          The usual command you would run to start the desired program"
+  echo ""
+  echo "Options:"
+  echo "  -b, --background"
+  echo "          Changes the default behaviour: if the specified program is"
+  echo "          not running, launch it in the background instead of foreground."
+  echo "          Thereafter 'hdrop -b' will work the same as without this flag."
+  echo ""
+  echo "  -c, --class"
+  echo "          Set classname of the program to be run. Use this if the"
+  echo "          classname is different from the name of the [COMMAND]"
+  echo "          and hdrop has no hardcoded replacement."
+  echo ""
+  echo "  -f, --floating"
+  echo "          Spawn as a floating window."
+  echo "          Default is top half, full width, no gap."
+  echo "          Can be adjusted with -g, -h, -p and -w."
+  echo ""
+  echo "  -F, --focus"
+  echo "          Changes the default behaviour: focus the specified program's"
+  echo "          window and switch to its present workspace if necessary."
+  echo "          Do not hide it, if it's already on the current workspace."
+  echo ""
+  echo "  -g, --gap"
+  echo "          If using --floating: specify gap to the screen edge in pixels."
+  echo ""
+  echo "  -h, --height"
+  echo "          If using --floating: set the height of the window."
+  echo "          Enter percentage value without % sign, e.g. '30'"
+  echo ""
+  echo "  -H, --help"
+  echo "          Print this help message"
+  echo ""
+  echo "  -i, --insensitive"
+  echo "          Case insensitive partial matching of class names."
+  echo "          You can try this if a running program is not recognized and"
+  echo "          a new instance is launched instead."
+  echo ""
+  echo "  -o, --online"
+  echo "          Delay initial launch for up to 20 seconds"
+  echo "          until internet connectivity is established."
+  echo ""
+  echo "  -p, --position"
+  echo "          If using --floating: set the position of the window."
+  echo "          One of: '[t]op' '[b]ottom' '[l]eft' '[r]ight'."
+  echo ""
+  echo "  -v, --verbose"
+  echo "          Show notifications regarding the matching process."
+  echo "          Use this to figure out why running programs are not matched."
+  echo ""
+  echo "  -V, --version"
+  echo "          Print version"
+  echo ""
+  echo "  -w, --width"
+  echo "          If using --floating: set the width of the window."
+  echo "          Enter percentage value without % sign, e.g. '30'"
+  echo ""
+  echo "Multiple instances:"
+  echo ""
+  echo "Multiple instances of the same program can be run concurrently, if"
+  echo "different class names are assigned to each instance. Presently there is"
+  echo "support for the following flags in the [COMMAND] string:"
+  echo ""
+  echo " -a, --app-id ('foot' terminal emulator)"
+  echo " --class      (all other programs)"
+  echo ""
+  echo "See man page for more information"
+}
+
+print_version() {
+  echo "hdrop version: 0.7.10"
+}
+
+notify() {
+  notify-send "$@" || hyprctl notify 0 5000 0 "$@"
+  echo "$@"
+}
+
+notify_low() {
+  notify-send -u low "$@" || hyprctl notify 1 5000 0 "$@"
+  echo "$@"
+}
+
+partial_match() {
+  CLASS=$(hyprctl -j clients | jq -r ".[] | select((.class |match(\"$1\";\"i\"))) | .class" | head -n -1)
+}
+
+wait_online() {
+  # wait_online=0
+  # while [[ $wait_online -lt 200 ]]; do
+    curl -fIs -m 15 --retry 5 --retry-connrefused --retry-all-errors "http://connectivitycheck.gstatic.com/generate_204" | grep -q "204"
+    # sleep 0.1
+    # $wait_online++
+  # done
+}
+
+hdrop_flags() {
+  while true; do
+    case "$1" in
+    -b | --background)
+      BACKGROUND="hyprctl dispatch -- exec [workspace special:hdrop silent] "
+      ;;
+    -c | --class)
+      shift
+      CLASS_OVERRIDE="$1"
+      ;;
+    -f | --floating)
+      FLOATING=true
+      ;;
+    -F | --focus)
+      FOCUS=true
+      ;;
+    -g | --gap)
+      shift
+      GAP="$1"
+      ;;
+    -h | --height)
+      shift
+      HEIGHT="$1"
+      ;;
+    -H | --help)
+      print_help
+      exit
+      ;;
+    -i | --insensitive)
+      INSENSITIVE=true
+      ;;
+    -o | --online)
+      ONLINE=true
+      ;;
+    -p | --position)
+      shift
+      POSITION="$1"
+      ;;
+    -v | --verbose)
+      VERBOSE=true
+      ;;
+    -V | --version)
+      print_version
+      exit
+      ;;
+    -w | --width)
+      shift
+      WIDTH="$1"
+      ;;
+    *) break ;;
+    esac
+    shift
+  done
+}
+
+BACKGROUND=""
+FOCUS=false
+GAP=0
+INSENSITIVE=false
+ONLINE=false
+FLOATING=false
+POSITION="top"
+VERBOSE=false
+HDROP_FLAGS=()
+
+while true; do
+  case "$1" in
+  "")
+    notify "hdrop: Missing Argument" "Run 'hdrop -h' for more information"
+    print_help
+    exit 1
+    ;;
+  -c | --class | -g | --gap | -h | --height | -p | --position | -w | --width)
+    HDROP_FLAGS+=("$1" "$2")
+    shift
+    ;;
+  -*)
+    HDROP_FLAGS+=("$1")
+    ;;
+  *) break ;;
+  esac
+  shift
+done
+
+# shellcheck disable=SC2128 # erroneous warning
+if [[ -n $HDROP_FLAGS ]]; then
+  # shellcheck disable=SC2046 # avoids having to run 'eval set -- "$HDROP_FLAGS"' to remove leading whitespace
+  hdrop_flags $(getopt -u --options bc:fFg:h:Hip:vVw: --longoptions background,class:,floating,focus,gap:,height:,help,insensitive,position:,verbose,version,width: -n hdrop -- "${HDROP_FLAGS[@]}")
+fi
+
+CLASS="$1"
+COMMAND="$1"
+COMMANDLINE="${*:1}"
+ACTIVE_WORKSPACE="$(hyprctl -j activeworkspace | jq -r .name)" || notify "hdrop: Error executing dependencies 'hyprctl' or 'jq'" "Check terminal output of 'hdrop $COMMANDLINE'"
+
+case "$1" in
+epiphany)
+  CLASS="org.gnome.Epiphany"
+  ;;
+foot)
+  OPT=$(getopt --options a: --longoptions app-id: -n hdrop -- "$@")
+  ;;
+godot4)
+  partial_match "org.godotengine."
+  ;;
+logseq)
+  CLASS="Logseq"
+  ;;
+telegram-desktop)
+  CLASS="org.telegram.desktop"
+  ;;
+tor-browser)
+  CLASS="Tor Browser"
+  ;;
+*)
+  OPT=$(getopt --options "" --longoptions class: -n hdrop -- "$@")
+  ;;
+esac
+
+if $VERBOSE && [[ $1 != "$CLASS" ]]; then notify_low "hdrop: Using '$CLASS' as hardcoded classname of '$1' for matching"; fi
+
+if [[ -n $OPT ]]; then
+  eval set -- "$OPT" # remove leading whitespace
+  case "$1" in
+  -a | --app-id | --class)
+    CLASS="$2"
+    if $VERBOSE; then notify_low "hdrop: Extracted '$CLASS' from [COMMAND] for matching"; fi
+    ;;
+  esac
+fi
+
+if $INSENSITIVE && [[ -n $(hyprctl -j clients | jq -r ".[] | select((.class |test(\"$CLASS\";\"i\")))") ]]; then
+  if $VERBOSE; then notify_low "hdrop: --insensitive -> Insensitive (partial) match of class '$CLASS' successful"; fi
+  partial_match "$CLASS" || notify "hdrop: Error assigning case insensitive (partial) match to CLASS"
+  if $VERBOSE; then notify_low "hdrop: --insensitive -> Using class '$CLASS' after insensitive (partial) matching"; fi
+fi
+
+if [[ -n $CLASS_OVERRIDE ]]; then
+  if $VERBOSE; then notify_low "hdrop: --class -> Using given class '$CLASS_OVERRIDE' instead of '$CLASS' for matching"; fi
+  CLASS="$CLASS_OVERRIDE"
+fi
+
+if $FLOATING; then
+  if [[ $GAP -ne 0 ]]; then
+    ACTIVE_MONITOR_WIDTH=$(($(hyprctl -j monitors | jq -r ".[] | select(.focused==true) | .width") * 100))
+    ACTIVE_MONITOR_HEIGHT=$(($(hyprctl -j monitors | jq -r ".[] | select(.focused==true) | .height") * 100))
+    ACTIVE_MONITOR_SCALE=$(awk "BEGIN {printf $(hyprctl -j monitors | jq -r ".[] | select(.focused==true) | .scale") * 100}")
+
+    ACTIVE_MONITOR_WIDTH_SCALED=$(($ACTIVE_MONITOR_WIDTH / $ACTIVE_MONITOR_SCALE))
+    ACTIVE_MONITOR_HEIGHT_SCALED=$(($ACTIVE_MONITOR_HEIGHT / $ACTIVE_MONITOR_SCALE))
+  fi
+
+  HYPRLAND_VERSION="$(hyprctl -j version | jq -r .version | tr '.' '\n' | head -n 2 | tail -n 1)"
+
+  if [[ $HYPRLAND_VERSION -ge 53 ]]; then
+      case "$POSITION" in "t" | "top")
+              if [[ -n $WIDTH ]]; then WIDTH_xy=$WIDTH; else WIDTH_xy="100"; fi
+              if [[ -n $HEIGHT ]]; then HEIGHT_xy=$HEIGHT; else HEIGHT_xy="50"; fi
+              # this looks awful, but that's the hyprland way according to vaxlary...
+              POSITION_xy="(monitor_w/2*(1-$WIDTH_xy/100)) ($GAP)"
+              ;;
+          "b" | "bottom")
+              if [[ -n $WIDTH ]]; then WIDTH_xy=$WIDTH; else WIDTH_xy="100"; fi
+              if [[ -n $HEIGHT ]]; then HEIGHT_xy=$HEIGHT; else HEIGHT_xy="50"; fi
+              POSITION_xy="(monitor_w/2*(1-$WIDTH_xy/100)) (monitor_h*(1-($HEIGHT_xy/100))-$GAP)"
+              ;;
+          "l" | "left")
+              if [[ -n $WIDTH ]]; then WIDTH_xy=$WIDTH; else WIDTH_xy="50"; fi
+              if [[ -n $HEIGHT ]]; then HEIGHT_xy=$HEIGHT; else HEIGHT_xy="100"; fi
+              POSITION_xy="($GAP) (monitor_h/2*(1-$HEIGHT_xy/100))"
+              ;;
+          "r" | "right")
+              if [[ -n $WIDTH ]]; then WIDTH_xy=$WIDTH; else WIDTH_xy="50"; fi
+              if [[ -n $HEIGHT ]]; then HEIGHT_xy=$HEIGHT; else HEIGHT_xy="100"; fi
+              POSITION_xy="(monitor_w*(1-($WIDTH_xy/100))-$GAP) (monitor_h/2*(1-$HEIGHT_xy/100))"
+              ;;
+          *)
+              notify "hdrop: --position -> invalid argument"
+              ;;
+      esac
+  else
+      case "$POSITION" in "t" | "top")
+              if [[ -n $WIDTH ]]; then WIDTH_xy=$WIDTH; else WIDTH_xy="100"; fi
+              if [[ -n $HEIGHT ]]; then HEIGHT_xy=$HEIGHT; else HEIGHT_xy="50"; fi
+              POSITION_xy="$((50 - $WIDTH_xy / 2))% $GAP"
+              ;;
+          "b" | "bottom")
+              if [[ -n $WIDTH ]]; then WIDTH_xy=$WIDTH; else WIDTH_xy="100"; fi
+              if [[ -n $HEIGHT ]]; then HEIGHT_xy=$HEIGHT; else HEIGHT_xy="50"; fi
+              if [[ $GAP -ne 0 ]]; then
+                  POSITION_xy="$((50 - $WIDTH_xy / 2))% $(($ACTIVE_MONITOR_HEIGHT_SCALED * $HEIGHT_xy / 100 - $GAP))"
+              else POSITION_xy="$((50 - $WIDTH_xy / 2))% $((100 - $HEIGHT_xy))%"; fi
+              ;;
+          "l" | "left")
+              if [[ -n $WIDTH ]]; then WIDTH_xy=$WIDTH; else WIDTH_xy="50"; fi
+              if [[ -n $HEIGHT ]]; then HEIGHT_xy=$HEIGHT; else HEIGHT_xy="100"; fi
+              POSITION_xy="$GAP $((50 - $HEIGHT_xy / 2))%"
+              ;;
+          "r" | "right")
+              if [[ -n $WIDTH ]]; then WIDTH_xy=$WIDTH; else WIDTH_xy="50"; fi
+              if [[ -n $HEIGHT ]]; then HEIGHT_xy=$HEIGHT; else HEIGHT_xy="100"; fi
+              if [[ $GAP -ne 0 ]]; then
+                  POSITION_xy="$(($ACTIVE_MONITOR_WIDTH_SCALED * $WIDTH_xy / 100 - $GAP)) $((50 - $HEIGHT_xy / 2))%"
+              else POSITION_xy="$((100 - $WIDTH_xy))% $((50 - $HEIGHT_xy / 2))%"; fi
+              ;;
+          *)
+              notify "hdrop: --position -> invalid argument"
+              ;;
+      esac
+  fi
+
+  if [[ $HYPRLAND_VERSION -ge 53 ]]; then
+    hyprctl --batch "keyword windowrule float on,match:class ^$CLASS$ ; keyword windowrule move $POSITION_xy,match:class ^$CLASS$"
+  elif [[ $HYPRLAND_VERSION -ge 48 ]]; then
+    hyprctl --batch "keyword windowrule float,class:^$CLASS$ ; keyword windowrule move $POSITION_xy,class:^$CLASS$"
+  else
+    hyprctl --batch "keyword windowrule float,^$CLASS$ ; keyword windowrule move $POSITION_xy,^$CLASS$"
+  fi
+fi
+
+if [[ -n $(hyprctl -j clients | jq -r ".[] | select(.class==\"$CLASS\" and .workspace.name!=\"$ACTIVE_WORKSPACE\")") ]]; then
+  if [[ $FOCUS == false ]]; then
+    # shellcheck disable=SC2140 # erroneous warning
+    hyprctl dispatch -- movetoworkspacesilent "name:$ACTIVE_WORKSPACE","class:^$CLASS$" || notify "hdrop: Error moving '$COMMANDLINE' to current workspace"
+    if [[ $FLOATING ]]; then hyprctl dispatch -- resizewindowpixel exact "$WIDTH_xy% $HEIGHT_xy%", "class:^$CLASS$" || notify "hdrop: Error resizing window for active monitor"; fi
+    if $VERBOSE; then notify_low "hdrop: Matched class '$CLASS' on another workspace and moved it to current workspace"; fi
+  fi
+  hyprctl dispatch -- focuswindow "class:^$CLASS$" || notify "hdrop: Error focusing '$COMMANDLINE' on current workspace"
+elif [[ -n $(hyprctl -j clients | jq -r ".[] | select(.class==\"$CLASS\" and .workspace.name==\"$ACTIVE_WORKSPACE\")") ]]; then
+  if [[ $FOCUS == false ]]; then
+    hyprctl dispatch -- movetoworkspacesilent special:hdrop,"class:^$CLASS$" || notify "hdrop: Error moving '$COMMANDLINE' to workspace 'special:hdrop'"
+    if [[ $FLOATING ]]; then hyprctl dispatch -- resizewindowpixel exact "$WIDTH_xy% $HEIGHT_xy%", "class:^$CLASS$" || notify "hdrop: Error resizing window for active monitor"; fi
+    if $VERBOSE; then notify_low "hdrop: Matched class '$CLASS' on current workspace and moved it to workspace 'special:hdrop'"; fi
+  else
+    hyprctl dispatch -- focuswindow "class:^$CLASS$" || notify "hdrop: Error focusing '$COMMANDLINE' on current workspace"
+  fi
+else
+  if $ONLINE; then wait_online; fi
+  # 'foot' always throws an error when its window is closed. Thus we disable the notification.
+  if [[ $COMMAND == "foot" ]]; then
+    # shellcheck disable=SC2086 # when quoting COMMANDLINE the execution of the command fails
+    $BACKGROUND $COMMANDLINE
+  else
+    # shellcheck disable=SC2086 # when quoting COMMANDLINE the execution of the command fails
+    $BACKGROUND $COMMANDLINE || notify "hdrop: Error executing given command" "$COMMANDLINE"
+  fi
+  if $VERBOSE; then notify_low "hdrop: No running program matches class '$CLASS'." "Currently active classes are '$(hyprctl -j clients | jq -r '.[] | select(.mapped==true) | .class' | sort | tr '\n' ' ')'. Executed '$COMMANDLINE' in case it was not running already."; fi
+fi
