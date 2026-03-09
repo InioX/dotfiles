@@ -21,7 +21,8 @@ in {
       alsa-utils
       easyeffects
       helvum
-      pavucontrol
+      # pavucontrol
+      pwvucontrol
     ];
 
     services.pipewire = {
