@@ -20,7 +20,7 @@ in {
     environment.systemPackages = with pkgs; [
       alsa-utils
       easyeffects
-      helvum
+      # helvum
       # pavucontrol
       pwvucontrol
     ];
