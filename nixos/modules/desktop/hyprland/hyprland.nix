@@ -59,7 +59,8 @@ in {
       nwg-look
 
       # Cursor theme
-      inputs.mcmojave-hyprcursor.packages.${pkgs.stdenv.hostPlatform.system}.default
+      # inputs.mcmojave-hyprcursor.packages.${pkgs.stdenv.hostPlatform.system}.default
+      bibata-cursors
 
       gpu-screen-recorder-gtk
       (pkgs.runCommand "gpu-screen-recorder" {
