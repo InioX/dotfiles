@@ -26,10 +26,14 @@ in {
         switch-mode = "~/.config/hypr/scripts/switch-mode.sh";
         edit-dots = "codium /home/${default.username}/dev/dotfiles/";
       };
-      enableCompletion = true;
+      # enableCompletion = true;
       syntaxHighlighting = enabled;
       dotDir = ".config/zsh";
       autosuggestion.enable = true;
+      initExtra = ''
+        # Source a local zshrc so it's easier to edit
+        [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+      '';
     };
   };
 }

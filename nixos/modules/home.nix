@@ -129,11 +129,16 @@ in {
             };
 
             home.file = {
+              # Zsh
+              ".zshrc.local".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/zsh/.zshrc";
+
+              # Firefox
               ".floorp/ini/chrome/" = {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/floorp/";
                 recursive = true;
               };
 
+              # Icon
               "pics/icon.jpg".source = pkgs.fetchurl {
                 url = "https://avatars.githubusercontent.com/u/81521595?v=4";
                 sha256 = "sha256-N55B0KWROQ3nOqPk908yrCRy9B4FM3/OmxuHDVgtius=";
