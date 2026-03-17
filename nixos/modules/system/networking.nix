@@ -17,7 +17,14 @@ in {
   config = {
     networking = {
       hostName = hostName;
-      networkmanager.enable = true;
+      nameservers = ["1.1.1.1" "8.8.8.8"];
+      networkmanager = {
+        enable = true;
+        wifi = {
+          powersave = false;
+          backend = "iwd";
+        };
+      };
     };
 
     hardware.bluetooth.enable = cfg.bluetooth;
