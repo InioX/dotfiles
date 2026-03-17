@@ -126,6 +126,10 @@ in {
 
               # Quickshell
               "quickshell".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/quickshell";
+
+              # Easy effects
+              "easyeffects".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/easyeffects";
+              "easyeffectsrc".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/easyeffectsrc";
             };
 
             home.file = {
