@@ -92,6 +92,9 @@ in {
                 force = true;
               };
 
+              # Vencord
+              "Vencord".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/Vencord";
+
               # Neofetch
               # "neofetch".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/neofetch";
 
