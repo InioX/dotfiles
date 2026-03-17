@@ -20,10 +20,10 @@ in {
         wayland.enable = true;
         autoNumlock = true;
       };
-      autoLogin = {
-        enable = true;
-        user = "${default.username}";
-      };
+      # autoLogin = {
+      # enable = true;
+      # user = "${default.username}";
+      # };
     };
   };
 }

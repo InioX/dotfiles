@@ -65,6 +65,7 @@ with lib.zenyte; {
     # xfce.enable = true;
     # awesome.enable = true;
     hyprland = enabled;
+    kde = enabled;
   };
 
   zenyte.browsers = {
