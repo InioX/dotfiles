@@ -92,4 +92,10 @@
     "workbench.layoutControl.enabled": false,
     "workbench.sideBar.location": "right",
     "workbench.iconTheme": "material-icon-theme",
+    "qt-core.additionalQtPaths": [
+        {
+            "name": "Qt-6.10.2-linux-g++_from_PATH",
+            "path": "/run/current-system/sw/bin/qtpaths"
+        }
+    ],
 }
