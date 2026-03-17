@@ -8,8 +8,8 @@ RowLayout {
     id: clockRoot
 
     property bool primaryContainer: true
-    property var primaryContainerFocusedBg: root.powerMenuVisible ? colors.primary : colors.primary_container
-    property var primaryContainerFocusedFg: root.powerMenuVisible ? colors.on_primary : colors.on_primary_container
+    property var primaryContainerFocusedBg: root.powerMenuVisible ? Colors.md3.primary : Colors.md3.primary_container
+    property var primaryContainerFocusedFg: root.powerMenuVisible ? Colors.md3.on_primary : Colors.md3.on_primary_container
 
     spacing: 4
 
@@ -18,7 +18,7 @@ RowLayout {
         height: 40
         topLeftRadius: root.cornerRadius
         bottomLeftRadius: root.cornerRadius
-        color: primaryContainer ? colors.primary_container : colors.surface_variant
+        color: primaryContainer ? Colors.md3.primary_container : Colors.md3.surface_variant
 
         RowLayout {
             anchors.leftMargin: 5
@@ -44,7 +44,7 @@ RowLayout {
             Text {
                 verticalAlignment: Text.AlignVCenter
                 text: "Search..."
-                color: primaryContainer ? colors.on_primary_container : colors.on_surface_variant
+                color: primaryContainer ? Colors.md3.on_primary_container : Colors.md3.on_surface_variant
                 font.pixelSize: 14
             }
 
@@ -58,7 +58,7 @@ RowLayout {
             Text {
                 verticalAlignment: Text.AlignVCenter
                 text: TimeService.time
-                color: primaryContainer ? colors.on_primary_container : colors.on_surface_variant
+                color: primaryContainer ? Colors.md3.on_primary_container : Colors.md3.on_surface_variant
                 font.bold: true
                 font.pixelSize: 14
             }
@@ -72,13 +72,13 @@ RowLayout {
         height: 40
         topRightRadius: root.cornerRadius
         bottomRightRadius: root.cornerRadius
-        color: primaryContainer ? primaryContainerFocusedBg : colors.surface_variant
+        color: primaryContainer ? primaryContainerFocusedBg : Colors.md3.surface_variant
 
         Text {
             anchors.centerIn: parent
             verticalAlignment: Text.AlignVCenter
             text: "󰐥 "
-            color: primaryContainer ? primaryContainerFocusedFg : colors.on_surface_variant
+            color: primaryContainer ? primaryContainerFocusedFg : Colors.md3.on_surface_variant
             font.bold: true
             font.pixelSize: 24
         }

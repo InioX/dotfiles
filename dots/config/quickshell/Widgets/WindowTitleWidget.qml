@@ -18,13 +18,13 @@ Column {
 
     AnimatedTextWidget {
         displayText: windowTitle.currentTitle
-        textColor: colors.on_surface
+        textColor: Colors.md3.on_surface
         fontSize: 14
     }
 
     AnimatedTextWidget {
         displayText: windowTitle.currentClass
-        textColor: colors.outline
+        textColor: Colors.md3.outline
         fontSize: 11
     }
 }

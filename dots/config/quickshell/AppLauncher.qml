@@ -8,7 +8,8 @@ import Quickshell.Widgets
 import Quickshell.Wayland
 import Quickshell.Io
 import "./Services"
-       
+import "./Colors.qml"
+
 WlrLayershell {
     id: launcher
     layer: WlrLayer.Overlay
@@ -40,10 +41,10 @@ WlrLayershell {
 
         id: background
         anchors.fill: parent
-        color: colors.surface_container
+        color: Colors.md3.surface_container
         radius: 20
         clip: true
-        border.color: colors.outline_variant
+        border.color: Colors.md3.outline_variant
         border.width: 1
 
         ColumnLayout {
@@ -59,8 +60,8 @@ WlrLayershell {
                 font.bold: true
                 font.pixelSize: 20
                 focus: true
-                color: colors.on_surface
-                placeholderTextColor: colors.on_surface
+                color: Colors.md3.on_surface
+                placeholderTextColor: Colors.md3.on_surface
 
                 padding: 10
 
@@ -71,7 +72,7 @@ WlrLayershell {
 
                 background: Rectangle {
                     border.width: 0
-                    color: colors.surface_container_highest
+                    color: Colors.md3.surface_container_highest
                     radius: root.cornerRadius
                 }
 
@@ -127,7 +128,7 @@ WlrLayershell {
                 highlightMoveDuration: 80
                 highlight: Rectangle {
                     radius: root.cornerRadius
-                    color: colors.primary_container
+                    color: Colors.md3.primary_container
                 }
 
                 delegate: Item {
@@ -152,7 +153,7 @@ WlrLayershell {
                             
                             width: imageIcon.width + 10
                             height: imageIcon.height + 6
-                            color: colors.primary_container
+                            color: Colors.md3.primary_container
                             radius: 20
 
                             IconImage {
@@ -170,7 +171,7 @@ WlrLayershell {
                                     source: imageIcon
                                     anchors.fill: imageIcon
                                     colorization: 1
-                                    colorizationColor: colors.on_primary_container
+                                    colorizationColor: Colors.md3.on_primary_container
                                 }
 
                                 MouseArea {
@@ -186,13 +187,13 @@ WlrLayershell {
 
                                         contentItem: Text {
                                             text: modelData.title || "Window"
-                                            color: colors.on_surface
+                                            color: Colors.md3.on_surface
                                             font.pixelSize: 12
                                         }
 
                                         background: Rectangle {
-                                            color: colors.surface
-                                            border.color: colors.primary
+                                            color: Colors.md3.surface
+                                            border.color: Colors.md3.primary
                                             radius: 10
                                         }
 
@@ -207,7 +208,7 @@ WlrLayershell {
                         Column {
                             Text {
                                 id: labelName
-                                color: list.currentIndex === index ? colors.on_primary_container : colors.on_surface
+                                color: list.currentIndex === index ? Colors.md3.on_primary_container : Colors.md3.on_surface
                                 text: modelData.name
                                 font.pointSize: 15
                                 font.bold: true
@@ -217,7 +218,7 @@ WlrLayershell {
 
                             Text {
                                 id: labelDesc
-                                color: list.currentIndex === index ? colors.on_primary_container : colors.outline
+                                color: list.currentIndex === index ? Colors.md3.on_primary_container : Colors.md3.outline
                                 text: modelData.comment || "No description provided."
                                 font.pointSize: 8
                                 font.bold: true

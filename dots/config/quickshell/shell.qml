@@ -34,14 +34,10 @@ ShellRoot {
     property bool qsMenuVisible: false
     property bool borderEnabled: false
     property int borderWidth: 1
-    property var borderColor: colors.outline_variant
+    property var borderColor: Colors.md3.outline_variant
 
     function textIconForClass(cls) {
         return textIconMap[cls] || "";
-    }
-
-    Colors {
-        id: colors
     }
 
     IpcHandlers {

@@ -5,7 +5,7 @@ import Quickshell
 import Quickshell.Widgets
 
 Rectangle {
-    color: colors.error
+    color: Colors.md3.error
     width: 50
     height: 50
     radius: 16
@@ -16,7 +16,7 @@ Rectangle {
         anchors.centerIn: parent
         verticalAlignment: Text.AlignVCenter
         text: "󰐥"
-        color: colors.on_error
+        color: Colors.md3.on_error
         font.bold: true
         font.pixelSize: 30
     }

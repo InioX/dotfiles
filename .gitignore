@@ -1,7 +1,6 @@
 result/
 .vscode/
 .direnv
-dots/config/quickshell/Colors.qml
 dots/config/floorp/colors.css
 dots/config/gtk-3.0/gtk.css
 dots/config/gtk-4.0/gtk.css

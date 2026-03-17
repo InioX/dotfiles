@@ -13,7 +13,7 @@ Rectangle {
     width: textContainer.width + 30
     height: 17
     radius: 8
-    color: colors.primary_container
+    color: Colors.md3.primary_container
     clip: true
 
     Item {
@@ -29,7 +29,7 @@ Rectangle {
                 text: percentage + "%"
                 font.pixelSize: batteryRoot.fontSize
                 font.bold: true
-                color: colors.on_primary_container
+                color: Colors.md3.on_primary_container
             }
 
         }
@@ -41,7 +41,7 @@ Rectangle {
 
         height: parent.height
         width: parent.width * batteryRoot.ratio
-        color: colors.primary
+        color: Colors.md3.primary
         radius: parent.radius
         clip: true
 
@@ -57,7 +57,7 @@ Rectangle {
                     text: percentage + "%"
                     font.pixelSize: batteryRoot.fontSize
                     font.bold: true
-                    color: colors.on_primary
+                    color: Colors.md3.on_primary
                 }
 
             }

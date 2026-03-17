@@ -90,8 +90,8 @@ in {
     output_path = "~/.config/qt6ct/colors/matugen.conf"
 
     [templates.quickshell]
-    input_path = "${default.templateFolder}/quickshell.qml"
-    output_path = "~/.config/quickshell/Colors.qml"
+    input_path = "${default.templateFolder}/quickshell.json"
+    output_path = "~/.local/state/quickshell/generated/colors.json"
 
     [templates.firefox-website-colors]
     input_path = "${default.templateFolder}/firefox-colors.css"

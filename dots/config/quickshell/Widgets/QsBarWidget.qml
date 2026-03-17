@@ -63,7 +63,7 @@ Item {
             //     radius: qsRect.radius
             //     blur: 40
             //     spread: 0
-            //     color: colors.shadow
+            //     color: Colors.md3.shadow
             // }
 
             id: container
@@ -77,10 +77,10 @@ Item {
 
                 id: qsRect
 
-                // border.color: colors.outline_variant
+                // border.color: Colors.md3.outline_variant
                 // border.width: 1
                 anchors.fill: parent
-                color: colors.surface_container
+                color: Colors.md3.surface_container
                 radius: 60
             }
 
@@ -93,14 +93,14 @@ Item {
                 RowLayout {
                     Text {
                         text: "󰁿"
-                        color: colors.on_surface
+                        color: Colors.md3.on_surface
                         font.bold: true
                         font.pixelSize: qsRoot.iconFontSize
                     }
 
                     Text {
                         text: BatteryService.percentage + "%"
-                        color: colors.on_surface
+                        color: Colors.md3.on_surface
                         font.bold: true
                         font.pixelSize: qsRoot.fontSize
                     }
@@ -110,14 +110,14 @@ Item {
                 RowLayout {
                     Text {
                         text: PipewireService.mutedSource ? "󰍭" : "󰍬"
-                        color: colors.on_surface
+                        color: Colors.md3.on_surface
                         font.bold: true
                         font.pixelSize: qsRoot.iconFontSize
                     }
 
                     Text {
                         text: isShutterClosed ? "󰗟" : "󰄀"
-                        color: colors.on_surface
+                        color: Colors.md3.on_surface
                         font.bold: true
                         font.pixelSize: qsRoot.iconFontSize
                     }
@@ -127,14 +127,14 @@ Item {
                 RowLayout {
                     Text {
                         text: PipewireService.mutedSink ? "󰝟" : "󰕾"
-                        color: colors.on_surface
+                        color: Colors.md3.on_surface
                         font.bold: true
                         font.pixelSize: qsRoot.iconFontSize
                     }
 
                     Text {
                         text: PipewireService.volumeSink + "%"
-                        color: colors.on_surface
+                        color: Colors.md3.on_surface
                         font.bold: true
                         font.pixelSize: qsRoot.fontSize
                     }

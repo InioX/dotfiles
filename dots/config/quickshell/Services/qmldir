@@ -5,3 +5,4 @@ singleton HyprlandService 1.0 HyprlandService.qml
 singleton PipewireService 1.0 PipewireService.qml
 singleton BatteryService 1.0 BatteryService.qml
 singleton AppSearch 1.0 AppSearch.qml
+singleton Colors 1.0 Colors.qml

@@ -49,7 +49,7 @@ Scope {
 
     property real borderWidth: 10
     property real cornerRadius: 25
-    property color borderColor: colors.surface
+    property color borderColor: Colors.md3.surface
 
     PanelWindow {
         id: topLeftCorner

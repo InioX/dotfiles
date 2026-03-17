@@ -40,7 +40,7 @@ Scope {
             Rectangle {
                 anchors.fill: parent
                 radius: height / 2
-                color: colors.surface_container
+                color: Colors.md3.surface_container
 
                 RowLayout {
                     spacing: 10
@@ -54,11 +54,11 @@ Scope {
                     Text {
                         font.pixelSize: 30
                         text: "󰕾"
-                        color: colors.on_surface
+                        color: Colors.md3.on_surface
                     }
 
                     Rectangle {
-                        color: colors.surface_container_highest
+                        color: Colors.md3.surface_container_highest
                         Layout.fillWidth: true
                         implicitHeight: 10
                         radius: 20
@@ -66,7 +66,7 @@ Scope {
                         Rectangle {
                             implicitWidth: parent.width * (Pipewire.defaultAudioSink.audio.volume ?? 0)
                             radius: parent.radius
-                            color: colors.primary
+                            color: Colors.md3.primary
 
                             anchors {
                                 left: parent.left

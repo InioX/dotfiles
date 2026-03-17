@@ -38,7 +38,7 @@ Rectangle {
                 width: Math.max(20, iconsRow.width + (isActive ? 45 : 30))
                 height: root.showWorkspaceNumber ? 50 : 45
                 radius: 20
-                color: isActive ? colors.secondary_container : colors.surface_container_highest
+                color: isActive ? Colors.md3.secondary_container : Colors.md3.surface_container_highest
 
                 Column {
                     anchors.centerIn: parent
@@ -54,7 +54,7 @@ Rectangle {
                             verticalAlignment: Text.AlignVCenter
                             visible: clients.length === 0
                             text: root.defaultEmptyWorkspaceIcon
-                            color: isActive ? colors.on_secondary_container : colors.outline_variant
+                            color: isActive ? Colors.md3.on_secondary_container : Colors.md3.outline_variant
                         }
 
                         Repeater {
@@ -63,7 +63,7 @@ Rectangle {
                             delegate: Text {
                                 verticalAlignment: Text.AlignVCenter
                                 font.pixelSize: 30
-                                color: isActive ? colors.on_secondary_container : colors.on_surface_variant
+                                color: isActive ? Colors.md3.on_secondary_container : Colors.md3.on_surface_variant
                                 text: root.textIconForClass(modelData.class)
                                 font.bold: isActive ? true : false
                             }
@@ -78,7 +78,7 @@ Rectangle {
                         text: wid
                         font.pixelSize: 12
                         font.bold: isActive ? true : false
-                        color: isActive ? colors.on_secondary_container : colors.on_surface_variant
+                        color: isActive ? Colors.md3.on_secondary_container : Colors.md3.on_surface_variant
                         verticalAlignment: Text.AlignVCenter
                     }
 

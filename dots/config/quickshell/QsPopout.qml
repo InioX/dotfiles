@@ -28,7 +28,7 @@ WlrLayershell {
         anchors.topMargin: 20
         anchors.rightMargin: 20
         anchors.fill: parent
-        color: colors.surface
+        color: Colors.md3.surface
         radius: 20
 
         ColumnLayout {
@@ -46,7 +46,7 @@ WlrLayershell {
 
                     Text {
                         text: "󰕾"
-                        color: colors.on_surface
+                        color: Colors.md3.on_surface
                         font.bold: true
                         font.pixelSize: 25
                     }
@@ -63,7 +63,7 @@ WlrLayershell {
 
                     Text {
                         text: "󰃠"
-                        color: colors.on_surface
+                        color: Colors.md3.on_surface
                         font.bold: true
                         font.pixelSize: 25
                     }
@@ -87,14 +87,14 @@ WlrLayershell {
                         anchors.verticalCenter: parent.verticalCenter
                         width: 220
                         height: 40
-                        color: colors.primary_container
+                        color: Colors.md3.primary_container
 
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.horizontalCenter: parent.horizontalCenter
                             verticalAlignment: Text.AlignVCenter
                             text: "HIIIIIII"
-                            color: colors.on_primary_container
+                            color: Colors.md3.on_primary_container
                         }
 
                     }
@@ -103,14 +103,14 @@ WlrLayershell {
                         anchors.verticalCenter: parent.verticalCenter
                         width: 220
                         height: 40
-                        color: colors.primary_container
+                        color: Colors.md3.primary_container
 
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.horizontalCenter: parent.horizontalCenter
                             verticalAlignment: Text.AlignVCenter
                             text: "HIIIIIII"
-                            color: colors.on_primary_container
+                            color: Colors.md3.on_primary_container
                         }
 
                     }
@@ -124,14 +124,14 @@ WlrLayershell {
                         anchors.verticalCenter: parent.verticalCenter
                         width: 220
                         height: 40
-                        color: colors.primary_container
+                        color: Colors.md3.primary_container
 
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.horizontalCenter: parent.horizontalCenter
                             verticalAlignment: Text.AlignVCenter
                             text: "HIIIIIII"
-                            color: colors.on_primary_container
+                            color: Colors.md3.on_primary_container
                         }
 
                     }
@@ -140,14 +140,14 @@ WlrLayershell {
                         anchors.verticalCenter: parent.verticalCenter
                         width: 220
                         height: 40
-                        color: colors.primary_container
+                        color: Colors.md3.primary_container
 
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.horizontalCenter: parent.horizontalCenter
                             verticalAlignment: Text.AlignVCenter
                             text: "HIIIIIII"
-                            color: colors.on_primary_container
+                            color: Colors.md3.on_primary_container
                         }
 
                     }

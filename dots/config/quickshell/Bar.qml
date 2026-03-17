@@ -17,7 +17,7 @@ Scope {
             required property var modelData
 
             // color: "transparent"
-            color: colors.surface_dim
+            color: Colors.md3.surface
             screen: modelData
             implicitHeight: root.panelHeight
 

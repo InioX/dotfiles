@@ -6,8 +6,8 @@ Rectangle {
 
     // property bool pulsing: root.launcherVisible
     property bool pulsing: false
-    property var primaryContainerFocusedBg: root.launcherVisible ? colors.primary : colors.primary_container
-    property var primaryContainerFocusedFg: root.launcherVisible ? colors.on_primary : colors.on_primary_container
+    property var primaryContainerFocusedBg: root.launcherVisible ? Colors.md3.primary : Colors.md3.primary_container
+    property var primaryContainerFocusedFg: root.launcherVisible ? Colors.md3.on_primary : Colors.md3.on_primary_container
     readonly property int size: Math.max(layout.width, layout.height)
 
     width: size

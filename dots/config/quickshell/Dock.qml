@@ -30,8 +30,8 @@ WlrLayershell {
 
         anchors.bottomMargin: 20
         anchors.fill: parent
-        color: colors.surface_container
-        border.color: colors.outline_variant
+        color: Colors.md3.surface_container
+        border.color: Colors.md3.outline_variant
         border.width: 1
         radius: 20
 
@@ -39,7 +39,7 @@ WlrLayershell {
             // WorkspaceWidget {
             // }
             // Text {
-            //     color: colors.outline_variant
+            //     color: Colors.md3.outline_variant
             //     text: "|"
             //     font.pixelSize: 25
             //     verticalAlignment: Text.AlignVCenter
@@ -66,7 +66,7 @@ WlrLayershell {
                     Rectangle {
                         width: imageIcon.width + 10
                         height: imageIcon.height + 10
-                        color: colors.primary_container
+                        color: Colors.md3.primary_container
                         radius: 20
 
                         IconImage {
@@ -84,7 +84,7 @@ WlrLayershell {
                                 source: imageIcon
                                 anchors.fill: imageIcon
                                 colorization: 1
-                                colorizationColor: colors.on_primary_container
+                                colorizationColor: Colors.md3.on_primary_container
                             }
 
                             MouseArea {
@@ -100,13 +100,13 @@ WlrLayershell {
 
                                     contentItem: Text {
                                         text: modelData.title || "Window"
-                                        color: colors.on_surface
+                                        color: Colors.md3.on_surface
                                         font.pixelSize: 12
                                     }
 
                                     background: Rectangle {
-                                        color: colors.surface
-                                        border.color: colors.primary
+                                        color: Colors.md3.surface
+                                        border.color: Colors.md3.primary
                                         radius: 10
                                     }
 
@@ -122,7 +122,7 @@ WlrLayershell {
                         anchors.horizontalCenter: parent.horizontalCenter
                         verticalAlignment: Text.AlignVCenter
                         text: modelData.workspace.name
-                        color: colors.on_surface
+                        color: Colors.md3.on_surface
                         visible: launcher.showWorkspaceNumber
                         font.pixelSize: 12
                     }
@@ -132,7 +132,7 @@ WlrLayershell {
             }
 
             Text {
-                color: colors.outline_variant
+                color: Colors.md3.outline_variant
                 text: "|"
                 font.pixelSize: 25
                 verticalAlignment: Text.AlignVCenter
@@ -140,7 +140,7 @@ WlrLayershell {
             }
 
             Rectangle {
-                color: colors.surface_variant
+                color: Colors.md3.surface_variant
                 width: launcherIcon.width + 25
                 height: launcherIcon.height
                 radius: 20
@@ -150,7 +150,7 @@ WlrLayershell {
 
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    color: colors.on_surface
+                    color: Colors.md3.on_surface
                     text: "󰀻"
                     font.pixelSize: 40
                     verticalAlignment: Text.AlignVCenter
