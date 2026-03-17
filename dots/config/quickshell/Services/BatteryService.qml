@@ -10,7 +10,6 @@ Singleton {
     property var currentProfile: PowerProfiles.profile
     readonly property var state: UPower.displayDevice.state
     readonly property real value: UPower.displayDevice.percentage
-    property string timeUntilFull: formatTime(UPower.displayDevice.timeToFull)
     readonly property var colors: {
         // if (state === UPowerDeviceState.Charging || state === UPowerDeviceState.FullyCharged)
         //     return {

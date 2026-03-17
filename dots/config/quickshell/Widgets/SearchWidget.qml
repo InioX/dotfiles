@@ -57,7 +57,7 @@ RowLayout {
 
             Text {
                 verticalAlignment: Text.AlignVCenter
-                text: TimeService.time
+                text: WeatherService.data.temp
                 color: primaryContainer ? Colors.md3.on_primary_container : Colors.md3.on_surface_variant
                 font.bold: true
                 font.pixelSize: 14

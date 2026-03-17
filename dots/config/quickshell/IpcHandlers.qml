@@ -17,20 +17,20 @@ Item {
 
     function toggleLauncher(): void {
         root.dockVisible = true
-        launcherDelayTimer.running = true
+        // launcherDelayTimer.running = true
 
-        if (!root.dockOpenedManually && root.launcherOpenedOnce) {
-            root.dockVisible = false
-        }
+        // if (!root.dockOpenedManually && root.launcherOpenedOnce) {
+            // root.dockVisible = false
+        // }
 
-        root.launcherOpenedOnce =! root.launcherOpenedOnce
+        // root.launcherOpenedOnce =! root.launcherOpenedOnce
     }
 
     function toggleDock(): void {
-        if (!root.launcherVisible) {
-            dockOpenedManually = !root.dockOpenedManually
+        // if (!root.launcherVisible) {
+            // dockOpenedManually = !root.dockOpenedManually
             root.dockVisible = !root.dockVisible
-        }
+        // }
     }
 
     
