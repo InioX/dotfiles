@@ -7,7 +7,30 @@ pragma Singleton
 Singleton {
     id: root
 
-    property var device: UPower.displayDevice
-    property real ratio: device ? device.percentage : 0
-    property int percentage: Math.round(ratio * 100)
+    property var currentProfile: PowerProfiles.profile
+    readonly property var state: UPower.displayDevice.state
+    readonly property real value: UPower.displayDevice.percentage
+    property string timeUntilFull: formatTime(UPower.displayDevice.timeToFull)
+    readonly property var colors: {
+        // if (state === UPowerDeviceState.Charging || state === UPowerDeviceState.FullyCharged)
+        //     return {
+        //     "fg": "#46D47D",
+        //     "bg": "#285B39"
+        // };
+        // else if (value <= 0.2)
+        //     return {
+        //     "fg": "#f05454",
+        //     "bg": "#4D2F2F"
+        // };
+        // else
+        //     return {
+        //     "fg": Colors.md3.on_surface_container,
+        //     "bg": Colors.md3.surface_container_highest
+        // };
+
+        return {
+            "fg": "#46D47D",
+            "bg": "#285B39"
+        }
+    }
 }

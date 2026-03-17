@@ -14,7 +14,7 @@ Item {
     property int iconFontSize: 20
     property bool isShutterClosed: false
 
-    width: 210
+    width: 160
     height: layout.height + 20
 
     Process {
@@ -90,19 +90,84 @@ Item {
                 anchors.centerIn: parent
                 spacing: 10
 
-                RowLayout {
-                    Text {
-                        text: "󰁿"
-                        color: Colors.md3.on_surface
-                        font.bold: true
-                        font.pixelSize: qsRoot.iconFontSize
+                Row {
+                    id: root
+
+                    property real batWidth: 30
+                    property real batHeight: 16
+                    property real nubWidth: 3
+                    property real nubHeight: 6
+                    property real radius: 6
+
+                    spacing: 1
+
+                    Rectangle {
+                        id: track
+
+                        width: root.batWidth
+                        height: root.batHeight
+                        radius: root.radius
+                        color: BatteryService.colors.bg
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        Text {
+                            width: track.width
+                            height: track.height
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                            text: Math.round(BatteryService.value * 100)
+                            color: BatteryService.colors.fg
+                            font.weight: 800
+                            font.pointSize: 8
+                        }
+
+                        Item {
+                            width: parent.width * BatteryService.value
+                            clip: true
+
+                            anchors {
+                                top: parent.top
+                                bottom: parent.bottom
+                                left: parent.left
+                            }
+
+                            Rectangle {
+                                id: fill
+
+                                width: track.width
+                                height: track.height
+                                radius: track.radius
+                                color: BatteryService.colors.fg
+
+                                Text {
+                                    id: batteryLabel
+
+                                    width: track.width
+                                    height: track.height
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+                                    text: Math.round(BatteryService.value * 100)
+                                    color: BatteryService.colors.bg
+                                    font.weight: 800
+                                    font.pointSize: 8
+                                    clip: true
+                                }
+
+                            }
+
+                        }
+
                     }
 
-                    Text {
-                        text: BatteryService.percentage + "%"
-                        color: Colors.md3.on_surface
-                        font.bold: true
-                        font.pixelSize: qsRoot.fontSize
+                    Rectangle {
+                        id: nub
+
+                        width: root.nubWidth
+                        height: root.nubHeight
+                        color: BatteryService.value < 0.99 ? track.color : fill.color
+                        topRightRadius: 20
+                        bottomRightRadius: 20
+                        anchors.verticalCenter: parent.verticalCenter
                     }
 
                 }
@@ -126,17 +191,10 @@ Item {
 
                 RowLayout {
                     Text {
-                        text: PipewireService.mutedSink ? "󰝟" : "󰕾"
+                        text: PipewireService.icon
                         color: Colors.md3.on_surface
                         font.bold: true
                         font.pixelSize: qsRoot.iconFontSize
-                    }
-
-                    Text {
-                        text: PipewireService.volumeSink + "%"
-                        color: Colors.md3.on_surface
-                        font.bold: true
-                        font.pixelSize: qsRoot.fontSize
                     }
 
                 }

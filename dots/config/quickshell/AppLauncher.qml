@@ -8,7 +8,6 @@ import Quickshell.Widgets
 import Quickshell.Wayland
 import Quickshell.Io
 import "./Services"
-import "./Colors.qml"
 
 WlrLayershell {
     id: launcher

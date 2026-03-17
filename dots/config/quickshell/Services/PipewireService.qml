@@ -14,6 +14,19 @@ Singleton {
     readonly property int volumeSource: source?.audio ? (source.audio.volume * 100) : 0
     readonly property int volumeSink: sink?.audio ? (sink.audio.volume * 100) : 0
 
+    property string icon: {
+        if (mutedSink || volumeSink === 0)
+            return "󰝟";
+
+        if (volumeSink < 0.33)
+            return "󰕿";
+
+        if (volumeSink < 0.66)
+            return "󰖀";
+
+        return "󰕾";
+    }
+
     PwObjectTracker {
         objects: [Pipewire.defaultAudioSink, Pipewire.defaultAudioSource]
     }   
