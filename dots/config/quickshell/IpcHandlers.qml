@@ -16,7 +16,7 @@ Item {
     target: "root"
 
     function toggleLauncher(): void {
-        root.dockVisible = true
+        root.launcherVisible = !root.launcherVisible
         // launcherDelayTimer.running = true
 
         // if (!root.dockOpenedManually && root.launcherOpenedOnce) {
@@ -27,9 +27,9 @@ Item {
     }
 
     function toggleDock(): void {
+        root.dockVisible = !root.dockVisible
         // if (!root.launcherVisible) {
             // dockOpenedManually = !root.dockOpenedManually
-            root.dockVisible = !root.dockVisible
         // }
     }
 

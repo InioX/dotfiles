@@ -5,6 +5,9 @@ import QtQuick.Layouts
 import Quickshell
 
 ShellRoot {
+    // RoundBorder {
+    // }
+
     id: root
 
     property int panelHeight: 70
@@ -76,8 +79,5 @@ ShellRoot {
 
     Bar {
     }
-
-    // RoundBorder {
-    // }
 
 }
