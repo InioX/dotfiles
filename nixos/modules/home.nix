@@ -156,6 +156,11 @@ in {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.desktopEntryFolder}/org.vinegarhq.Sober.desktop";
                 recursive = true;
               };
+
+              ".local/share/easyeffects" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.localFolder}/share/easyeffects";
+                recursive = true;
+              };
             };
 
             # Setup basic directories

@@ -7,7 +7,7 @@ mostUsedPresets=noise
 plugins=filter#0,rnnoise#0,compressor#0,autogain#0
 usedPresets=noise:9
 visiblePage=pluginsPage
-visiblePlugin=filter#0
+visiblePlugin=rnnoise#0
 
 [StreamOutputs]
 outputDevice=alsa_output.usb-0c76_GH510_PRO-00.analog-stereo
