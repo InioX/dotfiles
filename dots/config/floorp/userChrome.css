@@ -282,7 +282,7 @@
 }
 
 /*  Urlbar popup thing  */
-.urlbarView-row {
+/* .urlbarView-row {
   display: none !important
 }
 
@@ -293,7 +293,7 @@
 
 #urlbar-anon-search-settings {
   margin-inline-start: 0px !important
-}
+} */
 
 /*  Makes the space between the reload button and the urlbar less akwardly large  */
 #urlbar-container {
