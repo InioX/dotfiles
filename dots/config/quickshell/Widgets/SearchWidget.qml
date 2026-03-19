@@ -11,7 +11,7 @@ RowLayout {
     property var powerContainerBg: root.powerMenuVisible ? Colors.md3.secondary : (powerMouseArea.containsMouse ? root.secondaryTonalButtonHoverColor : Colors.md3.secondary_container)
     property var powerContainerFg: root.powerMenuVisible ? Colors.md3.on_secondary : Colors.md3.on_secondary_container
 
-    spacing: 4
+    spacing: 3
 
     Rectangle {
         width: 200

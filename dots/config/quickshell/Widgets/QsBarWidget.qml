@@ -17,8 +17,8 @@ Item {
     property var containerBg: mouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface_container
     property var containerFg: Colors.md3.on_surface
 
-    width: 160
-    height: layout.height + 20
+    implicitWidth: container.width
+    height: 40
 
     Process {
         id: camCheck
@@ -65,15 +65,16 @@ Item {
         Item {
             id: container
 
-            width: qsRow.width + 30
-            height: qsRow.height + 20
+            width: qsRow.width + 25
+            height: 40
 
             Rectangle {
                 id: qsRect
 
                 anchors.fill: parent
                 color: containerBg
-                radius: 60
+                topRightRadius: 60
+                bottomRightRadius: 60
             }
 
             RowLayout {
