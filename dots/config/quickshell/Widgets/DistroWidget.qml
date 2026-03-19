@@ -6,7 +6,7 @@ Rectangle {
 
     // property bool pulsing: root.launcherVisible
     property bool pulsing: false
-    property var primaryContainerFocusedBg: root.launcherVisible ? Colors.md3.primary : Colors.md3.primary_container
+    property var primaryContainerFocusedBg: root.launcherVisible ? Colors.md3.primary : ((mouseArea.containsMouse ? root.primaryTonalButtonHoverColor : Colors.md3.primary_container))
     property var primaryContainerFocusedFg: root.launcherVisible ? Colors.md3.on_primary : Colors.md3.on_primary_container
     readonly property int size: Math.max(layout.width, layout.height)
 
@@ -55,10 +55,14 @@ Rectangle {
     }
 
     MouseArea {
+        id: mouseArea
+
         anchors.fill: parent
         onClicked: {
             root.launcherVisible = !root.launcherVisible;
         }
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
     }
 
 }

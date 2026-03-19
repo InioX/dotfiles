@@ -10,9 +10,12 @@ import Quickshell.Services.UPower
 Item {
     id: qsRoot
 
+    property bool hovered: false
     property int fontSize: 14
     property int iconFontSize: 20
     property bool isShutterClosed: false
+    property var containerBg: mouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface_container
+    property var containerFg: Colors.md3.on_surface
 
     width: 160
     height: layout.height + 20
@@ -44,10 +47,14 @@ Item {
     }
 
     MouseArea {
+        id: mouseArea
+
         anchors.fill: parent
         onClicked: {
             root.qsMenuVisible = !root.qsMenuVisible;
         }
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
     }
 
     Row {
@@ -56,31 +63,16 @@ Item {
         anchors.centerIn: parent
 
         Item {
-            // RectangularShadow {
-            //     id: shadow
-            //     anchors.fill: qsRect
-            //     height: qsRect.height
-            //     radius: qsRect.radius
-            //     blur: 40
-            //     spread: 0
-            //     color: Colors.md3.shadow
-            // }
-
             id: container
 
             width: qsRow.width + 30
             height: qsRow.height + 20
 
             Rectangle {
-                // border.width: root.borderEnabled ? root.borderWidth : 0
-                // border.color: root.borderColor
-
                 id: qsRect
 
-                // border.color: Colors.md3.outline_variant
-                // border.width: 1
                 anchors.fill: parent
-                color: Colors.md3.surface_container
+                color: containerBg
                 radius: 60
             }
 
@@ -175,14 +167,14 @@ Item {
                 RowLayout {
                     Text {
                         text: PipewireService.mutedSource ? "󰍭" : "󰍬"
-                        color: Colors.md3.on_surface
+                        color: containerFg
                         font.bold: true
                         font.pixelSize: qsRoot.iconFontSize
                     }
 
                     Text {
                         text: isShutterClosed ? "󰗟" : "󰄀"
-                        color: Colors.md3.on_surface
+                        color: containerFg
                         font.bold: true
                         font.pixelSize: qsRoot.iconFontSize
                     }
@@ -192,7 +184,7 @@ Item {
                 RowLayout {
                     Text {
                         text: PipewireService.icon
-                        color: Colors.md3.on_surface
+                        color: containerFg
                         font.bold: true
                         font.pixelSize: qsRoot.iconFontSize
                     }

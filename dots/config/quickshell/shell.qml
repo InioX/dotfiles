@@ -38,6 +38,8 @@ ShellRoot {
     property bool borderEnabled: false
     property int borderWidth: 1
     property var borderColor: Colors.md3.outline_variant
+    property var secondaryTonalButtonHoverColor: Colors.palette.secondary40
+    property var primaryTonalButtonHoverColor: Colors.palette.primary40
 
     function textIconForClass(cls) {
         return textIconMap[cls] || "";

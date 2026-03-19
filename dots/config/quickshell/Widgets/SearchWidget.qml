@@ -8,8 +8,8 @@ RowLayout {
     id: clockRoot
 
     property bool primaryContainer: true
-    property var primaryContainerFocusedBg: root.powerMenuVisible ? Colors.md3.primary : Colors.md3.primary_container
-    property var primaryContainerFocusedFg: root.powerMenuVisible ? Colors.md3.on_primary : Colors.md3.on_primary_container
+    property var powerContainerBg: root.powerMenuVisible ? Colors.md3.secondary : (powerMouseArea.containsMouse ? root.secondaryTonalButtonHoverColor : Colors.md3.secondary_container)
+    property var powerContainerFg: root.powerMenuVisible ? Colors.md3.on_secondary : Colors.md3.on_secondary_container
 
     spacing: 4
 
@@ -18,7 +18,15 @@ RowLayout {
         height: 40
         topLeftRadius: root.cornerRadius
         bottomLeftRadius: root.cornerRadius
-        color: primaryContainer ? Colors.md3.primary_container : Colors.md3.surface_variant
+        color: searchMouseArea.containsMouse ? root.secondaryTonalButtonHoverColor : Colors.md3.secondary_container
+
+        MouseArea {
+            id: searchMouseArea
+
+            anchors.fill: parent
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
+        }
 
         RowLayout {
             anchors.leftMargin: 5
@@ -44,7 +52,7 @@ RowLayout {
             Text {
                 verticalAlignment: Text.AlignVCenter
                 text: "Search..."
-                color: primaryContainer ? Colors.md3.on_primary_container : Colors.md3.on_surface_variant
+                color: primaryContainer ? Colors.md3.on_secondary_container : Colors.md3.on_surface_variant
                 font.pixelSize: 14
             }
 
@@ -58,7 +66,7 @@ RowLayout {
             Text {
                 verticalAlignment: Text.AlignVCenter
                 text: WeatherService.data.temp
-                color: primaryContainer ? Colors.md3.on_primary_container : Colors.md3.on_surface_variant
+                color: primaryContainer ? Colors.md3.on_secondary_container : Colors.md3.on_surface_variant
                 font.bold: true
                 font.pixelSize: 14
             }
@@ -72,22 +80,26 @@ RowLayout {
         height: 40
         topRightRadius: root.cornerRadius
         bottomRightRadius: root.cornerRadius
-        color: primaryContainer ? primaryContainerFocusedBg : Colors.md3.surface_variant
+        color: powerContainerBg
 
         Text {
             anchors.centerIn: parent
             verticalAlignment: Text.AlignVCenter
             text: "󰐥 "
-            color: primaryContainer ? primaryContainerFocusedFg : Colors.md3.on_surface_variant
+            color: powerContainerFg
             font.bold: true
             font.pixelSize: 24
         }
 
         MouseArea {
+            id: powerMouseArea
+
             anchors.fill: parent
             onClicked: {
                 root.powerMenuVisible = !root.powerMenuVisible;
             }
+            hoverEnabled: true
+            cursorShape: Qt.PointingHandCursor
         }
 
     }
