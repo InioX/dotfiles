@@ -29,24 +29,29 @@ RowLayout {
         }
 
         RowLayout {
-            anchors.leftMargin: 5
+            // ClippingRectangle {
+            //     width: 30
+            //     height: 30
+            //     radius: width / 2
+            //     color: "transparent"
+            //     Image {
+            //         id: profileIcon
+            //         source: "file://" + Quickshell.env("HOME") + "/pics/icon.jpg"
+            //         anchors.fill: parent
+            //         fillMode: Image.PreserveAspectCrop
+            //     }
+            // }
+
+            anchors.leftMargin: 10
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
 
-            ClippingRectangle {
-                width: 30
-                height: 30
-                radius: width / 2
-                color: "transparent"
-
-                Image {
-                    id: profileIcon
-
-                    source: "file://" + Quickshell.env("HOME") + "/pics/icon.jpg"
-                    anchors.fill: parent
-                    fillMode: Image.PreserveAspectCrop
-                }
-
+            Text {
+                verticalAlignment: Text.AlignVCenter
+                text: "󰍉"
+                color: primaryContainer ? Colors.md3.on_secondary_container : Colors.md3.on_surface_variant
+                font.pixelSize: 24
+                font.bold: true
             }
 
             Text {
@@ -65,7 +70,7 @@ RowLayout {
 
             Text {
                 verticalAlignment: Text.AlignVCenter
-                text: WeatherService.data.temp
+                text: WeatherService.data.tempFeelsLike
                 color: primaryContainer ? Colors.md3.on_secondary_container : Colors.md3.on_surface_variant
                 font.bold: true
                 font.pixelSize: 14
