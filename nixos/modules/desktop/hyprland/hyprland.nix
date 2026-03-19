@@ -39,6 +39,7 @@ in {
     environment.systemPackages = with pkgs; [
       wl-clipboard
       wl-clip-persist
+      cliphist
       # grim
       # slurp
       playerctl
@@ -97,6 +98,10 @@ in {
     zenyte.cli = {
       neofetch = enabled;
       starship = enabled;
+    };
+
+    zenyte.services = {
+      flatpak = enabled;
     };
 
     # zenyte.home.configFile."hypr".source = default.configFolder + /hypr;

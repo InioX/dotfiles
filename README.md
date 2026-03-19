@@ -77,12 +77,8 @@ curl -L https://github.com/lassekongo83/adw-gtk3/releases/download/v6.4/adw-gtk3
 > [!TIP]
 > After you are done installing and you want to make any changes to the dotfiles, make sure you clone the repository into `~/dev/dotfiles`
 
-Install flatpaks:
+Configure flatpaks:
 ```
-flatpak install flathub org.vinegarhq.Sober
-flatpak install org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
-flatpak install flathub org.upscayl.Upscayl
-
 sudo flatpak override --filesystem=xdg-data/themes
 sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3
 sudo flatpak mask org.gtk.Gtk3theme.adw-gtk3-dark

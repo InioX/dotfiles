@@ -54,6 +54,7 @@
               ];
             }
             inputs.matugen.nixosModules.default
+            nix-flatpak.nixosModules.nix-flatpak
           ];
           # Pass the variables to other modules
           specialArgs = {
@@ -99,6 +100,11 @@
   };
 
   inputs = {
+    # Nix flatpak
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak";
+    };
+
     # CachyOS kernel
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel/release";
