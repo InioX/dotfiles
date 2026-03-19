@@ -84,7 +84,7 @@ Item {
                 spacing: 10
 
                 Row {
-                    id: root
+                    id: batteryRoot
 
                     property real batWidth: 30
                     property real batHeight: 16
@@ -97,9 +97,9 @@ Item {
                     Rectangle {
                         id: track
 
-                        width: root.batWidth
-                        height: root.batHeight
-                        radius: root.radius
+                        width: batteryRoot.batWidth
+                        height: batteryRoot.batHeight
+                        radius: batteryRoot.radius
                         color: BatteryService.colors.bg
                         anchors.verticalCenter: parent.verticalCenter
 
@@ -155,8 +155,8 @@ Item {
                     Rectangle {
                         id: nub
 
-                        width: root.nubWidth
-                        height: root.nubHeight
+                        width: batteryRoot.nubWidth
+                        height: batteryRoot.nubHeight
                         color: BatteryService.value < 0.99 ? track.color : fill.color
                         topRightRadius: 20
                         bottomRightRadius: 20
