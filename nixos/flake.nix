@@ -130,6 +130,7 @@
     # Prism Launcher
     prism-launcher = {
       url = "github:Diegiwg/PrismLauncher-Cracked";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Nixpkgs

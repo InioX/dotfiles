@@ -22,7 +22,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = [
-      inputs.prism-launcher.packages.${system}.default
+      inputs.prism-launcher.packages.${default.system}.default
     ];
   };
 }

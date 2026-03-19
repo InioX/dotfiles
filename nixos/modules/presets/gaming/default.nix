@@ -33,5 +33,9 @@ in {
       steam = enabled;
       lutris = enabled;
     };
+
+    zenyte.apps = {
+      prism-launcher = enabled;
+    };
   };
 }
