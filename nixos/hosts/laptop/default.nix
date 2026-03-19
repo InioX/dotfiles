@@ -41,6 +41,10 @@ with lib.zenyte; {
     gaming = enabled;
   };
 
+  zenyte.apps = {
+    motrix = enabled;
+  };
+
   zenyte.system.locale.timeZone = "Europe/Prague";
   zenyte.system.defaultShell = pkgs.zsh;
 
