@@ -47,9 +47,10 @@ Rectangle {
         id: mouseArea
 
         anchors.fill: parent
-        // onClicked: {
-        //     root.qsMenuVisible = !root.qsMenuVisible;
-        // }
+        onClicked: {
+            closeAllPopouts("clipboard");
+            root.clipboardMenuVisible = !root.clipboardMenuVisible;
+        }
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
     }

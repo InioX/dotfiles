@@ -35,6 +35,8 @@ ShellRoot {
     property bool dockOpenedManually: false
     property bool launcherOpenedOnce: false
     property bool qsMenuVisible: false
+    property bool clipboardMenuVisible: false
+    property bool inputMenuVisible: false
     property bool borderEnabled: false
     property int borderWidth: 1
     property var borderColor: Colors.md3.outline_variant
@@ -45,6 +47,18 @@ ShellRoot {
         return textIconMap[cls] || "";
     }
 
+    function closeAllPopouts(current) {
+        if (current != "qs")
+            root.qsMenuVisible = false;
+
+        if (current != "clipboard")
+            root.clipboardMenuVisible = false;
+
+        if (current != "input")
+            root.inputMenuVisible = false;
+
+    }
+
     IpcHandlers {
     }
 
@@ -52,6 +66,22 @@ ShellRoot {
         active: root.qsMenuVisible
 
         sourceComponent: QsPopout {
+        }
+
+    }
+
+    Loader {
+        active: root.clipboardMenuVisible
+
+        sourceComponent: ClipboardPopout {
+        }
+
+    }
+
+    Loader {
+        active: root.inputMenuVisible
+
+        sourceComponent: InputMethodPopout {
         }
 
     }

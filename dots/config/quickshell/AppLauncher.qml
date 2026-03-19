@@ -127,7 +127,7 @@ WlrLayershell {
                 highlightMoveDuration: 80
                 highlight: Rectangle {
                     radius: root.cornerRadius
-                    color: Colors.md3.primary_container
+                    color: Colors.md3.surface_container_high
                 }
 
                 delegate: Item {
@@ -207,7 +207,7 @@ WlrLayershell {
                         Column {
                             Text {
                                 id: labelName
-                                color: list.currentIndex === index ? Colors.md3.on_primary_container : Colors.md3.on_surface
+                                color: list.currentIndex === index ? Colors.md3.on_surface : Colors.md3.on_surface
                                 text: modelData.name
                                 font.pointSize: 15
                                 font.bold: true
@@ -217,7 +217,7 @@ WlrLayershell {
 
                             Text {
                                 id: labelDesc
-                                color: list.currentIndex === index ? Colors.md3.on_primary_container : Colors.md3.outline
+                                color: list.currentIndex === index ? Colors.md3.on_surface : Colors.md3.outline
                                 text: modelData.comment || "No description provided."
                                 font.pointSize: 8
                                 font.bold: true

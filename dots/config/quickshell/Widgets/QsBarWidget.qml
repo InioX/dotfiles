@@ -51,6 +51,7 @@ Item {
 
         anchors.fill: parent
         onClicked: {
+            closeAllPopouts("qs");
             root.qsMenuVisible = !root.qsMenuVisible;
         }
         hoverEnabled: true

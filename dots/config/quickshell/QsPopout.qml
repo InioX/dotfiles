@@ -3,6 +3,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.LocalStorage
+import QtQuick.Shapes
 import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
@@ -25,11 +26,9 @@ WlrLayershell {
     Rectangle {
         id: background
 
-        anchors.topMargin: 20
-        anchors.rightMargin: 20
         anchors.fill: parent
         color: Colors.md3.surface
-        radius: 20
+        bottomLeftRadius: 20
 
         ColumnLayout {
             id: layout
