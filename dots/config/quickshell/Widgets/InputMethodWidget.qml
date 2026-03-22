@@ -17,14 +17,19 @@ Rectangle {
     property var containerBg: mouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface_container
     property var containerFg: Colors.md3.on_surface
 
-    width: 70
+    implicitWidth: row.width + 20
     height: 40
     color: containerBg
 
-    RowLayout {
+    Row {
+        id: row
+
+        spacing: 5
         anchors.centerIn: parent
 
         Text {
+            id: icon
+
             verticalAlignment: Text.AlignVCenter
             text: "󰌌"
             color: containerFg
@@ -33,24 +38,15 @@ Rectangle {
         }
 
         Text {
+            id: label
+
             verticalAlignment: Text.AlignVCenter
-            text: "EN"
+            text: HyprlandInput.currentLayoutName
             color: containerFg
             font.bold: true
             font.pixelSize: root.fontSize
         }
 
-    }
-
-    MouseArea {
-        id: powerMouseArea
-
-        anchors.fill: parent
-        onClicked: {
-            root.powerMenuVisible = !root.powerMenuVisible;
-        }
-        hoverEnabled: true
-        cursorShape: Qt.PointingHandCursor
     }
 
     MouseArea {

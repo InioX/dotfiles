@@ -7,3 +7,4 @@ singleton BatteryService 1.0 BatteryService.qml
 singleton AppSearch 1.0 AppSearch.qml
 singleton WeatherService 1.0 WeatherService.qml
 singleton Colors 1.0 Colors.qml
+singleton HyprlandInput 1.0 HyprlandInput.qml
