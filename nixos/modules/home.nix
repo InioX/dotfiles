@@ -157,9 +157,28 @@ in {
                 recursive = true;
               };
 
+              # Easy effects
               ".local/share/easyeffects" = {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.localFolder}/share/easyeffects";
                 recursive = true;
+              };
+
+              # Lutris
+              ".local/share/lutris/games" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.localFolder}/share/lutris/games";
+                recursive = true;
+              };
+
+              ".local/share/lutris/system.yml" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.localFolder}/share/lutris/system.yml";
+              };
+
+              ".local/share/lutris/lutris.conf" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.localFolder}/share/lutris/lutris.conf";
+              };
+
+              ".local/share/lutris/runners/wine.yml" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.localFolder}/share/lutris/runners/wine.yml";
               };
             };
 

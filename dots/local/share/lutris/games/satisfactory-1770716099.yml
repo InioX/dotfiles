@@ -1,0 +1,7 @@
+game:
+  exe: /mnt/games/Games/Satisfactory/FactoryGameSteam.exe
+  prefix: /home/ini/games/prefixes/satisfactory
+wine:
+  battleye: true
+  eac: true
+  version: Proton 10.0

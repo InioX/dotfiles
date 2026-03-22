@@ -1,0 +1,8 @@
+game:
+  exe: /mnt/games/Games/Elden_Ring/ELDEN RING v1.16.1 RexaGames.com/eldenring.exe
+system:
+  gamescope: false
+wine:
+  battleye: false
+  eac: false
+  version: proton-cachyos-10.0-20260207-slr-x86_64_v3

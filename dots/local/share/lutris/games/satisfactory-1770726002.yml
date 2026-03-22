@@ -1,0 +1,12 @@
+game:
+  args: -nosplash
+  exe: /mnt/games/Games/Satisfactory/FactoryGameSteam.exe
+  prefix: /home/ini/games/prefixes/satisfactory
+system:
+  gamescope: false
+  gamescope_fps_limiter: ''
+  mangohud: false
+wine:
+  battleye: false
+  eac: false
+  version: proton-cachyos-10.0-20260207-slr-x86_64_v3

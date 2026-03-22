@@ -1,0 +1,7 @@
+game:
+  exe: /mnt/games/Games/rdr2/Red Dead Redemption 2 v1491.50 RexaGames.com/Launcher.exe
+system:
+  gamescope: false
+  pulse_latency: true
+wine:
+  version: proton-cachyos-10.0-20260228-slr-x86_64_v3

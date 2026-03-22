@@ -1,0 +1,8 @@
+system:
+  gamescope: true
+  gamescope_fps_limiter: '144'
+  mangohud: false
+wine:
+  battleye: true
+  eac: true
+  version: Proton 10.0
