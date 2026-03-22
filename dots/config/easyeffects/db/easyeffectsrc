@@ -4,10 +4,10 @@ lastLoadedInputPreset=noise
 [StreamInputs]
 inputDevice=alsa_input.pci-0000_06_00.6.analog-stereo
 mostUsedPresets=noise
-plugins=filter#0,rnnoise#0,compressor#0,autogain#0
+plugins=filter#0,rnnoise#0,compressor#0,autogain#0,deepfilternet#0
 usedPresets=noise:9
 visiblePage=pluginsPage
-visiblePlugin=rnnoise#0
+visiblePlugin=deepfilternet#0
 
 [StreamOutputs]
 outputDevice=alsa_output.usb-0c76_GH510_PRO-00.analog-stereo
