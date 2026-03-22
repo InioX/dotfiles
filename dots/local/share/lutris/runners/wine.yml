@@ -2,6 +2,12 @@ system:
   gamescope: true
   gamescope_fps_limiter: '144'
   mangohud: false
+  env:
+    PROTON_DLSS_UPGRADE: '1'
+    PROTON_ENABLE_NVAPI: '1'
+    PROTON_ENABLE_WAYLAND: '1'
+    PROTON_NVIDIA_LIBS_NO_32BIT: '1'
+    PROTON_USE_NTSYNC: '1'
 wine:
   battleye: true
   eac: true

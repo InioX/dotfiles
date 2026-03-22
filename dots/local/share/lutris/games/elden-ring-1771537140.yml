@@ -1,5 +1,6 @@
 game:
   exe: /mnt/games/Games/Elden_Ring/ELDEN RING v1.16.1 RexaGames.com/eldenring.exe
+  prefix: /home/ini/games/prefixes/elden_ring
 system:
   gamescope: false
 wine:

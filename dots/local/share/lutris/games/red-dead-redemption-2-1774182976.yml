@@ -1,7 +1,15 @@
 game:
   exe: /mnt/games/Games/rdr2/Red Dead Redemption 2 v1491.50 RexaGames.com/Launcher.exe
+  prefix: /home/ini/games/umu/umu-default/
 system:
+  env:
+    PROTON_DLSS_UPGRADE: '1'
+    PROTON_ENABLE_NVAPI: '1'
+    PROTON_ENABLE_WAYLAND: '1'
+    PROTON_NVIDIA_LIBS_NO_32BIT: '1'
+    PROTON_USE_NTSYNC: '1'
   gamescope: false
   pulse_latency: true
 wine:
+  Graphics: auto
   version: proton-cachyos-10.0-20260228-slr-x86_64_v3
