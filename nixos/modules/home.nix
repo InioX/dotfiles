@@ -140,7 +140,7 @@ in {
               ".zshrc.local".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/zsh/.zshrc";
 
               # Firefox
-              ".floorp/ini/chrome/" = {
+              ".mozilla/firefox/ini/chrome/" = {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/floorp/";
                 recursive = true;
               };

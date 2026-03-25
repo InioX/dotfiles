@@ -95,7 +95,7 @@ in {
 
     [templates.firefox-website-colors]
     input_path = "${default.templateFolder}/firefox-colors.css"
-    output_path = "~/.floorp/ini/chrome/colors.css"
+    output_path = "~/.firefox/ini/chrome/colors.css"
   '';
 
   system.activationScripts.run-matugen-once = ''

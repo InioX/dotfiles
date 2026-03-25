@@ -19,9 +19,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # ! After installing the browser, install the p-stream extension manually by downloading the xpi from:
-    # ! https://github.com/p-stream/extension/releases/download/1.3.5/firefox-mv3-prod.xpi
-
     environment.systemPackages = with pkgs; [
       pywalfox-native
     ];
@@ -62,16 +59,9 @@ in {
     #   '';
     # };
 
-    zenyte.home.extraOptions.programs.floorp = {
+    zenyte.home.extraOptions.programs.firefox = {
       enable = true;
-      package = pkgs.wrapFirefox pkgs.floorp-bin-unwrapped {
-        extraPrefsFiles = [
-          (pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/MrOtherGuy/fx-autoconfig/master/program/config.js";
-            sha256 = "1mx679fbc4d9x4bnqajqx5a95y1lfasvf90pbqkh9sm3ch945p40";
-          })
-        ];
-
+      package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
         extraPolicies = {
           CaptivePortal = false;
           DisableFirefoxStudies = true;
@@ -83,8 +73,8 @@ in {
           OfferToSaveLoginsDefault = false;
           PasswordManagerEnabled = false;
           Preferences = {
-            "general.config.sandbox_enabled" = false;
-            "xpinstall.signatures.required" = false;
+            # "general.config.sandbox_enabled" = false;
+            # "xpinstall.signatures.required" = false;
           };
           FirefoxHome = {
             Search = true;
