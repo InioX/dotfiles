@@ -1,0 +1,10 @@
+game:
+  exe: /mnt/games/Games/tlou1/launcher.exe
+  prefix: /home/ini/games/umu/umu-default
+system:
+  gamemode: true
+  gamescope: false
+wine:
+  battleye: true
+  eac: true
+  version: proton-cachyos-10.0-20260228-slr-x86_64_v3
