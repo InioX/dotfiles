@@ -43,6 +43,7 @@ with lib.zenyte; {
 
   zenyte.apps = {
     motrix = enabled;
+    libreoffice = enabled;
   };
 
   zenyte.system.locale.timeZone = "Europe/Prague";
