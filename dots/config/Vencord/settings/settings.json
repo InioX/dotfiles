@@ -301,9 +301,6 @@
             "ignoreChannels": "",
             "ignoreGuilds": ""
         },
-        "MessageTags": {
-            "enabled": false
-        },
         "MutualGroupDMs": {
             "enabled": false
         },
@@ -621,6 +618,9 @@
         },
         "NoDefaultHangStatus": {
             "enabled": false
+        },
+        "CustomCommands": {
+            "enabled": false
         }
     },
     "uiElements": {
@@ -637,6 +637,6 @@
         "authenticated": true,
         "url": "https://api.vencord.dev/",
         "settingsSync": true,
-        "settingsSyncVersion": 1773780505435
+        "settingsSyncVersion": 1774636974603
     }
 }
