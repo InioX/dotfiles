@@ -27,6 +27,7 @@ in {
       darkly
       darkly-qt5
 
+      kdePackages.breeze
       kdePackages.breeze-icons
       kdePackages.breeze-gtk
     ];
