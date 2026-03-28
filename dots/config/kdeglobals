@@ -1,2 +1,5 @@
 [UiSettings]
 ColorScheme=qt6ct
+
+[General]
+TerminalApplication=kitty
