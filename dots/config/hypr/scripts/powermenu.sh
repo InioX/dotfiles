@@ -4,15 +4,17 @@
 lock=" Lock"
 logout=" Logout"
 shutdown=" Shutdown"
-reboot=" Restart"
+reboot="󰜉 Restart"
+reboot_windows=" Windows 11"
 sleep=" Sleep"
  
 # Get answer from user via rofi
-selected_option=$(echo "$lock
-$logout
-$sleep
+selected_option=$(echo "$shutdown
 $reboot
-$shutdown" | rofi -dmenu\
+$reboot_windows
+$lock
+$logout
+$sleep" | rofi -dmenu\
                   -i\
                   -p "Power"\
 		  -theme "~/.config/rofi/menu.rasi")
@@ -29,6 +31,9 @@ then
 elif [ "$selected_option" == "$reboot" ]
 then
     systemctl reboot
+elif [ "$selected_option" == "$reboot_windows" ]
+then
+    systemctl reboot --boot-loader-entry=auto-windows
 elif [ "$selected_option" == "$sleep" ]
 then
     amixer set Master mute
