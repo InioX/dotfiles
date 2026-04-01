@@ -12,6 +12,8 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  hardware.enableRedistributableFirmware = true;
+
   services.xserver.videoDrivers = ["nvidia"];
 
   systemd.oomd.enable = true;
@@ -90,6 +92,7 @@
       "quiet"
       "udev.log_level=3"
       "systemd.show_status=auto"
+      "ntsync"
     ];
 
     plymouth = {
