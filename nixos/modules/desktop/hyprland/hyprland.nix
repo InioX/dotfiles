@@ -88,7 +88,8 @@ in {
       rofi = enabled;
       gtk = enabled;
       dunst = enabled;
-      dolphin = enabled;
+      # dolphin = enabled;
+      nautilus = enabled;
       ags = enabled;
       qt = enabled;
       quickshell = enabled;

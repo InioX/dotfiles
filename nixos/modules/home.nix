@@ -115,6 +115,14 @@ in {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-4.0/settings.ini";
                 force = true;
               };
+              "gtk-3.0/settings.ini" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-3.0/settings.ini";
+                force = true;
+              };
+              "gtk-3.0/bookmarks" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-3.0/bookmarks";
+                force = true;
+              };
 
               # Kitty
               "kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/kitty/kitty.conf";

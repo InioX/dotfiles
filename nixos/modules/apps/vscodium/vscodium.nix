@@ -32,6 +32,14 @@ in {
   };
 
   config = mkIf cfg.enable {
+    # Set as default editor
+    environment = {
+      variables = {
+        EDITOR = "code";
+        VISUAL = "code";
+      };
+    };
+
     # For live server extension
     networking.firewall.allowedTCPPorts = [5500];
 
