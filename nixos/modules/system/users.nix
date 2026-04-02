@@ -21,6 +21,7 @@ in {
         "power"
         "networkmanager"
         "nix"
+        "gamemode"
       ];
     };
   };
