@@ -28,11 +28,17 @@ in {
     programs.steam = {
       enable = true;
       protontricks.enable = true;
+      package = pkgs.steam.override {
+        extraPkgs = pkgs:
+          with pkgs; [
+            gamemode
+            mangohud
+          ];
+      };
       extraCompatPackages = with pkgs; [
         proton-ge-bin
         # protontricks
       ];
-      gamescopeSession.enable = true;
     };
   };
 }

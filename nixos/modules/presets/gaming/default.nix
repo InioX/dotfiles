@@ -27,7 +27,15 @@ in {
       capSysNice = true;
     };
 
-    programs.gamemode.enable = true;
+    programs.gamemode = {
+      enable = true;
+      settings = {
+        custom = {
+          start = "~/.config/hypr/scripts/performance_mode.sh";
+          end = "~/.config/hypr/scripts/balanced_mode.sh";
+        };
+      };
+    };
 
     zenyte.gaming = {
       steam = enabled;
