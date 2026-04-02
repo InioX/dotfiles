@@ -22,9 +22,18 @@ in {
         enable = true;
         wifi = {
           powersave = false;
-          backend = "iwd";
+          # backend = "iwd";
         };
       };
+
+      # wireless.iwd.settings = {
+      #   Network = {
+      #     EnableIPv6 = false;
+      #   };
+      #   Settings = {
+      #     AutoConnect = true;
+      #   };
+      # };
     };
 
     hardware.bluetooth.enable = cfg.bluetooth;
