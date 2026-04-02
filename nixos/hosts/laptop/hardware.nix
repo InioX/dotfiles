@@ -110,7 +110,7 @@
 
     kernelModules = [
       "kvm-amd"
-      "lenovo-legion-module"
+      # "lenovo-legion-module"
     ];
     extraModulePackages = [config.boot.kernelPackages.lenovo-legion-module];
 
