@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="https://github.com/InioX/dotfiles/assets/81521595/39e2e902-7eac-4186-a960-bb136d2c3448" height="300">
-  <br>
+  <!-- <img src="https://github.com/InioX/dotfiles/assets/81521595/39e2e902-7eac-4186-a960-bb136d2c3448" height="300"> -->
+  <!-- <br> -->
   <img src="https://github.com/InioX/dotfiles/assets/81521595/b72e5821-5209-4474-a551-c71395236587" height=60% width=60%>
 </div>
 
@@ -47,7 +47,7 @@ The Arch branch has an installer thats best used after a fresh install, though i
     <td><code>bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/arch/install.sh)</code></td>
   </tr>
   <tr>
-    <th><img src="https://camo.githubusercontent.com/33a99d1ffcc8b23014fd5f6dd6bfad0f8923d44d61bdd2aad05f010ed8d14cb4/68747470733a2f2f6e69786f732e6f72672f6c6f676f2f6e69786f732d6c6f676f2d6f6e6c792d68697265732e706e67" alt="logo" width=15> NixOS</th>
+    <th><img src="https://nixos.wiki/images/thumb/2/20/Home-nixos-logo.png/207px-Home-nixos-logo.png" alt="logo" width=15> NixOS</th>
     <td><code>bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/nixos/install.sh) &lthostname&gt</code></td>
   </tr>
  <tr>
