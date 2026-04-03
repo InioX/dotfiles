@@ -96,6 +96,11 @@ in {
     [templates.firefox-website-colors]
     input_path = "${default.templateFolder}/firefox-colors.css"
     output_path = "~/.mozilla/firefox/ini/chrome/colors.css"
+
+    [templates.steam]
+    input_path = '${default.templateFolder}/steam.css'
+    output_path = '~/.config/AdwSteamGtk/custom.css'
+    post_hook =  'adwaita-steam-gtk -i'
   '';
 
   system.activationScripts.run-matugen-once = ''

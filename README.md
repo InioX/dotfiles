@@ -89,6 +89,8 @@ Install HyprLuna
 code --install-extension HyprLuna.hyprluna-theme
 ```
 
+Open AdwSteamGtk →  Preferences →  Custom CSS, make sure Custom CSS is enabled!
+
 Install or update [hdrop](https://github.com/Schweber/hdrop) (already included in dotfiles)
 
 <h2 class="usage">

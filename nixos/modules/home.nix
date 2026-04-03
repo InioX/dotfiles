@@ -121,7 +121,6 @@ in {
               };
               "gtk-3.0/bookmarks" = {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-3.0/bookmarks";
-                force = true;
               };
 
               # Kitty

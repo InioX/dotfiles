@@ -25,6 +25,10 @@ in {
     # Dead by Daylight launch options:
     # ENABLE_GAMESCOPE_WSI=0 PROTON_NO_ESYNC=1 PROTON_NO_FSYNC=1 PROTON_NVIDIA_LIBS_NO_32BIT=1 DXVK_ASYNC=1 gamemoderun %command% -dx11
 
+    environment.systemPackages = with pkgs; [
+      adwsteamgtk
+    ];
+
     programs.steam = {
       enable = true;
       protontricks.enable = true;
