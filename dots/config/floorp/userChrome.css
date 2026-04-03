@@ -21,7 +21,7 @@
 /*  Custom background -- Also check userContent.css  */
 
 :root {
-  --tab-border-radius: 0px !important;
+  --tab-border-radius: 14px !important;
   /*  Tab border radius -- Changes the tabs rounding  */
   /*  Default: 3px  */
   --NavbarWidth: 50;
@@ -475,13 +475,13 @@ findbar .close-icon {
 
 /*  Customizes the customization page  */
 
-#urlbar:not([open]) {
+/* #urlbar:not([open]) {
   color: currentColor !important
 }
 
 #urlbar[open] {
   color: var(--toolbar-field-focus-color)
-}
+} */
 
 /*  Fixes the urlbar color on some themes  */
 
