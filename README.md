@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://nixos.org/logo/nixos-logo-only-hires.png" alt="logo" width=150>
+    <img src="C" alt="logo" width=150>
     <h1>NIXOS DOTFILES</h1>
 </div>
 
