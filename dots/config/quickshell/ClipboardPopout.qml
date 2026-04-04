@@ -30,7 +30,7 @@ WlrLayershell {
 
         anchors.fill: parent
         color: Colors.md3.surface
-        radius: 20
+        radius: 30
         border.color: Colors.md3.outline_variant
         border.width: 1
 

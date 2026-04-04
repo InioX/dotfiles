@@ -10,15 +10,33 @@ import Quickshell.Wayland
 import Quickshell.Widgets
 
 WlrLayershell {
+    // function getMaxBrightness() {
+    //     const cmd = "brightnessctl max";
+    //     getMaxBrightnessProcess.command = ["/bin/sh", "-c", cmd];
+    //     getMaxBrightnessProcess.running = true;
+    // }
+
     id: qsPopout
 
+    function setVolume(value) {
+        const cmd = "wpctl set-volume @DEFAULT_AUDIO_SINK@ " + value * 100 + "%";
+        setVolumeProcess.command = ["/bin/sh", "-c", cmd];
+        setVolumeProcess.running = true;
+    }
+
     layer: WlrLayer.Overlay
-    implicitWidth: 520
+    implicitWidth: 500
     implicitHeight: 320
     color: "transparent"
     exclusionMode: ExclusionMode.Normal
     margins.top: screen.height / 12
     margins.right: 10
+
+    Process {
+        id: setVolumeProcess
+
+        running: false
+    }
 
     anchors {
         top: true
@@ -30,7 +48,7 @@ WlrLayershell {
 
         anchors.fill: parent
         color: Colors.md3.surface
-        radius: 20
+        radius: 30
         border.color: Colors.md3.outline_variant
         border.width: 1
 
@@ -56,7 +74,8 @@ WlrLayershell {
 
                     Slider {
                         Layout.fillWidth: true
-                        value: PipewireService.volumeSink
+                        value: PipewireService.volumeSink / 100
+                        onMoved: setVolume(value)
                     }
 
                 }
