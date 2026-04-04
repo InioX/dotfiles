@@ -4,22 +4,27 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
+import Quickshell.Wayland
 
 Scope {
     id: barRoot
 
+    property int topMargin: 10
+
     Variants {
         model: Quickshell.screens
 
-        PanelWindow {
+        WlrLayershell {
             id: barWindow
 
             required property var modelData
 
             // color: "transparent"
-            color: Colors.md3.surface
             screen: modelData
-            implicitHeight: root.panelHeight
+            layer: WlrLayer.Overlay
+            implicitHeight: root.panelHeight + topMargin
+            exclusionMode: ExclusionMode.Normal
+            color: "transparent"
 
             anchors {
                 top: true
@@ -28,59 +33,72 @@ Scope {
                 bottom: false
             }
 
-            Item {
+            Rectangle {
+                anchors.topMargin: topMargin
+                anchors.leftMargin: topMargin
+                anchors.rightMargin: topMargin
+                radius: 20
+                border.color: Colors.md3.outline_variant
+                border.width: 1
+                implicitHeight: root.panelHeight
                 anchors.fill: parent
-                anchors.leftMargin: 10
-                anchors.rightMargin: 10
+                color: Colors.md3.surface
 
-                RowLayout {
-                    anchors.left: parent.left
-                    anchors.verticalCenter: parent.verticalCenter
-                    spacing: 10
-
-                    DistroWidget {
-                    }
-
-                    WindowTitleWidget {
-                    }
-
-                }
-
-                RowLayout {
-                    anchors.centerIn: parent
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    ClockWidget {
-                    }
-
-                }
-
-                RowLayout {
-                    // BatteryWidget {
-                    // }
-
-                    spacing: 10
-                    anchors.right: parent.right
-                    anchors.verticalCenter: parent.verticalCenter
+                Item {
+                    anchors.fill: parent
+                    anchors.leftMargin: 10
+                    anchors.rightMargin: 10
 
                     RowLayout {
-                        spacing: 3
-
-                        ClipboardWidget {
-                        }
-
-                        InputMethodWidget {
-                        }
-
-                        QsBarWidget {
-                        }
-
-                    }
-
-                    RowLayout {
+                        anchors.left: parent.left
+                        anchors.verticalCenter: parent.verticalCenter
                         spacing: 10
 
-                        SearchWidget {
+                        DistroWidget {
+                        }
+
+                        WindowTitleWidget {
+                        }
+
+                    }
+
+                    RowLayout {
+                        anchors.centerIn: parent
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        ClockWidget {
+                        }
+
+                    }
+
+                    RowLayout {
+                        // BatteryWidget {
+                        // }
+
+                        spacing: 10
+                        anchors.right: parent.right
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        RowLayout {
+                            spacing: 3
+
+                            ClipboardWidget {
+                            }
+
+                            InputMethodWidget {
+                            }
+
+                            QsBarWidget {
+                            }
+
+                        }
+
+                        RowLayout {
+                            spacing: 10
+
+                            SearchWidget {
+                            }
+
                         }
 
                     }

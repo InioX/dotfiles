@@ -40,7 +40,7 @@ WlrLayershell {
 
         id: background
         anchors.fill: parent
-        color: Colors.md3.surface_container
+        color: Colors.md3.surface
         radius: 20
         clip: true
         border.color: Colors.md3.outline_variant

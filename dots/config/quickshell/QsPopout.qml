@@ -19,7 +19,6 @@ WlrLayershell {
     exclusionMode: ExclusionMode.Normal
 
     anchors {
-        top: true
         right: true
     }
 
@@ -28,7 +27,7 @@ WlrLayershell {
 
         anchors.fill: parent
         color: Colors.md3.surface
-        bottomLeftRadius: 20
+        radius: 20
 
         ColumnLayout {
             id: layout

@@ -30,8 +30,8 @@ Scope {
         }
 
         PanelWindow {
-            anchors.top: true
-            margins.bottom: screen.height / 120
+            anchors.bottom: true
+            margins.bottom: screen.height / 8
             implicitWidth: 400
             implicitHeight: 50
             color: "transparent"

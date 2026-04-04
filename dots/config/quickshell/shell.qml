@@ -109,7 +109,12 @@ ShellRoot {
 
     }
 
-    Bar {
+    Loader {
+        active: root.dockVisible
+
+        sourceComponent: Bar {
+        }
+
     }
 
 }
