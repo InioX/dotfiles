@@ -148,7 +148,12 @@ in {
 
               # Firefox
               ".mozilla/firefox/ini/chrome/" = {
-                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/floorp/";
+                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/firefox/chrome";
+                recursive = true;
+              };
+
+              ".mozilla/firefox/ini/user.js" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/firefox/user.js";
                 recursive = true;
               };
 
