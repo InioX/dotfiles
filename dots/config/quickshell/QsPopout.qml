@@ -17,8 +17,11 @@ WlrLayershell {
     implicitHeight: 320
     color: "transparent"
     exclusionMode: ExclusionMode.Normal
+    margins.top: screen.height / 12
+    margins.right: 10
 
     anchors {
+        top: true
         right: true
     }
 
@@ -28,6 +31,8 @@ WlrLayershell {
         anchors.fill: parent
         color: Colors.md3.surface
         radius: 20
+        border.color: Colors.md3.outline_variant
+        border.width: 1
 
         ColumnLayout {
             id: layout

@@ -24,12 +24,10 @@ Scope {
         onTriggered: root.shouldShowOsd = false
     }
 
-    LazyLoader {
+    Loader {
         active: root.shouldShowOsd
-        Component.onCompleted: {
-        }
 
-        PanelWindow {
+        sourceComponent: PanelWindow {
             anchors.bottom: true
             margins.bottom: screen.height / 8
             implicitWidth: 400

@@ -28,11 +28,14 @@ Item {
 
     function toggleDock(): void {
         root.dockVisible = !root.dockVisible
+        
+        if (!root.dockVisible) {
+            closeAllPopouts("");   
+        }
+        
         // if (!root.launcherVisible) {
             // dockOpenedManually = !root.dockOpenedManually
         // }
-    }
-
-    
+    }    
 }
 }

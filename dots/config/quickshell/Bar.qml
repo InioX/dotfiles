@@ -37,7 +37,7 @@ Scope {
                 anchors.topMargin: topMargin
                 anchors.leftMargin: topMargin
                 anchors.rightMargin: topMargin
-                radius: 20
+                radius: 30
                 border.color: Colors.md3.outline_variant
                 border.width: 1
                 implicitHeight: root.panelHeight

@@ -153,7 +153,7 @@ WlrLayershell {
                             width: imageIcon.width + 10
                             height: imageIcon.height + 6
                             color: Colors.md3.primary_container
-                            radius: 20
+                            radius: 30
 
                             IconImage {
                                 id: imageIcon

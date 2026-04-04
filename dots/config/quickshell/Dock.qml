@@ -33,7 +33,7 @@ WlrLayershell {
         color: Colors.md3.surface
         border.color: Colors.md3.outline_variant
         border.width: 1
-        radius: 20
+        radius: 40
 
         RowLayout {
             // WorkspaceWidget {
@@ -50,8 +50,8 @@ WlrLayershell {
 
             spacing: 10
             anchors.fill: parent
-            anchors.leftMargin: 10
-            anchors.rightMargin: 10
+            anchors.leftMargin: 14
+            anchors.rightMargin: 14
             anchors.verticalCenter: parent.verticalCenter
 
             Repeater {
@@ -67,7 +67,7 @@ WlrLayershell {
                         width: imageIcon.width + 10
                         height: imageIcon.height + 10
                         color: Colors.md3.primary_container
-                        radius: 20
+                        radius: 30
 
                         IconImage {
                             id: imageIcon
