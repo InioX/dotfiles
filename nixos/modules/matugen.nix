@@ -18,7 +18,7 @@ in {
     [config]
 
     [config.wallpaper]
-    command = "swww img --transition-type center {{ image }}"
+    command = "awww img --transition-type center {{ image }}"
     # arguments = ["img", "--transition-type", "center"]
 
     [templates.waybar]
@@ -80,6 +80,10 @@ in {
     [templates.discord]
     input_path = "${default.templateFolder}/discord.css"
     output_path = "~/.config/Vencord/themes/midnight-discord.css"
+
+     [templates.vesktop]
+    input_path = "${default.templateFolder}/discord.css"
+    output_path = "~/.config/vesktop/themes/midnight-discord.css"
 
     [templates.qt5ct]
     input_path = "${default.templateFolder}/matugen.conf"

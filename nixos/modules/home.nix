@@ -94,6 +94,11 @@ in {
 
               # Vencord
               "Vencord".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/Vencord";
+              "Vesktop".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/vesktop";
+              "vesktop-flags.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/vesktop-flags.conf";
+
+              # Electron
+              "electron-flags.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/electron-flags.conf";
 
               # Neofetch
               # "neofetch".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/neofetch";

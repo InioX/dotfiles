@@ -43,6 +43,8 @@ in {
         withVencord = true;
       })
 
+      vesktop
+
       krisp-patcher
       qtscrcpy
     ];

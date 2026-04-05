@@ -213,7 +213,10 @@ user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this
 // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
-
+user_pref("media.hardware-video-decoding.force-enabled", true);
+user_pref("gfx.x11-egl.force-enabled", true);
+user_pref("widget.dmabuf.force-enabled", true);
+user_pref("media.av1.enabled", true);
 
 /****************************************************************************
  * END: BETTERFOX                                                           *

@@ -22,6 +22,13 @@
   zramSwap.enable = true;
   zramSwap.memoryPercent = 50;
 
+  hardware.graphics = {
+    enable = true;
+    extraPackages = [
+      pkgs.nvidia-vaapi-driver
+    ];
+  };
+
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;

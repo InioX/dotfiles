@@ -59,6 +59,9 @@ in {
     #   '';
     # };
 
+    environment.variables.LIBVA_DRIVER_NAME = "nvidia";
+    environment.variables.MOZ_DISABLE_RDD_SANDBOX = "1";
+
     zenyte.home.extraOptions.programs.firefox = {
       enable = true;
       package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
