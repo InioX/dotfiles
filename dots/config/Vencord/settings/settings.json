@@ -48,7 +48,8 @@
             "enabled": true
         },
         "AccountPanelServerProfile": {
-            "enabled": false
+            "enabled": false,
+            "prioritizeServerProfile": false
         },
         "AlwaysAnimate": {
             "enabled": false
@@ -57,7 +58,9 @@
             "enabled": false
         },
         "AlwaysTrust": {
-            "enabled": false
+            "enabled": false,
+            "domain": true,
+            "file": true
         },
         "AnonymiseFileNames": {
             "enabled": false
@@ -206,7 +209,7 @@
             "enabled": false
         },
         "FixImagesQuality": {
-            "enabled": false
+            "enabled": true
         },
         "FixSpotifyEmbeds": {
             "enabled": false
@@ -289,7 +292,7 @@
             "enabled": false
         },
         "MessageLogger": {
-            "enabled": false,
+            "enabled": true,
             "deleteStyle": "text",
             "logDeletes": true,
             "collapseDeleted": false,
@@ -621,6 +624,18 @@
         },
         "CustomCommands": {
             "enabled": false
+        },
+        "WebKeybinds": {
+            "enabled": true
+        },
+        "WebScreenShareFixes": {
+            "enabled": true
+        },
+        "DisableDeepLinks": {
+            "enabled": true
+        },
+        "WebContextMenus": {
+            "enabled": true
         }
     },
     "uiElements": {
@@ -637,6 +652,6 @@
         "authenticated": true,
         "url": "https://api.vencord.dev/",
         "settingsSync": true,
-        "settingsSyncVersion": 1775214722722
+        "settingsSyncVersion": 1775390240260
     }
 }
