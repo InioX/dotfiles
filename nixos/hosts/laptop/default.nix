@@ -43,7 +43,7 @@ with lib.zenyte; {
 
   zenyte.apps = {
     motrix = enabled;
-    libreoffice = enabled;
+    libreoffice = disabled;
   };
 
   zenyte.system.locale.timeZone = "Europe/Prague";
@@ -57,7 +57,7 @@ with lib.zenyte; {
   zenyte.services = {
     syncthing = disabled;
     tlp = {
-      enable = false;
+      enable = true;
       # radeonDPM = true;
     };
     # auto-cpufreq = {
@@ -81,7 +81,7 @@ with lib.zenyte; {
       enable = true;
       # Default extensions: `ublock-origin`, `plasma-integration`
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        bitwarden
+        # bitwarden
       ];
     };
   };

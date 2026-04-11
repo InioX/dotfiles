@@ -82,7 +82,7 @@ in {
     };
 
     zenyte.desktop.addons = {
-      waybar = enabled;
+      waybar = disabled;
       kitty = enabled;
       alacritty = disabled;
       rofi = enabled;
@@ -90,7 +90,7 @@ in {
       dunst = enabled;
       # dolphin = enabled;
       nautilus = enabled;
-      ags = enabled;
+      ags = disabled;
       qt = enabled;
       quickshell = enabled;
       sddm = enabled;

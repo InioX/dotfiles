@@ -36,9 +36,9 @@ in {
     output_path = "~/.config/dunst/dunstrc"
     post_hook = 'pkill -SIGUSR2 dunst'
 
-    [templates.ags]
-    input_path = "${default.templateFolder}/colors.scss"
-    output_path = "~/.config/ags/scss/colors.scss"
+    # [templates.ags]
+    # input_path = "${default.templateFolder}/colors.scss"
+    # output_path = "~/.config/ags/scss/colors.scss"
 
     [templates.rofi]
     input_path = "${default.templateFolder}/colors.rasi"
