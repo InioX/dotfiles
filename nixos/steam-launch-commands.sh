@@ -1,40 +1,38 @@
 #!/usr/bin/env bash
 
-# 1. Define Steam Root (Comment/Uncomment based on your install)
+# Steam Root Path
 STEAM_ROOT="$HOME/.local/share/Steam"
-# For Flatpak users, use:
 # STEAM_ROOT="$HOME/.var/app/com.valvesoftware.Steam/.local/share/Steam"
 
 USERDATA_DIR="$STEAM_ROOT/userdata"
 
-echo $STEAM_ROOT
+echo "# Steam Launch Options Backup"
+echo ""
+echo "| AppID | Launch Options |"
+echo "| :--- | :--- |"
 
-if [ ! -d "$USERDATA_DIR" ]; then
-    echo "Error: Steam userdata directory not found at $USERDATA_DIR"
-    exit 1
-fi
-
-echo "--- Extracting Steam Launch Options ---"
-
-# Loop through each Steam User ID folder
 for user_dir in "$USERDATA_DIR"/*/; do
     CONFIG_FILE="${user_dir}config/localconfig.vdf"
     
     if [ -f "$CONFIG_FILE" ]; then
-        USER_ID=$(basename "$user_dir")
-        echo "User ID: $USER_ID"
-        echo "--------------------------------------"
+        # Exporting functions/vars so Perl can see them if needed, 
+        # but here we'll process the Perl output with a while loop.
         
         perl -0777 -ne '
             while (/^(\s*"(\d+)"\s*\{.*?(?=\s*"\d+"\s*\{|\z))/gsm) {
-                $block = $1;
-                $appid = $2;
+                $block = $1; $appid = $2;
                 if ($block =~ /"LaunchOptions"\s+"([^"]+)"/) {
-                    printf "AppID: %-10s | Options: %s\n", $appid, $1;
+                    print "$appid|$1\n";
                 }
             }
-        ' "$CONFIG_FILE"
-        
-        echo ""
+        ' "$CONFIG_FILE" | while read -r line; do
+            APPID=$(echo "$line" | cut -d'|' -f1)
+            OPTIONS=$(echo "$line" | cut -d'|' -f2)
+            
+            # Escape pipes in options to avoid breaking the MD table
+            CLEAN_OPTIONS=$(echo "$OPTIONS" | sed 's/|/\\|/g')
+            
+            echo "| $APPID | \`$CLEAN_OPTIONS\` |"
+        done
     fi
 done
