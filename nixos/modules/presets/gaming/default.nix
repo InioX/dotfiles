@@ -11,6 +11,7 @@ with lib.zenyte; let
 in {
   options.zenyte.presets.gaming = {
     enable = mkBoolOpt false "Whether to enable the gaming preset.";
+    gamemode = mkBoolOpt false "Whether to enable gamemode.";
   };
 
   config = mkIf cfg.enable {
@@ -28,7 +29,7 @@ in {
     };
 
     programs.gamemode = {
-      enable = true;
+      enable = cfg.gamemode;
       enableRenice = true;
       settings = {
         general = {
@@ -48,6 +49,10 @@ in {
 
     zenyte.apps = {
       prism-launcher = enabled;
+    };
+
+    zenyte.services = {
+      ananicy = enabled;
     };
   };
 }
