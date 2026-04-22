@@ -113,7 +113,7 @@ in {
                 bookmarks = [
                   {
                     name = "P-Stream";
-                    url = "https://pstream.mov/";
+                    url = "https://pstream.net/";
                   }
                   {
                     name = "YouTube";
