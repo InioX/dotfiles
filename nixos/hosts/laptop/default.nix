@@ -57,7 +57,7 @@ with lib.zenyte; {
   zenyte.services = {
     syncthing = disabled;
     tlp = {
-      enable = true;
+      enable = false;
       # radeonDPM = true;
     };
     # auto-cpufreq = {

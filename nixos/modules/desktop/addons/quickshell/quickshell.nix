@@ -33,8 +33,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # services.power-profiles-daemon.enable = true;
-    services.upower.enable = true;
+    # services.upower.enable = true;
 
     environment.systemPackages = with pkgs; [
       quickshell

@@ -12,6 +12,7 @@
       configFolder = "${default.flakePath}/dots/config";
       localFolder = "${default.flakePath}/dots/local";
       desktopEntryFolder = "${default.flakePath}/dots/desktop-entries";
+      scriptFolder = "${default.flakePath}/dots/scripts";
 
       system = "x86_64-linux";
       username = "ini";

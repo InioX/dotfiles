@@ -29,6 +29,33 @@
     ];
   };
 
+  environment.variables = {
+    __GL_SHADER_DISK_CACHE_SIZE = "12000000000";
+  };
+
+  boot.extraModprobeConfig = ''
+    # NVIDIA driver tweaks
+    options nvidia NVreg_UsePageAttributeTable=1
+                  NVreg_InitializeSystemMemoryAllocations=0
+                  NVreg_DynamicPowerManagement=0x02
+
+    # Force AMDGPU on Southern Islands (GCN 1.0) and Sea Islands (GCN 2.0)
+    options amdgpu si_support=1 cik_support=1
+    options radeon si_support=0 cik_support=0
+
+    # Blacklist watchdog modules
+    blacklist iTCO_wdt
+    blacklist iTCO_vendor_support
+    blacklist sp5100_tco
+
+    # Disable power save for snd_hda_intel
+    options snd_hda_intel power_save=0 power_save_controller=N
+  '';
+
+  systemd.services.nvidia-suspend.enable = true;
+  systemd.services.nvidia-resume.enable = true;
+  systemd.services.nvidia-hibernate.enable = true;
+
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
@@ -86,6 +113,11 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
 
+  services.scx = {
+    enable = true;
+    scheduler = "scx_lavd";
+  };
+
   boot = {
     # kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
@@ -100,6 +132,7 @@
       "udev.log_level=3"
       "systemd.show_status=auto"
       "ntsync"
+      "preempt=full"
     ];
 
     plymouth = {

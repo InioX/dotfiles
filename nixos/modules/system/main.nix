@@ -64,7 +64,7 @@ in {
         wget
         git
         htop
-        mission-center
+        resources
         usbutils
 
         inputs.matugen.packages.${system}.default
