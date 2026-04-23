@@ -7,4 +7,4 @@ system:
 wine:
   battleye: true
   eac: true
-  version: proton-cachyos-10.0-20260228-slr-x86_64_v3
+  version: proton-cachyos-10.0-20260410-slr-x86_64_v3
