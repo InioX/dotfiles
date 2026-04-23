@@ -74,12 +74,16 @@ in {
       #   '')
     ];
 
-    zenyte.home.extraOptions.wayland.windowManager.hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.default.override {
-        enableNvidiaPatches = cfg.nvidiaPatches;
-      };
-    };
+    # zenyte.home.extraOptions.wayland.windowManager.hyprland = {
+    #   enable = true;
+    #   # package = inputs.hyprland.packages.${pkgs.system}.default.override {
+    #   #   enableNvidiaPatches = cfg.nvidiaPatches;
+    #   # };
+    #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    #   plugins = [
+    #     inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
+    #   ];
+    # };
 
     zenyte.desktop.addons = {
       waybar = disabled;
