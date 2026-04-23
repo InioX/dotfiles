@@ -66,6 +66,7 @@ in {
         htop
         resources
         usbutils
+        yazi
 
         inputs.matugen.packages.${system}.default
 
