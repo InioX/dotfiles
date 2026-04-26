@@ -4,6 +4,8 @@ game:
 system:
   gamemode: true
   gamescope: false
+  prefix_command: game-performance
+  pulse_latency: false
 wine:
   battleye: true
   eac: true
