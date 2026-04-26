@@ -69,6 +69,7 @@ in {
     zenyte.gaming = {
       steam = enabled;
       lutris = enabled;
+      aagl = enabled;
     };
 
     zenyte.apps = {

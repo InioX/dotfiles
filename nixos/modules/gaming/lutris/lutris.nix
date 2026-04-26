@@ -19,9 +19,11 @@ in {
     zenyte.home.programs.lutris.enable = true;
 
     environment.systemPackages = with pkgs; [
-      # lutris
-      winetricks
-      # wineWowPackages.stable
+      (lutris.override {
+        extraPkgs = pkgs: [
+          pkgs.winetricks
+        ];
+      })
     ];
   };
 }

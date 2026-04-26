@@ -56,6 +56,7 @@
             }
             inputs.matugen.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
+            aagl.nixosModules.default
           ];
           # Pass the variables to other modules
           specialArgs = {
@@ -101,6 +102,11 @@
   };
 
   inputs = {
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Nix flatpak
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak";

@@ -29,6 +29,7 @@ in {
           "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
           "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
           "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+          "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
         ];
         substituters = [
           "https://cache.nixos.org"
@@ -36,6 +37,7 @@ in {
           "https://hyprland.cachix.org"
           "https://cache.garnix.io"
           "https://attic.xuyh0120.win/lantian"
+          "https://ezkea.cachix.org"
         ];
       };
       optimise.automatic = true;

@@ -197,6 +197,11 @@ in {
               ".local/share/lutris/runners/wine.yml" = {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.localFolder}/share/lutris/runners/wine.yml";
               };
+
+              # Honkai
+              ".local/share/honkers-railway-launcher/config.json" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.localFolder}/share/honkers-railway-launcher/config.json";
+              };
             };
 
             # Setup basic directories

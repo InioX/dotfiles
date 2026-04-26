@@ -1,0 +1,113 @@
+{
+  "launcher": {
+    "language": "en-us",
+    "edition": "Global",
+    "style": "Modern",
+    "video_background": true,
+    "background_index": 0,
+    "temp": "/home/ini/.local/share/honkers-railway-launcher",
+    "sophon": {
+      "threads": 4
+    },
+    "repairer": {
+      "threads": 4,
+      "fast": false
+    },
+    "behavior": "Hide"
+  },
+  "game": {
+    "path": {
+      "global": "/mnt/games/Games/HSR",
+      "china": "/home/ini/.local/share/honkers-railway-launcher/HSR China"
+    },
+    "voices": [
+      "en-us"
+    ],
+    "wine": {
+      "prefix": "/home/ini/games/honkers-railway-launcher",
+      "builds": "/home/ini/.local/share/honkers-railway-launcher/runners",
+      "selected": "spritz-wine-cachyos-wow64-10.0-9",
+      "sync": "FSync",
+      "language": "System",
+      "borderless": false,
+      "drives": {
+        "drive_c": true,
+        "game_folder": "G",
+        "map_folders": {}
+      },
+      "virtual_desktop": {
+        "enabled": false,
+        "width": 1920,
+        "height": 1080
+      },
+      "shared_libraries": {
+        "wine": true,
+        "gstreamer": true
+      }
+    },
+    "dxvk": {
+      "builds": "/home/ini/.local/share/honkers-railway-launcher/dxvks"
+    },
+    "enhancements": {
+      "fsr": {
+        "strength": 2,
+        "quality": "Balanced",
+        "enabled": true
+      },
+      "gamemode": false,
+      "hud": "None",
+      "gamescope": {
+        "enabled": false,
+        "window_mode": "Default",
+        "game_window": {
+          "width": null,
+          "height": null
+        },
+        "gamescope_window": {
+          "width": null,
+          "height": null
+        },
+        "framerate": {
+          "focused": null,
+          "unfocused": null
+        },
+        "upscaling": {
+          "upscaler": "None",
+          "filter": "None",
+          "sharpness": "None"
+        },
+        "options": {
+          "hdr_support": false,
+          "realtime_scheduler": false,
+          "adaptive_sync": false,
+          "force_grab_cursor": false,
+          "mangohud": false
+        },
+        "extra_args": ""
+      }
+    },
+    "environment": {},
+    "command": null
+  },
+  "sandbox": {
+    "enabled": false,
+    "isolate_home": true,
+    "hostname": null,
+    "args": null,
+    "private": [],
+    "mounts": {
+      "read_only": {},
+      "bind": {},
+      "symlinks": {}
+    }
+  },
+  "components": {
+    "path": "/home/ini/.local/share/honkers-railway-launcher/components",
+    "servers": [
+      "https://github.com/an-anime-team/components"
+    ]
+  },
+  "patch": {
+    "path": "/home/ini/.local/share/honkers-railway-launcher/patch"
+  }
+}
