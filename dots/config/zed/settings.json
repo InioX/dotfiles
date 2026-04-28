@@ -7,6 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "ui_font_family": "Iosevka Nerd Font Mono",
+  "scrollbar": {
+    "show": "never"
+  },
+  "git": {
+    "inline_blame": {
+      "show_commit_summary": true
+    }
+  },
   "colorize_brackets": true,
   "project_panel": {
     "diagnostic_badges": true,
@@ -27,8 +36,8 @@
   "cursor_blink": true,
   "auto_indent_on_paste": false,
   "vim_mode": false,
-  "ui_font_size": 16,
-  "buffer_font_size": 15,
+  "ui_font_size": 20.0,
+  "buffer_font_size": 20.0,
   "theme": {
     "mode": "system",
     "light": "Matugen Light",
