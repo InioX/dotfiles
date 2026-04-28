@@ -7,6 +7,18 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "colorize_brackets": true,
+  "project_panel": {
+    "diagnostic_badges": true,
+    "git_status_indicator": true,
+    "dock": "right"
+  },
+  "which_key": {
+    "enabled": false
+  },
+  "buffer_font_family": "Iosevka Nerd Font Mono",
+  "icon_theme": "Material Icon Theme",
+  "redact_private_values": false,
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
@@ -17,5 +29,9 @@
   "vim_mode": false,
   "ui_font_size": 16,
   "buffer_font_size": 15,
-  "theme": "Matugen Dark",
+  "theme": {
+    "mode": "system",
+    "light": "Matugen Light",
+    "dark": "Matugen Dark"
+  },
 }
