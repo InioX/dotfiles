@@ -14,9 +14,9 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.anime-game-launcher.enable = true;
-    programs.anime-games-launcher.enable = true;
+    # programs.anime-games-launcher.enable = true;
     programs.honkers-railway-launcher.enable = true;
-    programs.honkers-launcher.enable = true;
+    programs.anime-game-launcher.enable = true;
+    # programs.honkers-launcher.enable = true;
   };
 }
