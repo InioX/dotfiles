@@ -8,10 +8,12 @@
   hostName,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.zenyte.home;
   wallpaper = config.zenyte.system.hosts.${hostName}.wallpaper or default.wallpaper;
-in {
+in
+{
   imports = with inputs; [
     home-manager.nixosModules.home-manager
   ];
@@ -63,7 +65,8 @@ in {
       # useUserPackages = true;
       useGlobalPkgs = true;
 
-      users.${default.username} = {config, ...}:
+      users.${default.username} =
+        { config, ... }:
         mkMerge [
           (mkAliasDefinitions options.zenyte.home.extraOptions)
 
@@ -73,18 +76,25 @@ in {
             # * modules so I have to use it this way instead.
             xdg.configFile = {
               # Waybar
-              "waybar/config".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/waybar/config";
-              "waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/waybar/style.css";
+              "waybar/config".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/waybar/config";
+              "waybar/style.css".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/waybar/style.css";
 
               # Rofi
-              "rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/rofi/config.rasi";
-              "rofi/menu.rasi".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/rofi/menu.rasi";
+              "rofi/config.rasi".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/rofi/config.rasi";
+              "rofi/menu.rasi".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/rofi/menu.rasi";
 
               # Hyprland
-              "hypr/windowrules.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/windowrules.conf";
+              "hypr/windowrules.conf".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/windowrules.conf";
               "hypr/scripts".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/scripts";
-              "hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/hyprland.conf";
-              "hypr/keybindings.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/keybindings.conf";
+              "hypr/hyprland.conf".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/hyprland.conf";
+              "hypr/keybindings.conf".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/keybindings.conf";
 
               # Discord
               "discord/settings.json" = {
@@ -95,16 +105,19 @@ in {
               # Vencord
               "Vencord".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/Vencord";
               "Vesktop".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/vesktop";
-              "vesktop-flags.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/vesktop-flags.conf";
+              "vesktop-flags.conf".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/vesktop-flags.conf";
 
               # Electron
-              "electron-flags.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/electron-flags.conf";
+              "electron-flags.conf".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/electron-flags.conf";
 
               # Neofetch
               # "neofetch".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/neofetch";
 
               # Alacritty
-              "alacritty/alacritty.toml".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/alacritty/alacritty.toml";
+              "alacritty/alacritty.toml".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/alacritty/alacritty.toml";
 
               # GTK
               # "gtk-2.0".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-2.0";
@@ -129,14 +142,18 @@ in {
               };
 
               # Kitty
-              "kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/kitty/kitty.conf";
+              "kitty/kitty.conf".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/kitty/kitty.conf";
 
               # Vscode
-              "Code/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/Code/User/settings.json";
+              "Code/User/settings.json".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/Code/User/settings.json";
 
               # Qt
-              "qt5ct/qt5ct.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/qt5ct/qt5ct.conf";
-              "qt6ct/qt6ct.conf".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/qt6ct/qt6ct.conf";
+              "qt5ct/qt5ct.conf".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/qt5ct/qt5ct.conf";
+              "qt6ct/qt6ct.conf".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/qt6ct/qt6ct.conf";
               "kdeglobals".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/kdeglobals";
 
               # Quickshell
@@ -144,7 +161,12 @@ in {
 
               # Easy effects
               "easyeffects".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/easyeffects";
-              "easyeffectsrc".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/easyeffectsrc";
+              "easyeffectsrc".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/easyeffectsrc";
+
+              # Zed
+              "zed/settings.json".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/zed/settings.json";
             };
 
             home.file = {
@@ -205,13 +227,13 @@ in {
             };
 
             # Setup basic directories
-            home.activation.createDevFolder = lib.hm.dag.entryAfter ["writeBoundary"] ''
+            home.activation.createDevFolder = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
               mkdir -p $HOME/dev/
               mkdir -p $HOME/games/
             '';
 
             # Clone dotfiles repo inside ~/dev/dotfiles
-            home.activation.cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+            home.activation.cloneDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
               baseDir="/home/${default.username}/dev/dotfiles"
               if [ ! -d "$baseDir" ]; then
                 ${pkgs.git}/bin/git clone https://github.com/InioX/dotfiles "$baseDir"

@@ -105,6 +105,10 @@ in {
     input_path = '${default.templateFolder}/steam.css'
     output_path = '~/.config/AdwSteamGtk/custom.css'
     post_hook =  'adwaita-steam-gtk -i'
+
+    [templates.zed]
+    input_path = "${default.templateFolder}/zed-colors.json"
+    output_path = "~/.config/zed/themes/matugen.json"
   '';
 
   system.activationScripts.run-matugen-once = ''

@@ -12,6 +12,6 @@ cd "$DEV_DIR/$project" || exit 1
 
 # alacritty --working-directory "$DEV_DIR/$project" &
 
-code "$DEV_DIR/$project" &
+zeditor "$DEV_DIR/$project" &
 
 notify-send "  Opened the $DEV_DIR/$project project"

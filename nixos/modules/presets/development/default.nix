@@ -20,6 +20,9 @@ in {
         extensions = with pkgs.vscode-extensions; [
         ];
       };
+      zed = {
+        enable = true;
+      };
     };
 
     zenyte.cli = {
