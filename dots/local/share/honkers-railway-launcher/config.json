@@ -52,7 +52,7 @@
       "fsr": {
         "strength": 2,
         "quality": "Balanced",
-        "enabled": true
+        "enabled": false
       },
       "gamemode": false,
       "hud": "None",
@@ -86,8 +86,10 @@
         "extra_args": ""
       }
     },
-    "environment": {},
-    "command": null
+    "environment": {
+      "PROTON_ENABLE_NVAPI": "1"
+    },
+    "command": "game-performance %command%"
   },
   "sandbox": {
     "enabled": false,
