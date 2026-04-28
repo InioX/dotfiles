@@ -7,9 +7,11 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.cli.git;
-in {
+in
+{
   options.zenyte.cli.git = with types; {
     enable = mkBoolOpt false "Whether to enable git.";
     email = mkOption {
@@ -40,6 +42,12 @@ in {
             a = "add";
             c = "commit";
           };
+        };
+      };
+      programs.gh = {
+        enable = true;
+        gitCredentialHelper = {
+          enable = true;
         };
       };
     };
