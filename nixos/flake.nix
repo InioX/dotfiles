@@ -1,40 +1,46 @@
 {
   description = "My nixos dotfiles flake";
 
-  outputs = {nixpkgs, ...} @ inputs: let
-    default = {
-      # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-      stateVersion = "22.11";
+  outputs =
+    { nixpkgs, ... }@inputs:
+    let
+      default = {
+        # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+        stateVersion = "22.11";
 
-      # Use a config folder for compatibility with arch
-      flakePath = "/home/${default.username}/dev/dotfiles";
-      templateFolder = "${default.flakePath}/dots/templates";
-      configFolder = "${default.flakePath}/dots/config";
-      localFolder = "${default.flakePath}/dots/local";
-      desktopEntryFolder = "${default.flakePath}/dots/desktop-entries";
-      scriptFolder = "${default.flakePath}/dots/scripts";
+        # Use a config folder for compatibility with arch
+        flakePath = "/home/${default.username}/dev/dotfiles";
+        templateFolder = "${default.flakePath}/dots/templates";
+        configFolder = "${default.flakePath}/dots/config";
+        localFolder = "${default.flakePath}/dots/local";
+        desktopEntryFolder = "${default.flakePath}/dots/desktop-entries";
+        scriptFolder = "${default.flakePath}/dots/scripts";
 
-      system = "x86_64-linux";
-      username = "ini";
+        system = "x86_64-linux";
+        username = "ini";
 
-      # The default wallpaper to use when `zenyte.system.hosts.<hostName>.wallpaper` is not set
-      wallpaper = let
-        url = "https://w.wallha.com/ws/14/CgX5kJtd.png";
-        sha256 = "01157ryi41if7jy3hbx2fxc6llkaaqsl2c3ds3jbkjcf18lk1lkh";
-        ext = nixpkgs.lib.last (nixpkgs.lib.splitString "." url);
-      in
-        builtins.fetchurl {
-          name = "wallpaper-${sha256}.${ext}";
-          inherit url sha256;
-        };
-    };
+        # The default wallpaper to use when `zenyte.system.hosts.<hostName>.wallpaper` is not set
+        wallpaper =
+          let
+            url = "https://w.wallha.com/ws/14/CgX5kJtd.png";
+            sha256 = "01157ryi41if7jy3hbx2fxc6llkaaqsl2c3ds3jbkjcf18lk1lkh";
+            ext = nixpkgs.lib.last (nixpkgs.lib.splitString "." url);
+          in
+          builtins.fetchurl {
+            name = "wallpaper-${sha256}.${ext}";
+            inherit url sha256;
+          };
+      };
 
-    mkLib = nixpkgs:
-      nixpkgs.lib.extend
-      (self: super: {zenyte = import ./lib {lib = self;};} // inputs.home-manager.lib);
+      mkLib =
+        nixpkgs:
+        nixpkgs.lib.extend (
+          self: super: { zenyte = import ./lib { lib = self; }; } // inputs.home-manager.lib
+        );
 
-    addNewHost = hostName:
-      with inputs;
+      addNewHost =
+        hostName:
+        with inputs;
         nixpkgs.lib.nixosSystem {
           system = default.system;
           modules = [
@@ -64,21 +70,22 @@
             inherit inputs hostName default;
           };
         };
-  in {
-    nixosConfigurations = {
-      # USAGE: addNewHost <hostname>
-      laptop = addNewHost "laptop";
-    };
-    devShell.x86_64-linux = with import nixpkgs {system = "x86_64-linux";};
-      mkShell {
-        buildInputs = [
-          inputs.alejandra.defaultPackage.${system}
-          shellcheck
-          shfmt
-          nil
-          libsForQt5.qt5.qttools
-          (
-            pkgs.writeShellScriptBin "wallfetch" ''
+    in
+    {
+      nixosConfigurations = {
+        # USAGE: addNewHost <hostname>
+        laptop = addNewHost "laptop";
+      };
+      devShell.x86_64-linux =
+        with import nixpkgs { system = "x86_64-linux"; };
+        mkShell {
+          buildInputs = [
+            inputs.alejandra.defaultPackage.${system}
+            shellcheck
+            shfmt
+            nil
+            libsForQt5.qt5.qttools
+            (pkgs.writeShellScriptBin "wallfetch" ''
               if [ ! -f flake.nix ]; then echo "This script is supposed to be ran from flake root." && exit 1; fi;
 
               path="hosts/$(hostname)/wallpaper.nix"
@@ -95,11 +102,10 @@
                 url = \"$1\";
                 sha256 = \"$sha256\";
               }" > $path
-            ''
-          )
-        ];
-      };
-  };
+            '')
+          ];
+        };
+    };
 
   inputs = {
     aagl = {
