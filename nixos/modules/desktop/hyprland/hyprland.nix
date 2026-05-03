@@ -9,14 +9,16 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.desktop.hyprland;
-
   wallpaper =
-    if builtins.hasAttr "wallpaper" options.zenyte.system.hosts.${hostName}
-    then config.zenyte.system.hosts.${hostName}.wallpaper
-    else default.wallpaper;
-in {
+    if builtins.hasAttr "wallpaper" options.zenyte.system.hosts.${hostName} then
+      config.zenyte.system.hosts.${hostName}.wallpaper
+    else
+      default.wallpaper;
+in
+{
   options.zenyte.desktop.hyprland = {
     enable = mkBoolOpt false "Whether to enable Hyprland, with other desktop addons.";
     nvidiaPatches = mkBoolOpt false "Whether to enable nvidia patches for hyprland.";
@@ -27,7 +29,17 @@ in {
   ];
 
   config = mkIf cfg.enable {
-    programs.hyprland.enable = true;
+    programs.hyprland = {
+      enable = true;
+      plugins = [
+        # (pkgs.callPackage (pkgs.fetchFromGitHub {
+        #   owner = "yayuuu";
+        #   repo = "hyprland-scroll-overview";
+        #   rev = "af5528f51c6277de597df47a9b6dba6aef199d6a";
+        #   sha256 = "0rs9bxxrw4wscf4a8yl776a8g880m5gcm75q06yx2cn3lw2b7v22";
+        # }) { })
+      ];
+    };
 
     # services.displayManager.gdm.enable = true;
     # services.desktopManager.gnome.enable = true;

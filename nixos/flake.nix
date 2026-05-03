@@ -108,6 +108,7 @@
     };
 
   inputs = {
+    # For honkai and genshin
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
