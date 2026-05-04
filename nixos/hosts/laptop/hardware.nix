@@ -7,14 +7,15 @@
   pkgs,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   hardware.enableRedistributableFirmware = true;
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   systemd.oomd.enable = true;
   systemd.oomd.enableUserSlices = true;
@@ -137,22 +138,28 @@
 
     plymouth = {
       enable = true;
-      themePackages = [pkgs.mac-style-plymouth];
+      themePackages = [ pkgs.mac-style-plymouth ];
       theme = "mac-style";
     };
     consoleLogLevel = 3;
 
     initrd = {
       verbose = false;
-      availableKernelModules = ["nvme" "xhci_pci" "usbhid" "usb_storage" "sd_mod"];
-      kernelModules = [];
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+      ];
+      kernelModules = [ ];
     };
 
     kernelModules = [
       "kvm-amd"
       # "lenovo-legion-module"
     ];
-    extraModulePackages = [config.boot.kernelPackages.lenovo-legion-module];
+    extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
 
     # Hide the OS choice for bootloaders.
     # It's still possible to open the bootloader list by pressing any key
@@ -168,22 +175,31 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/44CC-C0B2";
     fsType = "vfat";
-    options = ["fmask=0077" "dmask=0077"];
+    options = [
+      "fmask=0077"
+      "dmask=0077"
+    ];
   };
 
   fileSystems."/mnt/games" = {
     device = "/dev/disk/by-uuid/DE781DCA781DA1F7";
     fsType = "ntfs-3g";
-    options = ["rw" "uid=1000"];
+    options = [
+      "rw"
+      "uid=1000"
+    ];
   };
 
   fileSystems."/mnt/windows" = {
     device = "/dev/disk/by-uuid/ACF0CD28F0CCF99A";
     fsType = "ntfs-3g";
-    options = ["rw" "uid=1000"];
+    options = [
+      "rw"
+      "uid=1000"
+    ];
   };
 
-  swapDevices = [];
+  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
