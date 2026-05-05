@@ -1,3 +1,4 @@
+//@ pragma UseQApplication
 import "./Services"
 import "./Widgets"
 import QtQuick

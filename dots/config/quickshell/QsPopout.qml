@@ -58,9 +58,22 @@ WlrLayershell {
             anchors.fill: parent
             anchors.verticalCenter: parent.verticalCenter
             anchors.margins: 20
+            spacing: 0
 
             ColumnLayout {
                 spacing: 20
+
+                RowLayout {
+                    spacing: 20
+
+                    Text {
+                        text: "Hello, ini"
+                        color: Colors.md3.on_surface
+                        font.bold: true
+                        font.pixelSize: 20
+                    }
+
+                }
 
                 RowLayout {
                     spacing: 20
@@ -73,9 +86,42 @@ WlrLayershell {
                     }
 
                     Slider {
+                        id: volumeControl
+
                         Layout.fillWidth: true
                         value: PipewireService.volumeSink / 100
                         onMoved: setVolume(value)
+
+                        background: Rectangle {
+                            x: volumeControl.leftPadding
+                            y: volumeControl.topPadding + volumeControl.availableHeight / 2 - height / 2
+                            implicitWidth: 200
+                            implicitHeight: 14
+                            width: volumeControl.availableWidth
+                            height: implicitHeight
+                            radius: 10
+                            color: Colors.md3.surface_container
+
+                            Rectangle {
+                                width: volumeControl.visualPosition * parent.width
+                                height: parent.height
+                                color: Colors.md3.primary
+                                radius: 10
+                            }
+
+                        }
+
+                        handle: Rectangle {
+                            x: volumeControl.leftPadding + volumeControl.visualPosition * (volumeControl.availableWidth - width)
+                            y: volumeControl.topPadding + volumeControl.availableHeight / 2 - height / 2
+                            implicitWidth: 26
+                            implicitHeight: 26
+                            radius: 13
+                            // color: volumeControl.pressed ? "#f0f0f0" : "#f6f6f6"
+                            // border.color: "#bdbebf"
+                            color: "transparent"
+                        }
+
                     }
 
                 }
@@ -91,8 +137,43 @@ WlrLayershell {
                     }
 
                     Slider {
+                        // onMoved: setVolume(value)
+
+                        id: brightnessControl
+
                         Layout.fillWidth: true
                         value: 100
+
+                        background: Rectangle {
+                            x: brightnessControl.leftPadding
+                            y: brightnessControl.topPadding + brightnessControl.availableHeight / 2 - height / 2
+                            implicitWidth: 200
+                            implicitHeight: 14
+                            width: brightnessControl.availableWidth
+                            height: implicitHeight
+                            radius: 10
+                            color: Colors.md3.surface_container
+
+                            Rectangle {
+                                width: brightnessControl.visualPosition * parent.width
+                                height: parent.height
+                                color: Colors.md3.primary
+                                radius: 10
+                            }
+
+                        }
+
+                        handle: Rectangle {
+                            x: brightnessControl.leftPadding + brightnessControl.visualPosition * (brightnessControl.availableWidth - width)
+                            y: brightnessControl.topPadding + brightnessControl.availableHeight / 2 - height / 2
+                            implicitWidth: 26
+                            implicitHeight: 26
+                            radius: 13
+                            // color: brightnessControl.pressed ? "#f0f0f0" : "#f6f6f6"
+                            // border.color: "#bdbebf"
+                            color: "transparent"
+                        }
+
                     }
 
                 }
@@ -108,8 +189,9 @@ WlrLayershell {
                     Rectangle {
                         anchors.verticalCenter: parent.verticalCenter
                         width: 220
-                        height: 40
+                        height: 50
                         color: Colors.md3.primary
+                        radius: 10
 
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
@@ -124,8 +206,9 @@ WlrLayershell {
                     Rectangle {
                         anchors.verticalCenter: parent.verticalCenter
                         width: 220
-                        height: 40
+                        height: 50
                         color: Colors.md3.primary
+                        radius: 10
 
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
@@ -145,8 +228,9 @@ WlrLayershell {
                     Rectangle {
                         anchors.verticalCenter: parent.verticalCenter
                         width: 220
-                        height: 40
+                        height: 50
                         color: Colors.md3.primary
+                        radius: 10
 
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
@@ -161,8 +245,9 @@ WlrLayershell {
                     Rectangle {
                         anchors.verticalCenter: parent.verticalCenter
                         width: 220
-                        height: 40
+                        height: 50
                         color: Colors.md3.primary
+                        radius: 10
 
                         Text {
                             anchors.verticalCenter: parent.verticalCenter

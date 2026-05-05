@@ -5,7 +5,9 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import Quickshell.Services.Pipewire
+import Quickshell.Services.SystemTray
 import Quickshell.Services.UPower
+import Quickshell.Widgets
 
 Item {
     id: qsRoot
@@ -47,12 +49,13 @@ Item {
     }
 
     MouseArea {
+        // closeAllPopouts("qs");
+        // root.qsMenuVisible = !root.qsMenuVisible;
+
         id: mouseArea
 
         anchors.fill: parent
         onClicked: {
-            closeAllPopouts("qs");
-            root.qsMenuVisible = !root.qsMenuVisible;
         }
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
@@ -83,6 +86,47 @@ Item {
 
                 anchors.centerIn: parent
                 spacing: 10
+
+                Row {
+                    id: trayIcons
+
+                    spacing: 6
+                    visible: SystemTray.items.values.length !== 0
+
+                    Repeater {
+                        model: SystemTray.items
+
+                        IconImage {
+                            id: trayIcon
+
+                            source: modelData.icon
+                            implicitSize: 20
+
+                            QsMenuAnchor {
+                                id: menuAnchor
+
+                                anchor.window: barWindow
+                                menu: modelData.menu
+                                anchor.onAnchoring: {
+                                    const window = barWindow;
+                                    const widgetRect = window.contentItem.mapFromItem(trayIcon, 0, trayIcon.height + 10, trayIcon.width, trayIcon.height);
+                                    menuAnchor.anchor.rect = widgetRect;
+                                }
+                            }
+
+                            MouseArea {
+                                anchors.fill: parent
+                                acceptedButtons: Qt.AllButtons
+                                onPressed: (event) => {
+                                    menuAnchor.open();
+                                }
+                            }
+
+                        }
+
+                    }
+
+                }
 
                 Row {
                     id: batteryRoot
@@ -168,14 +212,14 @@ Item {
 
                 RowLayout {
                     Text {
-                        text: PipewireService.mutedSource ? "󰍭" : "󰍬"
+                        text: PipewireService.mutedSource ? "󰍭 " : "󰍬 "
                         color: containerFg
                         font.bold: true
                         font.pixelSize: qsRoot.iconFontSize
                     }
 
                     Text {
-                        text: isShutterClosed ? "󰗟" : "󰄀"
+                        text: isShutterClosed ? "󰗟 " : "󰄀 "
                         color: containerFg
                         font.bold: true
                         font.pixelSize: qsRoot.iconFontSize

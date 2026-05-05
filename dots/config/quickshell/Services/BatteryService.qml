@@ -32,7 +32,7 @@ Singleton {
         //     "bg": Colors.md3.surface_container_highest
         // };
         return {
-            "fg": Colors.md3.on_surface_container,
+            "fg": Colors.md3.on_surface,
             "bg": Colors.md3.surface_variant
         };
     }
