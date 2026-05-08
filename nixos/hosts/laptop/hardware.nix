@@ -191,7 +191,7 @@
   };
 
   fileSystems."/mnt/windows" = {
-    device = "/dev/disk/by-uuid/ACF0CD28F0CCF99A";
+    device = "/dev/disk/by-uuid/781455E81455A9C0";
     fsType = "ntfs-3g";
     options = [
       "rw"
