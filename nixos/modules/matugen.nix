@@ -9,11 +9,13 @@
   pkgs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.zenyte.home;
   wallpaper = config.zenyte.system.hosts.${hostName}.wallpaper or default.wallpaper;
   themeFiles = config.programs.matugen.theme.files;
-in {
+in
+{
   zenyte.home.configFile."matugen/config.toml".text = ''
     [config]
 
@@ -92,6 +94,11 @@ in {
     [templates.qt6ct]
     input_path = "${default.templateFolder}/matugen.conf"
     output_path = "~/.config/qt6ct/colors/matugen.conf"
+
+    [templates.kde]
+    input_path = "${default.templateFolder}/matugen.conf"
+    output_path = "~/.local/share/color-schemes/matugen.colors"
+    post_hook =  'plasma-apply-colorscheme BreezeDark && plasma-apply-colorscheme matugen'
 
     [templates.quickshell]
     input_path = "${default.templateFolder}/quickshell.json"
