@@ -21,8 +21,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [
-      inputs.prism-launcher.packages.${default.system}.default
+    environment.systemPackages = with pkgs; [
+      prismlauncher
     ];
   };
 }
