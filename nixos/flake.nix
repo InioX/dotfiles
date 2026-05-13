@@ -108,6 +108,17 @@
     };
 
   inputs = {
+    hyprland-scroll-overview = {
+      url = "github:yayuuu/hyprland-scroll-overview";
+      flake = false;
+    };
+
+    # Hyprland plugins
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     # For honkai and genshin
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix";
@@ -139,12 +150,6 @@
     # Matugen
     matugen = {
       url = "github:/InioX/matugen";
-    };
-
-    # Prism Launcher
-    prism-launcher = {
-      url = "github:Diegiwg/PrismLauncher-Cracked";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Nixpkgs

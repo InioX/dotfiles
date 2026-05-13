@@ -24,8 +24,8 @@ in {
 
       kdePackages.qt6ct
 
-      darkly
-      darkly-qt5
+      # darkly
+      # darkly-qt5
 
       kdePackages.breeze
       kdePackages.breeze-icons
