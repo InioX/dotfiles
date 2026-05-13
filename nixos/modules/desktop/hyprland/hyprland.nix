@@ -17,6 +17,7 @@ let
       config.zenyte.system.hosts.${hostName}.wallpaper
     else
       default.wallpaper;
+  hyprland-scroll-overview = (pkgs.callPackage inputs.hyprland-scroll-overview { });
 in
 {
   options.zenyte.desktop.hyprland = {
@@ -32,12 +33,7 @@ in
     programs.hyprland = {
       enable = true;
       plugins = [
-        # (pkgs.callPackage (pkgs.fetchFromGitHub {
-        #   owner = "yayuuu";
-        #   repo = "hyprland-scroll-overview";
-        #   rev = "af5528f51c6277de597df47a9b6dba6aef199d6a";
-        #   sha256 = "0rs9bxxrw4wscf4a8yl776a8g880m5gcm75q06yx2cn3lw2b7v22";
-        # }) { })
+        hyprland-scroll-overview
       ];
     };
 
@@ -59,6 +55,8 @@ in
     };
 
     environment.systemPackages = with pkgs; [
+      hyprland-scroll-overview
+
       wl-clipboard
       wl-clip-persist
       cliphist
