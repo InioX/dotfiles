@@ -4,7 +4,9 @@
     "useQuickCss": true,
     "themeLinks": [],
     "eagerPatches": false,
-    "enabledThemes": [],
+    "enabledThemes": [
+        "midnight-discord.css"
+    ],
     "enableReactDevtools": false,
     "frameless": false,
     "transparent": false,
@@ -527,6 +529,18 @@
         },
         "BadgeAPI": {
             "enabled": true
+        },
+        "NoMiddleClickPaste": {
+            "enabled": false
+        },
+        "NoTrack": {
+            "enabled": true,
+            "disableAnalytics": true
+        },
+        "Settings": {
+            "enabled": true,
+            "settingsLocation": "aboveNitro",
+            "includeVencordInfoWhenCopying": true
         }
     },
     "uiElements": {
@@ -543,6 +557,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1777919326187
+        "settingsSyncVersion": 1778603637344
     }
 }
