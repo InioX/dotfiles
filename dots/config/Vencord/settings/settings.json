@@ -24,22 +24,22 @@
             "enabled": false
         },
         "MemberListDecoratorsAPI": {
-            "enabled": false
+            "enabled": true
         },
         "MessageAccessoriesAPI": {
             "enabled": true
         },
         "MessageDecorationsAPI": {
-            "enabled": false
+            "enabled": true
         },
         "MessageEventsAPI": {
-            "enabled": false
+            "enabled": true
         },
         "MessagePopoverAPI": {
-            "enabled": false
+            "enabled": true
         },
         "MessageUpdaterAPI": {
-            "enabled": false
+            "enabled": true
         },
         "ServerListAPI": {
             "enabled": false
@@ -48,7 +48,8 @@
             "enabled": true
         },
         "AccountPanelServerProfile": {
-            "enabled": false
+            "enabled": false,
+            "prioritizeServerProfile": false
         },
         "AlwaysAnimate": {
             "enabled": false
@@ -102,10 +103,10 @@
             "enabled": false
         },
         "CallTimer": {
-            "enabled": false
+            "enabled": true
         },
         "CharacterCounter": {
-            "enabled": false
+            "enabled": true
         },
         "ClearURLs": {
             "enabled": false
@@ -168,7 +169,18 @@
             "enabled": false
         },
         "FakeNitro": {
-            "enabled": false
+            "enabled": true,
+            "enableEmojiBypass": true,
+            "emojiSize": 48,
+            "transformEmojis": true,
+            "enableStickerBypass": true,
+            "stickerSize": 160,
+            "transformStickers": true,
+            "transformCompoundSentence": false,
+            "enableStreamQualityBypass": true,
+            "useHyperLinks": true,
+            "hyperLinkText": "{{NAME}}",
+            "disableEmbedPermissionCheck": false
         },
         "FakeProfileThemes": {
             "enabled": false
@@ -216,7 +228,7 @@
             "enabled": false
         },
         "HideMedia": {
-            "enabled": false
+            "enabled": true
         },
         "iLoveSpam": {
             "enabled": false
@@ -309,13 +321,14 @@
             "enabled": false
         },
         "NoTypingAnimation": {
-            "enabled": false
+            "enabled": true
         },
         "NoUnblockToJump": {
             "enabled": false
         },
         "NotificationVolume": {
-            "enabled": false
+            "enabled": true,
+            "notificationVolume": 25.252524140482137
         },
         "OnePingPerDM": {
             "enabled": false
@@ -345,13 +358,15 @@
             "enabled": false
         },
         "PinDMs": {
-            "enabled": false
+            "enabled": false,
+            "pinOrder": 0,
+            "canCollapseDmSection": false
         },
         "PlainFolderIcon": {
             "enabled": false
         },
         "PlatformIndicators": {
-            "enabled": false
+            "enabled": true
         },
         "PreviewMessage": {
             "enabled": false
@@ -541,6 +556,12 @@
             "enabled": true,
             "settingsLocation": "aboveNitro",
             "includeVencordInfoWhenCopying": true
+        },
+        "ConcatenatedComponentExtractor": {
+            "enabled": true
+        },
+        "SupportHelper": {
+            "enabled": true
         }
     },
     "uiElements": {
@@ -557,6 +578,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1778603637344
+        "settingsSyncVersion": 1779090953396
     }
 }
