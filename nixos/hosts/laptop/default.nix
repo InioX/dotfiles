@@ -5,10 +5,11 @@
   ...
 }:
 with lib;
-with lib.zenyte; {
-  imports = [./hardware.nix];
+with lib.zenyte;
+{
+  imports = [ ./hardware.nix ];
 
-  boot.supportedFilesystems = ["ntfs"];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   virtualisation.waydroid.enable = true;
 
@@ -28,9 +29,10 @@ with lib.zenyte; {
   zenyte.system.hosts.laptop = {
     variant = "dark";
     type = "scheme-neutral";
-    wallpaper = let
-      image = import ./wallpaper.nix;
-    in
+    wallpaper =
+      let
+        image = import ./wallpaper.nix;
+      in
       zenyte.fetchImage image.url image.sha256;
   };
 
@@ -44,6 +46,7 @@ with lib.zenyte; {
   zenyte.apps = {
     motrix = enabled;
     libreoffice = disabled;
+    obsidian = enabled;
   };
 
   zenyte.system.locale.timeZone = "Europe/Prague";
