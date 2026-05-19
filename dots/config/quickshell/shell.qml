@@ -96,7 +96,7 @@ ShellRoot {
     }
 
     Loader {
-        active: root.dockVisible
+        active: root.dockVisible || HyprlandService.shouldShowWorkspaceOverlay
 
         sourceComponent: Dock {
         }
@@ -111,6 +111,7 @@ ShellRoot {
     }
 
     Loader {
+        // active: root.dockVisible || HyprlandService.shouldShowWorkspaceOverlay
         active: root.dockVisible
 
         sourceComponent: Bar {

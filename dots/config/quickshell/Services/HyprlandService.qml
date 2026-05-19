@@ -24,6 +24,8 @@ Singleton {
     property var activeWindow: null
     property var monitors: []
     property var layers: ({})
+    readonly property int workspaceOverlayHideDelay: 800
+    property bool shouldShowWorkspaceOverlay: false
 
     // Convenient stuff
 
@@ -93,7 +95,21 @@ Singleton {
         function onRawEvent(event) {
             // console.log("Hyprland raw event:", event.name);
             if (["openlayer", "closelayer", "screencast"].includes(event.name)) return;
+            if (["workspacev2"].includes(event.name)) {
+                root.shouldShowWorkspaceOverlay = true;
+                launcherDelayTimer.restart();
+            }
+
             updateAll()
+        }
+    }
+
+     Timer {
+        id: launcherDelayTimer
+        interval: root.workspaceOverlayHideDelay
+        repeat: false
+        onTriggered: {
+            root.shouldShowWorkspaceOverlay = !root.shouldShowWorkspaceOverlay
         }
     }
 
@@ -104,7 +120,7 @@ Singleton {
         id: activeWindowCollector
         onStreamFinished: {
             const data = JSON.parse(activeWindowCollector.text);
-            
+
             if (data && data.address) {
                     root.activeWindow = data;
                 } else {
