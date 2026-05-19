@@ -17,7 +17,7 @@ let
       config.zenyte.system.hosts.${hostName}.wallpaper
     else
       default.wallpaper;
-  hyprland-scroll-overview = (pkgs.callPackage inputs.hyprland-scroll-overview { });
+  # hyprland-scroll-overview = (pkgs.callPackage inputs.hyprland-scroll-overview { });
 in
 {
   options.zenyte.desktop.hyprland = {
@@ -33,7 +33,7 @@ in
     programs.hyprland = {
       enable = true;
       plugins = [
-        hyprland-scroll-overview
+        # hyprland-scroll-overview
       ];
     };
 
@@ -55,7 +55,7 @@ in
     };
 
     environment.systemPackages = with pkgs; [
-      hyprland-scroll-overview
+      # hyprland-scroll-overview
 
       wl-clipboard
       wl-clip-persist
