@@ -7,15 +7,15 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.cli.zsh;
-in {
+in
+{
   options.zenyte.cli.zsh = with types; {
     enable = mkBoolOpt false "Whether to enable zsh.";
   };
-  config = mkIf (cfg.enable
-    || config.zenyte.system.defaultShell
-    == pkgs.zsh) {
+  config = mkIf (cfg.enable || config.zenyte.system.defaultShell == pkgs.zsh) {
     programs.zsh.enable = true;
 
     zenyte.home.programs.zsh = {
@@ -28,9 +28,9 @@ in {
       };
       # enableCompletion = true;
       syntaxHighlighting = enabled;
-      dotDir = ".config/zsh";
+      dotDir = "/home/${default.username}/.config/zsh2";
       autosuggestion.enable = true;
-      initExtra = ''
+      initContent = ''
         # Source a local zshrc so it's easier to edit
         [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
       '';

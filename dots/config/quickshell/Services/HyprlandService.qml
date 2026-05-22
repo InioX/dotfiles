@@ -95,10 +95,10 @@ Singleton {
         function onRawEvent(event) {
             // console.log("Hyprland raw event:", event.name);
             if (["openlayer", "closelayer", "screencast"].includes(event.name)) return;
-            if (["workspacev2"].includes(event.name)) {
-                root.shouldShowWorkspaceOverlay = true;
-                launcherDelayTimer.restart();
-            }
+            // if (["workspacev2"].includes(event.name)) {
+            //     root.shouldShowWorkspaceOverlay = true;
+            //     launcherDelayTimer.restart();
+            // }
 
             updateAll()
         }

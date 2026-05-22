@@ -63,10 +63,10 @@ in
       # grim
       # slurp
       playerctl
-      inputs.nixpkgs-wayland.packages.${system}.wl-gammarelay-rs
+      inputs.nixpkgs-wayland.packages.${stdenv.hostPlatform.system}.wl-gammarelay-rs
       # inputs.nixpkgs-wayland.packages.${system}.swww
       wf-recorder
-      swww
+      awww
 
       hyprshot
       hyprpicker

@@ -7,7 +7,8 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.system;
 
   rebuild = pkgs.writeShellScriptBin "rebuild" ''
@@ -19,10 +20,14 @@ with lib.zenyte; let
       --log-format internal-json \
       |& nom --json
   '';
-in {
+in
+{
   options.zenyte.system = {
     diffScript = mkBoolOpt true "Enables showing what packages changes between generations on rebuild.";
-    defaultShell = mkOpt (types.enum [pkgs.bash pkgs.zsh]) pkgs.bash "Which shell to set the default as.";
+    defaultShell = mkOpt (types.enum [
+      pkgs.bash
+      pkgs.zsh
+    ]) pkgs.bash "Which shell to set the default as.";
   };
 
   config = {
@@ -68,7 +73,7 @@ in {
         usbutils
         yazi
 
-        inputs.matugen.packages.${system}.default
+        inputs.matugen.packages.${stdenv.hostPlatform.system}.default
 
         # Adb
         android-tools
@@ -90,6 +95,7 @@ in {
     zenyte.home.extraOptions.xdg.userDirs = {
       createDirectories = true;
       enable = true;
+      setSessionVariables = true;
       documents = "$HOME/docs";
       download = "$HOME/down";
       pictures = "$HOME/pics";

@@ -77,10 +77,10 @@
         laptop = addNewHost "laptop";
       };
       devShell.x86_64-linux =
-        with import nixpkgs { system = "x86_64-linux"; };
+        with import nixpkgs { stdenv.hostPlatform.system = "x86_64-linux"; };
         mkShell {
           buildInputs = [
-            inputs.alejandra.defaultPackage.${system}
+            inputs.alejandra.defaultPackage.${stdenv.hostPlatform.system}
             shellcheck
             shfmt
             nil

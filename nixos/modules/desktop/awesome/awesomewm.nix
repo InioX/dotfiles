@@ -6,9 +6,11 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.desktop.awesome;
-in {
+in
+{
   options.zenyte.desktop.awesome = {
     enable = mkBoolOpt false "Whether to enable awesomewm.";
   };
@@ -17,7 +19,7 @@ in {
     nixpkgs = {
       overlays = [
         (final: prev: {
-          awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
+          awesome = inputs.nixpkgs-f2k.packages.${pkgs.stdenv.hostPlatform.system}.awesome-git;
         })
       ];
     };
@@ -38,7 +40,9 @@ in {
       };
       libinput = {
         enable = true;
-        touchpad = {naturalScrolling = true;};
+        touchpad = {
+          naturalScrolling = true;
+        };
       };
     };
   };
