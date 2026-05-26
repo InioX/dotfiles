@@ -43,7 +43,9 @@
       "shared_libraries": {
         "wine": true,
         "gstreamer": true
-      }
+      },
+      "timeout_fix": false,
+      "winewayland": false
     },
     "dxvk": {
       "builds": "/home/ini/.local/share/honkers-railway-launcher/dxvks"
