@@ -35,7 +35,21 @@ in
       plugins = [
         # hyprland-scroll-overview
       ];
+      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
+
+    xdg.portal = {
+       enable = true;
+       xdgOpenUsePortal = true;
+       extraPortals = [
+         inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
+         pkgs.xdg-desktop-portal-gtk
+       ];
+       config = {
+         hyprland.default = ["hyprland" "gtk"];
+         common.default = ["gtk"];
+       };
+     };
 
     # services.displayManager.gdm.enable = true;
     # services.desktopManager.gnome.enable = true;
@@ -55,6 +69,7 @@ in
     };
 
     environment.systemPackages = with pkgs; [
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
       # hyprland-scroll-overview
 
       wl-clipboard
