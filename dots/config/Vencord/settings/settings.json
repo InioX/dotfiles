@@ -70,7 +70,15 @@
             "enabled": false
         },
         "BetterFolders": {
-            "enabled": false
+            "enabled": false,
+            "sidebar": true,
+            "sidebarAnim": true,
+            "closeAllFolders": false,
+            "closeAllHomeButton": false,
+            "closeOthers": false,
+            "forceOpen": false,
+            "keepIcons": false,
+            "showFolderIcon": 1
         },
         "BetterGifAltText": {
             "enabled": false
@@ -91,7 +99,10 @@
             "enabled": false
         },
         "BetterSettings": {
-            "enabled": false
+            "enabled": true,
+            "disableFade": true,
+            "organizeMenu": true,
+            "eagerLoad": true
         },
         "BetterUploadButton": {
             "enabled": false
@@ -106,7 +117,8 @@
             "enabled": true
         },
         "CharacterCounter": {
-            "enabled": true
+            "enabled": true,
+            "colorEffects": true
         },
         "ClearURLs": {
             "enabled": false
@@ -366,7 +378,11 @@
             "enabled": false
         },
         "PlatformIndicators": {
-            "enabled": true
+            "enabled": true,
+            "colorMobileIndicator": true,
+            "list": true,
+            "badges": true,
+            "messages": true
         },
         "PreviewMessage": {
             "enabled": false
@@ -578,6 +594,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1779090953396
+        "settingsSyncVersion": 1779782811478
     }
 }
