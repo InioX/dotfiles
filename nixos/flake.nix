@@ -63,6 +63,7 @@
             inputs.matugen.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
             aagl.nixosModules.default
+            chaotic.nixosModules.default
           ];
           # Pass the variables to other modules
           specialArgs = {
@@ -108,6 +109,10 @@
     };
 
   inputs = {
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    };
+
     hyprland-scroll-overview = {
       url = "github:yayuuu/hyprland-scroll-overview";
       flake = false;
