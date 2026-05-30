@@ -157,6 +157,7 @@
 
     kernelModules = [
       "kvm-amd"
+      "ntsync"
       # "lenovo-legion-module"
     ];
     extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
