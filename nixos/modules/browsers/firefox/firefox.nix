@@ -100,6 +100,7 @@ in {
               plasma-integration
               darkreader
               pywalfox
+              sponsorblock
             ]
             ++ cfg.extensions;
           id = 0;
