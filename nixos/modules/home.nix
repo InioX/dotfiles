@@ -167,6 +167,10 @@ in
               # Zed
               "zed/settings.json".source =
                 config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/zed/settings.json";
+
+              # Niri
+              "niri/".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/niri/";
             };
 
             home.file = {

@@ -28,14 +28,26 @@ Item {
 
     function toggleDock(): void {
         root.dockVisible = !root.dockVisible
-        
+
         if (!root.dockVisible) {
-            closeAllPopouts("");   
+            closeAllPopouts("");
         }
-        
+
         // if (!root.launcherVisible) {
             // dockOpenedManually = !root.dockOpenedManually
         // }
-    }    
+    }
+
+    function showDock(): void {
+        root.dockVisible = true
+
+        if (!root.dockVisible) {
+            closeAllPopouts("");
+        }
+    }
+
+    function hideDock(): void {
+        root.dockVisible = false
+    }
 }
 }

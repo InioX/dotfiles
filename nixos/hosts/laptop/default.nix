@@ -74,6 +74,7 @@ with lib.zenyte;
     # awesome.enable = true;
     # kde = enabled;
     hyprland = enabled;
+    niri = enabled;
   };
 
   zenyte.browsers = {

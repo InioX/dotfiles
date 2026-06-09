@@ -13,9 +13,9 @@ WlrLayershell {
     id: launcher
     layer: WlrLayer.Overlay
     exclusionMode: ExclusionMode.Normal
-    
+
     keyboardFocus: WlrKeyboardFocus.OnDemand
-    
+
     implicitWidth: 400
     implicitHeight: 680
     color: "transparent"
@@ -23,7 +23,7 @@ WlrLayershell {
     anchors {
         bottom: true
     }
-    
+
     property string query: ""
 
 
@@ -31,11 +31,22 @@ WlrLayershell {
     function launchSelected() {
         if (list.currentItem && list.currentItem.modelData) {
             list.currentItem.modelData.execute();
+            niriOverview.running = true
+            console.log("niriOverview ", niriOverview.running)
             root.launcherVisible = false
         }
     }
 
+
     Rectangle {
+
+    Process {
+        id: niriOverview
+        running: false
+        command: ["sh", "-c", "niri msg action toggle-overview"]
+    }
+
+
         anchors.bottomMargin: 120
 
         id: background
@@ -95,8 +106,8 @@ WlrLayershell {
                     }
                 }
             }
-        
-        
+
+
 
         // Filtered model: only items matching the query
             ScriptModel {
@@ -149,7 +160,7 @@ WlrLayershell {
                         spacing: 10
 
                         Rectangle {
-                            
+
                             width: imageIcon.width + 10
                             height: imageIcon.height + 6
                             color: Colors.md3.primary_container
@@ -232,6 +243,6 @@ WlrLayershell {
                 // Enter also works while ListView has focus
                 Keys.onReturnPressed: launcher.launchSelected()
             }
-        }   
+        }
     }
 }

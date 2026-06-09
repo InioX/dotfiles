@@ -44,10 +44,11 @@ in
        xdgOpenUsePortal = true;
        extraPortals = [
          pkgs.xdg-desktop-portal-gtk
+         pkgs.xdg-desktop-portal-gnome
        ];
        config = {
          hyprland.default = ["hyprland" "gtk"];
-         common.default = ["hyprland" "gtk"];
+         common.default = [ "gnome"];
        };
      };
 
