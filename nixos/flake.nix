@@ -54,6 +54,7 @@
                 nur.overlays.default
                 nixpkgs-f2k.overlays.window-managers
                 inputs.mac-style-plymouth.overlays.default
+                inputs.niri-flake.overlays.niri
               ];
 
               environment.systemPackages = [
