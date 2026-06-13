@@ -4,9 +4,7 @@
     "useQuickCss": true,
     "themeLinks": [],
     "eagerPatches": false,
-    "enabledThemes": [
-        "midnight-discord.css"
-    ],
+    "enabledThemes": [],
     "enableReactDevtools": false,
     "frameless": false,
     "transparent": false,
@@ -61,7 +59,11 @@
             "enabled": false
         },
         "AnonymiseFileNames": {
-            "enabled": false
+            "enabled": false,
+            "anonymiseByDefault": true,
+            "method": 0,
+            "randomisedLength": 7,
+            "consistent": "image"
         },
         "AppleMusicRichPresence": {
             "enabled": false
@@ -99,7 +101,7 @@
             "enabled": false
         },
         "BetterSettings": {
-            "enabled": true,
+            "enabled": false,
             "disableFade": true,
             "organizeMenu": true,
             "eagerLoad": true
@@ -172,7 +174,8 @@
             "enabled": false
         },
         "Experiments": {
-            "enabled": false
+            "enabled": true,
+            "toolbarDevMenu": false
         },
         "ExpressionCloner": {
             "enabled": false
@@ -225,7 +228,7 @@
             "enabled": false
         },
         "FullSearchContext": {
-            "enabled": false
+            "enabled": true
         },
         "FullUserInChatbox": {
             "enabled": false
@@ -288,7 +291,17 @@
             "enabled": false
         },
         "MessageLogger": {
-            "enabled": false
+            "enabled": false,
+            "deleteStyle": "text",
+            "logDeletes": true,
+            "collapseDeleted": false,
+            "logEdits": true,
+            "inlineEdits": true,
+            "ignoreBots": false,
+            "ignoreSelf": false,
+            "ignoreUsers": "",
+            "ignoreChannels": "",
+            "ignoreGuilds": ""
         },
         "MoreQuickReactions": {
             "enabled": false
@@ -496,7 +509,11 @@
             "enabled": false
         },
         "TypingIndicator": {
-            "enabled": false
+            "enabled": false,
+            "includeCurrentChannel": true,
+            "includeMutedChannels": false,
+            "includeBlockedUsers": false,
+            "indicatorMode": 3
         },
         "TypingTweaks": {
             "enabled": false
@@ -594,6 +611,6 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1779782811478
+        "settingsSyncVersion": 1781296860127
     }
 }
