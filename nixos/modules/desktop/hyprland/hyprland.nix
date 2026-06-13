@@ -45,10 +45,15 @@ in
        extraPortals = [
          pkgs.xdg-desktop-portal-gtk
          pkgs.xdg-desktop-portal-gnome
+         pkgs.xdg-desktop-portal-wlr
        ];
        config = {
          hyprland.default = ["hyprland" "gtk"];
          common.default = [ "gnome"];
+         # niri = {
+          # "org.freedesktop.impl.portal.ScreenCast" = lib.mkForce "wlr";
+          # "org.freedesktop.impl.portal.Screenshot" = lib.mkForce "wlr";
+        # };
        };
      };
 
