@@ -27,6 +27,7 @@ in
     defaultShell = mkOpt (types.enum [
       pkgs.bash
       pkgs.zsh
+      pkgs.fish
     ]) pkgs.bash "Which shell to set the default as.";
   };
 

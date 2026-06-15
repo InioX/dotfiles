@@ -50,7 +50,7 @@ with lib.zenyte;
   };
 
   zenyte.system.locale.timeZone = "Europe/Prague";
-  zenyte.system.defaultShell = pkgs.zsh;
+  zenyte.system.defaultShell = pkgs.fish;
 
   zenyte.cli.git = {
     email = "justimnix@gmail.com";
