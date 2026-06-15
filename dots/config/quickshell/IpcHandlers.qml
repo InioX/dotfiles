@@ -48,6 +48,7 @@ Item {
 
     function hideDock(): void {
         root.dockVisible = false
+        closeAllPopouts("");
     }
 }
 }
