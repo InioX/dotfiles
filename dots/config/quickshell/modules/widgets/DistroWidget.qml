@@ -1,4 +1,4 @@
-import "../Services"
+import qs.services
 import QtQuick
 
 Rectangle {

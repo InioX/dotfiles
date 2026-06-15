@@ -1,4 +1,4 @@
-import "./Services"
+import qs.services
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
@@ -13,8 +13,8 @@ WlrLayershell {
     id: qsPopout
 
     layer: WlrLayer.Overlay
-    implicitWidth: 520
-    implicitHeight: 320
+    implicitWidth: 300
+    implicitHeight: 200
     color: "transparent"
     exclusionMode: ExclusionMode.Normal
     margins.top: screen.height / 12
@@ -42,7 +42,7 @@ WlrLayershell {
             anchors.margins: 20
 
             Text {
-                text: "input"
+                text: "clipboard"
                 color: Colors.md3.on_surface
             }
 

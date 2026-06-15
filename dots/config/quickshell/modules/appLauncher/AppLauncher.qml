@@ -7,7 +7,7 @@ import Quickshell
 import Quickshell.Widgets
 import Quickshell.Wayland
 import Quickshell.Io
-import "./Services"
+import qs.services
 
 WlrLayershell {
     id: launcher

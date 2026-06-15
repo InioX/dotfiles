@@ -1,9 +1,17 @@
 //@ pragma UseQApplication
-import "./Services"
-import "./Widgets"
+import "services"
+import "modules/appLauncher"
+import "modules/bar"
+import "modules/overlayWidget"
+import "modules/dock"
+import "modules/clipboard"
+import "modules/inputMethod"
+import "modules/quickSettings"
+import "modules/widgets"
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import Quickshell.Io
 
 ShellRoot {
     // RoundBorder {
@@ -15,17 +23,6 @@ ShellRoot {
     property int moduleMargin: 10
     property real iconSize: 22.5
     property int cornerRadius: 16
-    property var textIconMap: ({
-        "floorp": "󰈹",
-        "Alacritty": "",
-        "kitty": "",
-        "code": "󰨞",
-        "discord": "",
-        "steam": "󰓓",
-        "net.lutris.Lutris": "󰒓",
-        "steam_app_default": "󰊗",
-        "org.pulseaudio.pavucontrol": "󰓃"
-    })
     property var distroIcon: ""
     property bool showWorkspaceNumber: false
     property var defaultEmptyWorkspaceIcon: ""
@@ -44,10 +41,6 @@ ShellRoot {
     property var secondaryTonalButtonHoverColor: Colors.palette.secondary40
     property var primaryTonalButtonHoverColor: Colors.palette.primary40
 
-    function textIconForClass(cls) {
-        return textIconMap[cls] || "";
-    }
-
     function closeAllPopouts(current) {
         if (current != "qs")
             root.qsMenuVisible = false;
@@ -60,8 +53,56 @@ ShellRoot {
 
     }
 
-    IpcHandlers {
+    Item {
+    Timer {
+        id: launcherDelayTimer
+        interval: 100
+        repeat: false
+        onTriggered: {
+            root.launcherVisible = !root.launcherVisible
+        }
     }
+
+    IpcHandler {
+    target: "root"
+
+    function toggleLauncher(): void {
+        root.launcherVisible = !root.launcherVisible
+        // launcherDelayTimer.running = true
+
+        // if (!root.dockOpenedManually && root.launcherOpenedOnce) {
+            // root.dockVisible = false
+        // }
+
+        // root.launcherOpenedOnce =! root.launcherOpenedOnce
+    }
+
+    function toggleDock(): void {
+        root.dockVisible = !root.dockVisible
+
+        if (!root.dockVisible) {
+            closeAllPopouts("");
+        }
+
+        // if (!root.launcherVisible) {
+            // dockOpenedManually = !root.dockOpenedManually
+        // }
+    }
+
+    function showDock(): void {
+        root.dockVisible = true
+
+        if (!root.dockVisible) {
+            closeAllPopouts("");
+        }
+    }
+
+    function hideDock(): void {
+        root.dockVisible = false
+        closeAllPopouts("");
+    }
+}
+}
 
     Loader {
         active: root.qsMenuVisible

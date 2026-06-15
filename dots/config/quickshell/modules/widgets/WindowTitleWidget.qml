@@ -1,4 +1,4 @@
-import "../Services"
+import qs.services
 import QtQuick
 import Quickshell
 import Quickshell.Hyprland
@@ -13,7 +13,7 @@ Column {
 
     readonly property string currentTitle: HyprlandService.activeWindow?.title || "Desktop"
     readonly property string currentClass: HyprlandService.activeWindow?.class || "No active window"
-    
+
     spacing: 2
 
     AnimatedTextWidget {

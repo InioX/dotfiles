@@ -1,4 +1,4 @@
-import "../Services"
+import qs.services
 import QtQuick
 import QtQuick.Effects
 import QtQuick.Layouts
@@ -17,36 +17,30 @@ Rectangle {
     property var containerBg: mouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface_container
     property var containerFg: Colors.md3.on_surface
 
-    implicitWidth: row.width + 20
+    width: 40
     height: 40
+    topLeftRadius: root.cornerRadius
+    bottomLeftRadius: root.cornerRadius
     color: containerBg
 
-    Row {
-        id: row
-
-        spacing: 5
+    Text {
         anchors.centerIn: parent
+        verticalAlignment: Text.AlignVCenter
+        text: "󰅌"
+        color: containerFg
+        font.bold: true
+        font.pixelSize: 24
+    }
 
-        Text {
-            id: icon
+    MouseArea {
+        id: powerMouseArea
 
-            verticalAlignment: Text.AlignVCenter
-            text: "󰌌"
-            color: containerFg
-            font.bold: true
-            font.pixelSize: root.fontSize
+        anchors.fill: parent
+        onClicked: {
+            root.powerMenuVisible = !root.powerMenuVisible;
         }
-
-        Text {
-            id: label
-
-            verticalAlignment: Text.AlignVCenter
-            text: HyprlandInput.currentLayoutName
-            color: containerFg
-            font.bold: true
-            font.pixelSize: root.fontSize
-        }
-
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
     }
 
     MouseArea {
@@ -54,8 +48,8 @@ Rectangle {
 
         anchors.fill: parent
         onClicked: {
-            closeAllPopouts("input");
-            root.inputMenuVisible = !root.inputMenuVisible;
+            closeAllPopouts("clipboard");
+            root.clipboardMenuVisible = !root.clipboardMenuVisible;
         }
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
