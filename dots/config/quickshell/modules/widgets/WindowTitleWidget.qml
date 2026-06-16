@@ -1,7 +1,6 @@
 import qs.services
 import QtQuick
 import Quickshell
-import Quickshell.Hyprland
 import Quickshell.Io
 import Quickshell.Wayland
 
@@ -11,7 +10,7 @@ Column {
     readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
     property string activeWindowAddress: `0x${activeWindow?.HyprlandToplevel?.address}`
 
-    readonly property string currentTitle: HyprlandService.activeWindow?.title || "Desktop"
+    readonly property string currentTitle: NiriService.focusedWindow.title || "Desktop"
     readonly property string currentClass: HyprlandService.activeWindow?.class || "No active window"
 
     spacing: 2
@@ -20,6 +19,10 @@ Column {
         displayText: windowTitle.currentTitle
         textColor: Colors.md3.on_surface
         fontSize: 14
+
+        Component.onCompleted: {
+            console.log(NiriService.focusedWindow.title)
+        }
     }
 
     AnimatedTextWidget {

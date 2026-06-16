@@ -41,7 +41,9 @@ Rectangle {
             id: label
 
             verticalAlignment: Text.AlignVCenter
-            text: HyprlandInput.currentLayoutName
+            text: NiriService.keyboardLayouts.filter((e, i) => {
+                    return e.isActive;
+                })[0].name;
             color: containerFg
             font.bold: true
             font.pixelSize: root.fontSize

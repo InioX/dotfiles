@@ -49,13 +49,13 @@ Item {
     }
 
     MouseArea {
-        // closeAllPopouts("qs");
-        // root.qsMenuVisible = !root.qsMenuVisible;
 
         id: mouseArea
 
         anchors.fill: parent
         onClicked: {
+        closeAllPopouts("qs");
+        root.qsMenuVisible = !root.qsMenuVisible;
         }
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor

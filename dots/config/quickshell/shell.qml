@@ -7,6 +7,7 @@ import "modules/dock"
 import "modules/clipboard"
 import "modules/inputMethod"
 import "modules/quickSettings"
+import "modules/soundOverlay"
 import "modules/widgets"
 import QtQuick
 import QtQuick.Layouts
@@ -144,12 +145,7 @@ ShellRoot {
 
     }
 
-    Loader {
-
-        sourceComponent: OverlayWidget {
-        }
-
-    }
+    SoundOverlay {}
 
     Loader {
         // active: root.dockVisible || HyprlandService.shouldShowWorkspaceOverlay

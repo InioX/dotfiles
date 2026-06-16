@@ -13,8 +13,8 @@ input {
             // For more information, see xkeyboard-config(7).
 
             // For example:
-            // layout "us,ru"
-            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+            layout "us,ru(phonetic)"
+            options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
 
             // If this section is empty, niri will fetch xkb settings
             // from org.freedesktop.locale1. You can control these using
@@ -110,6 +110,8 @@ output "eDP-1" {
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
+    background-color "rgba(0, 0, 0, 0.3)"
+
     // Set gaps around windows in logical pixels.
     gaps 0
 
@@ -268,7 +270,11 @@ layer-rule {
 }
 
 overview {
-    backdrop-color "#000000"
+}
+
+layer-rule {
+    match namespace="^awww-daemon$"
+    place-within-backdrop true
 }
 
 // Add lines like this to spawn processes at startup.
@@ -282,6 +288,7 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "~/.config/niri/scripts/overview-bar.sh"
 spawn-at-startup "dbus-update-activation-environment" "--all"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal" "-r"
+spawn-at-startup "awww-daemon"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"

@@ -9,6 +9,7 @@ import Quickshell
 import Quickshell.Hyprland
 import Quickshell.Wayland
 import Quickshell.Widgets
+import Quickshell.Io
 
 WlrLayershell {
     id: launcher
@@ -55,9 +56,9 @@ WlrLayershell {
             anchors.verticalCenter: parent.verticalCenter
 
             Repeater {
-                model: HyprlandService.windowList.slice().sort((a, b) => {
-                    return a.workspace.id - b.workspace.id;
-                })
+                model: ScriptModel {
+                    values: [...NiriService.windows].sort((a, b) => a.scrollingColumnIndex - b.scrollingColumnIndex)
+                }
 
                 delegate: Column {
                     anchors.verticalCenter: parent.verticalCenter
@@ -75,7 +76,7 @@ WlrLayershell {
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.horizontalCenter: parent.horizontalCenter
                             // visible: false
-                            source: Quickshell.iconPath(AppSearch.guessIcon(modelData.class), "image-missing")
+                            source: Quickshell.iconPath(AppSearch.guessIcon(modelData.appId), "image-missing")
                             implicitSize: 40
                             layer.enabled: true
                             layer.smooth: true
@@ -92,7 +93,11 @@ WlrLayershell {
 
                                 hoverEnabled: true
                                 anchors.fill: parent
-                                onClicked: Hyprland.dispatch(`workspace ${modelData.workspace.id}`)
+                                onClicked: {
+                                    focusWindowProcess.command.push(modelData.id);
+                                    focusWindowProcess.running = true
+                                    focusWindowProcess.command.pop()
+                                }
 
                                 ToolTip {
                                     visible: mouseArea.containsMouse
@@ -116,6 +121,12 @@ WlrLayershell {
 
                         }
 
+                    }
+
+                    Process {
+                    id: focusWindowProcess
+                      running: false
+                      command: [ "niri", "msg", "action", "focus-window", "--id" ]
                     }
 
                     Text {

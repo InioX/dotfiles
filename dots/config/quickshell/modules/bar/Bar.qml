@@ -57,9 +57,8 @@ Scope {
                         DistroWidget {
                         }
 
-                        WindowTitleWidget {
-                        }
-
+                        // WindowTitleWidget {
+                        // }
                     }
 
                     RowLayout {
