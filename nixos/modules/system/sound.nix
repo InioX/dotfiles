@@ -40,6 +40,21 @@ in
       wireplumber.enable = true;
       jack.enable = true;
       extraConfig.pipewire = {
+        "92-low-latency" = {
+            "context.properties" = {
+              "default.clock.rate" = 48000;
+              "default.clock.quantum" = 32;
+              "default.clock.min-quantum" = 32;
+              "default.clock.max-quantum" = 32;
+            };
+        };
+        "98-crackling-fix" = {
+            "context.properties" = {
+              "default.clock.quantum" = 1024;
+              "default.clock.min-quantum" = 1024;
+              "default.clock.max-quantum" = 8192;
+            };
+          };
         # "10-low-latency.conf" = {
         #   "context.properties" = {
         #     "default.frags" = 16;
@@ -141,13 +156,6 @@ in
           #   };
         }
       ];
-      extraConfig.pipewire."context.properties" = {
-        default.clock.rate = 48000;
-        default.clock.allowed-rates = [44100 48000 96000];
-        default.clock.quantum = 1024;
-        default.clock.min-quantum = 512;
-        default.clock.max-quantum = 2048;
-      };
     };
   };
 }
