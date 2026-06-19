@@ -116,6 +116,10 @@ in
     [templates.zed]
     input_path = "${default.templateFolder}/zed-colors.json"
     output_path = "~/.config/zed/themes/matugen.json"
+
+    [templates.niri]
+    input_path = "${default.templateFolder}/niri.kdl"
+    output_path = "~/.config/niri/colors.kdl"
   '';
 
   system.activationScripts.run-matugen-once = ''
