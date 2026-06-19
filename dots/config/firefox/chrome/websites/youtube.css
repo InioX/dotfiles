@@ -1,11 +1,14 @@
 @-moz-document domain("youtube.com") {
-
-    :root {
+    :root,
+    [dark],
+    [light] {
         --yt-spec-base-background: var(--background) !important;
         --yt-spec-raised-background: var(--surface_container) !important;
         --yt-spec-general-background-a: var(--background) !important;
         --yt-spec-general-background-b: var(--surface_container_low) !important;
-        --yt-spec-general-background-c: var(--surface_container_lowest) !important;
+        --yt-spec-general-background-c: var(
+            --surface_container_lowest
+        ) !important;
         --yt-spec-menu-background: var(--surface_container) !important;
         --yt-spec-text-primary: var(--on_surface) !important;
         --yt-spec-text-secondary: var(--on_surface_variant) !important;
@@ -18,8 +21,17 @@
         --yt-spec-static-brand-red: var(--primary) !important;
         --yt-spec-call-to-action: var(--primary) !important;
         --yt-spec-10-percent-layer: var(--surface_variant) !important;
-        --yt-spec-badge-chip-background: var(--surface_container_high) !important;
-        --yt-spec-button-chip-background-hover: var(--surface_bright) !important;
+        --yt-spec-badge-chip-background: var(
+            --surface_container_high
+        ) !important;
+        --yt-spec-button-chip-background-hover: var(
+            --surface_bright
+        ) !important;
+        --yt-saturated-raised-background: var(--surface_container) !important;
+        --t3e41d7b17b187f69: var(
+            --background
+        ) !important; /* General background */
+        --t518e925f61bdcb91: var(--surface_container) !important;
         --t2d807bb79e75606d: var(--primary) !important;
         --t6216186c28b3834b: var(--on_primary) !important;
         --t617db776af0de196: var(--primary) !important;
@@ -32,14 +44,18 @@
     .style-scope ytd-two-column-browse-results-renderer,
     .style-scope ytd-rich-grid-renderer,
     .style-scope ytd-feed-filter-chip-bar-renderer {
-        background-color: var(--surface_container_low) !important;
+        background-color: var(--background) !important;
     }
 
     /* Progress bar */
     .ytp-play-progress.ytp-swatch-background-color,
     .ytp-play-progress,
     .yt-play-progress {
-        background-image: linear-gradient(to right, var(--primary) 80%, var(--primary) 100%) !important;
+        background-image: linear-gradient(
+            to right,
+            var(--primary) 80%,
+            var(--primary) 100%
+        ) !important;
         background-color: transparent !important;
     }
 
@@ -73,11 +89,11 @@
     }
 
     /* Notification Badges */
-    .yt-spec-icon-badge-shape--type-notification .yt-spec-icon-badge-shape__badge {
+    .yt-spec-icon-badge-shape--type-notification
+        .yt-spec-icon-badge-shape__badge {
         background-color: var(--primary) !important;
         color: var(--on_primary) !important;
     }
-
 
     /* Search Bar */
     .ytSearchboxComponentInputBox {
@@ -96,17 +112,20 @@
 
     /* Header + Top Bar + Chip background */
     #masthead-container.ytd-app,
-    ytd-feed-filter-chip-bar-renderer[frosted-glass-mode="with-chipbar"] #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
+    #background.ytd-masthead,
+    ytd-feed-filter-chip-bar-renderer[frosted-glass-mode="with-chipbar"]
+        #chips-wrapper.ytd-feed-filter-chip-bar-renderer,
     ytd-mini-guide-entry-renderer[frosted-glass],
     ytd-mini-guide-renderer[frosted-glass] {
         background-color: var(--background) !important;
-        color: var(--on_background) !important
+        color: var(--on_background) !important;
     }
-
 
     /* Buttons */
     ytd-button-renderer.style-primary {
-        --yt-spec-button-chip-background-hover: var(--primary_container) !important;
+        --yt-spec-button-chip-background-hover: var(
+            --primary_container
+        ) !important;
     }
 
     /* Live Chat + Comments */
@@ -127,15 +146,36 @@
 
     /* Tonal/Secondary Buttons */
     .yt-spec-button-shape-next--tonal,
-    .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__fill {
+    .yt-spec-touch-feedback-shape--touch-response
+        .yt-spec-touch-feedback-shape__fill {
         background-color: var(--secondary_container) !important;
         color: var(--on_secondary_container) !important;
     }
 
     .yt-spec-button-shape-next--tonal:hover,
-    .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__fill:hover {
+    .yt-spec-touch-feedback-shape--touch-response
+        .yt-spec-touch-feedback-shape__fill:hover {
         background-color: var(--secondary_fixed_dim) !important;
         color: var(--on_secondary_fixed_variant) !important;
+    }
+
+    /* Community posts */
+    ytd-post-renderer {
+        background-color: var(--surface_container) !important;
+        border: 1px solid var(--outline_variant) !important;
+        color: var(--on_surface_container) !important;
+    }
+
+    /* Dropdowns */
+    ytd-multi-page-menu-renderer {
+        background: var(--surface_container) !important;
+        color: var(--on_surface_container) !important;
+    }
+
+    /* Search box */
+    .ytSearchboxComponentSuggestionsContainer {
+        background-color: var(--surface_container) !important;
+        color: var(--on_surface_container) !important;
     }
 
     /* The "Subscribe" button */
