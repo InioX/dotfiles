@@ -169,8 +169,7 @@ in
                 config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/zed/settings.json";
 
               # Niri
-              "niri/".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/niri/";
+              "niri/".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/niri/";
             };
 
             home.file = {
@@ -227,6 +226,11 @@ in
               # Honkai
               ".local/share/honkers-railway-launcher/config.json" = {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.localFolder}/share/honkers-railway-launcher/config.json";
+              };
+
+              # Fish shell
+              ".config/fish/config.fish" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/fish/config.fish";
               };
             };
 
