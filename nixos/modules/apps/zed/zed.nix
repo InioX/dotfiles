@@ -19,6 +19,9 @@ in
     environment.systemPackages = with pkgs; [
       # zed
       nixd
+      nil
+      qt5.qttools
+      pkgs.kdePackages.qtdeclarative
       package-version-server
       zed-editor
     ];
