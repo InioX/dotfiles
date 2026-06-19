@@ -3,3 +3,55 @@
 @import url("/home/ini/.mozilla/firefox/ini/chrome/websites/bitwarden.css");
 @import url("/home/ini/.mozilla/firefox/ini/chrome/websites/github.css");
 @import url("/home/ini/.mozilla/firefox/ini/chrome/websites/youtube.css");
+
+@-moz-document url-prefix("about:blank") {
+    * {
+        background-color: var(--surface) !important;
+    }
+}
+
+* {
+    scrollbar-width: auto !important;
+}
+
+::selection {
+    background: var(--primary_container) !important;
+    color: var(--on_primary_container) !important;
+}
+
+@-moz-document url-prefix("about:newtab"), url-prefix("about:home") {
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --newtab-background-color: var(--surface) !important;
+            --newtab-background-color-secondary: var(
+                --surface_container
+            ) !important;
+            --newtab-text-primary-color: var(--on_surface) !important;
+            --color-gray-80: var(--surface_container);
+        }
+    }
+}
+
+@-moz-document url-prefix("about:preferences"), url-prefix("about:addons") {
+    @media (prefers-color-scheme: dark) {
+        :root {
+            /* Page background */
+            --in-content-page-background: var(--surface) !important;
+            --background-color-canvas: var(--surface) !important;
+
+            /* Selection / accent — Gruvbox bright yellow, dark text for contrast */
+            --in-content-accent-color: var(--primary) !important;
+            --in-content-accent-color-active: var(--primary) !important;
+            --in-content-item-selected: var(--primary) !important;
+            --in-content-item-selected-text: var(--on_primary) !important;
+
+            --color-accent-primary: var(--primary) !important;
+            --color-accent-primary-hover: var(--primary) !important;
+            --color-accent-primary-active: var(--primary) !important;
+            --background-color-box: var(--surface_container) !important;
+            --input-text-background-color: var(
+                --surface_container_high
+            ) !important;
+        }
+    }
+}
