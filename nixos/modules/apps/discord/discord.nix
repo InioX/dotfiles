@@ -15,21 +15,21 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      # (pkgs.discord.override {
-      #   withOpenASAR = true;
-      #   withVencord = true;
-      # })
-      ((pkgs.callPackage "${
-                pkgs.fetchFromGitHub {
-                  owner = "LuckShiba";
-                  repo = "nixpkgs";
-                  rev = "discord-vk";
-                  sha256 = "sha256-ZsqGzg2hD8e40wwc1kgJGt2qgI8dsp7uDR9OiTGGPbc=";
-                }
-              }/pkgs/applications/networking/instant-messengers/discord" {}).discord.override {
+      (pkgs.discord.override {
         withOpenASAR = true;
         withVencord = true;
       })
+      # ((pkgs.callPackage "${
+      #           pkgs.fetchFromGitHub {
+      #             owner = "LuckShiba";
+      #             repo = "nixpkgs";
+      #             rev = "discord-vk";
+      #             sha256 = "sha256-ZsqGzg2hD8e40wwc1kgJGt2qgI8dsp7uDR9OiTGGPbc=";
+      #           }
+      #         }/pkgs/applications/networking/instant-messengers/discord" {}).discord.override {
+      #   withOpenASAR = true;
+      #   withVencord = true;
+      # })
 
       # (pkgs.discord.overrideAttrs (oldAttrs: {
       #     version = "0.0.124";
