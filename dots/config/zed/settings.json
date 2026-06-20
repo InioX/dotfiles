@@ -7,37 +7,38 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "disable_ai": true,
   "outline_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "agent": {
     "dock": "right",
     "favorite_models": [],
-    "model_parameters": []
+    "model_parameters": [],
   },
   "git_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "ui_font_family": "Iosevka Nerd Font Mono",
   "scrollbar": {
-    "show": "never"
+    "show": "never",
   },
   "git": {
     "inline_blame": {
-      "show_commit_summary": true
-    }
+      "show_commit_summary": true,
+    },
   },
   "colorize_brackets": true,
   "project_panel": {
     "diagnostic_badges": true,
     "git_status_indicator": true,
-    "dock": "right"
+    "dock": "right",
   },
   "which_key": {
-    "enabled": false
+    "enabled": false,
   },
   "buffer_font_family": "Iosevka Nerd Font Mono",
   "icon_theme": "Material Icon Theme",
@@ -55,6 +56,6 @@
   "theme": {
     "mode": "system",
     "light": "Matugen Light",
-    "dark": "Matugen Dark"
+    "dark": "Matugen Dark",
   },
 }
