@@ -57,6 +57,8 @@ Scope {
                         DistroWidget {
                         }
 
+                        PerfMonitors {
+                        }
                         // WindowTitleWidget {
                         // }
                     }

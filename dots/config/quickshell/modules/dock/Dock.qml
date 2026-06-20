@@ -148,6 +148,7 @@ WlrLayershell {
                 font.pixelSize: 25
                 verticalAlignment: Text.AlignVCenter
                 font.bold: true
+                visible: NiriService.windows.length > 0
             }
 
             Rectangle {

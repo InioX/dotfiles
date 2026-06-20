@@ -130,11 +130,11 @@ Singleton {
                         const index = root.workspaces.findIndex(ws => ws.id === id);
                         if (index !== -1) {
                             let ws = root.workspaces[index];
-                            ws.idx = item.idx;
+                            // ws.idx = item.idx;
                             ws.name = item.name;
-                            ws.output = item.output;
+                            // ws.output = item.output;
                             ws.isUrgent = item.is_urgent;
-                            ws.isActive = item.is_active;
+                            // ws.isActive = item.is_active;
                             ws.isFocused = item.is_focused;
                             ws.activeWindowId = item.active_window_id ?? -1;
                             root.workspaces[index] = ws;
@@ -476,13 +476,13 @@ Singleton {
     function createWorkspace(json: var): var {
         return workspaceComponent.createObject(root, {
             id: json.id,
-            idx: json.idx,
-            name: json.name,
-            output: json.output,
+            // idx: json.idx,
+            // name: json.name,
+            // output: json.output,
             isUrgent: json.is_urgent,
-            isActive: json.is_active,
+            // isActive: json.is_active,
             isFocused: json.is_focused,
-            activeWindowId: json.active_window_id ?? -1
+            // activeWindowId: json.active_window_id ?? -1
         });
     }
 
