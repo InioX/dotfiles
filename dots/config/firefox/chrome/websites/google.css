@@ -1,0 +1,113 @@
+@-moz-document domain("google.com") {
+    :root,
+    [dark],
+    [light] {
+        /* Main background */
+        --xhUGwc: var(--surface) !important;
+        /* Line below the buttons (images, videos, news) */
+        --gS5jXb: var(--outline_variant) !important;
+        /* Search overview gemini logo fill (not working) */
+        --m3c23: var(--primary) !important;
+        /* Search overview site cards on the right */
+        --XKMDxc: var(--surface_container) !important;
+        /* Link color */
+        --JKqx2: var(--primary) !important;
+        /* Search overview view more button icon fill */
+        --m3c15: var(--primary) !important;
+        /* Search overview highlighted text background color */
+        --jwFC2e: var(--primary_container) !important;
+        /* Search overview highlighted text color */
+        --jINu6c: var(--on_primary_container) !important;
+        /* Small source pills for search overview */
+        --aYn2S: var(--surface_container) !important;
+    }
+
+    /* Small source pills for search overview */
+    .oy7Apc::before {
+        background-color: var(--surface_container) !important;
+    }
+
+    /* Search overview site cards on the right */
+    .rG9tvd {
+        background: var(--surface_container) !important;
+        color: var(--on_surface) !important;
+        border-color: var(--outline_variant) !important;
+    }
+
+    /* Search overview site cards on the right - Show all button */
+    .BjvG9b {
+        background: var(--surface_container_high) !important;
+        color: var(--on_surface) !important;
+    }
+
+    .BjvG9b:hover {
+        background-color: var(--surface_bright) !important;
+    }
+
+    /* Ask anything button */
+    .Zze5V {
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            var(--surface) 30px,
+            var(--surface)
+        ) !important;
+    }
+
+    /* Bottom of the search results */
+    .f6F9Be {
+        background: var(--surface_container) !important;
+    }
+
+    /* Search bar */
+    .RNNXgb {
+        background: var(--surface_container) !important;
+        border: 1px solid var(--outline_variant) !important;
+    }
+
+    /* Blurry line in search overview */
+    .RDmXvc {
+        /*background-image: none !important;*/
+        background-image: linear-gradient(
+            transparent 0px,
+            var(--surface) 52px,
+            var(--surface) 80px
+        ) !important;
+    }
+
+    /* Search overview gemini logo fill */
+    .fWWlmf JzISke {
+        fill: var(--primary) !important;
+        color: var(--primary) !important;
+    }
+
+    /* Search suggestions at the bottom hovered */
+    .vIifob:hover {
+        background-color: var(--surface_bright) !important;
+    }
+
+    /* Search more button */
+    .FR7ZSc {
+        background-color: var(--surface_container) !important;
+    }
+
+    /* Search more button hovered */
+    .FR7ZSc:hover .niO4u::after {
+        background-color: var(--surface_bright) !important;
+    }
+
+    /* Ask anything button */
+    .d4HWzd::before {
+        background: var(--surface_container) !important;
+        border: 1px solid var(--outline_variant) !important;
+    }
+
+    /* Ask anything plus button */
+    .hhGtFb::after {
+        background: var(--surface_container_high) !important;
+    }
+
+    .xrOgrb {
+        display: none !important;
+    }
+}

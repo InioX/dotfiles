@@ -3,6 +3,7 @@
 @import url("/home/ini/.mozilla/firefox/ini/chrome/websites/bitwarden.css");
 @import url("/home/ini/.mozilla/firefox/ini/chrome/websites/github.css");
 @import url("/home/ini/.mozilla/firefox/ini/chrome/websites/youtube.css");
+@import url("/home/ini/.mozilla/firefox/ini/chrome/websites/google.css");
 
 @-moz-document url-prefix("about:blank") {
     * {
