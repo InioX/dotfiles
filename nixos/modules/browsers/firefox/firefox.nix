@@ -5,9 +5,11 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.browsers.firefox;
-in {
+in
+{
   options.zenyte.browsers.firefox = with types; {
     enable = mkBoolOpt false "Whether to enable firefox.";
     extensions = mkOption {
@@ -90,19 +92,54 @@ in {
             ExtensionRecommendations = false;
             SkipOnboarding = true;
           };
+          ExtensionSettings = {
+            # Block extensions not explicitly allowed
+            "*" = {
+              installation_mode = "blocked";
+              allowed_types = [ "extension" ];
+            };
+
+            # P-stream
+            "{be961bb7-0f52-4600-a46a-3de5e8829f68}" = {
+              install_url = "https://mozilla.org";
+              installation_mode = "force_installed";
+            };
+            # Dark reader
+            "addon@darkreader.org" = {
+              install_url = "https://mozilla.org";
+              installation_mode = "force_installed";
+            };
+            # Pywalfox
+            "pywalfox@frewacom.org" = {
+              install_url = "https://mozilla.org";
+              installation_mode = "force_installed";
+            };
+            # Sponsor block
+            "sponsorBlocker@ajay.app" = {
+              install_url = "https://mozilla.org";
+              installation_mode = "force_installed";
+            };
+            # Ublock
+            "uBlock0@raymondhill.net" = {
+              install_url = "https://mozilla.org";
+              installation_mode = "force_installed";
+            };
+          };
         };
       };
       profiles = {
         ini = {
-          extensions.packages = with pkgs.nur.repos.rycee.firefox-addons;
-            [
-              ublock-origin
-              plasma-integration
-              darkreader
-              pywalfox
-              sponsorblock
-            ]
-            ++ cfg.extensions;
+          # extensions.packages =
+          #   with pkgs.nur.repos.rycee.firefox-addons;
+          #   [
+          #     # ublock-origin
+          #     # plasma-integration
+          #     # darkreader
+          #     # pywalfox
+          #     # sponsorblock
+          #   ]
+          #   ++ cfg.extensions;
+
           id = 0;
           name = "ini";
           bookmarks = {
@@ -168,7 +205,10 @@ in {
           search = {
             force = true;
             default = "google";
-            order = ["google" "ddg"];
+            order = [
+              "google"
+              "ddg"
+            ];
             engines = {
               "Nix Packages" = {
                 urls = [
@@ -187,17 +227,17 @@ in {
                   }
                 ];
                 icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = ["@np"];
+                definedAliases = [ "@np" ];
               };
               "NixOS Wiki" = {
-                urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
+                urls = [ { template = "https://nixos.wiki/index.php?search={searchTerms}"; } ];
                 icon = "https://nixos.wiki/favicon.png";
                 updateInterval = 24 * 60 * 60 * 1000;
-                definedAliases = ["@nw"];
+                definedAliases = [ "@nw" ];
               };
               "youtube" = {
-                urls = [{template = "https://www.youtube.com/results?search_query={searchTerms}";}];
-                definedAliases = ["@yt"];
+                urls = [ { template = "https://www.youtube.com/results?search_query={searchTerms}"; } ];
+                definedAliases = [ "@yt" ];
               };
               "wikipedia".metaData.alias = "@wiki";
             };

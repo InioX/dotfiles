@@ -51,8 +51,8 @@
               # Nur overlay
               nixpkgs.overlays = [
                 nix-cachyos-kernel.overlays.pinned
-                nur.overlays.default
-                nixpkgs-f2k.overlays.window-managers
+                # nur.overlays.default
+                # nixpkgs-f2k.overlays.window-managers
                 inputs.mac-style-plymouth.overlays.default
                 inputs.niri-flake.overlays.niri
               ];
@@ -124,10 +124,10 @@
     };
 
     # Hyprland plugins
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
     # For honkai and genshin
     aagl = {
@@ -173,28 +173,28 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ags = {
-      url = "github:Aylur/ags";
-    };
+    # ags = {
+    # url = "github:Aylur/ags";
+    # };
 
     # Hyprland
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-    };
+    # hyprland = {
+    # url = "github:hyprwm/Hyprland";
+    # };
 
     # Nur
-    nur = {
-      url = "github:nix-community/nur";
-    };
+    # nur = {
+    # url = "github:nix-community/nur";
+    # };
 
     # Nixpkgs wayland
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-    };
+    # nixpkgs-wayland = {
+    # url = "github:nix-community/nixpkgs-wayland";
+    # };
 
     # For awesomewm-git version
-    nixpkgs-f2k = {
-      url = "github:fortuneteller2k/nixpkgs-f2k";
-    };
+    # nixpkgs-f2k = {
+    # url = "github:fortuneteller2k/nixpkgs-f2k";
+    # };
   };
 }

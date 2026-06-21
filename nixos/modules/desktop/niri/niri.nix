@@ -16,6 +16,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    zenyte.desktop.wayland = enabled;
+
     programs.niri = {
       enable = true;
       package = pkgs.niri-unstable;

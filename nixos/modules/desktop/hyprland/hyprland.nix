@@ -26,36 +26,21 @@ in
   };
 
   imports = [
-    inputs.hyprland.nixosModules.default
+    # inputs.hyprland.nixosModules.default
   ];
 
   config = mkIf cfg.enable {
-    programs.hyprland = {
-      enable = true;
-      plugins = [
-        # hyprland-scroll-overview
-      ];
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-    };
+    # programs.hyprland = {
+    # enable = true;
+    # plugins = [
+    # hyprland-scroll-overview
+    # ];
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    # };
+    #
 
-    xdg.portal = {
-       enable = true;
-       xdgOpenUsePortal = true;
-       extraPortals = [
-         pkgs.xdg-desktop-portal-gtk
-         pkgs.xdg-desktop-portal-gnome
-         pkgs.xdg-desktop-portal-wlr
-       ];
-       config = {
-         hyprland.default = ["hyprland" "gtk"];
-         common.default = [ "gnome"];
-         # niri = {
-          # "org.freedesktop.impl.portal.ScreenCast" = lib.mkForce "wlr";
-          # "org.freedesktop.impl.portal.Screenshot" = lib.mkForce "wlr";
-        # };
-       };
-     };
+    zenyte.desktop.wayland = enabled;
 
     # services.displayManager.gdm.enable = true;
     # services.desktopManager.gnome.enable = true;
@@ -77,25 +62,14 @@ in
     environment.systemPackages = with pkgs; [
       # hyprland-scroll-overview
 
-      wl-clipboard
-      wl-clip-persist
-      cliphist
       # grim
       # slurp
       playerctl
-      inputs.nixpkgs-wayland.packages.${stdenv.hostPlatform.system}.wl-gammarelay-rs
+      # inputs.nixpkgs-wayland.packages.${stdenv.hostPlatform.system}.wl-gammarelay-rs
       # inputs.nixpkgs-wayland.packages.${system}.swww
-      wf-recorder
-      awww
 
       hyprshot
       hyprpicker
-
-      adwaita-icon-theme
-      hicolor-icon-theme
-
-      imagemagick
-
       # For theme management
       nwg-look
 
@@ -124,30 +98,6 @@ in
     #     inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
     #   ];
     # };
-
-    zenyte.desktop.addons = {
-      waybar = disabled;
-      kitty = enabled;
-      alacritty = disabled;
-      rofi = enabled;
-      gtk = enabled;
-      dunst = enabled;
-      # dolphin = enabled;
-      nautilus = enabled;
-      ags = disabled;
-      qt = enabled;
-      quickshell = enabled;
-      sddm = enabled;
-    };
-
-    zenyte.cli = {
-      neofetch = enabled;
-      starship = enabled;
-    };
-
-    zenyte.services = {
-      flatpak = enabled;
-    };
 
     # zenyte.home.configFile."hypr".source = default.configFolder + /hypr;
     # zenyte.home.configFile."hypr/icons".source = default.configFolder + /hypr/icons;

@@ -64,7 +64,7 @@
     open = true;
     nvidiaSettings = true;
     dynamicBoost.enable = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
     # package = let
     #   base = config.boot.kernelPackages.nvidiaPackages.latest;
     #   cachyos-nvidia-patch = pkgs.fetchpatch {

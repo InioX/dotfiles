@@ -67,6 +67,7 @@ with lib.zenyte;
     #   enable = true;
     # };
     thermald.enable = true;
+    flatpak = enabled;
   };
 
   zenyte.desktop = {
