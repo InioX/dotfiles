@@ -8,6 +8,22 @@ with lib;
 with lib.zenyte;
 let
   cfg = config.zenyte.browsers.firefox;
+
+  # Check about:support for extension/add-on ID strings.
+  extensions = [
+    # uBlock Origin
+    "uBlock0@raymondhill.net"
+    # P-stream
+    "{be961bb7-0f52-4600-a46a-3de5e8829f68}"
+    # Dark reader
+    "addon@darkreader.org"
+    # Pywalfox
+    "pywalfox@frewacom.org"
+    # Sponsor block
+    "sponsorBlocker@ajay.app"
+    # Ublock
+    "uBlock0@raymondhill.net"
+  ];
 in
 {
   options.zenyte.browsers.firefox = with types; {
@@ -98,32 +114,15 @@ in
               installation_mode = "blocked";
               allowed_types = [ "extension" ];
             };
-
-            # P-stream
-            "{be961bb7-0f52-4600-a46a-3de5e8829f68}" = {
-              install_url = "https://mozilla.org";
-              installation_mode = "force_installed";
-            };
-            # Dark reader
-            "addon@darkreader.org" = {
-              install_url = "https://mozilla.org";
-              installation_mode = "force_installed";
-            };
-            # Pywalfox
-            "pywalfox@frewacom.org" = {
-              install_url = "https://mozilla.org";
-              installation_mode = "force_installed";
-            };
-            # Sponsor block
-            "sponsorBlocker@ajay.app" = {
-              install_url = "https://mozilla.org";
-              installation_mode = "force_installed";
-            };
-            # Ublock
-            "uBlock0@raymondhill.net" = {
-              install_url = "https://mozilla.org";
-              installation_mode = "force_installed";
-            };
+            ExtensionSettings = builtins.listToAttrs (
+              builtins.map (id: {
+                name = id;
+                value = {
+                  install_url = "https://addons.mozilla.org/firefox/downloads/latest/${id}/latest.xpi";
+                  installation_mode = "force_installed";
+                };
+              }) extensions
+            );
           };
         };
       };
