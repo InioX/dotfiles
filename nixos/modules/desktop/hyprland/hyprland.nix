@@ -54,11 +54,6 @@ in
 
     # programs.gpu-screen-recorder.enable = true;
 
-    environment.sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-      USE_WAYLAND = "1";
-    };
-
     environment.systemPackages = with pkgs; [
       # hyprland-scroll-overview
 
@@ -71,11 +66,9 @@ in
       hyprshot
       hyprpicker
       # For theme management
-      nwg-look
 
       # Cursor theme
       # inputs.mcmojave-hyprcursor.packages.${pkgs.stdenv.hostPlatform.system}.default
-      bibata-cursors
 
       # gpu-screen-recorder-gtk
       # (pkgs.runCommand "gpu-screen-recorder" {

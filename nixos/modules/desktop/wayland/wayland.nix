@@ -16,6 +16,11 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      USE_WAYLAND = "1";
+    };
+
     xdg.portal = {
       enable = true;
       xdgOpenUsePortal = true;
@@ -38,6 +43,10 @@ in
     };
 
     environment.systemPackages = with pkgs; [
+      bibata-cursors
+
+      nwg-look
+
       wl-clipboard
       wl-clip-persist
       cliphist
