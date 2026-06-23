@@ -58,6 +58,7 @@ in
 
       imagemagick
 
+      xwayland
     ];
 
     zenyte.desktop.addons = {
