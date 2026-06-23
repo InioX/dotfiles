@@ -228,6 +228,11 @@ in
                 source = config.lib.file.mkOutOfStoreSymlink "${default.localFolder}/share/honkers-railway-launcher/config.json";
               };
 
+              # Genshin
+              ".local/share/anime-game-launcher/config.json" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.localFolder}/share/anime-game-launcher/config.json";
+              };
+
               # Fish shell
               ".config/fish/config.fish" = {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/fish/config.fish";
