@@ -108,22 +108,23 @@ in
             ExtensionRecommendations = false;
             SkipOnboarding = true;
           };
-          ExtensionSettings = {
-            # Block extensions not explicitly allowed
-            "*" = {
-              installation_mode = "blocked";
-              allowed_types = [ "extension" ];
-            };
-            ExtensionSettings = builtins.listToAttrs (
-              builtins.map (id: {
-                name = id;
-                value = {
-                  install_url = "https://addons.mozilla.org/firefox/downloads/latest/${id}/latest.xpi";
-                  installation_mode = "force_installed";
-                };
-              }) extensions
-            );
-          };
+          # ExtensionSettings = {
+          #   # Block extensions not explicitly allowed
+          #   "*" = {
+          #     installation_mode = "blocked";
+          #     allowed_types = [ "extension" ];
+          #   };
+
+          # };
+          ExtensionSettings = builtins.listToAttrs (
+            builtins.map (id: {
+              name = id;
+              value = {
+                install_url = "https://addons.mozilla.org/firefox/downloads/latest/${id}/latest.xpi";
+                installation_mode = "normal_installed";
+              };
+            }) extensions
+          );
         };
       };
       profiles = {
