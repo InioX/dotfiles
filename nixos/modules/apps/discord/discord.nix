@@ -6,9 +6,11 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.apps.discord;
-in {
+in
+{
   options.zenyte.apps.discord = {
     enable = mkBoolOpt false "Whether to enable discord.";
   };
@@ -39,7 +41,7 @@ in {
       #     };
       # }))
 
-      vesktop
+      # vesktop
 
       qtscrcpy
     ];
