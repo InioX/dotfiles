@@ -2,7 +2,7 @@
   "launcher": {
     "language": "en-us",
     "edition": "Global",
-    "style": "Modern",
+    "style": "Classic",
     "video_background": true,
     "background_index": 0,
     "temp": "/home/ini/.local/share/anime-game-launcher",
@@ -46,7 +46,7 @@
         "gstreamer": true
       },
       "timeout_fix": false,
-      "winewayland": false
+      "winewayland": true
     },
     "dxvk": {
       "builds": "/home/ini/.local/share/anime-game-launcher/dxvks"
@@ -97,8 +97,10 @@
         "extra_args": ""
       }
     },
-    "environment": {},
-    "command": null
+    "environment": {
+      "NVPRESENT_ENABLE_SMOOTH_MOTION": "1"
+    },
+    "command": "game-performance %command%"
   },
   "sandbox": {
     "enabled": false,
