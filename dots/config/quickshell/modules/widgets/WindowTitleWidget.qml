@@ -7,11 +7,8 @@ import Quickshell.Wayland
 Column {
     id: windowTitle
 
-    readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
-    property string activeWindowAddress: `0x${activeWindow?.HyprlandToplevel?.address}`
-
     readonly property string currentTitle: NiriService.focusedWindow.title || "Desktop"
-    readonly property string currentClass: HyprlandService.activeWindow?.class || "No active window"
+    readonly property string currentClass: NiriService.focusedWindow.appId || "No active window"
 
     spacing: 2
 
@@ -21,7 +18,7 @@ Column {
         fontSize: 14
 
         Component.onCompleted: {
-            console.log(NiriService.focusedWindow.title)
+            console.log(NiriService.focusedWindow.title);
         }
     }
 

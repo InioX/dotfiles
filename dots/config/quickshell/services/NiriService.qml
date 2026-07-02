@@ -1,4 +1,3 @@
-// https://gitlab.com/ntgn/neoqs/-/blob/3b40ab430b4afd303cd3791cb55da08d2bfbb459/src/services/niri/Niri.qml
 pragma Singleton
 import QtQuick
 import Quickshell
@@ -130,11 +129,11 @@ Singleton {
                         const index = root.workspaces.findIndex(ws => ws.id === id);
                         if (index !== -1) {
                             let ws = root.workspaces[index];
-                            // ws.idx = item.idx;
+                            ws.idx = item.idx;
                             ws.name = item.name;
-                            // ws.output = item.output;
+                            ws.output = item.output;
                             ws.isUrgent = item.is_urgent;
-                            // ws.isActive = item.is_active;
+                            ws.isActive = item.is_active;
                             ws.isFocused = item.is_focused;
                             ws.activeWindowId = item.active_window_id ?? -1;
                             root.workspaces[index] = ws;
@@ -295,8 +294,8 @@ Singleton {
                     win.windowHeight = item.layout.window_size[1];
                     win.windowOffsetInTileX = item.layout.window_offset_in_tile[0];
                     win.windowOffsetInTileY = item.layout.window_offset_in_tile[1];
-                    win.focusTimeStampSeconds = item.focus_timestamp.secs;
-                    win.focusTimeStampNanos = item.focus_timestamp.nanos;
+                    win.focusTimeStampSeconds = item.focus_timestamp?.secs ?? -1;
+                    win.focusTimeStampNanos = item.focus_timestamp?.nanos ?? -1;
 
                     if (item.is_focused && !win.isFocused) {
                         const oldFocusedIndex = root.windows.findIndex(w => w.isFocused);
@@ -476,13 +475,13 @@ Singleton {
     function createWorkspace(json: var): var {
         return workspaceComponent.createObject(root, {
             id: json.id,
-            // idx: json.idx,
-            // name: json.name,
-            // output: json.output,
+            idx: json.idx,
+            name: json.name,
+            output: json.output,
             isUrgent: json.is_urgent,
-            // isActive: json.is_active,
+            isActive: json.is_active,
             isFocused: json.is_focused,
-            // activeWindowId: json.active_window_id ?? -1
+            activeWindowId: json.active_window_id ?? -1
         });
     }
 
@@ -509,8 +508,8 @@ Singleton {
             windowHeight: json.layout.window_size[1],
             windowOffsetInTileX: json.layout.window_offset_in_tile[0],
             windowOffsetInTileY: json.layout.window_offset_in_tile[1],
-            focusTimeStampSeconds: json.focus_timestamp.secs,
-            focusTimeStampNanos: json.focus_timestamp.nanos
+            focusTimeStampSeconds: json.focus_timestamp?.secs ?? -1,
+            focusTimeStampNanos: json.focus_timestamp?.nanos ?? -1
         });
     }
 

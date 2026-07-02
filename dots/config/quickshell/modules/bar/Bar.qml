@@ -54,22 +54,26 @@ Scope {
                         anchors.verticalCenter: parent.verticalCenter
                         spacing: 10
 
-                        DistroWidget {
+                        DistroWidget {}
+
+                        NiriWorkspaceWidget {
+                            screen: barWindow.modelData
                         }
 
-                        PerfMonitors {
-                        }
-                        // WindowTitleWidget {
-                        // }
+                        PerfMonitors {}
+
+                        ScreenshotWidget {}
+
+                        RecordingWidget {}
+
+                        // WindowTitleWidget {}
                     }
 
                     RowLayout {
                         anchors.centerIn: parent
                         anchors.verticalCenter: parent.verticalCenter
 
-                        ClockWidget {
-                        }
-
+                        ClockWidget {}
                     }
 
                     RowLayout {
@@ -83,33 +87,21 @@ Scope {
                         RowLayout {
                             spacing: 3
 
-                            ClipboardWidget {
-                            }
+                            ClipboardWidget {}
 
-                            InputMethodWidget {
-                            }
+                            InputMethodWidget {}
 
-                            QsBarWidget {
-                            }
-
+                            QsBarWidget {}
                         }
 
                         RowLayout {
                             spacing: 10
 
-                            SearchWidget {
-                            }
-
+                            SearchWidget {}
                         }
-
                     }
-
                 }
-
             }
-
         }
-
     }
-
 }

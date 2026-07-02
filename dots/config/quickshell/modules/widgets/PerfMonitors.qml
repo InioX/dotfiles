@@ -6,7 +6,7 @@ import qs.services
 
 Rectangle {
     id: perfRoot
-    width: statRow.width + 40
+    implicitWidth: statRow.width + 40
     height: 40
     radius: root.cornerRadius
 
@@ -55,6 +55,7 @@ Rectangle {
                     text: Math.round(UsageService.usedMemoryPerc * 100) + "%"
                     color: Colors.md3.on_surface
                     font.pixelSize: 10
+                    font.bold: true
                 }
             }
 
@@ -99,6 +100,7 @@ Rectangle {
                     text: UsageService.cpuTemp + "°C"
                     color: Colors.md3.on_surface
                     font.pixelSize: 10
+                    font.bold: true
                 }
             }
 
@@ -143,6 +145,7 @@ Rectangle {
                     text: Math.round(UsageService.cpuPerc * 100) + "%"
                     color: Colors.md3.on_surface
                     font.pixelSize: 10
+                    font.bold: true
                 }
             }
 
