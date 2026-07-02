@@ -8,7 +8,8 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.desktop.addons.quickshell;
 
   yet-another-monochrome-icons = pkgs.stdenv.mkDerivation {
@@ -17,17 +18,16 @@ with lib.zenyte; let
 
     src = pkgs.fetchzip {
       url = "https://bitbucket.org/dirn-typo/yet-another-monochrome-icon-set/get/main.zip";
-      sha256 = "sha256-KzAWx+ls4Y0WzaFIdCjtarkr68/uE9jyeRreLyPcziw=";
+      sha256 = "sha256-OCrbAJhBKwHHl1rLieT5xVene3KRHcy0UYRc6BxvQGg=";
     };
 
     installPhase = ''
       mkdir -p $out/share/icons/Yet-Another-Monochrome
-      # The fetchzip unpacks into a folder with a random name like 'dirn-typo-repo-hash'
-      # We move everything inside that folder to our target
       cp -r * $out/share/icons/Yet-Another-Monochrome/
     '';
   };
-in {
+in
+{
   options.zenyte.desktop.addons.quickshell = {
     enable = mkBoolOpt false "Whether to enable quickshell.";
   };
