@@ -76,6 +76,9 @@ layout {
 }
 
 overview {
+    workspace-shadow {
+        off
+    }
 }
 
 prefer-no-csd
