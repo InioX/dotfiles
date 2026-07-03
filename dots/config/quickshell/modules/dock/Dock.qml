@@ -57,7 +57,14 @@ WlrLayershell {
 
             Repeater {
                 model: ScriptModel {
-                    values: [...NiriService.windows].sort((a, b) => a.scrollingColumnIndex - b.scrollingColumnIndex)
+                    values: [...NiriService.windows].sort((a, b) => {
+                        // First, sort by workspace ID (lowest to highest)
+                        if (a.workspaceId !== b.workspaceId) {
+                            return a.workspaceId - b.workspaceId;
+                        }
+                        // If they are on the same workspace, sort by scrolling index
+                        return a.scrollingColumnIndex - b.scrollingColumnIndex;
+                    })
                 }
 
                 delegate: Column {
@@ -95,8 +102,8 @@ WlrLayershell {
                                 anchors.fill: parent
                                 onClicked: {
                                     focusWindowProcess.command.push(modelData.id);
-                                    focusWindowProcess.running = true
-                                    focusWindowProcess.command.pop()
+                                    focusWindowProcess.running = true;
+                                    focusWindowProcess.command.pop();
                                 }
 
                                 ToolTip {
@@ -114,19 +121,15 @@ WlrLayershell {
                                         border.color: Colors.md3.primary
                                         radius: 10
                                     }
-
                                 }
-
                             }
-
                         }
-
                     }
 
                     Process {
-                    id: focusWindowProcess
-                      running: false
-                      command: [ "niri", "msg", "action", "focus-window", "--id" ]
+                        id: focusWindowProcess
+                        running: false
+                        command: ["niri", "msg", "action", "focus-window", "--id"]
                     }
 
                     Text {
@@ -137,9 +140,7 @@ WlrLayershell {
                         visible: launcher.showWorkspaceNumber
                         font.pixelSize: 12
                     }
-
                 }
-
             }
 
             Text {
@@ -167,11 +168,7 @@ WlrLayershell {
                     font.pixelSize: 40
                     verticalAlignment: Text.AlignVCenter
                 }
-
             }
-
         }
-
     }
-
 }
