@@ -108,7 +108,7 @@ WlrLayershell {
 
                                 ToolTip {
                                     visible: mouseArea.containsMouse
-                                    delay: 500
+                                    delay: 250
 
                                     contentItem: Text {
                                         text: modelData.title || "Window"
@@ -153,20 +153,35 @@ WlrLayershell {
             }
 
             Rectangle {
-                color: Colors.md3.surface_variant
+                id: launcherMenu
+                property var containerBg: launcherMouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface_container
+                property var containerFg: Colors.md3.on_surface
+
+                color: launcherMenu.containerBg
                 width: launcherIcon.width + 25
                 height: launcherIcon.height
-                radius: 20
+                radius: 30
 
                 Text {
                     id: launcherIcon
 
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    color: Colors.md3.on_surface
+                    color: launcherMenu.containerFg
                     text: "󰀻"
                     font.pixelSize: 40
                     verticalAlignment: Text.AlignVCenter
+                }
+
+                MouseArea {
+                    id: launcherMouseArea
+
+                    anchors.fill: parent
+                    onClicked: {
+                        root.launcherVisible = !root.launcherVisible;
+                    }
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
                 }
             }
         }

@@ -1,0 +1,7 @@
+game:
+  exe: /mnt/games/Games/Euro.Truck.Simulator.2.ZeiGames.com/bin/win_x64/eurotrucks2.exe
+  prefix: /home/ini/games/prefixes/ets2
+system:
+  gamescope: false
+wine:
+  version: proton-cachyos-11.0-20260429-slr-x86_64_v3

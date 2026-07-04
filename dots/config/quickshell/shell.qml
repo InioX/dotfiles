@@ -4,6 +4,7 @@ import "modules/appLauncher"
 import "modules/bar"
 import "modules/overlayWidget"
 import "modules/dock"
+import "modules/folderView"
 import "modules/clipboard"
 import "modules/inputMethod"
 import "modules/quickSettings"
@@ -51,98 +52,93 @@ ShellRoot {
 
         if (current != "input")
             root.inputMenuVisible = false;
-
     }
 
     Item {
-    Timer {
-        id: launcherDelayTimer
-        interval: 100
-        repeat: false
-        onTriggered: {
-            root.launcherVisible = !root.launcherVisible
-        }
-    }
-
-    IpcHandler {
-    target: "root"
-
-    function toggleLauncher(): void {
-        root.launcherVisible = !root.launcherVisible
-        // launcherDelayTimer.running = true
-
-        // if (!root.dockOpenedManually && root.launcherOpenedOnce) {
-            // root.dockVisible = false
-        // }
-
-        // root.launcherOpenedOnce =! root.launcherOpenedOnce
-    }
-
-    function toggleDock(): void {
-        root.dockVisible = !root.dockVisible
-
-        if (!root.dockVisible) {
-            closeAllPopouts("");
+        Timer {
+            id: launcherDelayTimer
+            interval: 100
+            repeat: false
+            onTriggered: {
+                root.launcherVisible = !root.launcherVisible;
+            }
         }
 
-        // if (!root.launcherVisible) {
-            // dockOpenedManually = !root.dockOpenedManually
-        // }
-    }
+        IpcHandler {
+            target: "root"
 
-    function showDock(): void {
-        root.dockVisible = true
+            function toggleLauncher(): void {
+                root.launcherVisible = !root.launcherVisible;
+                // launcherDelayTimer.running = true
 
-        if (!root.dockVisible) {
-            closeAllPopouts("");
+                // if (!root.dockOpenedManually && root.launcherOpenedOnce) {
+                // root.dockVisible = false
+                // }
+
+                // root.launcherOpenedOnce =! root.launcherOpenedOnce
+            }
+
+            function toggleDock(): void {
+                root.dockVisible = !root.dockVisible;
+
+                if (!root.dockVisible) {
+                    closeAllPopouts("");
+                }
+
+                // if (!root.launcherVisible) {
+                // dockOpenedManually = !root.dockOpenedManually
+                // }
+            }
+
+            function showDock(): void {
+                root.dockVisible = true;
+
+                if (!root.dockVisible) {
+                    closeAllPopouts("");
+                }
+            }
+
+            function hideDock(): void {
+                root.dockVisible = false;
+                closeAllPopouts("");
+            }
         }
     }
-
-    function hideDock(): void {
-        root.dockVisible = false
-        closeAllPopouts("");
-    }
-}
-}
 
     Loader {
         active: root.qsMenuVisible
 
-        sourceComponent: QsPopout {
-        }
-
+        sourceComponent: QsPopout {}
     }
 
     Loader {
         active: root.clipboardMenuVisible
 
-        sourceComponent: ClipboardPopout {
-        }
-
+        sourceComponent: ClipboardPopout {}
     }
 
     Loader {
         active: root.inputMenuVisible
 
-        sourceComponent: InputMethodPopout {
-        }
-
+        sourceComponent: InputMethodPopout {}
     }
 
     Loader {
         active: root.launcherVisible
 
-        sourceComponent: AppLauncher {
-        }
-
+        sourceComponent: AppLauncher {}
     }
 
     Loader {
         active: root.dockVisible || HyprlandService.shouldShowWorkspaceOverlay
 
-        sourceComponent: Dock {
-        }
+        sourceComponent: Dock {}
+    }
 
+    Loader {
+        active: root.dockVisible || HyprlandService.shouldShowWorkspaceOverlay
+
+        sourceComponent: Folders {}
     }
 
     SoundOverlay {}
@@ -151,9 +147,6 @@ ShellRoot {
         // active: root.dockVisible || HyprlandService.shouldShowWorkspaceOverlay
         active: root.dockVisible
 
-        sourceComponent: Bar {
-        }
-
+        sourceComponent: Bar {}
     }
-
 }
