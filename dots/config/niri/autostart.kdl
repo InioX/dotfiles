@@ -1,4 +1,4 @@
-spawn-at-startup "quickshell"
+spawn-at-startup "qs --path ~/.config/quickshell/old"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "~/.config/niri/scripts/overview-bar.sh"
 spawn-at-startup "dbus-update-activation-environment" "--all"

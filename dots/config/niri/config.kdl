@@ -82,7 +82,7 @@ overview {
 }
 
 prefer-no-csd
-screenshot-path "~/pics/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/pics/screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null

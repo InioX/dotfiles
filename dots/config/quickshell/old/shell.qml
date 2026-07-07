@@ -21,7 +21,7 @@ ShellRoot {
 
     id: root
 
-    property int panelHeight: 66
+    property int panelHeight: 56
     property int moduleMargin: 10
     property real iconSize: 22.5
     property int cornerRadius: 16
@@ -130,13 +130,13 @@ ShellRoot {
     }
 
     Loader {
-        active: root.dockVisible || HyprlandService.shouldShowWorkspaceOverlay
+        active: root.dockVisible || launcherVisible
 
         sourceComponent: Dock {}
     }
 
     Loader {
-        active: root.dockVisible || HyprlandService.shouldShowWorkspaceOverlay
+        active: root.dockVisible
 
         sourceComponent: Folders {}
     }

@@ -26,30 +26,25 @@ WlrLayershell {
 
     property string query: ""
 
-
-
     function launchSelected() {
         if (list.currentItem && list.currentItem.modelData) {
             list.currentItem.modelData.execute();
-            niriOverview.running = true
-            console.log("niriOverview ", niriOverview.running)
-            root.launcherVisible = false
+            niriOverview.running = true;
+            console.log("niriOverview ", niriOverview.running);
+            root.launcherVisible = false;
         }
     }
 
-
     Rectangle {
+        id: background
 
-    Process {
-        id: niriOverview
-        running: false
-        command: ["sh", "-c", "niri msg action toggle-overview"]
-    }
-
+        Process {
+            id: niriOverview
+            running: false
+            command: ["sh", "-c", "niri msg action toggle-overview"]
+        }
 
         anchors.bottomMargin: 120
-
-        id: background
         anchors.fill: parent
         color: Colors.md3.surface
         radius: 20
@@ -63,9 +58,8 @@ WlrLayershell {
             spacing: 8
 
             TextField {
-                Layout.fillWidth: true
-
                 id: input
+                Layout.fillWidth: true
                 placeholderText: "󰍉"
                 font.bold: true
                 font.pixelSize: 20
@@ -107,9 +101,35 @@ WlrLayershell {
                 }
             }
 
+            RowLayout {
 
+                Rectangle {
+                    Layout.fillWidth: true
 
-        // Filtered model: only items matching the query
+                    height: 30
+                    color: Colors.md3.secondary_container
+                    bottomLeftRadius: root.cornerRadius
+                    topLeftRadius: root.cornerRadius
+                }
+
+                Rectangle {
+                    Layout.fillWidth: true
+
+                    height: 30
+                    color: Colors.md3.secondary_container
+                }
+
+                Rectangle {
+                    Layout.fillWidth: true
+
+                    bottomRightRadius: root.cornerRadius
+                    topRightRadius: root.cornerRadius
+                    height: 30
+                    color: Colors.md3.tertiary_container
+                }
+            }
+
+            // Filtered model: only items matching the query
             ScriptModel {
                 id: filtered
                 values: {
@@ -206,13 +226,9 @@ WlrLayershell {
                                             border.color: Colors.md3.primary
                                             radius: 10
                                         }
-
                                     }
-
                                 }
-
                             }
-
                         }
 
                         Column {
@@ -236,7 +252,6 @@ WlrLayershell {
                                 verticalAlignment: Text.AlignVCenter
                             }
                         }
-
                     }
                 }
 

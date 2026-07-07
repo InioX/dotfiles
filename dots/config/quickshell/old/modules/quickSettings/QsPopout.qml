@@ -1,10 +1,12 @@
 import qs.services
+import qs.modules.widgets
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.LocalStorage
 import QtQuick.Shapes
 import Quickshell
+import Quickshell.Services.Pipewire
 import Quickshell.Io
 import Quickshell.Wayland
 import Quickshell.Widgets
@@ -26,11 +28,21 @@ WlrLayershell {
 
     layer: WlrLayer.Overlay
     implicitWidth: 500
-    implicitHeight: 320
     color: "transparent"
     exclusionMode: ExclusionMode.Normal
     margins.top: screen.height / 12
     margins.right: 10
+
+    Behavior on implicitHeight {
+        NumberAnimation {
+            duration: 220
+            easing.type: Easing.InOutCubic
+        }
+    }
+
+    property bool opened: false
+
+    implicitHeight: 400 + background.implicitHeight + playbackColumn.height
 
     Process {
         id: setVolumeProcess
@@ -45,6 +57,11 @@ WlrLayershell {
 
     Rectangle {
         id: background
+
+        NumberAnimation on x {
+            to: 1000
+            duration: 1000
+        }
 
         anchors.fill: parent
         color: Colors.md3.surface
@@ -72,7 +89,6 @@ WlrLayershell {
                         font.bold: true
                         font.pixelSize: 20
                     }
-
                 }
 
                 RowLayout {
@@ -108,7 +124,6 @@ WlrLayershell {
                                 color: Colors.md3.primary
                                 radius: 10
                             }
-
                         }
 
                         handle: Rectangle {
@@ -121,9 +136,24 @@ WlrLayershell {
                             // border.color: "#bdbebf"
                             color: "transparent"
                         }
-
                     }
+                }
 
+                ColumnLayout {
+                    id: playbackColumn
+                    visible: PipewireService.streamNodes?.length() >= 1
+                    Repeater {
+                        visible: PipewireService.streamNodes?.length() >= 1
+
+                        model: PipewireService.streamNodes
+
+                        delegate: MixerEntry {
+                            required property PwNode modelData
+                            // Each link group contains a source and a target.
+                            // Since the target is the default sink, we want the source.
+                            node: modelData
+                        }
+                    }
                 }
 
                 RowLayout {
@@ -160,7 +190,6 @@ WlrLayershell {
                                 color: Colors.md3.primary
                                 radius: 10
                             }
-
                         }
 
                         handle: Rectangle {
@@ -173,11 +202,8 @@ WlrLayershell {
                             // border.color: "#bdbebf"
                             color: "transparent"
                         }
-
                     }
-
                 }
-
             }
 
             ColumnLayout {
@@ -200,7 +226,6 @@ WlrLayershell {
                             text: "HIIIIIII"
                             color: Colors.md3.on_primary
                         }
-
                     }
 
                     Rectangle {
@@ -217,9 +242,7 @@ WlrLayershell {
                             text: "HIIIIIII"
                             color: Colors.md3.on_primary
                         }
-
                     }
-
                 }
 
                 RowLayout {
@@ -239,7 +262,6 @@ WlrLayershell {
                             text: "HIIIIIII"
                             color: Colors.md3.on_primary
                         }
-
                     }
 
                     Rectangle {
@@ -256,15 +278,9 @@ WlrLayershell {
                             text: "HIIIIIII"
                             color: Colors.md3.on_primary
                         }
-
                     }
-
                 }
-
             }
-
         }
-
     }
-
 }

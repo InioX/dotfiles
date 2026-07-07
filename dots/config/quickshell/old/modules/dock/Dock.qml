@@ -11,30 +11,38 @@ import Quickshell.Wayland
 import Quickshell.Widgets
 import Quickshell.Io
 
-WlrLayershell {
+PanelWindow {
     id: launcher
 
     property bool showWorkspaceNumber: false
 
-    layer: WlrLayer.Overlay
+    aboveWindows: true
     implicitWidth: layout.implicitWidth + 50
-    implicitHeight: 100
+    implicitHeight: 80
     color: "transparent"
     exclusionMode: ExclusionMode.Normal
+
+    margins.bottom: 20
 
     anchors {
         bottom: true
     }
 
+    Behavior on implicitWidth {
+        NumberAnimation {
+            duration: 220
+            easing.type: Easing.InOutCubic
+        }
+    }
+
     Rectangle {
         id: background
 
-        anchors.bottomMargin: 20
         anchors.fill: parent
         color: Colors.md3.surface
         border.color: Colors.md3.outline_variant
         border.width: 1
-        radius: 40
+        radius: 50
 
         RowLayout {
             // WorkspaceWidget {
@@ -72,9 +80,11 @@ WlrLayershell {
                     spacing: 5
 
                     Rectangle {
+                        property var containerBg: mouseArea.containsMouse ? root.primaryTonalButtonHoverColor : Colors.md3.primary_container
+
                         width: imageIcon.width + 10
                         height: imageIcon.height + 10
-                        color: Colors.md3.primary_container
+                        color: containerBg
                         radius: 30
 
                         IconImage {

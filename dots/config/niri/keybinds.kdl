@@ -17,10 +17,11 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Shift+Return hotkey-overlay-title="Open a File manager: nautilus" { spawn "nautilus"; }
     // Mod+W hotkey-overlay-title="Run an Application: rofi" { spawn-sh "niri msg action toggle-overview && qs ipc call root toggleLauncher"; }
-    Mod+W hotkey-overlay-title="Run an Application: rofi" { spawn-sh "qs ipc call root toggleLauncher"; }
+    Mod+W hotkey-overlay-title="Run an Application: quickshell" { spawn-sh "qs --path ~/.config/quickshell/old ipc call root toggleLauncher"; }
+    Mod+Alt+W hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
     Mod+X hotkey-overlay-title="Show the power menu" { spawn-sh "~/.config/hypr/scripts/powermenu.sh"; }
     Mod+Shift+P hotkey-overlay-title="Switch Project: Zed" { spawn-sh "~/.config/hypr/scripts/proj-switch.sh"; }
-    Mod+Shift+W hotkey-overlay-title="Toggle quickshell" { spawn-sh "qs ipc call root toggleDock"; }
+    Mod+Shift+W hotkey-overlay-title="Toggle quickshell" { spawn-sh "qs --path ~/.config/quickshell/old ipc call root toggleDock"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.

@@ -36,7 +36,6 @@ Rectangle {
             color: Colors.md3.on_surface
             font.pixelSize: 12
         }
-
     }
 
     MouseArea {
@@ -46,5 +45,4 @@ Rectangle {
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
     }
-
 }
