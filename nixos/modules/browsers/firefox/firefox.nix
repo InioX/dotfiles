@@ -158,6 +158,10 @@ in
                     url = "https://www.youtube.com/";
                   }
                   {
+                    name = "YouTube Music";
+                    url = "https://www.music.youtube.com/";
+                  }
+                  {
                     name = "Gmail";
                     url = "https://mail.google.com/mail/u/3/";
                   }
