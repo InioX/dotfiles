@@ -58,7 +58,7 @@ in
 
       imagemagick
 
-      xwayland
+      playerctl
     ];
 
     zenyte.desktop.addons = {
