@@ -19,13 +19,18 @@ Item {
         height: Config.bar.height - 22
         radius: width / 2
 
-        color: Colors.md3.primary_container
+        color: distroMouseArea.containsMouse ? Colors.md3.secondary_container : Colors.md3.primary_container
+
+        Behavior on color {
+            StyledColorAnimation {}
+        }
 
         StyledText {
             anchors.centerIn: parent
             text: ""
 
-            color: Colors.md3.on_primary_container
+            color: distroMouseArea.containsMouse ? Colors.md3.on_secondary_container : Colors.md3.on_primary_container
+
             font.bold: true
             font.pixelSize: Config.style.font.size.icon
         }

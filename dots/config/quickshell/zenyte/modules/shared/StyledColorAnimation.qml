@@ -1,5 +1,5 @@
 import QtQuick
 
 ColorAnimation {
-    duration: 100
+    duration: 250
 }

@@ -9,7 +9,7 @@ import QtQuick.Layouts
 
 Item {
     id: root
-    implicitHeight: 30
+    implicitHeight: 40
     implicitWidth: background.width
 
     StyledMouseArea {
@@ -41,7 +41,7 @@ Item {
 
                 text: Camera.isShutterClosed ? "󰗟" : "󰄀"
                 color: Colors.md3.on_surface
-                font.pixelSize: Config.style.font.size.big
+                font.pixelSize: Config.style.font.size.icon_small
             }
 
             StyledText {
@@ -49,14 +49,14 @@ Item {
 
                 text: Pipewire.mutedSource ? "󰍭" : "󰍬"
                 color: Colors.md3.on_surface
-                font.pixelSize: Config.style.font.size.big
+                font.pixelSize: Config.style.font.size.icon_small
             }
             StyledText {
                 id: volumeIcon
 
                 text: Pipewire.icon
                 color: Colors.md3.on_surface
-                font.pixelSize: Config.style.font.size.big
+                font.pixelSize: Config.style.font.size.icon_small
             }
         }
     }

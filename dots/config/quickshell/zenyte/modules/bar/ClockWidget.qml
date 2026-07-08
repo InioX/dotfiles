@@ -17,30 +17,58 @@ Item {
     Column {
         id: column
         anchors.centerIn: parent
-
         spacing: 0
 
-        StyledText {
-            anchors.horizontalCenter: alignCenter ? column.horizontalCenter : undefined
+        Rectangle {
+            width: timeText.width
+            height: timeText.height
+            radius: 10
 
-            text: Time.time
-            font.pixelSize: Config.style.font.size.big
-            font.bold: true
-            color: Colors.md3.on_surface
+            Behavior on color {
+                StyledColorAnimation {}
+            }
+
+            StyledMouseArea {
+                id: timeMouseArea
+                anchors.fill: parent
+            }
+
+            color: timeMouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface
+
+            StyledText {
+                id: timeText
+                anchors.horizontalCenter: alignCenter ? column.horizontalCenter : undefined
+
+                text: Time.time
+                font.pixelSize: Config.style.font.size.big
+                font.bold: true
+                color: Colors.md3.on_surface
+            }
         }
 
-        StyledText {
-            anchors.horizontalCenter: alignCenter ? column.horizontalCenter : undefined
+        Rectangle {
+            width: dateText.width
+            height: dateText.height
+            radius: 10
 
-            text: Time.month
-            font.pixelSize: Config.style.font.size.small
-            color: Colors.md3.outline
+            Behavior on color {
+                StyledColorAnimation {}
+            }
+
+            StyledMouseArea {
+                id: dateMouseArea
+                anchors.fill: parent
+            }
+            color: dateMouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface
+
+            StyledText {
+                id: dateText
+                anchors.horizontalCenter: alignCenter ? column.horizontalCenter : undefined
+
+                text: Time.month
+                font.pixelSize: Config.style.font.size.small
+                color: Colors.md3.outline
+            }
         }
-    }
-
-    StyledMouseArea {
-        id: clockMouseArea
-
-        anchors.fill: parent
     }
 }
