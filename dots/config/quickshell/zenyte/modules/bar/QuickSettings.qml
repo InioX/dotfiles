@@ -56,6 +56,9 @@ Item {
         width: row.width + 40
         radius: Config.style.rounding.small
 
+        border.color: Colors.md3.outline_variant
+        border.width: Config.bar.border_widgets ? 1 : 0
+
         Row {
             id: row
             anchors.centerIn: parent

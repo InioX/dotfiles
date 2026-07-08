@@ -32,11 +32,12 @@ Scope {
                 anchors {
                     top: !Config.bar.bottom
                     bottom: Config.bar.bottom
-                    left: true
-                    right: true
+                    // left: true
+                    // right: true
                 }
 
                 implicitHeight: rectangle.implicitHeight
+                implicitWidth: 800
                 color: "transparent"
 
                 Rectangle {
@@ -68,6 +69,7 @@ Scope {
                     Item {
                         anchors.fill: parent
                         anchors.leftMargin: 8
+                        anchors.rightMargin: 8
 
                         RowLayout {
                             anchors.left: parent.left
@@ -106,13 +108,9 @@ Scope {
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
 
+                            RecordingWidget {}
+
                             QuickSettings {}
-
-                            RowLayout {
-                                spacing: 10
-
-                                // SearchWidget {}
-                            }
                         }
                     }
                 }

@@ -28,6 +28,7 @@ Singleton {
         property bool bottom: false
         property int height: 50
         property bool border: false
+        property bool border_widgets: false
         property bool floating: false
         property int floating_margins: 10
         property int radius: 0

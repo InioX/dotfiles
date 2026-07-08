@@ -15,11 +15,14 @@ Item {
     Rectangle {
         id: background
 
-        width: Config.bar.height - 22
-        height: Config.bar.height - 22
+        width: 40
+        height: 40
         radius: width / 2
 
-        color: distroMouseArea.containsMouse ? Colors.md3.secondary_container : Colors.md3.primary_container
+        border.color: Colors.md3.outline_variant
+        border.width: Config.bar.border_widgets ? 1 : 0
+
+        color: recordingMouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface_container
 
         Behavior on color {
             StyledColorAnimation {}
@@ -27,17 +30,16 @@ Item {
 
         StyledText {
             anchors.centerIn: parent
-            text: ""
+            text: ""
 
-            color: distroMouseArea.containsMouse ? Colors.md3.on_secondary_container : Colors.md3.on_primary_container
+            color: recordingMouseArea.containsMouse ? Colors.md3.on_surface : Colors.md3.on_surface
 
-            font.bold: true
-            font.pixelSize: Config.style.font.size.icon
+            font.pixelSize: Config.style.font.size.icon_small
         }
     }
 
     StyledMouseArea {
-        id: distroMouseArea
+        id: recordingMouseArea
 
         onClicked: {}
     }

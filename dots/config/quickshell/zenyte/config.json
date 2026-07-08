@@ -4,7 +4,8 @@
     "height": 60,
     "floating": true,
     "floating_radius": 30,
-    "border": true
+    "border": true,
+    "border_widgets": true
   },
   "style": {
     "font": {
