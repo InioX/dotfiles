@@ -106,15 +106,7 @@ Scope {
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
 
-                            RowLayout {
-                                spacing: 3
-
-                                // ClipboardWidget {}
-
-                                // InputMethodWidget {}
-
-                                QuickSettings {}
-                            }
+                            QuickSettings {}
 
                             RowLayout {
                                 spacing: 10

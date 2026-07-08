@@ -10,13 +10,13 @@ PopupWindow {
     id: root
     property bool isOpen: false
     property int offset: Config.bar.floating_margins ? Config.bar.floating_margins : 0
+    property int parentX: parentWindow.width / 2 - width / 2
 
     property int wantedWidth: 500
     property int wantedHeight: 400
 
     anchor.window: barWindow
-    // anchor.rect.x: parentWindow.width / 2 - width / 2
-    anchor.rect.x: (parentWindow.width - width) - 20
+    anchor.rect.x: Math.max(offset, Math.min(parentX, parentWindow.width - width - offset))
     anchor.rect.y: parentWindow.height
     implicitWidth: wantedWidth
     implicitHeight: isOpen ? wantedHeight : 1

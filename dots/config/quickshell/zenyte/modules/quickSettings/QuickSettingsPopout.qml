@@ -13,12 +13,15 @@ Item {
     id: root
 
     property bool isOpen: false
+    required property int widgetX
 
     StyledPopout {
         isOpen: root.isOpen
 
         wantedHeight: column.implicitHeight + 60
         wantedWidth: 500
+
+        parentX: widgetX - (wantedWidth / 2)
 
         StyledRoundRect {
             id: rect

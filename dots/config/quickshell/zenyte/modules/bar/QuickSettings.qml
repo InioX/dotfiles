@@ -39,6 +39,7 @@ Item {
         active: false
         component: QuickSettingsPopout {
             isOpen: qsPopoutLoader.active
+            widgetX: background.mapToItem(null, background.width / 2, 0).x
         }
     }
 
