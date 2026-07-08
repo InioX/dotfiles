@@ -15,6 +15,22 @@ Item {
     property bool isOpen: false
     required property int widgetX
 
+    signal animationCloseFinished
+
+    Timer {
+        id: destroyTimer
+        interval: 150
+        onTriggered: root.animationCloseFinished()
+    }
+
+    onIsOpenChanged: {
+        if (!isOpen) {
+            destroyTimer.start();
+        } else {
+            destroyTimer.stop();
+        }
+    }
+
     StyledPopout {
         isOpen: root.isOpen
 

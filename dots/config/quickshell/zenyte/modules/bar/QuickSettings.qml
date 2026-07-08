@@ -30,7 +30,13 @@ Item {
 
         anchors.fill: parent
         onClicked: {
-            qsPopoutLoader.active = !qsPopoutLoader.active;
+            if (!qsPopoutLoader.active) {
+                qsPopoutLoader.active = true;
+            } else {
+                if (qsPopoutLoader.item) {
+                    qsPopoutLoader.item.isOpen = false;
+                }
+            }
         }
     }
 
@@ -40,6 +46,10 @@ Item {
         component: QuickSettingsPopout {
             isOpen: qsPopoutLoader.active
             widgetX: background.mapToItem(null, background.width / 2, 0).x
+
+            onAnimationCloseFinished: {
+                qsPopoutLoader.active = false;
+            }
         }
     }
 

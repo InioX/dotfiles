@@ -3,6 +3,7 @@ pragma ComponentBehavior: Bound
 
 import qs.services
 import qs.modules.shared
+import qs.modules.launcher
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
@@ -39,6 +40,27 @@ Item {
     StyledMouseArea {
         id: distroMouseArea
 
-        onClicked: {}
+        onClicked: {
+            if (!launcherPopoutLoader.active) {
+                launcherPopoutLoader.active = true;
+            } else {
+                if (launcherPopoutLoader.item) {
+                    launcherPopoutLoader.item.isOpen = false;
+                }
+            }
+        }
+    }
+
+    LazyLoader {
+        id: launcherPopoutLoader
+        active: false
+        component: LauncherPopout {
+            isOpen: launcherPopoutLoader.active
+            widgetX: background.mapToItem(null, background.width / 2, 0).x
+
+            onAnimationCloseFinished: {
+                launcherPopoutLoader.active = false;
+            }
+        }
     }
 }

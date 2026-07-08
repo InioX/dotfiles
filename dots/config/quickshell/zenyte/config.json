@@ -2,6 +2,7 @@
   "bar": {
     "bottom": false,
     "height": 60,
+    "full_width": false,
     "floating": true,
     "floating_radius": 30,
     "border": true,

@@ -32,13 +32,20 @@ Scope {
                 anchors {
                     top: !Config.bar.bottom
                     bottom: Config.bar.bottom
-                    // left: true
-                    // right: true
+                    left: Config.bar.full_width ? true : false
+                    right: Config.bar.full_width ? true : false
                 }
 
                 implicitHeight: rectangle.implicitHeight
-                implicitWidth: 800
+                implicitWidth: 1200
                 color: "transparent"
+
+                Behavior on implicitWidth {
+                    SpringAnimation {
+                        spring: 5
+                        damping: 0.7
+                    }
+                }
 
                 Rectangle {
                     id: rectangle
