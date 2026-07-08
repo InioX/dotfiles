@@ -17,6 +17,7 @@ Scope {
 
             active: States.showBar
             component: PanelWindow {
+                id: barWindow
 
                 MouseArea {
                     id: barMouseArea
@@ -66,8 +67,7 @@ Scope {
 
                     Item {
                         anchors.fill: parent
-                        anchors.leftMargin: 10
-                        anchors.rightMargin: 10
+                        anchors.leftMargin: 8
 
                         RowLayout {
                             anchors.left: parent.left

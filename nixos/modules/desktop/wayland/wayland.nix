@@ -59,6 +59,7 @@ in
       imagemagick
 
       playerctl
+      brightnessctl
     ];
 
     zenyte.desktop.addons = {

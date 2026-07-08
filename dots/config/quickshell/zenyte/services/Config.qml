@@ -44,6 +44,7 @@ Singleton {
                 property int big: 18
                 property int icon: 34
                 property int icon_small: 22
+                property int icon_medium: 26
             }
         }
         property JsonObject rounding: JsonObject {

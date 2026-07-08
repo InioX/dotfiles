@@ -1,7 +1,6 @@
 // qmllint disable unqualified
 
 import "services"
-import "services/niri"
 import "modules/bar"
 import "modules/shared"
 import QtQuick

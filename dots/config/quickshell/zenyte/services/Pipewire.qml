@@ -14,6 +14,23 @@ Singleton {
     readonly property int volumeSource: source?.audio ? (source.audio.volume * 100) : 0
     readonly property int volumeSink: sink?.audio ? (sink.audio.volume * 100) : 0
 
+    function setVolumeSink(value) {
+        const cmd = "wpctl set-volume @DEFAULT_AUDIO_SINK@ " + value * 100 + "%";
+        setVolumeProcess.command = ["/bin/sh", "-c", cmd];
+        setVolumeProcess.running = true;
+    }
+
+    function setVolumeSource(value) {
+        const cmd = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ " + value * 100 + "%";
+        setVolumeProcess.command = ["/bin/sh", "-c", cmd];
+        setVolumeProcess.running = true;
+    }
+
+    Process {
+        id: setVolumeProcess
+        running: false
+    }
+
     property var streamNodes: {
         const out = [];
 

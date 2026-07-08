@@ -3,12 +3,25 @@ pragma ComponentBehavior: Bound
 
 import qs.services
 import qs.modules.shared
+import qs.modules.quickSettings
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
 
 Item {
     id: root
+
+    property bool shouldHighlightBackground: {
+        if (quickSettingsMouseArea.containsMouse) {
+            return true;
+        }
+        if (qsPopoutLoader.active) {
+            return true;
+        }
+
+        return false;
+    }
+
     implicitHeight: 40
     implicitWidth: background.width
 
@@ -16,6 +29,17 @@ Item {
         id: quickSettingsMouseArea
 
         anchors.fill: parent
+        onClicked: {
+            qsPopoutLoader.active = !qsPopoutLoader.active;
+        }
+    }
+
+    LazyLoader {
+        id: qsPopoutLoader
+        active: false
+        component: QuickSettingsPopout {
+            isOpen: qsPopoutLoader.active
+        }
     }
 
     Rectangle {
@@ -27,7 +51,7 @@ Item {
             StyledColorAnimation {}
         }
 
-        color: quickSettingsMouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface_container
+        color: shouldHighlightBackground ? Colors.md3.surface_container_high : Colors.md3.surface_container
         width: row.width + 40
         radius: Config.style.rounding.small
 
