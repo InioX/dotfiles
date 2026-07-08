@@ -32,8 +32,8 @@ Column {
         }
 
         Rectangle {
-            width: nicknameText.width + 20
-            height: nicknameText.height + 6
+            implicitWidth: nicknameText.width + 20
+            implicitHeight: nicknameText.height + 6
             radius: 10
 
             color: nicknameMouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface
@@ -71,8 +71,8 @@ Column {
 
         Rectangle {
             color: Colors.md3.surface_container_high
-            width: muteText.width + 20
-            height: muteText.height + 6
+            implicitWidth: muteText.width + 20
+            implicitHeight: muteText.height + 6
             radius: 10
 
             StyledText {

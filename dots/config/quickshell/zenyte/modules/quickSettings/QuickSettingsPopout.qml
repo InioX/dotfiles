@@ -32,7 +32,6 @@ Item {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.top: parent.top
-                anchors.bottom: parent.bottom
 
                 spacing: 20
                 anchors.margins: 20
@@ -68,7 +67,7 @@ Item {
 
                 StyledSeparator {
                     visible: Pipewire.streamNodes?.length >= 1
-                    width: column.width
+                    Layout.fillWidth: true
                 }
 
                 Repeater {
