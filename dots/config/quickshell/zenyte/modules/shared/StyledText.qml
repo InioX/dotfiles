@@ -7,4 +7,5 @@ Text {
 
     renderType: Text.NativeRendering
     verticalAlignment: Text.AlignVCenter
+    font.family: "Google Sans Flex"
 }

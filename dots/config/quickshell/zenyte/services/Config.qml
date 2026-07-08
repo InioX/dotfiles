@@ -27,13 +27,26 @@ Singleton {
     component Bar: JsonObject {
         property bool bottom: false
         property int height: 50
-        property int clock_margin: 8
+        property bool border: false
+        property bool floating: false
+        property int floating_margins: 10
+        property int radius: 0
+        property int floating_radius: 0
+        property bool show_in_overview: true
+        property bool show_on_empty_workspace: true
+        property bool show_on_top: false
     }
 
     component Style: JsonObject {
         property JsonObject font: JsonObject {
-            property int size_small: 14
-            property int size_big: 20
+            property JsonObject size: JsonObject {
+                property int small: 14
+                property int big: 18
+                property int icon: 34
+            }
+        }
+        property JsonObject rounding: JsonObject {
+            property int small: 20
         }
     }
 }
