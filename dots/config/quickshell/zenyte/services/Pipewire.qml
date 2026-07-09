@@ -32,17 +32,24 @@ Singleton {
     }
 
     property var streamNodes: {
-        const out = [];
+        const uniqueStreams = new Map();
 
         if (!Pipewire.ready || !Pipewire.nodes || !Pipewire.nodes.values)
-            return out;
+            return [];
 
         for (const node of Pipewire.nodes.values) {
-            if (node.isStream && node.audio) {
-                out.push(node);
+            const appName = node.properties["application.name"] || node.name || "";
+            const nodeName = node.properties["node.name"] || "";
+
+            if (nodeName.endsWith(".monitor"))
+                continue;
+
+            if (node.isStream && node.audio && appName) {
+                uniqueStreams.set(appName, node);
             }
         }
-        return out;
+
+        return Array.from(uniqueStreams.values());
     }
 
     property string icon: {

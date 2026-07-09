@@ -97,6 +97,8 @@ Column {
     StyledSlider {
         id: volumeSlider
 
+        isActive: !isMuted
+
         width: column.width
         value: root.volume / 100
         onMoved: {
