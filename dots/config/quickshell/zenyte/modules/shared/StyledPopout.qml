@@ -17,7 +17,9 @@ PopupWindow {
 
     anchor.window: barWindow
     anchor.rect.x: Math.max(offset, Math.min(parentX, parentWindow.width - width - offset))
-    anchor.rect.y: parentWindow.height
+    anchor.rect.y: Config.bar.bottom ? 0 : parentWindow.height
+    anchor.gravity: Config.bar.bottom ? (Edges.Top | Edges.Right) : (Edges.Bottom | Edges.Right)
+
     implicitWidth: wantedWidth
     implicitHeight: isOpen ? wantedHeight : 1
     visible: true

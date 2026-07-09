@@ -79,7 +79,6 @@ Item {
             widgetX: background.mapToItem(null, background.width / 2, 0).x
 
             onAnimationCloseFinished: {
-                console.log("finished");
                 States.isLauncherOpened = false;
                 launcherPopoutLoader.active = false;
             }
