@@ -17,7 +17,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Shift+Return hotkey-overlay-title="Open a File manager: nautilus" { spawn "nautilus"; }
     // Mod+W hotkey-overlay-title="Run an Application: rofi" { spawn-sh "niri msg action toggle-overview && qs ipc call root toggleLauncher"; }
-    Mod+W hotkey-overlay-title="Run an Application: quickshell" { spawn-sh "qs --path ~/.config/quickshell/old ipc call root toggleLauncher"; }
+    Mod+W hotkey-overlay-title="Run an Application: quickshell" { spawn-sh "qs --path ~/.config/quickshell/zenyte ipc call root toggleLauncher"; }
     Mod+Alt+W hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
     Mod+X hotkey-overlay-title="Show the power menu" { spawn-sh "~/.config/hypr/scripts/powermenu.sh"; }
     Mod+Shift+P hotkey-overlay-title="Switch Project: Zed" { spawn-sh "~/.config/hypr/scripts/proj-switch.sh"; }

@@ -7,6 +7,10 @@ import Quickshell
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Controls
+import QtQuick.LocalStorage
+import QtQuick.Effects
+import Quickshell.Widgets
 
 Item {
     id: root
@@ -32,13 +36,6 @@ Item {
         }
     }
 
-    function launchSelected() {
-        if (list.currentItem && list.currentItem.modelData) {
-            list.currentItem.modelData.execute();
-            root.launcherVisible = false;
-        }
-    }
-
     StyledPopout {
         isOpen: root.isOpen
 
@@ -46,6 +43,7 @@ Item {
         wantedWidth: 500
 
         parentX: widgetX - (wantedWidth / 2)
+        grabFocus: true
 
         StyledRoundRect {
             id: rect
@@ -61,29 +59,17 @@ Item {
                 anchors.margins: 20
 
                 TextField {
-                    id: input
-                    Layout.fillWidth: true
-                    placeholderText: "󰍉"
-                    font.bold: true
-                    font.pixelSize: 20
+                    id: search
+
+                    Layout.preferredWidth: 300
+                    Layout.preferredHeight: 30
+
+                    placeholderText: "Type to search"
+
+                    enabled: true
                     focus: true
-                    color: Colors.md3.on_surface
-                    placeholderTextColor: Colors.md3.on_surface
+                    activeFocusOnPress: true
 
-                    padding: 10
-
-                    onTextChanged: {
-                        root.query = text;
-                        list.currentIndex = filtered.values.length > 0 ? 0 : -1;
-                    }
-
-                    background: Rectangle {
-                        border.width: 0
-                        color: Colors.md3.surface_container_highest
-                        radius: Config.bar.widget_radius
-                    }
-
-                    Keys.onEscapePressed: root.launcherVisible = false
                     Keys.onPressed: event => {
                         const ctrl = event.modifiers & Qt.ControlModifier;
                         if (event.key == Qt.Key_Up || event.key == Qt.Key_P && ctrl) {
@@ -96,11 +82,43 @@ Item {
                                 list.currentIndex++;
                         } else if ([Qt.Key_Return, Qt.Key_Enter].includes(event.key)) {
                             event.accepted = true;
-                            launcher.launchSelected();
+                            if (list.currentItem && list.currentItem.modelData) {
+                                list.currentItem.modelData.execute();
+                                root.isOpen = false;
+                            }
                         } else if (event.key == Qt.Key_C && ctrl) {
                             event.accepted = true;
-                            root.launcherVisible = false;
+                            root.isOpen = false;
                         }
+                    }
+                }
+
+                ListView {
+                    id: list
+
+                    Layout.preferredWidth: 300
+                    Layout.preferredHeight: 500
+
+                    model: DesktopEntries.applications.values.filter(a => a.name.toLowerCase().includes(search.text))
+
+                    highlight: Rectangle {
+                        color: Colors.md3.surface_container_high
+                        radius: 5
+                    }
+
+                    delegate: StyledText {
+                        required property DesktopEntry modelData
+                        text: modelData.name
+                        MouseArea {
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            onClicked: {
+                                // launch the app
+                                modelData.execute();
+                            }
+                        }
+
+                        color: Colors.md3.on_surface
                     }
                 }
             }

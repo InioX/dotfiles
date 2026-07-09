@@ -13,6 +13,32 @@ Item {
     implicitHeight: background.height
     implicitWidth: background.width
 
+    property bool closeBar: false
+
+    function open() {
+        if (!launcherPopoutLoader.active) {
+            launcherPopoutLoader.active = true;
+        } else {
+            if (launcherPopoutLoader.item) {
+                launcherPopoutLoader.item.isOpen = false;
+            }
+        }
+    }
+
+    Connections {
+        target: States
+        function onRequestLauncherToggle(barWasAlreadyShowing) {
+            root.closeBar = barWasAlreadyShowing;
+            delayTimer.running = !delayTimer.running;
+        }
+    }
+
+    Timer {
+        id: delayTimer
+        interval: 100
+        onTriggered: root.open()
+    }
+
     Rectangle {
         id: background
 
@@ -41,13 +67,7 @@ Item {
         id: distroMouseArea
 
         onClicked: {
-            if (!launcherPopoutLoader.active) {
-                launcherPopoutLoader.active = true;
-            } else {
-                if (launcherPopoutLoader.item) {
-                    launcherPopoutLoader.item.isOpen = false;
-                }
-            }
+            root.open();
         }
     }
 
@@ -59,6 +79,8 @@ Item {
             widgetX: background.mapToItem(null, background.width / 2, 0).x
 
             onAnimationCloseFinished: {
+                console.log("finished");
+                States.isLauncherOpened = false;
                 launcherPopoutLoader.active = false;
             }
         }

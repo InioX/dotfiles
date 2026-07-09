@@ -74,27 +74,27 @@ Item {
             anchors.centerIn: parent
             spacing: 10
 
-            StyledText {
+            StyledAnimatedText {
                 id: cameraIcon
 
-                text: Camera.isShutterClosed ? "󰗟" : "󰄀"
-                color: Colors.md3.on_surface
-                font.pixelSize: Config.style.font.size.icon_small
+                displayText: Camera.isShutterClosed ? "󰗟" : "󰄀"
+                textColor: Colors.md3.on_surface
+                fontSize: Config.style.font.size.icon_small
             }
 
-            StyledText {
+            StyledAnimatedText {
                 id: micIcon
 
-                text: Pipewire.mutedSource ? "󰍭" : "󰍬"
-                color: Colors.md3.on_surface
-                font.pixelSize: Config.style.font.size.icon_small
+                displayText: Pipewire.mutedSource ? "󰍭" : "󰍬"
+                textColor: Colors.md3.on_surface
+                fontSize: Config.style.font.size.icon_small
             }
-            StyledText {
-                id: volumeIcon
 
-                text: Pipewire.icon
-                color: Colors.md3.on_surface
-                font.pixelSize: Config.style.font.size.icon_small
+            StyledAnimatedText {
+                id: volumeIcon
+                displayText: Pipewire.icon
+                textColor: Colors.md3.on_surface
+                fontSize: Config.style.font.size.icon_small
             }
         }
     }

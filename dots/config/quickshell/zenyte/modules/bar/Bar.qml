@@ -2,7 +2,9 @@ pragma ComponentBehavior: Bound
 
 import qs.services
 import Quickshell
+import Quickshell.Wayland
 import QtQuick
+import QtQuick.Controls
 import QtQuick.Layouts
 
 Scope {
@@ -19,6 +21,8 @@ Scope {
             component: PanelWindow {
                 id: barWindow
 
+                WlrLayershell.keyboardFocus: States.exclusiveFocus ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
+
                 MouseArea {
                     id: barMouseArea
                     anchors.fill: parent
@@ -27,6 +31,7 @@ Scope {
 
                 aboveWindows: true
                 exclusionMode: ExclusionMode.Normal
+                WlrLayershell.layer: WlrLayer.Overlay
 
                 screen: modelData
                 anchors {

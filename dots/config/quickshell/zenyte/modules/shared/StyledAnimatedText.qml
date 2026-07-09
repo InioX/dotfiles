@@ -1,9 +1,6 @@
 import qs.services
 import QtQuick
 import Quickshell
-import Quickshell.Hyprland
-import Quickshell.Io
-import Quickshell.Wayland
 
 Item {
     property string displayText
