@@ -18,15 +18,15 @@ Singleton {
 
     property bool exclusiveFocus: root.isLauncherOpened
 
-    signal requestLauncherToggle(bool barWasAlreadyShowing)
+    signal requestLauncherToggle
 
     IpcHandler {
         target: "root"
 
         function toggleLauncher(): void {
-            let barWasAlreadyShowing = (!root.isLauncherOpened && root.showBar) ? root.showBar : false;
+            // let barWasAlreadyShowing = (!root.isLauncherOpened && root.showBar) ? root.showBar : false;
             root.isLauncherOpened = true;
-            root.requestLauncherToggle(barWasAlreadyShowing);
+            root.requestLauncherToggle();
         }
     }
 }

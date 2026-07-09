@@ -34,10 +34,7 @@ Slider {
             topLeftRadius: parent.radius
 
             Behavior on width {
-                SpringAnimation {
-                    spring: 5
-                    damping: 0.7
-                }
+                StyledSpringAnimation {}
             }
 
             Behavior on color {
@@ -55,17 +52,11 @@ Slider {
         color: fillColor
 
         Behavior on x {
-            SpringAnimation {
-                spring: 5
-                damping: 0.7
-            }
+            StyledSpringAnimation {}
         }
 
         Behavior on y {
-            SpringAnimation {
-                spring: 5
-                damping: 0.7
-            }
+            StyledSpringAnimation {}
         }
 
         Behavior on color {

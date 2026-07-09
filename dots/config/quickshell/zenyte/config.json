@@ -6,7 +6,8 @@
     "floating": true,
     "floating_radius": 30,
     "border": true,
-    "border_widgets": true
+    "border_widgets": true,
+    "show_on_top": false
   },
   "style": {
     "font": {

@@ -13,7 +13,16 @@ Item {
     implicitHeight: background.height
     implicitWidth: background.width
 
-    property bool closeBar: false
+    property bool shouldHighlightBackground: {
+        if (distroMouseArea.containsMouse) {
+            return true;
+        }
+        if (launcherPopoutLoader.active) {
+            return true;
+        }
+
+        return false;
+    }
 
     function open() {
         if (!launcherPopoutLoader.active) {
@@ -27,8 +36,7 @@ Item {
 
     Connections {
         target: States
-        function onRequestLauncherToggle(barWasAlreadyShowing) {
-            root.closeBar = barWasAlreadyShowing;
+        function onRequestLauncherToggle() {
             delayTimer.running = !delayTimer.running;
         }
     }
@@ -46,7 +54,7 @@ Item {
         height: Config.bar.height - 22
         radius: width / 2
 
-        color: distroMouseArea.containsMouse ? Colors.md3.secondary_container : Colors.md3.primary_container
+        color: shouldHighlightBackground ? Colors.md3.primary : Colors.md3.primary_container
 
         Behavior on color {
             StyledColorAnimation {}
@@ -56,10 +64,14 @@ Item {
             anchors.centerIn: parent
             text: ""
 
-            color: distroMouseArea.containsMouse ? Colors.md3.on_secondary_container : Colors.md3.on_primary_container
+            color: shouldHighlightBackground ? Colors.md3.on_primary : Colors.md3.on_primary_container
 
             font.bold: true
             font.pixelSize: Config.style.font.size.icon
+
+            Behavior on color {
+                StyledColorAnimation {}
+            }
         }
     }
 

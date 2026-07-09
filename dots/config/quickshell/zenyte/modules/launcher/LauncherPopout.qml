@@ -61,7 +61,7 @@ Item {
                 TextField {
                     id: search
 
-                    Layout.preferredWidth: 300
+                    Layout.fillWidth: true
                     Layout.preferredHeight: 30
 
                     placeholderText: "Type to search"
@@ -96,7 +96,7 @@ Item {
                 ListView {
                     id: list
 
-                    Layout.preferredWidth: 300
+                    Layout.fillWidth: true
                     Layout.preferredHeight: 500
 
                     model: DesktopEntries.applications.values.filter(a => a.name.toLowerCase().includes(search.text))

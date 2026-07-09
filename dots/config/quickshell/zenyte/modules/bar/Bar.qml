@@ -1,6 +1,7 @@
 pragma ComponentBehavior: Bound
 
 import qs.services
+import qs.modules.shared
 import Quickshell
 import Quickshell.Wayland
 import QtQuick
@@ -46,20 +47,26 @@ Scope {
                 color: "transparent"
 
                 Behavior on implicitWidth {
-                    SpringAnimation {
-                        spring: 5
-                        damping: 0.7
-                    }
+                    StyledSpringAnimation {}
+                }
+
+                Behavior on anchors {
+                    StyledSpringAnimation {}
                 }
 
                 Rectangle {
                     id: rectangle
 
                     Behavior on implicitHeight {
-                        SpringAnimation {
-                            spring: 5
-                            damping: 0.7
-                        }
+                        StyledSpringAnimation {}
+                    }
+
+                    Behavior on x {
+                        StyledSpringAnimation {}
+                    }
+
+                    Behavior on y {
+                        StyledSpringAnimation {}
                     }
 
                     implicitHeight: Config.bar.height + (Config.bar.floating ? Config.bar.floating_margins * 2 : 0)
