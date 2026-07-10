@@ -15,4 +15,8 @@ ShellRoot {
 
         component: Bar {}
     }
+
+    WallpaperLayer {
+        screen: Quickshell.screens[0]
+    }
 }
