@@ -62,9 +62,18 @@ Item {
                     id: search
 
                     Layout.fillWidth: true
-                    Layout.preferredHeight: 30
+                    Layout.preferredHeight: 34
+
+                    leftPadding: 15
 
                     placeholderText: "Type to search"
+                    placeholderTextColor: Colors.md3.on_surface
+                    color: Colors.md3.on_surface
+
+                    background: Rectangle {
+                        color: Colors.md3.surface_container_highest
+                        radius: Config.bar.widget_radius
+                    }
 
                     enabled: true
                     focus: true
