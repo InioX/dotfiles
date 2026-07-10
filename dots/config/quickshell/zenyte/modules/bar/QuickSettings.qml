@@ -3,7 +3,7 @@ pragma ComponentBehavior: Bound
 
 import qs.services
 import qs.modules.shared
-import qs.modules.quickSettings
+import qs.modules.soundSettings
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
@@ -12,43 +12,61 @@ Item {
     id: root
 
     property bool shouldHighlightBackground: {
-        if (quickSettingsMouseArea.containsMouse) {
+        if (soundSettingsMouseArea.containsMouse) {
             return true;
         }
-        if (qsPopoutLoader.active) {
+        if (soundPopoutLoader.active) {
             return true;
         }
 
         return false;
     }
 
-    implicitHeight: 40
-    implicitWidth: background.width
-
-    StyledMouseArea {
-        id: quickSettingsMouseArea
-
-        anchors.fill: parent
-        onClicked: {
-            if (!qsPopoutLoader.active) {
-                qsPopoutLoader.active = true;
-            } else {
-                if (qsPopoutLoader.item) {
-                    qsPopoutLoader.item.isOpen = false;
-                }
+    function open() {
+        if (!soundPopoutLoader.active) {
+            soundPopoutLoader.active = true;
+        } else {
+            if (soundPopoutLoader.item) {
+                soundPopoutLoader.item.isOpen = false;
             }
         }
     }
 
+    implicitHeight: 40
+    implicitWidth: background.width
+
+    StyledMouseArea {
+        id: soundSettingsMouseArea
+
+        anchors.fill: parent
+        onClicked: {
+            root.open();
+        }
+    }
+
+    Connections {
+        target: States
+        function onRequestSoundSettingsToggle() {
+            delayTimer.running = !delayTimer.running;
+        }
+    }
+
+    Timer {
+        id: delayTimer
+        interval: 100
+        onTriggered: root.open()
+    }
+
     LazyLoader {
-        id: qsPopoutLoader
+        id: soundPopoutLoader
         active: false
-        component: QuickSettingsPopout {
-            isOpen: qsPopoutLoader.active
+        component: SoundSettingsPopout {
+            isOpen: soundPopoutLoader.active
             widgetX: background.mapToItem(null, background.width / 2, 0).x
 
             onAnimationCloseFinished: {
-                qsPopoutLoader.active = false;
+                States.isSoundSettingsOpened = false;
+                soundPopoutLoader.active = false;
             }
         }
     }

@@ -11,22 +11,28 @@ Singleton {
 
     property bool barWasAlreadyShowing: false
     property bool isLauncherOpened: false
+    property bool isSoundSettingsOpened: false
 
     readonly property bool baseBarVisibility: (Config.bar.show_in_overview && Niri.isOverview) || (Config.bar.show_on_empty_workspace && !Niri.focusedWindow) || Config.bar.show_on_top
 
-    property bool showBar: baseBarVisibility || root.isLauncherOpened
+    property bool showBar: baseBarVisibility || root.isLauncherOpened || isSoundSettingsOpened
 
     property bool exclusiveFocus: root.isLauncherOpened
 
     signal requestLauncherToggle
+    signal requestSoundSettingsToggle
 
     IpcHandler {
         target: "root"
 
         function toggleLauncher(): void {
-            // let barWasAlreadyShowing = (!root.isLauncherOpened && root.showBar) ? root.showBar : false;
             root.isLauncherOpened = true;
             root.requestLauncherToggle();
+        }
+
+        function toggleSoundSettings(): void {
+            root.isSoundSettingsOpened = true;
+            root.requestSoundSettingsToggle();
         }
     }
 }
