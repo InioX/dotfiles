@@ -1,6 +1,6 @@
-spawn-at-startup "qs --path ~/.config/quickshell/old"
+spawn-at-startup "qs --path ~/.config/quickshell/zenyte"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "~/.config/niri/scripts/overview-bar.sh"
+// spawn-at-startup "~/.config/niri/scripts/overview-bar.sh"
 spawn-at-startup "dbus-update-activation-environment" "--all"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal" "-r"
 spawn-at-startup "awww-daemon"

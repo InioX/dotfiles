@@ -1,6 +1,6 @@
 {
   "bar": {
-    "bottom": true,
+    "bottom": false,
     "height": 60,
     "full_width": false,
     "floating": true,
