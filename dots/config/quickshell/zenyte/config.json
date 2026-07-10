@@ -1,18 +1,40 @@
 {
-  "bar": {
-    "bottom": false,
-    "height": 60,
-    "full_width": false,
-    "floating": true,
-    "floating_radius": 30,
-    "border": true,
-    "border_widgets": true,
-    "show_on_top": false
-  },
-  "style": {
-    "font": {
-      "size_big": 18,
-      "size_small": 14
+    "bar": {
+        "border": true,
+        "border_widgets": true,
+        "bottom": true,
+        "floating": true,
+        "floating_margins": 10,
+        "floating_radius": 30,
+        "full_width": false,
+        "height": 60,
+        "radius": 0,
+        "show_in_overview": true,
+        "show_on_empty_workspace": true,
+        "show_on_top": false,
+        "widget_radius": 20
+    },
+    "launcher": {
+        "pinned_apps": [
+            "discord",
+            "anime-game-launcher",
+            "firefox",
+            "honkers-railway-launcher"
+        ]
+    },
+    "style": {
+        "font": {
+            "size": {
+                "big": 18,
+                "icon": 34,
+                "icon_medium": 26,
+                "icon_small": 22,
+                "medium": 16,
+                "small": 14
+            }
+        },
+        "rounding": {
+            "small": 20
+        }
     }
-  }
 }

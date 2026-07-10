@@ -10,17 +10,27 @@ Singleton {
 
     property alias bar: jsonAdapter.bar
     property alias style: jsonAdapter.style
+    property alias launcher: jsonAdapter.launcher
+
+    function saveConfig() {
+        configFile.writeAdapter();
+    }
 
     FileView {
+        id: configFile
+
         path: Quickshell.env("HOME") + "/.config/quickshell/zenyte/config.json"
         watchChanges: true
         onFileChanged: reload()
+
+        blockLoading: true
 
         JsonAdapter {
             id: jsonAdapter
 
             readonly property Bar bar: Bar {}
             readonly property Style style: Style {}
+            readonly property Launcher launcher: Launcher {}
         }
     }
 
@@ -44,6 +54,7 @@ Singleton {
         property JsonObject font: JsonObject {
             property JsonObject size: JsonObject {
                 property int small: 14
+                property int medium: 16
                 property int big: 18
                 property int icon: 34
                 property int icon_small: 22
@@ -53,5 +64,9 @@ Singleton {
         property JsonObject rounding: JsonObject {
             property int small: 20
         }
+    }
+
+    component Launcher: JsonObject {
+        property list<string> pinned_apps: []
     }
 }
