@@ -160,12 +160,12 @@ Item {
                         width: ListView.view.width
                         height: 60
 
-                        MouseArea {
-                            anchors.fill: parent
+                        StyledMouseArea {
                             hoverEnabled: true
-                            onClicked: {
-                                // launch the app
+                            onClicked: list.currentIndex = index
+                            onDoubleClicked: {
                                 modelData.execute();
+                                root.isOpen = false;
                             }
                         }
 
