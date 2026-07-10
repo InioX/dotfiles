@@ -54,7 +54,6 @@
                 # nur.overlays.default
                 # nixpkgs-f2k.overlays.window-managers
                 inputs.mac-style-plymouth.overlays.default
-                inputs.niri-flake.overlays.niri
               ];
 
               environment.systemPackages = [
@@ -114,9 +113,9 @@
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     };
 
-    niri-flake = {
-      url = "github:sodiboo/niri-flake";
-    };
+    # niri-flake = {
+    #   url = "github:sodiboo/niri-flake";
+    # };
 
     hyprland-scroll-overview = {
       url = "github:yayuuu/hyprland-scroll-overview";
