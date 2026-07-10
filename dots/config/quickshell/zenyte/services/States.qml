@@ -30,6 +30,10 @@ Singleton {
             root.requestLauncherToggle();
         }
 
+        function toggleLauncherPosition(): void {
+            Config.bar.bottom = !Config.bar.bottom;
+        }
+
         function toggleSoundSettings(): void {
             root.isSoundSettingsOpened = true;
             root.requestSoundSettingsToggle();
