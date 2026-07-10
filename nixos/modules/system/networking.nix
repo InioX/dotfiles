@@ -7,17 +7,25 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.system.networking;
-in {
+in
+{
   options.zenyte.system.networking = {
     bluetooth = mkBoolOpt false "Whether to enable bluetooth.";
   };
 
   config = {
+    # This fixed my problem with crates.io giving bad hashes and rust packages failing to build.
+    # sudo nmcli connection modify "<wifi-connection-name>" ipv4.ignore-auto-dns yes ipv4.dns "1.1.1.1,1.0.0.1,8.8.8.8,8.8.4.4"
+
     networking = {
       hostName = hostName;
-      nameservers = ["1.1.1.1" "8.8.8.8"];
+      nameservers = [
+        "1.1.1.1"
+        "8.8.8.8"
+      ];
       networkmanager = {
         enable = true;
         wifi = {

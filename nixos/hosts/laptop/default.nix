@@ -11,7 +11,7 @@ with lib.zenyte;
 
   boot.supportedFilesystems = [ "ntfs" ];
 
-  virtualisation.waydroid.enable = true;
+  # virtualisation.waydroid.enable = true;
 
   # To fix dual booting clock issue
   time.hardwareClockInLocalTime = true;
