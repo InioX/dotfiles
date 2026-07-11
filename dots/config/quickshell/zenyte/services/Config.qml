@@ -11,6 +11,7 @@ Singleton {
     property alias bar: jsonAdapter.bar
     property alias style: jsonAdapter.style
     property alias launcher: jsonAdapter.launcher
+    property alias desktop: jsonAdapter.desktop
 
     function saveConfig() {
         configFile.writeAdapter();
@@ -31,6 +32,7 @@ Singleton {
             readonly property Bar bar: Bar {}
             readonly property Style style: Style {}
             readonly property Launcher launcher: Launcher {}
+            readonly property Desktop desktop: Desktop {}
         }
     }
 
@@ -72,5 +74,11 @@ Singleton {
 
     component Launcher: JsonObject {
         property list<string> pinned_apps: []
+    }
+
+    component Desktop: JsonObject {
+        property bool show_icons: true
+        property bool show_files: true
+        property bool show_folders: true
     }
 }

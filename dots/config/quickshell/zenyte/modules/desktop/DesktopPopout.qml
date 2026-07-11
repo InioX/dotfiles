@@ -3,8 +3,9 @@ pragma ComponentBehavior: Bound
 
 import qs.services
 import qs.modules.shared
+import qs.modules.desktop
 import Quickshell
-import Quickshell.Services.Pipewire as QsPipewire
+import Quickshell.Io
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
@@ -35,7 +36,7 @@ Item {
     StyledPopout {
         isOpen: root.isOpen
 
-        wantedHeight: column.implicitHeight + 60
+        wantedHeight: column.implicitHeight + 40
         wantedWidth: 300
 
         anchor.rect.x: widgetX
@@ -67,8 +68,111 @@ Item {
                 anchors.right: parent.right
                 anchors.top: parent.top
 
-                spacing: 20
+                spacing: 10
                 anchors.margins: 20
+
+                PopoutEntry {
+                    Layout.fillWidth: true
+
+                    StyledCheckBox {
+                        checked: Config.desktop.show_icons
+                        text: qsTr("Show Desktop Icons")
+                        onClicked: {
+                            Config.desktop.show_icons = !Config.desktop.show_icons;
+                            Config.saveConfig();
+                        }
+                    }
+                }
+
+                PopoutEntry {
+                    Layout.fillWidth: true
+
+                    StyledCheckBox {
+                        checked: Config.desktop.show_files
+                        text: qsTr("Show Files")
+                        onClicked: {
+                            Config.desktop.show_files = !Config.desktop.show_files;
+                            Config.saveConfig();
+                        }
+                    }
+                }
+
+                PopoutEntry {
+                    Layout.fillWidth: true
+
+                    StyledCheckBox {
+                        checked: Config.desktop.show_folders
+                        text: qsTr("Show Folders")
+                        onClicked: {
+                            Config.desktop.show_folders = !Config.desktop.show_folders;
+                            Config.saveConfig();
+                        }
+                    }
+                }
+
+                Rectangle {
+                    Layout.fillWidth: true
+                    implicitHeight: 2
+
+                    color: Colors.md3.outline_variant
+                }
+
+                PopoutEntry {
+                    Layout.fillWidth: true
+
+                    RowLayout {
+                        spacing: 16
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+
+                        StyledText {
+                            leftPadding: 8
+                            text: "󰉖"
+                            color: Colors.md3.on_surface
+                            font.pixelSize: Config.style.font.size.icon_medium
+                        }
+
+                        StyledText {
+                            text: "Open Files"
+                            color: Colors.md3.on_surface
+                            font.pixelSize: Config.style.font.size.small
+
+                            leftPadding: parent.spacing
+                        }
+                    }
+
+                    onClicked: {
+                        Quickshell.execDetached("nautilus");
+                        root.isOpen = false;
+                    }
+                }
+
+                PopoutEntry {
+                    Layout.fillWidth: true
+
+                    RowLayout {
+                        spacing: 16
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+
+                        StyledText {
+                            leftPadding: 8
+                            text: "󰒓"
+                            color: Colors.md3.on_surface
+                            font.pixelSize: Config.style.font.size.icon_medium
+                        }
+
+                        StyledText {
+                            text: "Open Settings"
+                            color: Colors.md3.on_surface
+                            font.pixelSize: Config.style.font.size.small
+
+                            leftPadding: parent.spacing
+                        }
+                    }
+                }
             }
         }
     }

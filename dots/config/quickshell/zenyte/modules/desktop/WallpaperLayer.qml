@@ -5,6 +5,7 @@ import Quickshell.Widgets
 import Quickshell.Io
 import Quickshell.Wayland
 import qs.services
+import qs.services.niri
 import qs.modules.shared
 import Qt.labs.folderlistmodel 2.11
 
@@ -41,8 +42,8 @@ Item {
         FolderListModel {
             id: desktopModel
             folder: "file://" + Quickshell.env("HOME") + ""
-            showDirs: true
-            showFiles: true
+            showDirs: Config.desktop.show_folders
+            showFiles: Config.desktop.show_files
             showDotAndDotDot: false
             nameFilters: ["*"]
         }
@@ -55,6 +56,8 @@ Item {
             cellHeight: 100
             flow: GridView.FlowTopToBottom
             interactive: false
+
+            visible: Config.desktop.show_icons
 
             model: desktopModel
 
@@ -105,6 +108,22 @@ Item {
             anchors.fill: parent
             z: -1
 
+            Connections {
+                target: Niri
+
+                function onFocusedWorkspaceChanged() {
+                    if (desktopPopoutLoader.item) {
+                        desktopPopoutLoader.item.isOpen = false;
+                    }
+                }
+
+                function onFocusedWindowChanged() {
+                    if (desktopPopoutLoader.item) {
+                        desktopPopoutLoader.item.isOpen = false;
+                    }
+                }
+            }
+
             acceptedButtons: Qt.LeftButton | Qt.RightButton
 
             property point startPoint
@@ -122,9 +141,10 @@ Item {
 
             onClicked: mouse => {
                 if (mouse.button === Qt.RightButton) {
-                    console.log("Right click detected at:", mouse.x, mouse.y);
-                    root.mouseX = mouse.x;
-                    root.mouseY = mouse.y;
+                    if (!desktopPopoutLoader.active) {
+                        root.mouseX = mouse.x;
+                        root.mouseY = mouse.y;
+                    }
 
                     root.open();
                 }

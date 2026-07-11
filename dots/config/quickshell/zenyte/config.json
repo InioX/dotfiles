@@ -1,43 +1,50 @@
 {
-  "bar": {
-    "border": false,
-    "border_widgets": false,
-    "bottom": false,
-    "floating": false,
-    "floating_margins": 10,
-    "floating_radius": 30,
-    "full_width": true,
-    "height": 60,
-    "radius": 0,
-    "show_in_overview": true,
-    "show_on_empty_workspace": true,
-    "show_on_top": false,
-    "show_always": true,
-    "widget_radius": 20,
-    "popout_radius": "30"
-  },
-  "launcher": {
-    "pinned_apps": [
-      "discord",
-      "anime-game-launcher",
-      "firefox",
-      "honkers-railway-launcher",
-      "Overwatch"
-    ]
-  },
-  "style": {
-    "font": {
-      "size": {
-        "big": 18,
-        "icon": 34,
-        "icon_medium": 26,
-        "icon_small": 22,
-        "medium": 16,
-        "small": 14
-      }
+    "bar": {
+        "border": false,
+        "border_widgets": false,
+        "bottom": false,
+        "floating": false,
+        "floating_margins": 10,
+        "floating_radius": 30,
+        "full_width": true,
+        "height": 60,
+        "popout_border": true,
+        "popout_margins": 10,
+        "popout_radius": 30,
+        "radius": 0,
+        "show_always": true,
+        "show_in_overview": true,
+        "show_on_empty_workspace": true,
+        "show_on_top": false,
+        "widget_radius": 20
     },
-    "rounding": {
-      "small": 20
+    "desktop": {
+        "show_files": true,
+        "show_folders": true,
+        "show_icons": true
+    },
+    "launcher": {
+        "pinned_apps": [
+            "discord",
+            "anime-game-launcher",
+            "firefox",
+            "honkers-railway-launcher",
+            "Overwatch"
+        ]
+    },
+    "style": {
+        "font": {
+            "size": {
+                "big": 18,
+                "icon": 34,
+                "icon_medium": 26,
+                "icon_small": 22,
+                "medium": 16,
+                "small": 14
+            }
+        },
+        "rounding": {
+            "small": 20
+        }
     }
-  }
 }
