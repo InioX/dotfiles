@@ -85,51 +85,106 @@ Item {
                 spacing: 20
                 anchors.margins: 20
 
-                RowLayout {
+                Item {
+                    id: tabBarContainer
                     Layout.fillWidth: true
-                    // Layout.preferredHeight: parent.Layout.preferredHeight
-                    Repeater {
-                        model: [
-                            {
-                                tab: "apps",
-                                tabName: "Applications"
-                            },
-                            {
-                                tab: "projects",
-                                tabName: "Projects"
-                            }
-                        ]
+                    Layout.preferredHeight: 52
 
-                        delegate: Rectangle {
-                            Layout.fillWidth: true
-                            Layout.preferredHeight: 40
+                    Rectangle {
+                        id: baseline
+                        height: 2
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.bottom: parent.bottom
+                        color: Colors.md3.outline_variant
+                        z: 0
+                    }
 
-                            property int cornerRadius: 12
+                    RowLayout {
+                        id: tabRow
+                        anchors.fill: parent
+                        spacing: 0
 
-                            topLeftRadius: index === 0 ? cornerRadius : 0
-                            bottomLeftRadius: index === 0 ? cornerRadius : 0
+                        Repeater {
+                            id: tabRepeater
+                            model: [
+                                {
+                                    tab: "apps",
+                                    tabName: "Applications",
+                                    icon: "󰀻"
+                                },
+                                {
+                                    tab: "projects",
+                                    tabName: "Projects",
+                                    icon: "󰉖"
+                                }
+                            ]
 
-                            topRightRadius: index === 1 ? cornerRadius : 0
-                            bottomRightRadius: index === 1 ? cornerRadius : 0
+                            delegate: Rectangle {
+                                id: tabDelegate
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+                                color: "transparent"
 
-                            Behavior on color {
-                                StyledColorAnimation {}
-                            }
+                                property bool isActive: root.currentTab === modelData.tab
 
-                            color: root.currentTab == modelData.tab ? Colors.md3.secondary_container : Colors.md3.surface_container
+                                Column {
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    anchors.bottom: parent.bottom
+                                    anchors.bottomMargin: 8
+                                    spacing: 2
 
-                            StyledText {
-                                text: modelData.tabName
+                                    StyledText {
+                                        text: modelData.icon
+                                        color: tabDelegate.isActive ? Colors.md3.primary : Colors.md3.on_surface
+                                        anchors.horizontalCenter: parent.horizontalCenter
+                                        font.pixelSize: Config.style.font.size.icon_small
+                                    }
 
-                                color: root.currentTab == modelData.tab ? Colors.md3.on_secondary_container : Colors.md3.on_surface
-                                anchors.centerIn: parent
-                            }
+                                    StyledText {
+                                        id: labelText
+                                        text: modelData.tabName
+                                        color: tabDelegate.isActive ? Colors.md3.primary : Colors.md3.on_surface
+                                        anchors.horizontalCenter: parent.horizontalCenter
+                                        font.pixelSize: Config.style.font.size.small
+                                    }
+                                }
 
-                            StyledMouseArea {
-                                onClicked: {
-                                    States.launcherTab = modelData.tab;
+                                StyledMouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        States.launcherTab = modelData.tab;
+                                    }
                                 }
                             }
+                        }
+                    }
+
+                    Rectangle {
+                        id: activeIndicator
+                        height: 2
+                        color: Colors.md3.primary
+                        z: 2
+                        anchors.bottom: parent.bottom
+
+                        property var activeItem: {
+                            for (var i = 0; i < tabRepeater.count; i++) {
+                                var item = tabRepeater.itemAt(i);
+                                if (item && item.isActive)
+                                    return item;
+                            }
+                            return null;
+                        }
+
+                        width: activeItem ? activeItem.width : 0
+                        x: activeItem ? activeItem.x : 0
+
+                        Behavior on x {
+                            StyledSpringAnimation {}
+                        }
+
+                        Behavior on width {
+                            StyledSpringAnimation {}
                         }
                     }
                 }
