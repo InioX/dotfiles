@@ -31,8 +31,6 @@ PanelWindow {
                 filePath = decodeURIComponent(filePath).replace(/\r?\n|\r/g, "");
 
                 if (filePath.match(/\.(jpg|jpeg|png|webp|gif)$/i)) {
-                    console.log("Setting wallpaper to:", filePath);
-
                     wallpaperSetter.command[2] = filePath;
                     wallpaperSetter.running = true;
                 }

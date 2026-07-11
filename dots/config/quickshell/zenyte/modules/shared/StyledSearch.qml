@@ -9,6 +9,7 @@ Rectangle {
     property int iconPadding: 14
     property bool searchTextEntered: (search.text.length > 0)
     property int searchRadius: 30
+    property string placeHolderString: "Type to search"
 
     property alias text: search.text
 
@@ -44,7 +45,7 @@ Rectangle {
 
             Layout.preferredHeight: parent.Layout.preferredHeight
 
-            placeholderText: "Type to search"
+            placeholderText: root.placeHolderString
             placeholderTextColor: Colors.md3.on_surface
             color: Colors.md3.on_surface
 

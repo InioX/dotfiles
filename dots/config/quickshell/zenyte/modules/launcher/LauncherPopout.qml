@@ -1,15 +1,16 @@
 // qmllint disable unqualified
-pragma ComponentBehavior: Bound
 
 import qs.services
 import qs.modules.shared
 import Quickshell
+import Quickshell.Io
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.LocalStorage
 import QtQuick.Effects
 import Quickshell.Widgets
+import Qt.labs.folderlistmodel 2.11
 
 Item {
     id: root
@@ -18,6 +19,7 @@ Item {
     required property int widgetX
 
     property string query: ""
+    property string currentTab: States.launcherTab
     property var pinnedAppIds: Config.launcher.pinned_apps
 
     signal animationCloseFinished
@@ -26,6 +28,15 @@ Item {
         id: destroyTimer
         interval: 150
         onTriggered: root.animationCloseFinished()
+    }
+
+    FolderListModel {
+        id: devFolderModel
+        folder: "file://" + Quickshell.env("HOME") + "/dev"
+        showDirs: true
+        showFiles: false
+        showHidden: false
+        showDotAndDotDot: false
     }
 
     onIsOpenChanged: {
@@ -48,8 +59,6 @@ Item {
         return pinnedAppIds.indexOf(appId) !== -1;
     }
 
-    property int entryRadius: 24
-
     StyledPopout {
         id: popout
 
@@ -64,6 +73,8 @@ Item {
         StyledRoundRect {
             id: rect
 
+            Keys.onPressed: event => {}
+
             ColumnLayout {
                 id: column
 
@@ -74,8 +85,65 @@ Item {
                 spacing: 20
                 anchors.margins: 20
 
+                RowLayout {
+                    Layout.fillWidth: true
+                    // Layout.preferredHeight: parent.Layout.preferredHeight
+                    Repeater {
+                        model: [
+                            {
+                                tab: "apps",
+                                tabName: "Applications"
+                            },
+                            {
+                                tab: "projects",
+                                tabName: "Projects"
+                            }
+                        ]
+
+                        delegate: Rectangle {
+                            Layout.fillWidth: true
+                            Layout.preferredHeight: 40
+
+                            property int cornerRadius: 12
+
+                            topLeftRadius: index === 0 ? cornerRadius : 0
+                            bottomLeftRadius: index === 0 ? cornerRadius : 0
+
+                            topRightRadius: index === 1 ? cornerRadius : 0
+                            bottomRightRadius: index === 1 ? cornerRadius : 0
+
+                            Behavior on color {
+                                StyledColorAnimation {}
+                            }
+
+                            color: root.currentTab == modelData.tab ? Colors.md3.secondary_container : Colors.md3.surface_container
+
+                            StyledText {
+                                text: modelData.tabName
+
+                                color: root.currentTab == modelData.tab ? Colors.md3.on_secondary_container : Colors.md3.on_surface
+                                anchors.centerIn: parent
+                            }
+
+                            StyledMouseArea {
+                                onClicked: {
+                                    States.launcherTab = modelData.tab;
+                                }
+                            }
+                        }
+                    }
+                }
+
                 StyledSearch {
                     id: searchBar
+
+                    placeHolderString: {
+                        if (root.currentTab) {
+                            return "Type to search " + root.currentTab;
+                        } else {
+                            return "Type to search";
+                        }
+                    }
 
                     onTextChanged: {
                         root.query = searchBar.text;
@@ -84,10 +152,20 @@ Item {
 
                     Keys.onPressed: event => {
                         const ctrl = event.modifiers & Qt.ControlModifier;
+                        const alt = event.modifiers & Qt.AltModifier;
                         if (event.key == Qt.Key_Up || event.key == Qt.Key_P && ctrl) {
                             event.accepted = true;
                             if (list.currentIndex > 0)
                                 list.currentIndex--;
+                        } else if (event.key == Qt.Key_Left && alt) {
+                            event.accepted = true;
+                            States.previousTab();
+                        } else if (event.key == Qt.Key_Right && alt) {
+                            event.accepted = true;
+                            States.nextTab();
+                        } else if (event.key == Qt.Key_Tab) {
+                            event.accepted = true;
+                            States.cycleTabs();
                         } else if (event.key == Qt.Key_Down || event.key == Qt.Key_N && ctrl) {
                             event.accepted = true;
                             if (list.currentIndex < list.count - 1)
@@ -100,10 +178,18 @@ Item {
                             }
                         } else if ([Qt.Key_Return, Qt.Key_Enter].includes(event.key)) {
                             event.accepted = true;
+
                             if (list.currentItem && list.currentItem.modelData) {
-                                list.currentItem.modelData.execute();
+                                if (root.currentTab === "apps") {
+                                    list.currentItem.modelData.execute();
+                                } else {
+                                    projectOpener.command[1] = list.currentItem.modelData.path;
+                                    projectOpener.running = true;
+                                }
                                 root.isOpen = false;
                             }
+
+                            root.isOpen = false;
                         } else if (event.key == Qt.Key_C && ctrl) {
                             event.accepted = true;
                             root.isOpen = false;
@@ -114,47 +200,60 @@ Item {
                 ScriptModel {
                     id: filtered
                     values: {
-                        const pinTracker = root.pinnedAppIds;
-                        let allEntries = [...DesktopEntries.applications.values];
-                        const q = root.query.trim().toLowerCase();
+                        if (root.currentTab == "apps") {
+                            const pinTracker = root.pinnedAppIds;
+                            let allEntries = [...DesktopEntries.applications.values];
+                            const q = root.query.trim().toLowerCase();
 
-                        if (q !== "") {
-                            allEntries = allEntries.filter(d => d.name && d.name.toLowerCase().includes(q));
-                        }
-
-                        allEntries.sort((a, b) => {
-                            let aPinned = root.isAppPinned(a.id);
-                            let bPinned = root.isAppPinned(b.id);
-
-                            if (aPinned === bPinned) {
-                                return a.name.localeCompare(b.name);
+                            if (q !== "") {
+                                allEntries = allEntries.filter(d => d.name && d.name.toLowerCase().includes(q));
                             }
-                            return aPinned ? -1 : 1;
-                        });
 
-                        return allEntries;
+                            allEntries.sort((a, b) => {
+                                let aPinned = root.isAppPinned(a.id);
+                                let bPinned = root.isAppPinned(b.id);
+
+                                if (aPinned === bPinned) {
+                                    return a.name.localeCompare(b.name);
+                                }
+                                return aPinned ? -1 : 1;
+                            });
+
+                            return allEntries;
+                        } else {
+                            let projectEntries = [];
+                            const q = root.query.trim().toLowerCase();
+
+                            for (let i = 0; i < devFolderModel.count; i++) {
+                                let name = devFolderModel.get(i, "fileName");
+                                let path = devFolderModel.get(i, "filePath");
+
+                                if (q === "" || name.toLowerCase().includes(q)) {
+                                    projectEntries.push({
+                                        name: name,
+                                        path: path,
+                                        isProject: true
+                                    });
+                                }
+                            }
+
+                            projectEntries.sort((a, b) => a.name.localeCompare(b.name));
+                            return projectEntries;
+                        }
                     }
                 }
 
-                ListView {
+                StyledListView {
                     id: list
-
-                    Layout.fillWidth: true
-                    Layout.maximumHeight: 500
-                    Layout.preferredHeight: list.contentHeight
 
                     model: filtered.values
                     currentIndex: filtered.values.length > 0 ? 0 : -1
-
-                    highlight: Rectangle {
-                        color: Colors.md3.surface_container
-                        radius: root.entryRadius
-                    }
-
-                    highlightMoveDuration: 80
+                    // visible: root.currentTab == "apps"
 
                     delegate: Item {
-                        required property DesktopEntry modelData
+                        id: listDelegate
+
+                        required property var modelData
                         required property int index
 
                         width: ListView.view.width
@@ -164,7 +263,12 @@ Item {
                             hoverEnabled: true
                             onClicked: list.currentIndex = index
                             onDoubleClicked: {
-                                modelData.execute();
+                                if (root.currentTab === "apps") {
+                                    listDelegate.modelData.execute();
+                                } else {
+                                    projectOpener.command[1] = listDelegate.modelData.path;
+                                    projectOpener.running = true;
+                                }
                                 root.isOpen = false;
                             }
                         }
@@ -181,7 +285,7 @@ Item {
                             anchors.rightMargin: 20
 
                             StyledAppIcon {
-                                icon: modelData.icon
+                                icon: root.currentTab === "apps" ? listDelegate.modelData.icon : "folder"
                                 wantedSize: 36
 
                                 Layout.alignment: Qt.AlignVCenter
@@ -192,14 +296,14 @@ Item {
                                 Layout.fillWidth: true
 
                                 StyledText {
-                                    text: modelData.name
+                                    text: root.currentTab === "apps" ? listDelegate.modelData.name : listDelegate.modelData.name
 
                                     font.pixelSize: Config.style.font.size.medium
                                     color: Colors.md3.on_surface
                                 }
 
                                 StyledText {
-                                    text: modelData.id
+                                    text: root.currentTab === "apps" ? listDelegate.modelData.id : listDelegate.modelData.path
 
                                     font.pixelSize: Config.style.font.size.small
                                     color: Colors.md3.outline_variant
@@ -209,7 +313,8 @@ Item {
                             Rectangle {
                                 id: pinButton
 
-                                property bool isPinned: root.isAppPinned(modelData.id)
+                                visible: root.currentTab === "apps"
+                                property bool isPinned: root.isAppPinned(listDelegate.modelData.id)
 
                                 implicitHeight: parent.implicitHeight - 10
                                 implicitWidth: parent.implicitHeight - 10
@@ -238,7 +343,7 @@ Item {
                                     id: pinMouseArea
 
                                     onClicked: {
-                                        root.togglePin(modelData.id);
+                                        root.togglePin(listDelegate.modelData.id);
                                     }
                                 }
 
@@ -251,13 +356,19 @@ Item {
                 }
 
                 StyledText {
-                    visible: list.contentHeight <= 0
+                    visible: list.contentHeight <= 0 | !list.visible
 
-                    text: "No apps found (╥﹏╥)"
+                    text: "Could not find any " + root.currentTab + " (╥﹏╥)"
                     font.pixelSize: Config.style.font.size.small
                     color: Colors.md3.on_surface
                     Layout.alignment: Qt.AlignHCenter
                 }
+            }
+
+            Process {
+                id: projectOpener
+
+                command: ["zeditor", ""]
             }
         }
     }
