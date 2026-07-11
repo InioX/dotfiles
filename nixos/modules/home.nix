@@ -170,6 +170,10 @@ in
 
               # Niri
               "niri/".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/niri/";
+
+              "mimeapps.list".source =
+                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/mimeapps.list";
+
             };
 
             home.file = {
