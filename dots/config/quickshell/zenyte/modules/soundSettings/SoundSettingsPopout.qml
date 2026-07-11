@@ -36,8 +36,13 @@ Item {
 
         wantedHeight: column.implicitHeight + 60
         wantedWidth: 500
+        anchor.gravity: Config.bar.bottom ? (Edges.Top | Edges.Right) : (Edges.Bottom | Edges.Right)
 
-        parentX: widgetX - (wantedWidth / 2)
+        property int parentX: widgetX - (wantedWidth / 2)
+        anchor.window: barWindow
+
+        anchor.rect.x: Math.max(offset, Math.min(parentX, parentWindow.width - width - offset))
+        anchor.rect.y: Config.bar.bottom ? (0 - Config.bar.popout_margins) : (parentWindow.height + Config.bar.popout_margins)
 
         StyledRoundRect {
             id: rect

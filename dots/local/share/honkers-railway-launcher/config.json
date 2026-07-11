@@ -13,6 +13,7 @@
       "threads": 4,
       "fast": false
     },
+    "disable_telemetry": true,
     "behavior": "Hide"
   },
   "game": {

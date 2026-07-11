@@ -14,6 +14,10 @@ layer-rule {
 
 window-rule {
     match app-id=r#"^net\.nokyan\.Resources$"#
+    match app-id=r#"moe.launcher.an-anime-game-launcher"#
+    match app-id=r#"moe.launcher.the-honkers-railway-launcher"#
+    match app-id=r#"org.gnome.Nautilus"#
+
     open-floating true
 }
 

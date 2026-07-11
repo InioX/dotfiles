@@ -2,6 +2,8 @@
 import QtQuick
 import QtQuick.Shapes
 import Quickshell
+import Quickshell.Wayland
+import qs.services
 
 Scope {
     // PanelWindow {
@@ -47,12 +49,14 @@ Scope {
 
     id: border
 
-    property real borderWidth: 10
-    property real cornerRadius: 25
+    property int borderWidth: 10
     property color borderColor: Colors.md3.surface
+    // property int cornerRadius: Config.bar.popout_radius
+    property int cornerRadius: 30
 
     PanelWindow {
         id: topLeftCorner
+        visible: !Config.bar.bottom && Config.bar.full_width
 
         implicitHeight: border.cornerRadius
         implicitWidth: border.cornerRadius
@@ -98,6 +102,7 @@ Scope {
 
     PanelWindow {
         id: topRightCorner
+        visible: !Config.bar.bottom && Config.bar.full_width
 
         implicitHeight: border.cornerRadius
         implicitWidth: border.cornerRadius
@@ -143,6 +148,7 @@ Scope {
 
     PanelWindow {
         id: bottomLeftCorner
+        visible: Config.bar.bottom && Config.bar.full_width
 
         implicitHeight: border.cornerRadius
         implicitWidth: border.cornerRadius
@@ -188,6 +194,7 @@ Scope {
 
     PanelWindow {
         id: bottomRightCorner
+        visible: Config.bar.bottom && Config.bar.full_width
 
         implicitHeight: border.cornerRadius
         implicitWidth: border.cornerRadius

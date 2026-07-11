@@ -30,9 +30,9 @@ Scope {
                     hoverEnabled: true
                 }
 
-                aboveWindows: true
-                exclusionMode: ExclusionMode.Normal
-                WlrLayershell.layer: WlrLayer.Overlay
+                // aboveWindows: true
+                exclusionMode: ExclusionMode.Auto
+                WlrLayershell.layer: States.forceShowBar ? WlrLayer.Overlay : WlrLayer.Top
 
                 screen: modelData
                 anchors {
