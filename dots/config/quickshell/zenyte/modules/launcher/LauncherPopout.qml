@@ -19,7 +19,6 @@ Item {
     required property int widgetX
 
     property string query: ""
-    property string currentTab: States.launcherTab
     property var pinnedAppIds: Config.launcher.pinned_apps
 
     signal animationCloseFinished
@@ -136,7 +135,10 @@ Item {
                                 Layout.fillHeight: true
                                 color: "transparent"
 
-                                property bool isActive: root.currentTab === modelData.tab
+                                required property var modelData
+                                required property int index
+
+                                property bool isActive: States.launcherTab === modelData.tab
 
                                 Column {
                                     anchors.horizontalCenter: parent.horizontalCenter
@@ -163,7 +165,7 @@ Item {
                                 StyledMouseArea {
                                     anchors.fill: parent
                                     onClicked: {
-                                        States.launcherTab = modelData.tab;
+                                        States.launcherTabIndex = index;
                                     }
                                 }
                             }
@@ -203,8 +205,8 @@ Item {
                     id: searchBar
 
                     placeHolderString: {
-                        if (root.currentTab) {
-                            return "Type to search " + root.currentTab;
+                        if (States.launcherTab) {
+                            return "Type to search " + States.launcherTab;
                         } else {
                             return "Type to search";
                         }
@@ -245,7 +247,7 @@ Item {
                             event.accepted = true;
 
                             if (list.currentItem && list.currentItem.modelData) {
-                                if (root.currentTab === "apps") {
+                                if (States.launcherTab === "apps") {
                                     list.currentItem.modelData.execute();
                                 } else {
                                     projectOpener.command[1] = list.currentItem.modelData.path;
@@ -265,7 +267,7 @@ Item {
                 ScriptModel {
                     id: filtered
                     values: {
-                        if (root.currentTab == "apps") {
+                        if (States.launcherTab == "apps") {
                             const pinTracker = root.pinnedAppIds;
                             let allEntries = [...DesktopEntries.applications.values];
                             const q = root.query.trim().toLowerCase();
@@ -313,7 +315,6 @@ Item {
 
                     model: filtered.values
                     currentIndex: filtered.values.length > 0 ? 0 : -1
-                    // visible: root.currentTab == "apps"
 
                     delegate: Item {
                         id: listDelegate
@@ -328,7 +329,7 @@ Item {
                             hoverEnabled: true
                             onClicked: list.currentIndex = index
                             onDoubleClicked: {
-                                if (root.currentTab === "apps") {
+                                if (States.launcherTab === "apps") {
                                     listDelegate.modelData.execute();
                                 } else {
                                     projectOpener.command[1] = listDelegate.modelData.path;
@@ -350,7 +351,7 @@ Item {
                             anchors.rightMargin: 20
 
                             StyledAppIcon {
-                                icon: root.currentTab === "apps" ? listDelegate.modelData.icon : "folder"
+                                icon: States.launcherTab === "apps" ? listDelegate.modelData.icon : "folder"
                                 wantedSize: 36
 
                                 Layout.alignment: Qt.AlignVCenter
@@ -361,14 +362,14 @@ Item {
                                 Layout.fillWidth: true
 
                                 StyledText {
-                                    text: root.currentTab === "apps" ? listDelegate.modelData.name : listDelegate.modelData.name
+                                    text: States.launcherTab === "apps" ? listDelegate.modelData.name : listDelegate.modelData.name
 
                                     font.pixelSize: Config.style.font.size.medium
                                     color: Colors.md3.on_surface
                                 }
 
                                 StyledText {
-                                    text: root.currentTab === "apps" ? listDelegate.modelData.id : listDelegate.modelData.path
+                                    text: States.launcherTab === "apps" ? listDelegate.modelData.id : listDelegate.modelData.path
 
                                     font.pixelSize: Config.style.font.size.small
                                     color: Colors.md3.outline_variant
@@ -378,7 +379,7 @@ Item {
                             Rectangle {
                                 id: pinButton
 
-                                visible: root.currentTab === "apps"
+                                visible: States.launcherTab === "apps"
                                 property bool isPinned: root.isAppPinned(listDelegate.modelData.id)
 
                                 implicitHeight: parent.implicitHeight - 10
@@ -423,7 +424,7 @@ Item {
                 StyledText {
                     visible: list.contentHeight <= 0 | !list.visible
 
-                    text: "Could not find any " + root.currentTab + " (╥﹏╥)"
+                    text: "Could not find any " + States.launcherTab + " (╥﹏╥)"
                     font.pixelSize: Config.style.font.size.small
                     color: Colors.md3.on_surface
                     Layout.alignment: Qt.AlignHCenter
