@@ -1,10 +1,68 @@
 pragma Singleton
 import QtQuick
 import Quickshell
+import Quickshell.Wayland
 import Quickshell.Io
 
 Singleton {
     id: root
+
+    property var sortedToplevels: []
+
+    function _screenName(screenOrName) {
+        if (typeof screenOrName === "string")
+            return screenOrName;
+        return screenOrName?.name ?? "";
+    }
+
+    function _toplevelOnScreen(toplevel, screenName) {
+        if (!toplevel || !screenName)
+            return false;
+        const screens = toplevel.screens;
+        if (!screens)
+            return false;
+        for (let i = 0; i < screens.length; i++) {
+            if (screens[i]?.name === screenName)
+                return true;
+        }
+        return false;
+    }
+
+    // Stolen from DMS...
+    function hasFullscreenToplevelOnScreen(screenOrName) {
+        const screenName = _screenName(screenOrName);
+        if (!screenName)
+            return false;
+
+        const active = ToplevelManager.activeToplevel;
+        if (active?.fullscreen && active?.activated && _toplevelOnScreen(active, screenName))
+            return true;
+
+        const filtered = filterCurrentWorkspace(sortedToplevels, screenName);
+        for (let i = 0; i < filtered.length; i++) {
+            if (filtered[i]?.fullscreen)
+                return true;
+        }
+        return false;
+
+        if (!ToplevelManager.toplevels?.values)
+            return false;
+
+        for (const toplevel of ToplevelManager.toplevels.values) {
+            if (toplevel?.fullscreen && _toplevelOnScreen(toplevel, screenName))
+                return true;
+        }
+        return false;
+    }
+
+    function filterCurrentWorkspace(toplevels, screenName) {
+        if (!toplevels)
+            return [];
+
+        return toplevels.filter(toplevel => {
+            return root._toplevelOnScreen(toplevel, screenName);
+        });
+    }
 
     readonly property alias available: niriSocket.connected
     readonly property alias path: niriSocket.path

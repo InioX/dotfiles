@@ -51,9 +51,9 @@ Singleton {
         launcherTabIndex += 1;
     }
 
-    readonly property bool baseBarVisibility: Config.bar.show_always || (Config.bar.show_in_overview && Niri.isOverview) || (Config.bar.show_on_empty_workspace && !(Niri.focusedWindow && !Niri.focusedWindow.isFloating)) || Config.bar.show_on_top
-
-    property bool forceShowBar: root.isLauncherOpened || isSoundSettingsOpened
+    property bool hasFullscreenWindow: Niri.hasFullscreenToplevelOnScreen(Quickshell.screens[0])
+    readonly property bool baseBarVisibility: (Config.bar.show_always && !hasFullscreenWindow) || (Config.bar.show_in_overview && Niri.isOverview) || (Config.bar.show_on_empty_workspace && !(Niri.focusedWindow && !Niri.focusedWindow.isFloating)) || Config.bar.show_on_top
+    property bool forceShowBar: root.isLauncherOpened || root.isSoundSettingsOpened
     property bool showBar: baseBarVisibility || forceShowBar
 
     property bool exclusiveFocus: root.isLauncherOpened
