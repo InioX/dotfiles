@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Game
+Exec=anime-game-launcher --just-run-game
+GenericName=Genshin Impact
+Icon=moe.launcher.an-anime-game-launcher
+Name=Genshin Impact
+StartupNotify=true
+StartupWMClass=moe.launcher.an-anime-game-launcher
+Type=Application
+Version=1.5

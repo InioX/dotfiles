@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Overwatch®
+Comment=Play this game on Steam
+Exec=steam -silent -applaunch 2357570
+Icon=steam_icon_2357570
+Terminal=false
+Type=Application
+Categories=Game;
