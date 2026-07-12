@@ -1,50 +1,52 @@
 {
-    "bar": {
-        "border": false,
-        "border_widgets": false,
-        "bottom": false,
-        "floating": false,
-        "floating_margins": 10,
-        "floating_radius": 30,
-        "full_width": true,
-        "height": 60,
-        "popout_border": true,
-        "popout_margins": 10,
-        "popout_radius": 30,
-        "radius": 0,
-        "show_always": true,
-        "show_in_overview": true,
-        "show_on_empty_workspace": true,
-        "show_on_top": false,
-        "widget_radius": 20
-    },
-    "desktop": {
-        "show_files": true,
-        "show_folders": true,
-        "show_icons": true
-    },
-    "launcher": {
-        "pinned_apps": [
-            "discord",
-            "firefox",
-            "honkers-railway-launcher",
-            "Overwatch",
-            "Genshin"
-        ]
-    },
-    "style": {
-        "font": {
-            "size": {
-                "big": 18,
-                "icon": 34,
-                "icon_medium": 26,
-                "icon_small": 22,
-                "medium": 16,
-                "small": 14
-            }
-        },
-        "rounding": {
-            "small": 20
-        }
+  "bar": {
+    "border": false,
+    "border_widgets": false,
+    "bottom": false,
+    "floating": false,
+    "floating_margins": 10,
+    "floating_radius": 30,
+    "full_width": true,
+    "height": 60,
+    "popout_border": true,
+    "popout_margins": 10,
+    "popout_radius": 30,
+    "radius": 0,
+    "widget_radius": 20,
+    "visible": {
+      "always": true,
+      "overview": true,
+      "empty_workspace": true,
+      "on_top": false
     }
+  },
+  "desktop": {
+    "show_files": true,
+    "show_folders": true,
+    "show_icons": true
+  },
+  "launcher": {
+    "pinned_apps": [
+      "discord",
+      "firefox",
+      "honkers-railway-launcher",
+      "Overwatch",
+      "Genshin"
+    ]
+  },
+  "style": {
+    "font": {
+      "size": {
+        "big": 18,
+        "icon": 34,
+        "icon_medium": 26,
+        "icon_small": 22,
+        "medium": 16,
+        "small": 14
+      }
+    },
+    "rounding": {
+      "small": 20
+    }
+  }
 }

@@ -37,6 +37,13 @@ Singleton {
     }
 
     component Bar: JsonObject {
+        property JsonObject visible: JsonObject {
+            property bool overview: false
+            property bool empty_workspace: false
+            property bool always: false
+            property bool on_top: false
+        }
+
         property bool bottom: false
         property int height: 50
         property bool border: false

@@ -52,7 +52,7 @@ Singleton {
     }
 
     property bool hasFullscreenWindow: Niri.hasFullscreenToplevelOnScreen(Quickshell.screens[0])
-    readonly property bool baseBarVisibility: (Config.bar.show_always && !hasFullscreenWindow) || (Config.bar.show_in_overview && Niri.isOverview) || (Config.bar.show_on_empty_workspace && !(Niri.focusedWindow && !Niri.focusedWindow.isFloating)) || Config.bar.show_on_top
+    readonly property bool baseBarVisibility: (Config.bar.visible.always && !hasFullscreenWindow) || (Config.bar.visible.overview && Niri.isOverview) || (Config.bar.visible.empty_workspace && !(Niri.focusedWindow && !Niri.focusedWindow.isFloating)) || Config.bar.visible.on_top
     property bool forceShowBar: root.isLauncherOpened || root.isSoundSettingsOpened
     property bool showBar: baseBarVisibility || forceShowBar
 
