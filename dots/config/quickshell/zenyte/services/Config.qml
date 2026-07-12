@@ -44,23 +44,18 @@ Singleton {
             property bool on_top: false
         }
 
+        property int popout_margins: 10
+        property int floating_margins: 10
+
+        property int popout_radius: 30
+        property int floating_radius: 30
+        property int widget_radius: 20
+        property int radius: 0
+
         property bool bottom: false
         property int height: 50
-        property bool border: false
-        property bool popout_border: true
-        property int popout_margins: 10
         property bool full_width: false
-        property bool border_widgets: false
         property bool floating: false
-        property int floating_margins: 10
-        property int radius: 0
-        property int floating_radius: 30
-        property int popout_radius: 30
-        property int widget_radius: 20
-        property bool show_in_overview: true
-        property bool show_on_empty_workspace: true
-        property bool show_on_top: false
-        property bool show_always: false
     }
 
     component Style: JsonObject {
@@ -74,8 +69,15 @@ Singleton {
                 property int icon_medium: 26
             }
         }
+
         property JsonObject rounding: JsonObject {
             property int small: 20
+        }
+
+        property JsonObject borders: JsonObject {
+            property int bar: 0
+            property int popout: 1
+            property int widget: 0
         }
     }
 

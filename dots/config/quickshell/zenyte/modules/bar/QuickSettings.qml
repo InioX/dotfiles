@@ -85,7 +85,7 @@ Item {
         radius: Config.style.rounding.small
 
         border.color: Colors.md3.outline_variant
-        border.width: Config.bar.border_widgets ? 1 : 0
+        border.width: Config.style.borders.widget
 
         Row {
             id: row

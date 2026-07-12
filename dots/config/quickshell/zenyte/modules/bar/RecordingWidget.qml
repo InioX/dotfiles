@@ -20,7 +20,7 @@ Item {
         radius: width / 2
 
         border.color: Colors.md3.outline_variant
-        border.width: Config.bar.border_widgets ? 1 : 0
+        border.width: Config.style.borders.widget
 
         color: recordingMouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface_container
 

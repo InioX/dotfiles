@@ -78,7 +78,7 @@ Scope {
                 color: Colors.md3.surface
 
                 border.color: Colors.md3.outline_variant
-                border.width: Config.bar.border ? 1 : 0
+                border.width: Config.style.borders.bar
 
                 anchors {
                     fill: parent

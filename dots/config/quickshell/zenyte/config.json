@@ -1,14 +1,11 @@
 {
   "bar": {
-    "border": false,
-    "border_widgets": false,
     "bottom": false,
     "floating": false,
     "floating_margins": 10,
     "floating_radius": 30,
     "full_width": true,
     "height": 60,
-    "popout_border": true,
     "popout_margins": 10,
     "popout_radius": 30,
     "radius": 0,
@@ -47,6 +44,11 @@
     },
     "rounding": {
       "small": 20
+    },
+    "borders": {
+      "popout": 1,
+      "widget": 0,
+      "bar": 0
     }
   }
 }
