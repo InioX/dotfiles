@@ -20,6 +20,11 @@ in
       rofi
     ];
 
+    zenyte.home.configFile = {
+      "rofi/config.rasi" = "rofi/config.rasi";
+      "rofi/menu.rasi" = "rofi/menu.rasi";
+    };
+
     zenyte.matugen.template = {
       rofi = {
         input = "colors.rasi";

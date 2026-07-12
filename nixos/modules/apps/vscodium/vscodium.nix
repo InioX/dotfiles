@@ -265,6 +265,10 @@ in
     #   })
     # ];
     #
+    zenyte.home.configFile = {
+      "Code/User/settings.json" = "Code/User/settings.json";
+    };
+
     zenyte.matugen.template = {
       vscode = {
         input = "hyprlunavsc.json";

@@ -20,14 +20,14 @@ in
       alacritty
     ];
 
+    zenyte.home.configFile = {
+      "alacritty/alacritty.toml" = "alacritty/alacritty.toml";
+    };
+
     zenyte.matugen.template = {
-      discord = {
-        input = "discord.css";
-        output = "~/.config/Vencord/themes/midnight-discord.css";
-      };
-      vesktop = {
-        input = "discord.css";
-        output = "~/.config/vesktop/themes/midnight-discord.css";
+      alacritty = {
+        input = "colors.toml";
+        output = "~/.config/alacritty/colors.toml";
       };
     };
   };

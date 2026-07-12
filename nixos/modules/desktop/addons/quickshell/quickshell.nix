@@ -43,6 +43,10 @@ in
       yet-another-monochrome-icons
     ];
 
+    zenyte.home.configFile = {
+      "quickshell" = "quickshell";
+    };
+
     zenyte.matugen.template = {
       qt5ct = {
         input = "matugen.conf";

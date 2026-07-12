@@ -92,6 +92,13 @@ in
     #   ];
     # };
 
+    zenyte.home.configFile = {
+      "hypr/windowrules.conf" = "hypr/windowrules.conf";
+      "hypr/scripts" = "hypr/scripts";
+      "hypr/hyprland.conf" = "hypr/hyprland.conf";
+      "hypr/keybindings.conf" = "hypr/keybindings.conf";
+    };
+
     zenyte.matugen.template = {
       Hyprland-autostart = {
         input = "autostart.conf";

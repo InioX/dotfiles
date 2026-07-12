@@ -26,6 +26,10 @@ in
       zed-editor
     ];
 
+    zenyte.home.configFile = {
+      "zed/settings.json" = "zed/settings.json";
+    };
+
     zenyte.matugen.template = {
       zed = {
         input = "zed-colors.json";

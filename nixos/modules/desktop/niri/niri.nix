@@ -26,12 +26,11 @@ in
       xwayland-satellite
     ];
 
-    zenyte.matugen.template = {
-      zed = {
-        input = "zed-colors.json";
-        output = "~/.config/zed/themes/matugen.json";
-      };
+    zenyte.home.configFile = {
+      "niri/" = "niri/";
+    };
 
+    zenyte.matugen.template = {
       niri = {
         input = "niri.kdl";
         output = "~/.config/niri/colors.kdl";

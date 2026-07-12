@@ -70,98 +70,24 @@ in
           (mkAliasDefinitions options.zenyte.home.extraOptions)
 
           {
-            home.file = processFiles default.localFolder sysConfig.zenyte.home.file;
+            home.file = processFiles default.configFolder sysConfig.zenyte.home.file;
             xdg.configFile = processFiles default.configFolder sysConfig.zenyte.home.configFile;
             xdg.dataFile = processFiles default.localFolder sysConfig.zenyte.home.dataFile;
           }
 
           {
+            # Most stuff is in their own modules, this is just for weird stuff
             xdg.configFile = {
-              # Rofi
-              "rofi/config.rasi".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/rofi/config.rasi";
-              "rofi/menu.rasi".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/rofi/menu.rasi";
-
-              # Hyprland
-              "hypr/windowrules.conf".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/windowrules.conf";
-              "hypr/scripts".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/scripts";
-              "hypr/hyprland.conf".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/hyprland.conf";
-              "hypr/keybindings.conf".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/hypr/keybindings.conf";
-
-              # Discord
-              "discord/settings.json" = {
-                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/discord/settings.json";
-                force = true;
-              };
-
-              # Vencord
-              "Vencord".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/Vencord";
-              "Vesktop".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/vesktop";
-              "vesktop-flags.conf".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/vesktop-flags.conf";
 
               # Electron
               "electron-flags.conf".source =
                 config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/electron-flags.conf";
 
-              # Neofetch
-              # "neofetch".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/neofetch";
-
-              # Alacritty
-              "alacritty/alacritty.toml".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/alacritty/alacritty.toml";
-
-              # GTK
-              # "gtk-2.0".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-2.0";
-              # "gtk-3.0/gtk.css" = {
-              #   source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-3.0/gtk.css";
-              #   force = true;
-              # };
-              # "gtk-4.0/gtk.css" = {
-              #   source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-4.0/gtk.css";
-              #   force = true;
-              # };
-              "gtk-4.0/settings.ini" = {
-                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-4.0/settings.ini";
-                force = true;
-              };
-              "gtk-3.0/settings.ini" = {
-                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-3.0/settings.ini";
-                force = true;
-              };
-              "gtk-3.0/bookmarks" = {
-                source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-3.0/bookmarks";
-              };
-
-              # Vscode
-              "Code/User/settings.json".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/Code/User/settings.json";
-
-              # Qt
-              "qt5ct/qt5ct.conf".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/qt5ct/qt5ct.conf";
-              "qt6ct/qt6ct.conf".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/qt6ct/qt6ct.conf";
-              "kdeglobals".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/kdeglobals";
-
-              # Quickshell
-              "quickshell".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/quickshell";
-
+              # TODO: Move this into a services/ module
               # Easy effects
               "easyeffects".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/easyeffects";
               "easyeffectsrc".source =
                 config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/easyeffectsrc";
-
-              # Zed
-              "zed/settings.json".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/zed/settings.json";
-
-              # Niri
-              "niri/".source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/niri/";
 
               "mimeapps.list".source =
                 config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/mimeapps.list";
@@ -202,6 +128,7 @@ in
                 source = config.lib.file.mkOutOfStoreSymlink "${default.desktopEntryFolder}/Genshin.desktop";
               };
 
+              # TODO: Move this into a services/ module
               # Easy effects
               ".local/share/easyeffects" = {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.localFolder}/share/easyeffects";

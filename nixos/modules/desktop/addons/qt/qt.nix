@@ -34,6 +34,12 @@ in
       kdePackages.breeze-gtk
     ];
 
+    zenyte.home.configFile = {
+      "qt5ct/qt5ct.conf" = "qt5ct/qt5ct.conf";
+      "qt5ct/qt6ct.conf" = "qt5ct/qt6ct.conf";
+      "kdeglobals" = "kdeglobals";
+    };
+
     zenyte.matugen.template = {
       qt5ct = {
         input = "matugen.conf";

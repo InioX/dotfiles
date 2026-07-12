@@ -62,10 +62,24 @@ in
     #   }
     # '';
 
+    zenyte.home.configFile = {
+      # "discord/settings.json" = {
+      # source = "discord/settings.json";
+      # force = true;
+      # };
+      "Vencord" = "Vencord";
+      "Vesktop" = "Vesktop";
+      "vesktop-flags.conf" = "vesktop-flags.conf";
+    };
+
     zenyte.matugen.template = {
-      alacritty = {
-        input = "colors.toml";
-        output = "~/.config/alacritty/colors.toml";
+      discord = {
+        input = "discord";
+        output = "~/.config/Vencord/themes/midnight-discord.css";
+      };
+      vesktop = {
+        input = "discord";
+        output = "~/.config/vesktop/themes/midnight-discord.css";
       };
     };
   };
