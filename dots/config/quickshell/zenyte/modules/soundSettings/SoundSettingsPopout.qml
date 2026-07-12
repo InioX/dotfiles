@@ -47,6 +47,12 @@ Item {
         StyledRoundRect {
             id: rect
 
+            opacity: root.isOpen ? 1.0 : 0.9
+
+            Behavior on opacity {
+                StyledNumberAnimation {}
+            }
+
             ColumnLayout {
                 id: column
 

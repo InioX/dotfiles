@@ -79,7 +79,11 @@ Item {
         StyledRoundRect {
             id: rect
 
-            Keys.onPressed: event => {}
+            opacity: root.isOpen ? 1.0 : 0.9
+
+            Behavior on opacity {
+                StyledNumberAnimation {}
+            }
 
             ColumnLayout {
                 id: column
