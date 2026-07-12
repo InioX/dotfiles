@@ -12,6 +12,7 @@ Singleton {
     property bool barWasAlreadyShowing: false
     property bool isLauncherOpened: false
     property bool isSoundSettingsOpened: false
+    property bool isSettingsOpened: false
 
     property string launcherTab: {
         switch (launcherTabIndex) {

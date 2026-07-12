@@ -26,10 +26,10 @@
     "launcher": {
         "pinned_apps": [
             "discord",
-            "anime-game-launcher",
             "firefox",
             "honkers-railway-launcher",
-            "Overwatch"
+            "Overwatch",
+            "Genshin"
         ]
     },
     "style": {

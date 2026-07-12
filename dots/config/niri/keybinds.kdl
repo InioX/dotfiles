@@ -19,11 +19,12 @@ binds {
     // Mod+W hotkey-overlay-title="Run an Application: rofi" { spawn-sh "niri msg action toggle-overview && qs ipc call root toggleLauncher"; }
     Mod+W hotkey-overlay-title="Toggle quickshell launcher" { spawn-sh "qs --path ~/.config/quickshell/zenyte ipc call root toggleLauncher"; }
     // Mod+E hotkey-overlay-title="Toggle quickshell bar position" { spawn-sh "qs --path ~/.config/quickshell/zenyte ipc call root toggleLauncherPosition"; }
-    Mod+E hotkey-overlay-title="Toggle quickshell folder search" { spawn-sh "qs --path ~/.config/quickshell/zenyte ipc call root toggleProjectSearch"; }
-    Mod+P hotkey-overlay-title="Toggle quickshell sound settings" { spawn-sh "qs --path ~/.config/quickshell/zenyte ipc call root toggleSoundSettings"; }
+    // Mod+E hotkey-overlay-title="Toggle quickshell folder search" { spawn-sh "qs --path ~/.config/quickshell/zenyte ipc call root toggleProjectSearch"; }
+    Mod+Shift+S hotkey-overlay-title="Toggle quickshell sound settings" { spawn-sh "qs --path ~/.config/quickshell/zenyte ipc call root toggleSoundSettings"; }
     Mod+Alt+W hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
     Mod+X hotkey-overlay-title="Show the power menu" { spawn-sh "~/.config/hypr/scripts/powermenu.sh"; }
-    Mod+Shift+P hotkey-overlay-title="Switch Project: Zed" { spawn-sh "~/.config/hypr/scripts/proj-switch.sh"; }
+    Mod+Shift+P hotkey-overlay-title="Switch Project: Zed" { spawn-sh "qs --path ~/.config/quickshell/zenyte ipc call root toggleProjectSearch"; }
+    Mod+Alt+P hotkey-overlay-title="Switch Project: Zed" { spawn-sh "~/.config/hypr/scripts/proj-switch.sh"; }
     Mod+Shift+W hotkey-overlay-title="Toggle quickshell" { spawn-sh "qs --path ~/.config/quickshell/old ipc call root toggleDock"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
@@ -255,7 +256,7 @@ binds {
 
     // Move the focused window between the floating and the tiling layout.
     Mod+S       { toggle-window-floating; }
-    Mod+Shift+S { switch-focus-between-floating-and-tiling; }
+    // Mod+Shift+S { switch-focus-between-floating-and-tiling; }
 
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,

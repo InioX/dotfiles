@@ -2,8 +2,9 @@
 
 import "services"
 import "modules/bar"
-import "modules/desktop"
 import "modules/shared"
+import "modules/desktop"
+import "modules/settings"
 import QtQuick
 import Quickshell
 import Quickshell.Io
@@ -15,6 +16,12 @@ ShellRoot {
         active: true
 
         component: Bar {}
+    }
+
+    LazyLoader {
+        active: States.isSettingsOpened
+
+        component: Settings {}
     }
 
     WallpaperLayer {

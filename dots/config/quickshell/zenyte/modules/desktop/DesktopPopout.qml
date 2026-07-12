@@ -82,6 +82,11 @@ Item {
                             Config.saveConfig();
                         }
                     }
+
+                    onClicked: {
+                        Config.desktop.show_icons = !Config.desktop.show_icons;
+                        Config.saveConfig();
+                    }
                 }
 
                 PopoutEntry {
@@ -95,6 +100,11 @@ Item {
                             Config.saveConfig();
                         }
                     }
+
+                    onClicked: {
+                        Config.desktop.show_files = !Config.desktop.show_files;
+                        Config.saveConfig();
+                    }
                 }
 
                 PopoutEntry {
@@ -107,6 +117,11 @@ Item {
                             Config.desktop.show_folders = !Config.desktop.show_folders;
                             Config.saveConfig();
                         }
+                    }
+
+                    onClicked: {
+                        Config.desktop.show_folders = !Config.desktop.show_folders;
+                        Config.saveConfig();
                     }
                 }
 
@@ -171,6 +186,10 @@ Item {
 
                             leftPadding: parent.spacing
                         }
+                    }
+                    onClicked: {
+                        States.isSettingsOpened = true;
+                        root.isOpen = false;
                     }
                 }
             }
