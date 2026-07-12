@@ -6,9 +6,11 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.desktop.addons.dunst;
-in {
+in
+{
   options.zenyte.desktop.addons.dunst = {
     enable = mkBoolOpt false "Whether to enable the k-vernooy dunst fork.";
   };
@@ -20,18 +22,12 @@ in {
       pulseaudio
     ];
 
-    # zenyte.home.configFile."dunst".source = default.configFolder + /dunst;
-
-    # zenyte.home.extraOptions.services.dunst = {
-    #   enable = true;
-    #   # package = pkgs.dunst.overrideAttrs (oldAttrs: {
-    #   #   src = pkgs.fetchFromGitHub {
-    #   #     owner = "k-vernooy";
-    #   #     repo = "dunst";
-    #   #     rev = "c7358148edef23e883586cca37c0c7ee4b363ce8";
-    #   #     sha256 = "eZoIeLERDbXIBBm/j9jgqvvul2h0YNjzedbnQGMxsiU=";
-    #   #   };
-    #   # });
-    # };
+    zenyte.matugen.template = {
+      dunst = {
+        input = "dunstrc";
+        output = "~/.config/dunst/dunstrc";
+        post_hook = "pkill -SIGUSR2 dunst";
+      };
+    };
   };
 }

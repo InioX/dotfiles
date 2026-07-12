@@ -61,5 +61,12 @@ in
     #     "OPEN_ON_STARTUP": false,
     #   }
     # '';
+
+    zenyte.matugen.template = {
+      alacritty = {
+        input = "colors.toml";
+        output = "~/.config/alacritty/colors.toml";
+      };
+    };
   };
 }

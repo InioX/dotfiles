@@ -25,5 +25,12 @@ in
       package-version-server
       zed-editor
     ];
+
+    zenyte.matugen.template = {
+      zed = {
+        input = "zed-colors.json";
+        output = "~/.config/zed/themes/matugen.json";
+      };
+    };
   };
 }

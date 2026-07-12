@@ -11,136 +11,75 @@
 }:
 with lib;
 let
-  cfg = config.zenyte.home;
+  cfg = config.zenyte.matugen;
   wallpaper = config.zenyte.system.hosts.${hostName}.wallpaper or default.wallpaper;
-  themeFiles = config.programs.matugen.theme.files;
 in
 {
-  zenyte.home.configFile."matugen/config.toml".text = ''
-    [config]
+  options.zenyte.matugen = with types; {
+    template = mkOption {
+      description = "Flattened declaration of matugen templates across modules.";
+      default = { };
+      type = attrsOf (
+        coercedTo str
+          (input: {
+            inherit input;
+            output = "~/.config/${input}";
+          })
+          (submodule {
+            options = {
+              input = mkOption {
+                type = str;
+                description = "Input template filename.";
+              };
+              output = mkOption {
+                type = str;
+                description = "Target output destination.";
+              };
+              post_hook = mkOption {
+                type = nullOr str;
+                default = null;
+              };
+            };
+          })
+      );
+    };
+  };
 
-    [config.wallpaper]
-    command = "awww img --transition-type center {{ image }}"
-    # arguments = ["img", "--transition-type", "center"]
+  config = {
 
-    [templates.waybar]
-    input_path = "${default.templateFolder}/waybar-colors.css"
-    output_path = "~/.config/waybar/colors.css"
-    post_hook = 'pkill -SIGUSR2 waybar'
+    zenyte.home.configFile."matugen/config.toml".text =
+      let
+        templates = config.zenyte.matugen.template;
+        generateTomlTemplates =
+          attrs:
+          concatStringsSep "\n" (
+            mapAttrsToList (name: conf: ''
+              [templates.${name}]
+              input_path = "${default.templateFolder}/${conf.input}"
+              output_path = "${conf.output}"${
+                if conf.post_hook != null then "\npost_hook = '${conf.post_hook}'" else ""
+              }
+            '') attrs
+          );
+      in
+      ''
+        [config]
 
-    [templates.kitty]
-    input_path = "${default.templateFolder}/kitty.conf"
-    output_path = "~/.config/kitty/themes/matugen.conf"
-    post_hook = "kitty +kitten themes --dump-theme=yes --reload-in=all matugen &> /dev/null"
+        [config.wallpaper]
+        command = "awww img --transition-type center {{ image }}"
 
-    [templates.dunst]
-    input_path = "${default.templateFolder}/dunstrc"
-    output_path = "~/.config/dunst/dunstrc"
-    post_hook = 'pkill -SIGUSR2 dunst'
+        ${generateTomlTemplates templates}
+      '';
 
-    # [templates.ags]
-    # input_path = "${default.templateFolder}/colors.scss"
-    # output_path = "~/.config/ags/scss/colors.scss"
+    system.activationScripts.run-matugen-once = ''
+      set -e
 
-    [templates.rofi]
-    input_path = "${default.templateFolder}/colors.rasi"
-    output_path = "~/.config/rofi/colors.rasi"
+      if [ ! -f /home/${default.username}/.local/share/matugen-ran-once ]; then
+        su -u ini ${pkgs.vscode}/bin/code --install-extension HyprLuna.hyprluna-theme
+        su -u ini ${pkgs.matugen}/bin/matugen image ${wallpaper}
 
-    [templates.GTK4]
-    input_path = "${default.templateFolder}/gtk.css"
-    output_path = "~/.config/gtk-4.0/gtk.css"
-
-    [templates.GTK3]
-    input_path = "${default.templateFolder}/gtk.css"
-    output_path = "~/.config/gtk-3.0/gtk.css"
-
-    [templates.Hyprland-autostart]
-    input_path = "${default.templateFolder}/autostart.conf"
-    output_path = "~/.config/hypr/autostart.conf"
-
-    [templates.Hyprland-colors]
-    input_path = "${default.templateFolder}/colors.conf"
-    output_path = "~/.config/hypr/colors.conf"
-
-    [templates.starship]
-    input_path = "${default.templateFolder}/starship.toml"
-    output_path = "~/.config/starship.toml"
-
-    [templates.pywalfox]
-    input_path = '${default.templateFolder}/pywalfox-colors.json'
-    output_path = '~/.cache/wal/colors.json'
-    post_hook = 'pywalfox update'
-
-    [templates.vscode]
-    input_path = "${default.templateFolder}/hyprlunavsc.json"
-    output_path = "~/.vscode/extensions/hyprluna.hyprluna-theme-1.0.2/themes/hyprluna.json"
-
-    [templates.alacritty]
-    input_path = "${default.templateFolder}/colors.toml"
-    output_path = "~/.config/alacritty/colors.toml"
-
-    [templates.discord]
-    input_path = "${default.templateFolder}/discord.css"
-    output_path = "~/.config/Vencord/themes/midnight-discord.css"
-
-     [templates.vesktop]
-    input_path = "${default.templateFolder}/discord.css"
-    output_path = "~/.config/vesktop/themes/midnight-discord.css"
-
-    [templates.qt5ct]
-    input_path = "${default.templateFolder}/matugen.conf"
-    output_path = "~/.config/qt5ct/colors/matugen.conf"
-
-    [templates.qt6ct]
-    input_path = "${default.templateFolder}/matugen.conf"
-    output_path = "~/.config/qt6ct/colors/matugen.conf"
-
-    [templates.kde]
-    input_path = "${default.templateFolder}/matugen.conf"
-    output_path = "~/.local/share/color-schemes/matugen.colors"
-    post_hook =  'plasma-apply-colorscheme BreezeDark && plasma-apply-colorscheme matugen'
-
-    [templates.quickshell]
-    input_path = "${default.templateFolder}/quickshell.json"
-    output_path = "~/.local/state/quickshell/generated/colors.json"
-
-    [templates.firefox-website-colors]
-    input_path = "${default.templateFolder}/firefox-colors.css"
-    output_path = "~/.mozilla/firefox/ini/chrome/colors.css"
-
-    [templates.steam]
-    input_path = '${default.templateFolder}/steam.css'
-    output_path = '~/.config/AdwSteamGtk/custom.css'
-    post_hook =  'adwaita-steam-gtk -i'
-
-    [templates.zed]
-    input_path = "${default.templateFolder}/zed-colors.json"
-    output_path = "~/.config/zed/themes/matugen.json"
-
-    [templates.niri]
-    input_path = "${default.templateFolder}/niri.kdl"
-    output_path = "~/.config/niri/colors.kdl"
-  '';
-
-  system.activationScripts.run-matugen-once = ''
-    set -e
-
-    if [ ! -f /home/${default.username}/.local/share/matugen-ran-once ]; then
-      su -u ini ${pkgs.vscode}/bin/code --install-extension HyprLuna.hyprluna-theme
-      su -u ini ${pkgs.matugen}/bin/matugen image ${wallpaper}
-
-      touch /home/${default.username}/.local/share/matugen-ran-once
-    fi
-  '';
-
-  programs.matugen = {
-    enable = true;
-    variant = config.zenyte.system.hosts.${hostName}.variant or "dark";
-    jsonFormat = "hex";
-    type = config.zenyte.system.hosts.${hostName}.type or "scheme-tonal-spot";
-
-    inherit wallpaper;
-
-    templates = matugenTemplates;
+        touch /home/${default.username}/.local/share/matugen-ran-once
+      fi
+    '';
   };
 }

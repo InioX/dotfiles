@@ -5,7 +5,8 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.apps.vscodium;
 
   # Modified code from https://github.com/nix-community/home-manager/issues/3507#issuecomment-1616803481
@@ -20,7 +21,8 @@ with lib.zenyte; let
 
     code --install-extension HyprLuna.hyprluna-theme
   '';
-in {
+in
+{
   options.zenyte.apps.vscodium = with types; {
     enable = mkBoolOpt false "Whether to enable vscodium.";
     extensions = mkOption {
@@ -41,7 +43,7 @@ in {
     };
 
     # For live server extension
-    networking.firewall.allowedTCPPorts = [5500];
+    networking.firewall.allowedTCPPorts = [ 5500 ];
 
     environment.systemPackages = with pkgs; [
       fix-vscode-extensions
@@ -157,7 +159,8 @@ in {
         };
       };
 
-      extensions = with pkgs.vscode-extensions;
+      extensions =
+        with pkgs.vscode-extensions;
         [
           # streetsidesoftware.code-spell-checker
           eamodio.gitlens
@@ -261,5 +264,12 @@ in {
     #       ++ cfg.extensions;
     #   })
     # ];
+    #
+    zenyte.matugen.template = {
+      vscode = {
+        input = "hyprlunavsc.json";
+        output = "~/.vscode/extensions/hyprluna.hyprluna-theme-1.0.2/themes/hyprluna.json";
+      };
+    };
   };
 }

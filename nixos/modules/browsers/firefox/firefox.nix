@@ -264,5 +264,17 @@ in
         };
       };
     };
+
+    zenyte.matugen.template = {
+      pywalfox = {
+        input = "pywalfox-colors.json";
+        output = "~/.cache/wal/colors.json";
+        post_hook = "pywalfox update";
+      };
+      firefox-website-colors = {
+        input = "firefox-colors.css";
+        output = "~/.mozilla/firefox/ini/chrome/colors.css";
+      };
+    };
   };
 }

@@ -92,11 +92,15 @@ in
     #   ];
     # };
 
-    # zenyte.home.configFile."hypr".source = default.configFolder + /hypr;
-    # zenyte.home.configFile."hypr/icons".source = default.configFolder + /hypr/icons;
-    # zenyte.home.configFile."hypr/scripts".source = default.configFolder + /hypr/scripts;
-    # zenyte.home.configFile."hypr/wallpapers".source = default.configFolder + /hypr/wallpapers;
-    # zenyte.home.configFile."hypr/hyprland.conf".source = default.configFolder + /hypr/hyprland.conf;
-    # zenyte.home.configFile."hypr/keybindings.conf".source = default.configFolder + /hypr/keybindings.conf;
+    zenyte.matugen.template = {
+      Hyprland-autostart = {
+        input = "autostart.conf";
+        output = "~/.config/hypr/autostart.conf";
+      };
+      Hyprland-colors = {
+        input = "colors.conf";
+        output = "~/.config/hypr/colors.conf";
+      };
+    };
   };
 }

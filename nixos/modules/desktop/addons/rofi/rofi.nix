@@ -6,9 +6,11 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.desktop.addons.rofi;
-in {
+in
+{
   options.zenyte.desktop.addons.rofi = {
     enable = mkBoolOpt false "Whether to enable rofi.";
   };
@@ -18,10 +20,11 @@ in {
       rofi
     ];
 
-    # ! Moved to <flake-root>/modules/home.nix,
-    # ! changed to `mkOutOfStoreSymlink` instead for easier editing
-    # zenyte.home.configFile."rofi/config.rasi".source = default.configFolder + /rofi/config.rasi;
-    # zenyte.home.configFile."rofi/powermenu.rasi".source = default.configFolder + /rofi/powermenu.rasi;
-    # zenyte.home.configFile."rofi/menu.rasi".source = default.configFolder + /rofi/menu.rasi;
+    zenyte.matugen.template = {
+      rofi = {
+        input = "colors.rasi";
+        output = "~/.config/rofi/colors.rasi";
+      };
+    };
   };
 }

@@ -7,9 +7,11 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.cli.starship;
-in {
+in
+{
   options.zenyte.cli.starship = with types; {
     enable = mkBoolOpt false "Whether to enable starship.";
   };
@@ -24,5 +26,12 @@ in {
     };
 
     programs.bash.promptInit = ''eval "$(${pkgs.starship}/bin/starship init bash)"'';
+
+    zenyte.matugen.template = {
+      starship = {
+        input = "starship.toml";
+        output = "~/.config/starship.toml";
+      };
+    };
   };
 }

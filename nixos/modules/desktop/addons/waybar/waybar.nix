@@ -8,7 +8,8 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.desktop.addons.waybar;
   mediaplayer-waybar = pkgs.writeShellScriptBin "mediaplayer-waybar" ''
     while true; do
@@ -27,7 +28,8 @@ with lib.zenyte; let
       wait
     done
   '';
-in {
+in
+{
   options.zenyte.desktop.addons.waybar = {
     enable = mkBoolOpt false "Whether to enable waybar with experimental patches.";
   };
@@ -36,7 +38,7 @@ in {
     nixpkgs.overlays = [
       (self: super: {
         waybar = super.waybar.overrideAttrs (oldAttrs: {
-          mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
         });
       })
     ];
@@ -52,6 +54,22 @@ in {
     # zenyte.home.configFile."waybar/config".source = default.configFolder + /waybar/config;
     # zenyte.home.configFile."waybar/style.css".source = default.configFolder + /waybar/style.css;
 
-    # Matugen template
+    zenyte.home.configFile = {
+      "waybar/config" = "waybar/config";
+      "waybar/style.css" = "waybar/style.css";
+    };
+
+    zenyte.matugen.template = {
+      waybar = {
+        input = "waybar-colors.css";
+        output = "~/.config/waybar/colors.css";
+        post_hook = "pkill -SIGUSR2 waybar";
+      };
+    };
+
+    # "waybar/config".source =
+    #   config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/waybar/config";
+    # "waybar/style.css".source =
+    #   config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/waybar/style.css";
   };
 }

@@ -6,9 +6,11 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.gaming.steam;
-in {
+in
+{
   options.zenyte.gaming.steam = {
     enable = mkBoolOpt false "Whether to enable steam.";
   };
@@ -34,8 +36,8 @@ in {
       enable = true;
       protontricks.enable = true;
       package = pkgs.steam.override {
-        extraPkgs = pkgs:
-          with pkgs; [
+        extraPkgs =
+          pkgs: with pkgs; [
             gamemode
             mangohud
           ];
@@ -45,6 +47,14 @@ in {
         proton-cachyos_x86_64_v3
         # protontricks
       ];
+    };
+
+    zenyte.matugen.template = {
+      steam = {
+        input = "steam.css";
+        output = "~/.config/AdwSteamGtk/custom.css";
+        post_hook = "adwaita-steam-gtk -i";
+      };
     };
   };
 }

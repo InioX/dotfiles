@@ -42,5 +42,16 @@ in
       # Icon theme
       yet-another-monochrome-icons
     ];
+
+    zenyte.matugen.template = {
+      qt5ct = {
+        input = "matugen.conf";
+        output = "~/.config/qt5ct/colors/matugen.conf";
+      };
+      qt6ct = {
+        input = "matugen.conf";
+        output = "~/.config/qt6ct/colors/matugen.conf";
+      };
+    };
   };
 }

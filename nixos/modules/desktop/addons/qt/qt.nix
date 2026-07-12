@@ -6,9 +6,11 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.desktop.addons.qt;
-in {
+in
+{
   options.zenyte.desktop.addons.qt = {
     enable = mkBoolOpt false "Whether to enable qt.";
   };
@@ -31,5 +33,16 @@ in {
       kdePackages.breeze-icons
       kdePackages.breeze-gtk
     ];
+
+    zenyte.matugen.template = {
+      qt5ct = {
+        input = "matugen.conf";
+        output = "~/.config/qt5ct/colors/matugen.conf";
+      };
+      qt6ct = {
+        input = "matugen.conf";
+        output = "~/.config/qt6ct/colors/matugen.conf";
+      };
+    };
   };
 }

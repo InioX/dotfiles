@@ -6,9 +6,11 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.desktop.addons.kitty;
-in {
+in
+{
   options.zenyte.desktop.addons.kitty = {
     enable = mkBoolOpt false "Whether to enable kitty.";
   };
@@ -18,5 +20,17 @@ in {
       kitty
       jq
     ];
+
+    zenyte.home.configFile = {
+      "kitty/kitty.conf" = "kitty/kitty.conf";
+    };
+
+    zenyte.matugen.template = {
+      kitty = {
+        input = "kitty.conf";
+        output = "~/.config/kitty/themes/matugen.conf";
+        post_hook = "kitty +kitten themes --dump-theme=yes --reload-in=all matugen &> /dev/null";
+      };
+    };
   };
 }

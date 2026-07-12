@@ -6,9 +6,11 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.desktop.addons.alacritty;
-in {
+in
+{
   options.zenyte.desktop.addons.alacritty = {
     enable = mkBoolOpt false "Whether to enable alacritty.";
   };
@@ -17,5 +19,16 @@ in {
     environment.systemPackages = with pkgs; [
       alacritty
     ];
+
+    zenyte.matugen.template = {
+      discord = {
+        input = "discord.css";
+        output = "~/.config/Vencord/themes/midnight-discord.css";
+      };
+      vesktop = {
+        input = "discord.css";
+        output = "~/.config/vesktop/themes/midnight-discord.css";
+      };
+    };
   };
 }

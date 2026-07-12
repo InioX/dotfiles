@@ -10,7 +10,8 @@
 }:
 with lib;
 let
-  cfg = config.zenyte.home;
+  sysConfig = config;
+  cfg = sysConfig.zenyte.home;
   wallpaper = config.zenyte.system.hosts.${hostName}.wallpaper or default.wallpaper;
 in
 {
@@ -20,45 +21,32 @@ in
 
   options.zenyte.home = with types; {
     file = mkOption {
-      type = types.attrs;
-      description = ''
-        A set of files to be managed by home-manager's <option>home.file</option>.
-      '';
+      type = attrsOf (either str attrs);
+      default = { };
     };
     configFile = mkOption {
-      type = types.attrs;
-      description = ''
-        A set of files to be managed by home-manager's <option>xdg.configFile</option>.
-      '';
+      type = attrsOf (either str attrs);
+      default = { };
     };
     dataFile = mkOption {
-      type = types.attrs;
-      description = ''
-        A set of files to be managed by home-manager's <option>xdg.dataFile</option>.
-      '';
+      type = attrsOf (either str attrs);
+      default = { };
     };
     extraOptions = mkOption {
-      type = types.attrs;
-      description = ''
-        Options to pass directly to home-manager.
-      '';
+      type = attrs;
+      default = { };
     };
     programs = mkOption {
-      type = types.attrs;
-      description = ''
-        Options to pass directly to home-manager.
-      '';
+      type = attrs;
+      default = { };
     };
   };
 
   config = {
     zenyte.home.extraOptions = {
       home.stateVersion = config.system.stateVersion;
-      home.file = mkAliasDefinitions options.zenyte.home.file;
       programs = mkAliasDefinitions options.zenyte.home.programs;
       xdg.enable = true;
-      xdg.dataFile = mkAliasDefinitions options.zenyte.home.dataFile;
-      xdg.configFile = mkAliasDefinitions options.zenyte.home.configFile;
     };
 
     home-manager = {
@@ -67,20 +55,28 @@ in
 
       users.${default.username} =
         { config, ... }:
+        let
+          processFiles =
+            baseFolder: attrs:
+            mapAttrs (
+              name: value:
+              if isString value then
+                { source = config.lib.file.mkOutOfStoreSymlink "${baseFolder}/${value}"; }
+              else
+                value
+            ) attrs;
+        in
         mkMerge [
           (mkAliasDefinitions options.zenyte.home.extraOptions)
 
           {
-            # * For easier editing, use `mkOutOfStoreSymlink` instead. This is only for files
-            # * that I will be editing often. (Or matugen themed files) You cannot use `config.lib.file` in normal NixOS
-            # * modules so I have to use it this way instead.
-            xdg.configFile = {
-              # Waybar
-              "waybar/config".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/waybar/config";
-              "waybar/style.css".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/waybar/style.css";
+            home.file = processFiles default.localFolder sysConfig.zenyte.home.file;
+            xdg.configFile = processFiles default.configFolder sysConfig.zenyte.home.configFile;
+            xdg.dataFile = processFiles default.localFolder sysConfig.zenyte.home.dataFile;
+          }
 
+          {
+            xdg.configFile = {
               # Rofi
               "rofi/config.rasi".source =
                 config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/rofi/config.rasi";
@@ -140,10 +136,6 @@ in
               "gtk-3.0/bookmarks" = {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/gtk-3.0/bookmarks";
               };
-
-              # Kitty
-              "kitty/kitty.conf".source =
-                config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/kitty/kitty.conf";
 
               # Vscode
               "Code/User/settings.json".source =

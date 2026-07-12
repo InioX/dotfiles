@@ -6,7 +6,8 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.desktop.addons.gtk;
 
   schema = pkgs.gsettings-desktop-schemas;
@@ -19,7 +20,8 @@ with lib.zenyte; let
     sleep 0.1
     gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
   '';
-in {
+in
+{
   options.zenyte.desktop.addons.gtk = {
     enable = mkBoolOpt false "Whether to enable gtk theme.";
   };
@@ -39,24 +41,15 @@ in {
 
     zenyte.home.extraOptions.gtk.enable = true;
 
-    # zenyte.home.extraOptions.gtk = {
-    #   enable = true;
-    #   # font.name = "Victor Mono SemiBold 12";
-    #   theme = with pkgs; {
-    #     name = "adw-gtk3-dark";
-    #     package = pkgs.adw-gtk3;
-    #   };
-    # };
-
-    # This fixes the `no schemas installed` error with gsettings
-
-    # zenyte.home.configFile."gtk-2.0".source = default.configFolder + /gtk-2.0;
-
-    # zenyte.home.configFile."gtk-3.0/bookmarks".source = default.configFolder + /gtk-3.0/bookmarks;
-    # zenyte.home.configFile."gtk-3.0/settings.ini".source = default.configFolder + /gtk-3.0/settings.ini;
-    # zenyte.home.configFile."gtk-3.0/gtk.css".source = default.configFolder + /gtk-3.0/gtk.css;
-
-    # zenyte.home.configFile."gtk-4.0/colors.css".source = default.configFolder + /gtk-3.0/colors.css;
-    # zenyte.home.configFile."gtk-4.0/settings.ini".source = default.configFolder + /gtk-3.0/settings.ini;
+    zenyte.matugen.template = {
+      GTK4 = {
+        input = "gtk.css";
+        output = "~/.config/gtk-4.0/gtk.css";
+      };
+      GTK3 = {
+        input = "gtk.css";
+        output = "~/.config/gtk-3.0/gtk.css";
+      };
+    };
   };
 }
