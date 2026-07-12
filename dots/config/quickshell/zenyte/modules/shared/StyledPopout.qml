@@ -9,7 +9,7 @@ import QtQuick
 PopupWindow {
     id: root
     property bool isOpen: false
-    property int offset: Config.bar.floating_margins ? Config.bar.floating_margins : 0
+    property int offset: Config.bar.margins.floating ? Config.bar.margins.floating : 0
 
     property int wantedWidth: 500
     property int wantedHeight: 400

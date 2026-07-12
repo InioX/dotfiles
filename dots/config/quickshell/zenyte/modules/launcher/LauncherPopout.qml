@@ -72,7 +72,7 @@ Item {
         property int parentX: widgetX - (wantedWidth / 2)
 
         anchor.rect.x: Math.max(offset, Math.min(parentX, parentWindow.width - width - offset))
-        anchor.rect.y: Config.bar.bottom ? (0 - Config.bar.popout_margins) : (parentWindow.height + Config.bar.popout_margins)
+        anchor.rect.y: Config.bar.bottom ? (0 - Config.bar.margins.popout) : (parentWindow.height + Config.bar.margins.popout)
 
         grabFocus: true
 

@@ -44,13 +44,10 @@ Singleton {
             property bool on_top: false
         }
 
-        property int popout_margins: 10
-        property int floating_margins: 10
-
-        property int popout_radius: 30
-        property int floating_radius: 30
-        property int widget_radius: 20
-        property int radius: 0
+        property JsonObject margins: JsonObject {
+            property int popout: 10
+            property int floating: 10
+        }
 
         property bool bottom: false
         property int height: 50
@@ -75,9 +72,21 @@ Singleton {
         }
 
         property JsonObject borders: JsonObject {
-            property int bar: 0
+            property JsonObject bar: JsonObject {
+                property int floating: 1
+                property int normal: 0
+            }
             property int popout: 1
             property int widget: 0
+        }
+
+        property JsonObject radius: JsonObject {
+            property JsonObject bar: JsonObject {
+                property int floating: 30
+                property int normal: 0
+            }
+            property int popout: 30
+            property int widget: 20
         }
     }
 

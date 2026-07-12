@@ -73,20 +73,20 @@ Scope {
                     StyledSpringAnimation {}
                 }
 
-                implicitHeight: Config.bar.height + (Config.bar.floating ? Config.bar.floating_margins * 2 : 0)
-                radius: Config.bar.floating ? Config.bar.floating_radius : Config.bar.radius
+                implicitHeight: Config.bar.height + (Config.bar.floating ? Config.bar.margins.floating * 2 : 0)
+                radius: Config.bar.floating ? Config.style.radius.bar.floating : Config.style.radius.bar.normal
                 color: Colors.md3.surface
 
                 border.color: Colors.md3.outline_variant
-                border.width: Config.style.borders.bar
+                border.width: Config.bar.floating ? Config.style.borders.bar.floating : Config.style.borders.bar.normal
 
                 anchors {
                     fill: parent
 
-                    topMargin: Config.bar.floating ? Config.bar.floating_margins : 0
-                    bottomMargin: Config.bar.floating ? Config.bar.floating_margins : 0
-                    leftMargin: Config.bar.floating ? Config.bar.floating_margins : 0
-                    rightMargin: Config.bar.floating ? Config.bar.floating_margins : 0
+                    topMargin: Config.bar.floating ? Config.bar.margins.floating : 0
+                    bottomMargin: Config.bar.floating ? Config.bar.margins.floating : 0
+                    leftMargin: Config.bar.floating ? Config.bar.margins.floating : 0
+                    rightMargin: Config.bar.floating ? Config.bar.margins.floating : 0
                 }
 
                 Item {

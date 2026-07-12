@@ -2,19 +2,17 @@
   "bar": {
     "bottom": false,
     "floating": false,
-    "floating_margins": 10,
-    "floating_radius": 30,
     "full_width": true,
     "height": 60,
-    "popout_margins": 10,
-    "popout_radius": 30,
-    "radius": 0,
-    "widget_radius": 20,
     "visible": {
       "always": true,
       "overview": true,
       "empty_workspace": true,
       "on_top": false
+    },
+    "margins": {
+      "popout": 10,
+      "floating": 10
     }
   },
   "desktop": {
@@ -48,7 +46,18 @@
     "borders": {
       "popout": 1,
       "widget": 0,
-      "bar": 0
+      "bar": {
+        "normal": 0,
+        "floating": 1
+      }
+    },
+    "radius": {
+      "popout": 30,
+      "widget": 20,
+      "bar": {
+        "normal": 0,
+        "floating": 30
+      }
     }
   }
 }

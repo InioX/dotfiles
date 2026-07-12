@@ -10,7 +10,7 @@ Rectangle {
     implicitHeight: 40
 
     color: mouseArea.containsMouse ? Colors.md3.surface_container : Colors.md3.surface
-    radius: Config.bar.widget_radius
+    radius: Config.style.radius.widget
 
     StyledMouseArea {
         id: mouseArea
