@@ -28,7 +28,7 @@ Scope {
             }
 
             // aboveWindows: true
-            exclusionMode: ExclusionMode.Auto
+            exclusionMode: Config.bar.visible.always ? ExclusionMode.Auto : ExclusionMode.Ignore
             WlrLayershell.layer: WlrLayer.Overlay
             screen: modelData
             anchors {
@@ -40,15 +40,11 @@ Scope {
 
             visible: rectangle.opacity == 0 ? false : true
 
-            implicitHeight: rectangle.implicitHeight
             implicitWidth: 1200
             color: "transparent"
+            implicitHeight: Config.bar.height + (Config.bar.floating ? Config.bar.margins.floating * 2 : 0)
 
             Behavior on implicitWidth {
-                StyledSpringAnimation {}
-            }
-
-            Behavior on anchors {
                 StyledSpringAnimation {}
             }
 
@@ -73,7 +69,6 @@ Scope {
                     StyledSpringAnimation {}
                 }
 
-                implicitHeight: Config.bar.height + (Config.bar.floating ? Config.bar.margins.floating * 2 : 0)
                 radius: Config.bar.floating ? Config.style.radius.bar.floating : Config.style.radius.bar.normal
                 color: Colors.md3.surface
 
