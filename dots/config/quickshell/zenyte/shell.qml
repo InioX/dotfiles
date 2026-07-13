@@ -29,7 +29,7 @@ ShellRoot {
     }
 
     Loader {
-        active: true
+        active: !Config.bar.floating
 
         sourceComponent: RoundBorder {}
     }
