@@ -11,9 +11,7 @@ Slider {
     property var fillColor: isActive ? Colors.md3.primary : Colors.md3.outline
 
     background: Rectangle {
-        HoverHandler {
-            cursorShape: Qt.PointingHandCursor
-        }
+        StyledHoverHandler {}
 
         x: slider.leftPadding
         y: slider.topPadding + slider.availableHeight / 2 - height / 2

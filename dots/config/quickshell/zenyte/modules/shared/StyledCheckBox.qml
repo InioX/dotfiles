@@ -52,9 +52,7 @@ CheckBox {
                 StyledColorAnimation {}
             }
 
-            HoverHandler {
-                cursorShape: Qt.PointingHandCursor
-            }
+            StyledHoverHandler {}
 
             Item {
                 width: parent.width
