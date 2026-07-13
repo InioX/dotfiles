@@ -1,23 +1,37 @@
 import Quickshell
 import QtQuick
+import QtQuick.Controls
 import QtQuick.Layouts
 import qs.services
 import qs.modules.shared
+import qs.modules.settings.tabs
 
-PanelWindow {
-    implicitWidth: 500
-    implicitHeight: 500
+FloatingWindow {
+    id: root
+
+    property string query: ""
+
+    implicitHeight: 600
+    implicitWidth: 650
+
+    minimumSize: "500x500"
 
     color: "transparent"
 
+    title: "Zenyte Settings"
+
+    property string settingsTab: "bar"
+
     StyledRoundRect {
-        anchors.centerIn: parent
+        anchors.fill: parent
 
         ColumnLayout {
             id: column
+            anchors.fill: parent
 
             spacing: 20
             anchors.margins: 20
+            Layout.fillWidth: true
 
             anchors.left: parent.left
             anchors.right: parent.right
@@ -36,64 +50,88 @@ PanelWindow {
 
                 onTextChanged: {
                     root.query = searchBar.text;
-                    list.currentIndex = filtered.values.length > 0 ? 0 : -1;
+                    // list.currentIndex = filtered.values.length > 0 ? 0 : -1;
                 }
             }
 
-            StyledText {
-                text: "Hello"
+            ScrollView {
+                id: settingsScrollView
 
-                color: Colors.md3.on_surface
-                font.pixelSize: Config.style.font.size.small
-            }
+                Layout.fillWidth: true
+                Layout.fillHeight: true
 
-            StyledText {
-                text: "World"
+                anchors.bottom: bottomBarPanel.top
 
-                color: Colors.md3.on_surface
-                font.pixelSize: Config.style.font.size.small
-            }
+                clip: true
+                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
-            StyledText {
-                text: "ini"
+                ScrollBar.vertical.policy: ScrollBar.AlwaysOn
+                ScrollBar.vertical.implicitWidth: 8
 
-                color: Colors.md3.on_surface
-                font.pixelSize: Config.style.font.size.small
+                rightPadding: 16
+
+                contentHeight: (barSettingsLoader.item ? barSettingsLoader.item.implicitHeight : 0) + 70
+
+                Loader {
+                    id: barSettingsLoader
+                    active: root.settingsTab === "bar"
+                    sourceComponent: BarSettings {}
+
+                    width: settingsScrollView.availableWidth
+                }
             }
         }
 
-        RowLayout {
-            id: bottomRow
-
+        Rectangle {
+            id: edgeGradient
+            anchors.bottom: bottomBarPanel.top
             anchors.left: parent.left
             anchors.right: parent.right
-            anchors.bottom: parent.bottom
+            height: 15
+            z: 2
 
-            spacing: 10
-            anchors.margins: 20
-
-            Item {
-                Layout.fillWidth: true
-            }
-
-            StyledButton {
-                buttonText: "Close"
-
-                onClicked: {
-                    States.isSettingsOpened = false;
+            gradient: Gradient {
+                GradientStop {
+                    position: 0.0
+                    color: "transparent"
+                }
+                GradientStop {
+                    position: 1.0
+                    color: Colors.md3.surface
                 }
             }
+        }
 
-            StyledButton {
-                buttonText: "Save"
-                normalColor: Colors.md3.primary_container
-                highlightColor: Colors.getColorWithAlpha(Colors.md3.primary_container, 0.8)
+        Rectangle {
+            id: bottomBarPanel
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            height: bottomRow.implicitHeight + 40
+            color: Colors.md3.surface
 
-                normalTextColor: Colors.md3.on_primary_container
-                highlightTextColor: Colors.md3.on_primary_container
+            RowLayout {
+                id: bottomRow
+                anchors.fill: parent
+                anchors.margins: 20
+                spacing: 10
 
-                onClicked: {
-                    Config.saveConfig();
+                Item {
+                    Layout.fillWidth: true
+                }
+
+                StyledButton {
+                    buttonText: "Close"
+                    onClicked: States.isSettingsOpened = false
+                }
+
+                StyledButton {
+                    buttonText: "Save"
+                    normalColor: Colors.md3.primary_container
+                    highlightColor: Colors.getColorWithAlpha(Colors.md3.primary_container, 0.8)
+                    normalTextColor: Colors.md3.on_primary_container
+                    highlightTextColor: Colors.md3.on_primary_container
+                    onClicked: Config.saveConfig()
                 }
             }
         }

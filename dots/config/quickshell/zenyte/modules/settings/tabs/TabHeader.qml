@@ -5,10 +5,11 @@ import qs.modules.shared
 import qs.services
 
 ColumnLayout {
+    id: root
     property string text: "No Title"
 
     StyledText {
-        text: "Basic Settings"
+        text: root.text
         color: Colors.md3.on_surface
         font.pixelSize: Config.style.font.size.big
     }
