@@ -1,18 +1,18 @@
 {
   "bar": {
-    "bottom": false,
+    "bottom": true,
     "floating": false,
     "full_width": true,
     "height": 60,
+    "margins": {
+      "floating": 10,
+      "popout": 10
+    },
     "visible": {
       "always": true,
-      "overview": true,
       "empty_workspace": true,
-      "on_top": false
-    },
-    "margins": {
-      "popout": 10,
-      "floating": 10
+      "on_top": false,
+      "overview": true
     }
   },
   "desktop": {
@@ -30,9 +30,17 @@
     ]
   },
   "style": {
+    "borders": {
+      "bar": {
+        "floating": 1,
+        "normal": 0
+      },
+      "popout": 1,
+      "widget": 0
+    },
     "font": {
       "size": {
-        "big": 18,
+        "big": 20,
         "icon": 34,
         "icon_medium": 26,
         "icon_small": 22,
@@ -40,24 +48,16 @@
         "small": 14
       }
     },
+    "radius": {
+      "bar": {
+        "floating": 30,
+        "normal": 0
+      },
+      "popout": 30,
+      "widget": 20
+    },
     "rounding": {
       "small": 20
-    },
-    "borders": {
-      "popout": 1,
-      "widget": 0,
-      "bar": {
-        "normal": 0,
-        "floating": 1
-      }
-    },
-    "radius": {
-      "popout": 30,
-      "widget": 20,
-      "bar": {
-        "normal": 0,
-        "floating": 30
-      }
     }
   }
 }

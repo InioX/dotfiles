@@ -60,7 +60,7 @@ Singleton {
             property JsonObject size: JsonObject {
                 property int small: 14
                 property int medium: 16
-                property int big: 18
+                property int big: 20
                 property int icon: 34
                 property int icon_small: 22
                 property int icon_medium: 26
