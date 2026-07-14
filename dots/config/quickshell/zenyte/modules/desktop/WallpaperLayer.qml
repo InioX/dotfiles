@@ -136,6 +136,10 @@ Item {
                     selectionBox.y = mouse.y;
                     selectionBox.width = 0;
                     selectionBox.height = 0;
+
+                    if (desktopPopoutLoader.active) {
+                        root.open();
+                    }
                 }
             }
 
@@ -209,7 +213,6 @@ Item {
                 widgetY: root.mouseY
 
                 onAnimationCloseFinished: {
-                    States.isLauncherOpened = false;
                     desktopPopoutLoader.active = false;
                 }
             }
