@@ -88,17 +88,17 @@ FloatingWindow {
                             value: "bar"
                         },
                         {
+                            name: "Dock",
+                            value: "dock"
+                        },
+                        {
                             name: "Style",
                             value: "style"
                         },
                         {
-                            name: "Launcher",
-                            value: "launcher"
-                        },
-                        {
                             name: "Desktop",
                             value: "desktop"
-                        }
+                        },
                     ]
 
                     Repeater {
@@ -169,6 +169,8 @@ FloatingWindow {
                     sourceComponent: {
                         if (root.settingsTab === "bar")
                             return barTabComponent;
+                        if (root.settingsTab === "dock")
+                            return dockTabComponent;
                         if (root.settingsTab === "style")
                             return styleTabComponent;
                         return null;
@@ -223,6 +225,11 @@ FloatingWindow {
     Component {
         id: barTabComponent
         BarSettings {}
+    }
+
+    Component {
+        id: dockTabComponent
+        DockSettings {}
     }
 
     Component {

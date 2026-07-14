@@ -174,36 +174,6 @@ Item {
 
                         StyledText {
                             leftPadding: 8
-                            text: "󰒓"
-                            color: Colors.md3.on_surface
-                            font.pixelSize: Config.style.font.size.icon_medium
-                        }
-
-                        StyledText {
-                            text: "Open Settings"
-                            color: Colors.md3.on_surface
-                            font.pixelSize: Config.style.font.size.small
-
-                            leftPadding: parent.spacing
-                        }
-                    }
-                    onClicked: {
-                        States.isSettingsOpened = true;
-                        root.isOpen = false;
-                    }
-                }
-
-                PopoutEntry {
-                    Layout.fillWidth: true
-
-                    RowLayout {
-                        spacing: 16
-                        anchors.left: parent.left
-                        anchors.top: parent.top
-                        anchors.bottom: parent.bottom
-
-                        StyledText {
-                            leftPadding: 8
                             text: "󰍛"
                             color: Colors.md3.on_surface
                             font.pixelSize: Config.style.font.size.icon_medium
@@ -219,6 +189,36 @@ Item {
                     }
                     onClicked: {
                         Quickshell.execDetached("resources");
+                        root.isOpen = false;
+                    }
+                }
+
+                PopoutEntry {
+                    Layout.fillWidth: true
+
+                    RowLayout {
+                        spacing: 16
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+
+                        StyledText {
+                            leftPadding: 8
+                            text: "󰒓"
+                            color: Colors.md3.on_surface
+                            font.pixelSize: Config.style.font.size.icon_medium
+                        }
+
+                        StyledText {
+                            text: "Open Settings"
+                            color: Colors.md3.on_surface
+                            font.pixelSize: Config.style.font.size.small
+
+                            leftPadding: parent.spacing
+                        }
+                    }
+                    onClicked: {
+                        States.isSettingsOpened = true;
                         root.isOpen = false;
                     }
                 }

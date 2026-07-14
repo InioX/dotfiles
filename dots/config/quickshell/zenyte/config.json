@@ -1,63 +1,91 @@
 {
-  "bar": {
-    "bottom": true,
-    "floating": false,
-    "full_width": true,
-    "height": 60,
-    "margins": {
-      "floating": 10,
-      "popout": 10
+    "bar": {
+        "bottom": false,
+        "floating": true,
+        "full_width": true,
+        "height": 60,
+        "margins": {
+            "floating": 10,
+            "popout": 10
+        },
+        "visible": {
+            "always": false,
+            "empty_workspace": true,
+            "on_top": false,
+            "overview": true
+        }
     },
-    "visible": {
-      "always": true,
-      "empty_workspace": true,
-      "on_top": false,
-      "overview": true
+    "desktop": {
+        "show_files": true,
+        "show_folders": true,
+        "show_icons": true
+    },
+    "dock": {
+        "bottom": true,
+        "floating": true,
+        "full_width": false,
+        "height": 60,
+        "icons": {
+            "colorize": true,
+            "size": 40
+        },
+        "margins": {
+            "floating": 10,
+            "popout": 10
+        },
+        "visible": {
+            "always": false,
+            "empty_workspace": true,
+            "on_top": false,
+            "overview": true
+        }
+    },
+    "launcher": {
+        "pinned_apps": [
+            "discord",
+            "firefox",
+            "honkers-railway-launcher",
+            "Overwatch",
+            "Genshin"
+        ]
+    },
+    "style": {
+        "borders": {
+            "bar": {
+                "floating": 1,
+                "normal": 0
+            },
+            "dock": {
+                "floating": 1,
+                "normal": 0
+            },
+            "popout": 1,
+            "widget": 0
+        },
+        "font": {
+            "size": {
+                "big": 20,
+                "icon": 34,
+                "icon_medium": 26,
+                "icon_small": 22,
+                "medium": 16,
+                "small": 14
+            }
+        },
+        "radius": {
+            "bar": {
+                "floating": 30,
+                "normal": 0
+            },
+            "dock": {
+                "floating": 30,
+                "normal": 0
+            },
+            "popout": 30,
+            "widget": 20
+        },
+        "rounding": {
+            "small": 20
+        }
     }
-  },
-  "desktop": {
-    "show_files": true,
-    "show_folders": true,
-    "show_icons": true
-  },
-  "launcher": {
-    "pinned_apps": [
-      "discord",
-      "firefox",
-      "honkers-railway-launcher",
-      "Overwatch",
-      "Genshin"
-    ]
-  },
-  "style": {
-    "borders": {
-      "bar": {
-        "floating": 1,
-        "normal": 0
-      },
-      "popout": 1,
-      "widget": 0
-    },
-    "font": {
-      "size": {
-        "big": 20,
-        "icon": 34,
-        "icon_medium": 26,
-        "icon_small": 22,
-        "medium": 16,
-        "small": 14
-      }
-    },
-    "radius": {
-      "bar": {
-        "floating": 30,
-        "normal": 0
-      },
-      "popout": 30,
-      "widget": 20
-    },
-    "rounding": {
-      "small": 20
-    }
-  }
 }

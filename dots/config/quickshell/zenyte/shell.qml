@@ -1,8 +1,9 @@
 // qmllint disable unqualified
 
 import "services"
-import "modules/bar"
 import "modules/shared"
+import "modules/bar"
+import "modules/dock"
 import "modules/desktop"
 import "modules/settings"
 import QtQuick
@@ -12,10 +13,16 @@ import Quickshell.Io
 ShellRoot {
     id: root
 
-    LazyLoader {
+    Loader {
         active: true
 
-        component: Bar {}
+        sourceComponent: Bar {}
+    }
+
+    Loader {
+        active: true
+
+        sourceComponent: Dock {}
     }
 
     LazyLoader {

@@ -87,6 +87,22 @@ ColumnLayout {
         },
         {
             type: "text",
+            name: "Dock",
+            desc: "Sets the border size of the dock in pixels",
+            bind: () => Config.style.borders.dock.normal,
+            width: 60,
+            set: v => Config.style.borders.dock.normal = parseInt(v)
+        },
+        {
+            type: "text",
+            name: "Floating Dock",
+            desc: "Sets the border size of the dock when floating in pixels",
+            bind: () => Config.style.borders.dock.floating,
+            width: 60,
+            set: v => Config.style.borders.dock.floating = parseInt(v)
+        },
+        {
+            type: "text",
             name: "Popouts",
             desc: "Sets the border size of popouts in pixels",
             bind: () => Config.style.borders.popout,

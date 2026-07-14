@@ -28,7 +28,7 @@ Scope {
             }
 
             // aboveWindows: true
-            exclusionMode: Config.bar.visible.always ? ExclusionMode.Auto : ExclusionMode.Ignore
+            exclusionMode: (Config.bar.visible.always && !Config.bar.visible.on_top) ? ExclusionMode.Auto : ExclusionMode.Ignore
             WlrLayershell.layer: WlrLayer.Overlay
             screen: modelData
             anchors {

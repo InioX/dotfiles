@@ -9,6 +9,7 @@ Singleton {
     id: root
 
     property alias bar: jsonAdapter.bar
+    property alias dock: jsonAdapter.dock
     property alias style: jsonAdapter.style
     property alias launcher: jsonAdapter.launcher
     property alias desktop: jsonAdapter.desktop
@@ -30,6 +31,7 @@ Singleton {
             id: jsonAdapter
 
             readonly property Bar bar: Bar {}
+            readonly property Dock dock: Dock {}
             readonly property Style style: Style {}
             readonly property Launcher launcher: Launcher {}
             readonly property Desktop desktop: Desktop {}
@@ -50,6 +52,30 @@ Singleton {
         }
 
         property bool bottom: false
+        property int height: 50
+        property bool full_width: false
+        property bool floating: false
+    }
+
+    component Dock: JsonObject {
+        property JsonObject visible: JsonObject {
+            property bool overview: false
+            property bool empty_workspace: false
+            property bool always: false
+            property bool on_top: false
+        }
+
+        property JsonObject margins: JsonObject {
+            property int popout: 10
+            property int floating: 10
+        }
+
+        property JsonObject icons: JsonObject {
+            property int size: 40
+            property bool colorize: true
+        }
+
+        property bool bottom: true
         property int height: 50
         property bool full_width: false
         property bool floating: false
@@ -76,12 +102,20 @@ Singleton {
                 property int floating: 1
                 property int normal: 0
             }
+            property JsonObject dock: JsonObject {
+                property int floating: 1
+                property int normal: 0
+            }
             property int popout: 1
             property int widget: 0
         }
 
         property JsonObject radius: JsonObject {
             property JsonObject bar: JsonObject {
+                property int floating: 30
+                property int normal: 0
+            }
+            property JsonObject dock: JsonObject {
                 property int floating: 30
                 property int normal: 0
             }

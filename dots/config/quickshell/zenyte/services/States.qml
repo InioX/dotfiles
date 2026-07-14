@@ -56,6 +56,10 @@ Singleton {
     property bool forceShowBar: root.isLauncherOpened || root.isSoundSettingsOpened
     property bool showBar: baseBarVisibility || forceShowBar
 
+    readonly property bool baseDockVisibility: (Config.dock.visible.always && !hasFullscreenWindow) || (Config.dock.visible.overview && Niri.isOverview) || (Config.dock.visible.empty_workspace && !(Niri.focusedWindow && !Niri.focusedWindow.isFloating)) || Config.dock.visible.on_top
+
+    property bool showDock: baseDockVisibility
+
     property bool exclusiveFocus: root.isLauncherOpened
 
     property bool wasLauncherOpened: false
