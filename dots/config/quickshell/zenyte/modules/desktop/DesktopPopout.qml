@@ -192,6 +192,36 @@ Item {
                         root.isOpen = false;
                     }
                 }
+
+                PopoutEntry {
+                    Layout.fillWidth: true
+
+                    RowLayout {
+                        spacing: 16
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+
+                        StyledText {
+                            leftPadding: 8
+                            text: "󰍛"
+                            color: Colors.md3.on_surface
+                            font.pixelSize: Config.style.font.size.icon_medium
+                        }
+
+                        StyledText {
+                            text: "Open Resource Monitor"
+                            color: Colors.md3.on_surface
+                            font.pixelSize: Config.style.font.size.small
+
+                            leftPadding: parent.spacing
+                        }
+                    }
+                    onClicked: {
+                        Quickshell.execDetached("resources");
+                        root.isOpen = false;
+                    }
+                }
             }
         }
     }

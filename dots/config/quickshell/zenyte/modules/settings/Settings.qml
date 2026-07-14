@@ -37,20 +37,111 @@ FloatingWindow {
             anchors.right: parent.right
             anchors.top: parent.top
 
-            StyledSearch {
-                id: searchBar
+            // StyledText {
+            //     Layout.alignment: Qt.AlignHCenter
+            //     text: root.title
+            //     font.pixelSize: Config.style.font.size.medium
+            //     color: Colors.md3.on_surface
+            // }
 
-                placeHolderString: {
-                    if (root.currentTab) {
-                        return "Type to search " + root.currentTab;
-                    } else {
-                        return "Type to search";
+            Rectangle {
+                id: tabContainer
+                implicitHeight: 40
+                Layout.fillWidth: true
+                color: Colors.md3.surface_container
+                radius: Config.style.radius.widget
+                clip: true
+
+                property var activeTabItem: null
+
+                Rectangle {
+                    id: selectionIndicator
+                    height: parent.height
+                    color: Colors.md3.surface_container_highest
+                    radius: tabContainer.radius
+
+                    x: tabContainer.activeTabItem ? tabContainer.activeTabItem.x : 0
+                    width: tabContainer.activeTabItem ? tabContainer.activeTabItem.width : 0
+
+                    Behavior on x {
+                        NumberAnimation {
+                            duration: 250
+                            easing.type: Easing.OutCubic
+                        }
+                    }
+                    Behavior on width {
+                        NumberAnimation {
+                            duration: 250
+                            easing.type: Easing.OutCubic
+                        }
                     }
                 }
 
-                onTextChanged: {
-                    root.query = searchBar.text;
-                    // list.currentIndex = filtered.values.length > 0 ? 0 : -1;
+                RowLayout {
+                    id: tabSwitchRow
+                    anchors.fill: parent
+                    spacing: 0
+
+                    readonly property var tabsModel: [
+                        {
+                            name: "Bar",
+                            value: "bar"
+                        },
+                        {
+                            name: "Style",
+                            value: "style"
+                        },
+                        {
+                            name: "Launcher",
+                            value: "launcher"
+                        },
+                        {
+                            name: "Desktop",
+                            value: "desktop"
+                        }
+                    ]
+
+                    Repeater {
+                        model: tabSwitchRow.tabsModel
+
+                        delegate: Item {
+                            id: tabButton
+                            implicitHeight: 40
+                            Layout.fillWidth: true
+
+                            readonly property bool isActive: root.settingsTab === modelData.value
+
+                            onIsActiveChanged: {
+                                if (isActive) {
+                                    tabContainer.activeTabItem = tabButton;
+                                }
+                            }
+
+                            Component.onCompleted: {
+                                if (isActive) {
+                                    tabContainer.activeTabItem = tabButton;
+                                }
+                            }
+
+                            StyledText {
+                                anchors.centerIn: parent
+                                text: modelData.name
+                                color: Colors.md3.on_surface
+                                font.pixelSize: Config.style.font.size.small
+
+                                Behavior on color {
+                                    StyledColorAnimation {}
+                                }
+                            }
+
+                            StyledMouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    root.settingsTab = modelData.value;
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
@@ -70,12 +161,18 @@ FloatingWindow {
 
                 rightPadding: 16
 
-                contentHeight: (barSettingsLoader.item ? barSettingsLoader.item.implicitHeight : 0) + 70
+                contentHeight: (settingsTabLoader.item ? settingsTabLoader.item.implicitHeight : 0) + 70
 
                 Loader {
-                    id: barSettingsLoader
-                    active: root.settingsTab === "bar"
-                    sourceComponent: BarSettings {}
+                    id: settingsTabLoader
+
+                    sourceComponent: {
+                        if (root.settingsTab === "bar")
+                            return barTabComponent;
+                        if (root.settingsTab === "style")
+                            return styleTabComponent;
+                        return null;
+                    }
 
                     width: settingsScrollView.availableWidth
                 }
@@ -83,32 +180,18 @@ FloatingWindow {
         }
 
         Rectangle {
-            id: edgeGradient
-            anchors.bottom: bottomBarPanel.top
-            anchors.left: parent.left
-            anchors.right: parent.right
-            height: 15
-            z: 2
-
-            gradient: Gradient {
-                GradientStop {
-                    position: 0.0
-                    color: "transparent"
-                }
-                GradientStop {
-                    position: 1.0
-                    color: Colors.md3.surface
-                }
-            }
-        }
-
-        Rectangle {
             id: bottomBarPanel
+
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
+            anchors.margins: Config.style.borders.popout
+
             height: bottomRow.implicitHeight + 40
             color: Colors.md3.surface
+
+            bottomLeftRadius: parent.radius
+            bottomRightRadius: parent.radius
 
             RowLayout {
                 id: bottomRow
@@ -135,5 +218,15 @@ FloatingWindow {
                 }
             }
         }
+    }
+
+    Component {
+        id: barTabComponent
+        BarSettings {}
+    }
+
+    Component {
+        id: styleTabComponent
+        StyleSettings {}
     }
 }

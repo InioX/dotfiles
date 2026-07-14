@@ -70,6 +70,13 @@ ColumnLayout {
             desc: "Make the bar always show (will get hidden in fullscreen)",
             bind: () => Config.bar.visible.always,
             set: v => Config.bar.visible.always = v
+        },
+        {
+            type: "switch",
+            name: "Show On Top",
+            desc: "Make the bar show on top of all windows like an overlay",
+            bind: () => Config.bar.visible.on_top,
+            set: v => Config.bar.visible.on_top = v
         }
     ]
 
@@ -84,7 +91,7 @@ ColumnLayout {
         },
         {
             type: "text",
-            name: "Popout",
+            name: "Popouts",
             desc: "Set the margins of bar poputs",
             bind: () => Config.bar.margins.popout,
             width: 60,
