@@ -2,7 +2,7 @@
     "bar": {
         "bottom": false,
         "floating": true,
-        "full_width": true,
+        "full_width": false,
         "height": 60,
         "margins": {
             "floating": 10,
@@ -24,7 +24,7 @@
         "bottom": true,
         "floating": true,
         "full_width": false,
-        "height": 60,
+        "height": 74,
         "icons": {
             "colorize": true,
             "size": 40
@@ -44,9 +44,9 @@
         "pinned_apps": [
             "discord",
             "firefox",
-            "honkers-railway-launcher",
             "Overwatch",
-            "Genshin"
+            "Genshin",
+            "honkers-railway-launcher"
         ]
     },
     "style": {
@@ -78,7 +78,7 @@
                 "normal": 0
             },
             "dock": {
-                "floating": 30,
+                "floating": 40,
                 "normal": 0
             },
             "popout": 30,

@@ -1,6 +1,5 @@
-pragma ComponentBehavior: Bound
-
 import qs.services
+import qs.services.niri
 import qs.modules.shared
 import Quickshell
 import Quickshell.Wayland
@@ -11,83 +10,133 @@ import QtQuick.Layouts
 Scope {
     id: dock
 
-    Variants {
-        // For each monitor
-        model: Quickshell.screens
+    PanelWindow {
+        id: dockWindow
 
-        PanelWindow {
-            id: dockWindow
-            required property var modelData
+        MouseArea {
+            id: dockMouseArea
+            anchors.fill: parent
+            hoverEnabled: true
+        }
 
-            WlrLayershell.keyboardFocus: States.exclusiveFocus ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
+        // aboveWindows: true
+        exclusionMode: (Config.dock.visible.always && !Config.dock.visible.on_top) ? ExclusionMode.Auto : ExclusionMode.Ignore
+        WlrLayershell.layer: WlrLayer.Overlay
+        screen: Quickshell.screens[0]
+        anchors {
+            top: !Config.dock.bottom
+            bottom: Config.dock.bottom
+            left: Config.dock.full_width ? true : false
+            right: Config.dock.full_width ? true : false
+        }
 
-            MouseArea {
-                id: dockMouseArea
-                anchors.fill: parent
-                hoverEnabled: true
+        visible: rectangle.opacity == 0 ? false : true
+
+        implicitWidth: rectangle.implicitWidth
+        color: "transparent"
+        implicitHeight: Config.dock.height + (Config.dock.floating ? Config.dock.margins.floating * 2 : 0)
+
+        Rectangle {
+            id: rectangle
+
+            implicitWidth: 50 + rowLayout.implicitWidth
+
+            opacity: States.showDock ? 1.0 : 0.0
+
+            Behavior on opacity {
+                StyledNumberAnimation {}
             }
 
-            // aboveWindows: true
-            exclusionMode: (Config.dock.visible.always && !Config.dock.visible.on_top) ? ExclusionMode.Auto : ExclusionMode.Ignore
-            WlrLayershell.layer: WlrLayer.Overlay
-            screen: modelData
-            anchors {
-                top: !Config.dock.bottom
-                bottom: Config.dock.bottom
-                left: Config.dock.full_width ? true : false
-                right: Config.dock.full_width ? true : false
-            }
-
-            visible: rectangle.opacity == 0 ? false : true
-
-            implicitWidth: 500
-            color: "transparent"
-            implicitHeight: Config.dock.height + (Config.dock.floating ? Config.dock.margins.floating * 2 : 0)
-
-            Behavior on implicitWidth {
+            Behavior on implicitHeight {
                 StyledSpringAnimation {}
             }
 
-            Rectangle {
-                id: rectangle
+            Behavior on x {
+                StyledSpringAnimation {}
+            }
 
-                opacity: States.showDock ? 1.0 : 0.0
+            Behavior on y {
+                StyledSpringAnimation {}
+            }
 
-                Behavior on opacity {
-                    StyledNumberAnimation {}
-                }
+            radius: Config.dock.floating ? Config.style.radius.dock.floating : Config.style.radius.dock.normal
+            color: Colors.md3.surface
 
-                Behavior on implicitHeight {
-                    StyledSpringAnimation {}
-                }
+            border.color: Colors.md3.outline_variant
+            border.width: Config.dock.floating ? Config.style.borders.dock.floating : Config.style.borders.dock.normal
 
-                Behavior on x {
-                    StyledSpringAnimation {}
-                }
+            anchors {
+                fill: parent
 
-                Behavior on y {
-                    StyledSpringAnimation {}
-                }
+                topMargin: Config.dock.floating ? Config.dock.margins.floating : 0
+                bottomMargin: Config.dock.floating ? Config.dock.margins.floating : 0
+                leftMargin: Config.dock.floating ? Config.dock.margins.floating : 0
+                rightMargin: Config.dock.floating ? Config.dock.margins.floating : 0
+            }
 
-                radius: Config.dock.floating ? Config.style.radius.dock.floating : Config.style.radius.dock.normal
-                color: Colors.md3.surface
+            Item {
+                id: dockWrapper
 
-                border.color: Colors.md3.outline_variant
-                border.width: Config.dock.floating ? Config.style.borders.dock.floating : Config.style.borders.dock.normal
+                anchors.fill: parent
+                anchors.leftMargin: 8
+                anchors.rightMargin: 8
+                anchors.topMargin: 10
 
-                anchors {
-                    fill: parent
+                RowLayout {
+                    id: rowLayout
+                    anchors.centerIn: parent
+                    spacing: 16
 
-                    topMargin: Config.dock.floating ? Config.dock.margins.floating : 0
-                    bottomMargin: Config.dock.floating ? Config.dock.margins.floating : 0
-                    leftMargin: Config.dock.floating ? Config.dock.margins.floating : 0
-                    rightMargin: Config.dock.floating ? Config.dock.margins.floating : 0
-                }
+                    anchors.margins: 20
 
-                Item {
-                    anchors.fill: parent
-                    anchors.leftMargin: 8
-                    anchors.rightMargin: 8
+                    Repeater {
+                        model: DockApps.items
+
+                        delegate: ColumnLayout {
+                            id: delegateRoot
+                            required property var modelData
+                            required property int index
+
+                            Layout.alignment: Qt.AlignVCenter
+                            spacing: 8
+
+                            MouseArea {
+                                id: dockIconMouseArea
+
+                                Layout.preferredWidth: Config.dock.icons.size
+                                Layout.preferredHeight: Config.dock.icons.size
+                                Layout.alignment: Qt.AlignHCenter
+
+                                cursorShape: Qt.PointingHandCursor
+
+                                StyledAppIcon {
+                                    anchors.centerIn: parent
+
+                                    backgroundColor: Colors.md3.primary
+
+                                    icon: modelData.icon
+                                    wantedSize: Config.dock.icons.size
+                                }
+
+                                onClicked: {
+                                    if (modelData.isRunning && modelData.window) {
+                                        Quickshell.execDetached(["niri", "msg", "action", "focus-window", "--id", modelData.window.id]);
+                                    } else {
+                                        Quickshell.execDetached(["sh", "-c", "setsid -f " + modelData.command]);
+                                    }
+                                }
+                            }
+
+                            Rectangle {
+                                Layout.preferredWidth: 5
+                                Layout.preferredHeight: 5
+                                radius: 2
+                                color: modelData.isRunning ? Colors.md3.primary : "transparent"
+
+                                Layout.alignment: Qt.AlignHCenter
+                            }
+                        }
+                    }
                 }
             }
         }

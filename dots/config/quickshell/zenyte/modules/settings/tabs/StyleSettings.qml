@@ -138,6 +138,22 @@ ColumnLayout {
         },
         {
             type: "text",
+            name: "Dock",
+            desc: "Sets the radius of the dock in pixels",
+            bind: () => Config.style.radius.dock.normal,
+            width: 60,
+            set: v => Config.style.radius.dock.normal = parseInt(v)
+        },
+        {
+            type: "text",
+            name: "Floating Dock",
+            desc: "Sets the radius of the dock when floating in pixels",
+            bind: () => Config.style.radius.dock.floating,
+            width: 60,
+            set: v => Config.style.radius.dock.floating = parseInt(v)
+        },
+        {
+            type: "text",
             name: "Popouts",
             desc: "Sets the radius of popouts in pixels",
             bind: () => Config.style.radius.popout,

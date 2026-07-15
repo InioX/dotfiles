@@ -21,19 +21,16 @@ Rectangle {
     IconImage {
         id: imageIcon
 
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenter: parent.horizontalCenter
-        // visible: false
+        anchors.centerIn: parent
         source: Quickshell.iconPath(root.icon, "image-missing")
         implicitSize: root.wantedSize
+
         layer.enabled: true
         layer.smooth: true
 
-        MultiEffect {
-            source: imageIcon
-            anchors.fill: imageIcon
-            colorization: 1
-            colorizationColor: Colors.md3.on_primary_container
+        layer.effect: MultiEffect {
+            colorization: 1.0
+            colorizationColor: root.iconColor
         }
     }
 }

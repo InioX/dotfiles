@@ -18,7 +18,7 @@ let
 
     src = pkgs.fetchzip {
       url = "https://bitbucket.org/dirn-typo/yet-another-monochrome-icon-set/get/main.zip";
-      sha256 = "sha256-OCrbAJhBKwHHl1rLieT5xVene3KRHcy0UYRc6BxvQGg=";
+      sha256 = "sha256-Gw6wH9ksIpXyvg1pnVMEgOkvmBHJb8zNMCExpyW2nZ0=";
     };
 
     installPhase = ''

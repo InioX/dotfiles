@@ -62,6 +62,8 @@ Scope {
         implicitWidth: border.cornerRadius
         color: "transparent"
 
+        WlrLayershell.layer: WlrLayer.Overlay
+
         anchors {
             top: true
             left: true

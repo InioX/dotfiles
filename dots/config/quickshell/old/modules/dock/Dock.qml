@@ -66,11 +66,9 @@ PanelWindow {
             Repeater {
                 model: ScriptModel {
                     values: [...NiriService.windows].sort((a, b) => {
-                        // First, sort by workspace ID (lowest to highest)
                         if (a.workspaceId !== b.workspaceId) {
                             return a.workspaceId - b.workspaceId;
                         }
-                        // If they are on the same workspace, sort by scrolling index
                         return a.scrollingColumnIndex - b.scrollingColumnIndex;
                     })
                 }
