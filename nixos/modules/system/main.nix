@@ -102,6 +102,7 @@ in
       pictures = "$HOME/pics";
       videos = "$HOME/vids";
       desktop = "$HOME";
+      projects = "$HOME/dev";
       music = "$HOME";
       templates = "$HOME";
       publicShare = "$HOME";
