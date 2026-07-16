@@ -55,6 +55,7 @@ Singleton {
         property int height: 50
         property bool full_width: false
         property bool floating: false
+        property bool color_widget_background: true
     }
 
     component Dock: JsonObject {
@@ -108,6 +109,7 @@ Singleton {
             }
             property int popout: 1
             property int widget: 0
+            property int tooltip: 0
         }
 
         property JsonObject radius: JsonObject {
@@ -121,6 +123,7 @@ Singleton {
             }
             property int popout: 30
             property int widget: 20
+            property int qs_button: 20
         }
     }
 

@@ -92,7 +92,7 @@ Scope {
                     RowLayout {
                         anchors.left: parent.left
                         anchors.verticalCenter: parent.verticalCenter
-                        spacing: 10
+                        spacing: 4
 
                         DistroWidget {}
 
@@ -122,7 +122,7 @@ Scope {
                         // BatteryWidget {
                         // }
 
-                        spacing: 10
+                        spacing: 4
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
 

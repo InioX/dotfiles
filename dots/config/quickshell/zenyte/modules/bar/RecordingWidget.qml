@@ -22,7 +22,7 @@ Item {
         border.color: Colors.md3.outline_variant
         border.width: Config.style.borders.widget
 
-        color: recordingMouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface_container
+        color: recordingMouseArea.containsMouse ? (Config.bar.color_widget_background ? Colors.md3.surface_container_high : Colors.md3.surface_container) : (Config.bar.color_widget_background ? Colors.md3.surface_container : "transparent")
 
         Behavior on color {
             StyledColorAnimation {}

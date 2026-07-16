@@ -3,7 +3,9 @@ pragma ComponentBehavior: Bound
 
 import qs.services
 import qs.modules.shared
+import qs.modules.soundSettings
 import Quickshell
+import Quickshell.Networking
 import Quickshell.Services.Pipewire as QsPipewire
 import QtQuick
 import QtQuick.Controls
@@ -63,32 +65,125 @@ Item {
                 spacing: 20
                 anchors.margins: 20
 
-                VolumeEntry {
-                    nickname: Pipewire.sink.nickname
-                    volume: Pipewire.volumeSink
-                    isMuted: Pipewire.mutedSink
+                GridLayout {
+                    columns: 2
+                    rowSpacing: 10
+                    columnSpacing: 10
+                    Layout.fillWidth: true
 
-                    onMoved: {
-                        Pipewire.setVolumeSink(value);
+                    QsButton {
+                        id: wifiButton
+
+                        name: "Wi-Fi"
+                        buttonIcon: "󰖩"
+
+                        Layout.preferredWidth: 1
+                        Layout.fillWidth: true
+                        enabled: true
+
+                        onClicked: {
+                            wifiButton.enabled = !wifiButton.enabled;
+                        }
                     }
 
-                    onMuteClicked: {
-                        Quickshell.execDetached(['wpctl', 'set-mute', '@DEFAULT_AUDIO_SINK@', 'toggle']);
+                    QsButton {
+                        id: bluetoothButton
+
+                        name: "Bluetooth"
+                        buttonIcon: "󰂯"
+
+                        Layout.preferredWidth: 1
+                        Layout.fillWidth: true
+                        enabled: false
+
+                        onClicked: {
+                            bluetoothButton.enabled = !bluetoothButton.enabled;
+                        }
+                    }
+
+                    QsButton {
+                        id: nightLightButton
+
+                        name: "Night Light"
+                        buttonIcon: "󱩌"
+
+                        Layout.preferredWidth: 1
+                        Layout.fillWidth: true
+
+                        onClicked: {
+                            nightLightButton.enabled = !nightLightButton.enabled;
+                        }
+                    }
+
+                    QsButton {
+                        id: dndButton
+
+                        name: "Do not Disturb"
+                        buttonIcon: "󰍶"
+
+                        Layout.preferredWidth: 1
+                        Layout.fillWidth: true
+                        enabled: false
+
+                        onClicked: {
+                            dndButton.enabled = !dndButton.enabled;
+                        }
                     }
                 }
 
-                VolumeEntry {
-                    nickname: Pipewire.source.nickname
-                    volume: Pipewire.volumeSource
-                    isMuted: Pipewire.mutedSource
-                    icon: "󰍬"
+                StyledSeparator {
+                    Layout.fillWidth: true
+                }
 
-                    onMoved: {
-                        Pipewire.setVolumeSource(value);
+                RowLayout {
+                    spacing: 10
+
+                    StyledText {
+                        text: "󰕾"
+                        color: Colors.md3.on_surface
+                        font.pixelSize: Config.style.font.size.icon_small
+                        font.bold: true
+
+                        Layout.preferredWidth: 20
                     }
 
-                    onMuteClicked: {
-                        Quickshell.execDetached(['wpctl', 'set-mute', '@DEFAULT_AUDIO_SOURCE@', 'toggle']);
+                    StyledSlider {
+                        id: sinkVolumeSlider
+
+                        isActive: !Pipewire.mutedSink
+
+                        Layout.fillWidth: true
+                        value: Pipewire.volumeSink / 100
+
+                        onMoved: {
+                            Pipewire.setVolumeSink(value);
+                        }
+                    }
+                }
+
+                RowLayout {
+                    spacing: 10
+
+                    StyledText {
+                        text: "󰍬"
+                        color: Colors.md3.on_surface
+                        font.pixelSize: Config.style.font.size.icon_small
+                        font.bold: true
+
+                        Layout.preferredWidth: 20
+                    }
+
+                    StyledSlider {
+                        id: sourceVolumeSlider
+
+                        isActive: !Pipewire.mutedSource
+
+                        Layout.fillWidth: true
+                        value: Pipewire.volumeSource / 100
+
+                        onMoved: {
+                            Pipewire.setVolumeSource(value);
+                        }
                     }
                 }
 

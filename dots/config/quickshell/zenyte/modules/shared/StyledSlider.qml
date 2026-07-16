@@ -10,13 +10,14 @@ Slider {
 
     property var fillColor: isActive ? Colors.md3.primary : Colors.md3.outline
 
+    stepSize: 0.01
+
     background: Rectangle {
         StyledHoverHandler {}
 
         x: slider.leftPadding
         y: slider.topPadding + slider.availableHeight / 2 - height / 2
-        implicitWidth: parent.width
-        implicitHeight: 14
+        implicitHeight: 16
         width: slider.availableWidth
         height: implicitHeight
         radius: 10
@@ -25,7 +26,7 @@ Slider {
         Rectangle {
             id: fill
 
-            width: slider.visualPosition * parent.width - 8
+            width: slider.visualPosition * parent.width - 4
             height: parent.height
             color: fillColor
             bottomLeftRadius: parent.radius
@@ -41,11 +42,32 @@ Slider {
         }
     }
 
+    ToolTip {
+        id: control
+
+        parent: slider.handle
+        visible: slider.pressed
+        text: (slider.value * 100).toFixed(0)
+
+        contentItem: StyledText {
+            text: control.text
+            color: Colors.md3.on_surface
+            font.pixelSize: Config.style.font.size.small
+        }
+
+        background: Rectangle {
+            radius: Config.style.radius.widget
+            color: Colors.md3.surface
+            border.color: Colors.md3.outline_variant
+            border.width: Config.style.borders.tooltip
+        }
+    }
+
     handle: Rectangle {
         x: slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
         y: slider.topPadding + slider.availableHeight / 2 - height / 2
         implicitWidth: 4
-        implicitHeight: 30
+        implicitHeight: 22
         radius: 14
         color: fillColor
 

@@ -1,6 +1,7 @@
 {
     "bar": {
         "bottom": false,
+        "color_widget_background": false,
         "floating": true,
         "full_width": false,
         "height": 60,

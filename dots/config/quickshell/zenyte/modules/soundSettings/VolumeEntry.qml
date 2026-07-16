@@ -54,7 +54,7 @@ Column {
 
                 text: root.nickname ? root.nickname : "none"
                 color: Colors.md3.on_surface
-                font.pixelSize: Config.style.font.size.big
+                font.pixelSize: Config.style.font.size.medium
             }
         }
 
@@ -66,7 +66,7 @@ Column {
             Layout.alignment: Qt.AlignRight
             text: (root.volume ? root.volume : 0) + "%"
             color: Colors.md3.on_surface
-            font.pixelSize: Config.style.font.size.big
+            font.pixelSize: Config.style.font.size.medium
         }
 
         Rectangle {
@@ -80,7 +80,7 @@ Column {
                 text: (root.isMuted ? root.isMuted : false) ? "Unmute" : "Mute"
 
                 color: Colors.md3.on_surface
-                font.pixelSize: Config.style.font.size.big
+                font.pixelSize: Config.style.font.size.medium
                 anchors.centerIn: parent
             }
 
