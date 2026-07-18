@@ -25,20 +25,15 @@ in
     nvidiaPatches = mkBoolOpt false "Whether to enable nvidia patches for hyprland.";
   };
 
-  imports = [
-    # inputs.hyprland.nixosModules.default
-  ];
-
   config = mkIf cfg.enable {
-    # programs.hyprland = {
-    # enable = true;
-    # plugins = [
-    # hyprland-scroll-overview
-    # ];
-    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-    # };
-    #
+    programs.hyprland = {
+      enable = true;
+      # plugins = [
+      # hyprland-scroll-overview
+      # ];
+      # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    };
 
     zenyte.desktop.wayland = enabled;
 
@@ -93,10 +88,11 @@ in
     # };
 
     zenyte.home.configFile = {
-      "hypr/windowrules.conf" = "hypr/windowrules.conf";
-      "hypr/scripts" = "hypr/scripts";
-      "hypr/hyprland.conf" = "hypr/hyprland.conf";
-      "hypr/keybindings.conf" = "hypr/keybindings.conf";
+      # "hypr/windowrules.conf" = "hypr/windowrules.conf";
+      # "hypr/scripts" = "hypr/scripts";
+      # "hypr/hyprland.conf" = "hypr/hyprland.conf";
+      # "hypr/keybindings.conf" = "hypr/keybindings.conf";
+      "hypr/" = "hypr/lua/";
     };
 
     zenyte.matugen.template = {
