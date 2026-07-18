@@ -8,7 +8,8 @@ Slider {
 
     property var isActive: true
 
-    property var fillColor: isActive ? Colors.md3.primary : Colors.md3.outline
+    property color backgroundColor: Colors.md3.surface_container_high
+    property color fillColor: isActive ? Colors.md3.primary : Colors.md3.outline
 
     stepSize: 0.01
 
@@ -21,7 +22,7 @@ Slider {
         width: slider.availableWidth
         height: implicitHeight
         radius: 10
-        color: Colors.md3.surface_container_high
+        color: slider.backgroundColor
 
         Rectangle {
             id: fill

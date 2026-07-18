@@ -128,6 +128,7 @@ Singleton {
 
         property JsonObject blur: JsonObject {
             property bool bar: true
+            property bool widget: true
             property bool dock: true
             property bool popout: true
         }
@@ -141,8 +142,10 @@ Singleton {
 
             property JsonObject blur_enabled: JsonObject {
                 property real bar: 0.7
+                property real widget: 0.9
                 property real dock: 0.7
                 property real popout: 0.7
+                property real popout_widget: 0.9
             }
         }
     }

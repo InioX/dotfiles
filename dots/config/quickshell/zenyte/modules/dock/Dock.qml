@@ -22,6 +22,8 @@ Scope {
         // aboveWindows: true
         exclusionMode: (Config.dock.visible.always && !Config.dock.visible.on_top) ? ExclusionMode.Auto : ExclusionMode.Ignore
         WlrLayershell.layer: WlrLayer.Overlay
+        WlrLayershell.namespace: "quickshell-dock"
+
         screen: Quickshell.screens[0]
         anchors {
             top: !Config.dock.bottom
@@ -35,6 +37,14 @@ Scope {
         implicitWidth: rectangle.implicitWidth
         color: "transparent"
         implicitHeight: Config.dock.height + (Config.dock.floating ? Config.dock.margins.floating * 2 : 0)
+
+        BackgroundEffect.blurRegion: Config.style.blur.dock ? blurRegionDefinition : null
+
+        Region {
+            id: blurRegionDefinition
+            item: rectangle
+            radius: rectangle.radius
+        }
 
         Rectangle {
             id: rectangle
@@ -60,7 +70,7 @@ Scope {
             }
 
             radius: Config.dock.floating ? Config.style.radius.dock.floating : Config.style.radius.dock.normal
-            color: Colors.md3.surface
+            color: Colors.getColorWithAlpha(Colors.md3.surface, (Config.style.blur.dock ? Config.style.transparency.blur_enabled.dock : Config.style.transparency.normal.dock))
 
             border.color: Colors.md3.outline_variant
             border.width: Config.dock.floating ? Config.style.borders.dock.floating : Config.style.borders.dock.normal

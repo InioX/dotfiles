@@ -3,6 +3,7 @@
 import qs.services
 import qs.modules.shared
 import Quickshell
+import Quickshell.Wayland
 import Quickshell.Io
 import QtQuick
 import QtQuick.Controls
@@ -75,6 +76,14 @@ Item {
 
         grabFocus: true
 
+        BackgroundEffect.blurRegion: Config.style.blur.popout ? blurRegionDefinition : null
+
+        Region {
+            id: blurRegionDefinition
+            item: rect
+            radius: rect.radius
+        }
+
         StyledRoundRect {
             id: rect
 
@@ -83,6 +92,8 @@ Item {
             Behavior on opacity {
                 StyledNumberAnimation {}
             }
+
+            color: Colors.getColorWithAlpha(Colors.md3.surface, (Config.style.blur.popout ? Config.style.transparency.blur_enabled.popout : Config.style.transparency.normal.popout))
 
             ColumnLayout {
                 id: column
@@ -204,6 +215,8 @@ Item {
                 StyledSearch {
                     id: searchBar
 
+                    color: Colors.getPopoutWidgetColor(Colors.md3.surface_container)
+
                     placeHolderString: {
                         if (States.launcherTab) {
                             return "Type to search " + States.launcherTab;
@@ -315,6 +328,7 @@ Item {
 
                     model: filtered.values
                     currentIndex: filtered.values.length > 0 ? 0 : -1
+                    highlightColor: Colors.getPopoutWidgetColor(Colors.md3.surface_container)
 
                     delegate: Item {
                         id: listDelegate
@@ -384,7 +398,7 @@ Item {
 
                                 implicitHeight: parent.implicitHeight - 10
                                 implicitWidth: parent.implicitHeight - 10
-                                color: pinButton.isPinned ? Colors.md3.primary : Colors.md3.surface_container_high
+                                color: pinButton.isPinned ? Colors.md3.primary : Colors.getPopoutWidgetColor(Colors.md3.surface_container_high)
                                 radius: 40
 
                                 Layout.alignment: Qt.AlignVCenter

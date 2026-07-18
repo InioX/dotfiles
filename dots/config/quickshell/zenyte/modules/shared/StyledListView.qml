@@ -7,6 +7,8 @@ import qs.services
 ListView {
     id: root
 
+    property color highlightColor: Colors.md3.surface_container
+
     property int entryRadius: 24
 
     Layout.fillWidth: true
@@ -14,7 +16,7 @@ ListView {
     Layout.preferredHeight: root.contentHeight
 
     highlight: Rectangle {
-        color: Colors.md3.surface_container
+        color: root.highlightColor
         radius: root.entryRadius
     }
     highlightMoveDuration: 80

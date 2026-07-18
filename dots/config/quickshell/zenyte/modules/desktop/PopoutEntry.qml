@@ -9,7 +9,7 @@ Rectangle {
 
     implicitHeight: 40
 
-    color: mouseArea.containsMouse ? Colors.md3.surface_container : Colors.md3.surface
+    color: mouseArea.containsMouse ? Colors.getPopoutWidgetColor(Colors.md3.surface_container) : "transparent"
     radius: Config.style.radius.widget
 
     StyledMouseArea {

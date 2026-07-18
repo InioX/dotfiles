@@ -3,11 +3,25 @@ pragma Singleton
 import QtQuick
 import Quickshell
 import Quickshell.Io
+import qs.services
 
 Singleton {
     property alias md3: jsonAdapter.md3
     property alias base16: jsonAdapter.base16
     property alias palette: jsonAdapter.palette
+
+    function getWidgetColor(color) {
+        let alpha = Config.style.blur.bar ? Config.style.transparency.blur_enabled.widget : Config.style.transparency.normal.widget;
+
+        return Colors.getColorWithAlpha(color, alpha);
+    }
+
+    function getPopoutWidgetColor(color) {
+        let alpha = Config.style.blur.bar ? Config.style.transparency.blur_enabled.widget : Config.style.transparency.normal.widget;
+
+        return Colors.getColorWithAlpha(color, alpha);
+    }
+
 
     function getColorWithAlpha(hexColor, alpha) {
         let c = Qt.color(hexColor);

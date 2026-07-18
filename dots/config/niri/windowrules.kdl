@@ -1,5 +1,6 @@
 layer-rule {
     match namespace="quickshell-bar"
+    match namespace="quickshell-dock"
 
     background-effect {
         xray false

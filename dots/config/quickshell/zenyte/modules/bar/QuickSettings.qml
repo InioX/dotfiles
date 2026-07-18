@@ -80,7 +80,7 @@ Item {
             StyledColorAnimation {}
         }
 
-        color: shouldHighlightBackground ? (Config.bar.color_widget_background ? Colors.md3.surface_container_high : Colors.md3.surface_container) : (Config.bar.color_widget_background ? Colors.md3.surface_container : "transparent")
+        color: shouldHighlightBackground ? (Config.bar.color_widget_background ? Colors.getWidgetColor(Colors.md3.surface_container_high) : Colors.getWidgetColor(Colors.md3.surface_container)) : (Config.bar.color_widget_background ? Colors.getWidgetColor(Colors.md3.surface_container) : "transparent")
         width: row.width + (!Config.bar.color_widget_background ? 40 : 30)
         radius: Config.style.rounding.small
 

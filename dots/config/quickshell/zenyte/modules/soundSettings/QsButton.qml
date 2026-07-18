@@ -20,7 +20,7 @@ Button {
 
     background: Rectangle {
         radius: Config.style.radius.qs_button
-        color: root.enabled ? Colors.md3.primary : Colors.md3.surface_container
+        color: root.enabled ? Colors.md3.primary : Colors.getPopoutWidgetColor(Colors.md3.surface_container)
 
         Behavior on color {
             StyledColorAnimation {}

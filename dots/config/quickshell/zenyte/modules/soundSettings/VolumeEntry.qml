@@ -36,7 +36,7 @@ Column {
             implicitHeight: nicknameText.height + 6
             radius: 10
 
-            color: nicknameMouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface
+            color: nicknameMouseArea.containsMouse ? Colors.getPopoutWidgetColor(Colors.md3.surface_container_high) : "transparent"
 
             StyledText {
                 id: nicknameText
@@ -70,7 +70,7 @@ Column {
         }
 
         Rectangle {
-            color: Colors.md3.surface_container_high
+            color: muteMouseArea.containsMouse ? Colors.getPopoutWidgetColor(Colors.md3.surface_container_high) : Colors.getPopoutWidgetColor(Colors.md3.surface_container)
             implicitWidth: muteText.width + 20
             implicitHeight: muteText.height + 6
             radius: 10
@@ -98,9 +98,11 @@ Column {
         id: volumeSlider
 
         isActive: !isMuted
+        backgroundColor: Colors.getPopoutWidgetColor(Colors.md3.surface_container_high)
 
         width: column.width
         value: root.volume / 100
+
         onMoved: {
             // For some reason using execDetached is lagging
             // Quickshell.execDetached(['wpctl', 'set-volume', '@DEFAULT_AUDIO_SINK@', value]);

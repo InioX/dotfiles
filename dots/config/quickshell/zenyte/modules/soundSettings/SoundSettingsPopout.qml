@@ -5,6 +5,7 @@ import qs.services
 import qs.modules.shared
 import qs.modules.soundSettings
 import Quickshell
+import Quickshell.Wayland
 import Quickshell.Networking
 import Quickshell.Services.Pipewire as QsPipewire
 import QtQuick
@@ -46,6 +47,14 @@ Item {
         anchor.rect.x: Math.max(offset, Math.min(parentX, parentWindow.width - width - offset))
         anchor.rect.y: Config.bar.bottom ? (0 - Config.bar.margins.popout) : (parentWindow.height + Config.bar.margins.popout)
 
+        BackgroundEffect.blurRegion: Config.style.blur.popout ? blurRegionDefinition : null
+
+        Region {
+            id: blurRegionDefinition
+            item: rect
+            radius: rect.radius
+        }
+
         StyledRoundRect {
             id: rect
 
@@ -54,6 +63,8 @@ Item {
             Behavior on opacity {
                 StyledNumberAnimation {}
             }
+
+            color: Colors.getColorWithAlpha(Colors.md3.surface, (Config.style.blur.popout ? Config.style.transparency.blur_enabled.popout : Config.style.transparency.normal.popout))
 
             ColumnLayout {
                 id: column
@@ -64,8 +75,10 @@ Item {
 
                 spacing: 20
                 anchors.margins: 20
+                anchors.topMargin: 30
 
                 GridLayout {
+
                     columns: 2
                     rowSpacing: 10
                     columnSpacing: 10
@@ -151,6 +164,7 @@ Item {
                         id: sinkVolumeSlider
 
                         isActive: !Pipewire.mutedSink
+                        backgroundColor: Colors.getPopoutWidgetColor(Colors.md3.surface_container_high)
 
                         Layout.fillWidth: true
                         value: Pipewire.volumeSink / 100
@@ -177,6 +191,7 @@ Item {
                         id: sourceVolumeSlider
 
                         isActive: !Pipewire.mutedSource
+                        backgroundColor: Colors.getPopoutWidgetColor(Colors.md3.surface_container_high)
 
                         Layout.fillWidth: true
                         value: Pipewire.volumeSource / 100

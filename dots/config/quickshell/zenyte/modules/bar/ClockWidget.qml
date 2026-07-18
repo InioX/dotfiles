@@ -33,7 +33,7 @@ Item {
                 anchors.fill: parent
             }
 
-            color: timeMouseArea.containsMouse ? Colors.md3.surface_container_high : "transparent"
+            color: timeMouseArea.containsMouse ? Colors.getWidgetColor(Colors.md3.surface_container_high) : "transparent"
 
             StyledText {
                 id: timeText
@@ -59,7 +59,7 @@ Item {
                 id: dateMouseArea
                 anchors.fill: parent
             }
-            color: dateMouseArea.containsMouse ? Colors.md3.surface_container_high : "transparent"
+            color: dateMouseArea.containsMouse ? Colors.getWidgetColor(Colors.md3.surface_container_high) : "transparent"
 
             StyledText {
                 id: dateText

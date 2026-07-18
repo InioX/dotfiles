@@ -5,6 +5,7 @@ import qs.services
 import qs.modules.shared
 import qs.modules.desktop
 import Quickshell
+import Quickshell.Wayland
 import Quickshell.Io
 import QtQuick
 import QtQuick.Controls
@@ -44,8 +45,18 @@ Item {
 
         anchor.window: wallpaperLayer
 
+        BackgroundEffect.blurRegion: Config.style.blur.popout ? blurRegionDefinition : null
+
+        Region {
+            id: blurRegionDefinition
+            item: rect
+            radius: rect.radius
+        }
+
         StyledRoundRect {
             id: rect
+
+            color: Colors.getColorWithAlpha(Colors.md3.surface, (Config.style.blur.popout ? Config.style.transparency.blur_enabled.popout : Config.style.transparency.normal.popout))
 
             StyledMouseArea {
                 id: desktopPopoutMouseArea
