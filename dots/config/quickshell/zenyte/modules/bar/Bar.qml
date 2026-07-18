@@ -1,8 +1,7 @@
-pragma ComponentBehavior: Bound
-
 import qs.services
 import qs.modules.shared
 import Quickshell
+import Quickshell.Services.SystemTray as QsSystemTray
 import Quickshell.Wayland
 import QtQuick
 import QtQuick.Controls
@@ -20,6 +19,7 @@ Scope {
             required property var modelData
 
             WlrLayershell.keyboardFocus: States.exclusiveFocus ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
+            WlrLayershell.namespace: "quickshell-bar"
 
             MouseArea {
                 id: barMouseArea
@@ -48,6 +48,14 @@ Scope {
                 StyledSpringAnimation {}
             }
 
+            BackgroundEffect.blurRegion: Config.style.blur.bar ? blurRegionDefinition : null
+
+            Region {
+                id: blurRegionDefinition
+                item: rectangle
+                radius: rectangle.radius
+            }
+
             Rectangle {
                 id: rectangle
 
@@ -70,7 +78,7 @@ Scope {
                 }
 
                 radius: Config.bar.floating ? Config.style.radius.bar.floating : Config.style.radius.bar.normal
-                color: Colors.md3.surface
+                color: Colors.getColorWithAlpha(Colors.md3.surface, (Config.style.blur.bar ? Config.style.transparency.blur_enabled.bar : Config.style.transparency.normal.bar))
 
                 border.color: Colors.md3.outline_variant
                 border.width: Config.bar.floating ? Config.style.borders.bar.floating : Config.style.borders.bar.normal
@@ -116,6 +124,10 @@ Scope {
                     RowLayout {
                         anchors.centerIn: parent
                         anchors.verticalCenter: parent.verticalCenter
+
+                        // Workspaces {
+                        //     screen: modelData
+                        // }
                     }
 
                     RowLayout {
@@ -126,7 +138,12 @@ Scope {
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
 
-                        RecordingWidget {}
+                        SystemTray {}
+
+                        Separator {
+                            // TODO: Check if there is more than one tray icon
+                            visible: !Config.bar.color_widget_background
+                        }
 
                         QuickSettings {}
                     }

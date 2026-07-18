@@ -10,7 +10,7 @@ import QtQuick.Layouts
 Item {
     id: root
     implicitHeight: column.height
-    implicitWidth: column.width
+    implicitWidth: column.width + 10
 
     property bool alignCenter: false
 
@@ -33,7 +33,7 @@ Item {
                 anchors.fill: parent
             }
 
-            color: timeMouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface
+            color: timeMouseArea.containsMouse ? Colors.md3.surface_container_high : "transparent"
 
             StyledText {
                 id: timeText
@@ -59,7 +59,7 @@ Item {
                 id: dateMouseArea
                 anchors.fill: parent
             }
-            color: dateMouseArea.containsMouse ? Colors.md3.surface_container_high : Colors.md3.surface
+            color: dateMouseArea.containsMouse ? Colors.md3.surface_container_high : "transparent"
 
             StyledText {
                 id: dateText

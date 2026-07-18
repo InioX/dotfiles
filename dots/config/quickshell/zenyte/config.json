@@ -61,6 +61,7 @@
                 "normal": 0
             },
             "popout": 1,
+            "tooltip": 0,
             "widget": 0
         },
         "font": {
@@ -83,6 +84,7 @@
                 "normal": 0
             },
             "popout": 30,
+            "qs_button": 20,
             "widget": 20
         },
         "rounding": {

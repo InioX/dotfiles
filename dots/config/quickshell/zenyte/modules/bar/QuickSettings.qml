@@ -81,7 +81,7 @@ Item {
         }
 
         color: shouldHighlightBackground ? (Config.bar.color_widget_background ? Colors.md3.surface_container_high : Colors.md3.surface_container) : (Config.bar.color_widget_background ? Colors.md3.surface_container : "transparent")
-        width: row.width + 40
+        width: row.width + (!Config.bar.color_widget_background ? 40 : 30)
         radius: Config.style.rounding.small
 
         border.color: Colors.md3.outline_variant
@@ -90,7 +90,7 @@ Item {
         Row {
             id: row
             anchors.centerIn: parent
-            spacing: 10
+            spacing: 12
 
             StyledAnimatedText {
                 id: cameraIcon

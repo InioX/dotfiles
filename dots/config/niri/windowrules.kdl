@@ -1,4 +1,12 @@
 layer-rule {
+    match namespace="quickshell-bar"
+
+    background-effect {
+        xray false
+    }
+}
+
+layer-rule {
     match namespace="^wallpaper$"
     place-within-backdrop true
 }
@@ -17,6 +25,7 @@ window-rule {
     match app-id=r#"moe.launcher.an-anime-game-launcher"#
     match app-id=r#"moe.launcher.the-honkers-railway-launcher"#
     match app-id=r#"org.gnome.Nautilus"#
+    match title=r#"Zenyte Settings"#
 
     open-floating true
 }

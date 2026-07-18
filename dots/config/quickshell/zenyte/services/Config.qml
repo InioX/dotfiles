@@ -125,6 +125,26 @@ Singleton {
             property int widget: 20
             property int qs_button: 20
         }
+
+        property JsonObject blur: JsonObject {
+            property bool bar: true
+            property bool dock: true
+            property bool popout: true
+        }
+
+        property JsonObject transparency: JsonObject {
+            property JsonObject normal: JsonObject {
+                property real bar: 1
+                property real dock: 1
+                property real popout: 1
+            }
+
+            property JsonObject blur_enabled: JsonObject {
+                property real bar: 0.7
+                property real dock: 0.7
+                property real popout: 0.7
+            }
+        }
     }
 
     component Launcher: JsonObject {
