@@ -19,7 +19,8 @@ Singleton {
             "wpsoffice": "wps-office2019-kprometheus",
             "footclient": "foot",
             "sober": "org.vinegarhq.Sober",
-            "dropdown-terminal": "kitty"
+            "dropdown-terminal": "kitty",
+            "steam_proton": "Genshin"
         })
     property var regexSubstitutions: [
         {

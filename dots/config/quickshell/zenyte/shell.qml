@@ -1,3 +1,4 @@
+//@ pragma UseQApplication
 // qmllint disable unqualified
 
 import "services"
@@ -8,7 +9,6 @@ import "modules/desktop"
 import "modules/settings"
 import QtQuick
 import Quickshell
-import Quickshell.Io
 
 ShellRoot {
     id: root
@@ -25,10 +25,10 @@ ShellRoot {
         sourceComponent: Dock {}
     }
 
-    LazyLoader {
+    Loader {
         active: States.isSettingsOpened
 
-        component: Settings {}
+        sourceComponent: Settings {}
     }
 
     WallpaperLayer {

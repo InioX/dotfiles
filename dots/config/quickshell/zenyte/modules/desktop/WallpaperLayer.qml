@@ -69,13 +69,34 @@ Item {
                     anchors.centerIn: parent
                     spacing: 5
 
-                    IconImage {
+                    Item {
+                        id: iconContainer
                         anchors.horizontalCenter: parent.horizontalCenter
-                        source: fileIsDir ? Quickshell.iconPath("folder", "image-missing") : Quickshell.iconPath("text-x-generic", "image-missing")
-                        implicitSize: 60
+                        width: 60
+                        height: 60
+
+                        IconImage {
+                            id: sourceIcon
+                            anchors.fill: parent
+                            source: fileIsDir ? Quickshell.iconPath("folder", "image-missing") : Quickshell.iconPath("text-x-generic", "image-missing")
+                            visible: false
+                        }
+
+                        MultiEffect {
+                            anchors.fill: sourceIcon
+                            source: sourceIcon
+
+                            // Shadow configuration
+                            shadowEnabled: true
+                            shadowColor: "#80000000"
+                            shadowBlur: 0.7
+                            shadowHorizontalOffset: 0
+                            shadowVerticalOffset: 3
+                            shadowScale: 1.0
+                        }
                     }
 
-                    Text {
+                    StyledText {
                         text: fileName
                         color: "white"
                         width: desktopGrid.cellWidth - 10
@@ -83,7 +104,7 @@ Item {
                         elide: Text.ElideRight
                         font.pointSize: 10
                         style: Text.Outline
-                        styleColor: "black"
+                        styleColor: "#80000000"
                     }
                 }
 
@@ -175,7 +196,7 @@ Item {
             Rectangle {
                 id: selectionBox
                 color: Colors.getColorWithAlpha(Colors.md3.primary, 0.2)
-                border.color: Colors.getColorWithAlpha(Colors.md3.primary, 0.6)
+                border.color: Colors.md3.primary
                 border.width: 1
                 radius: 10
                 visible: selectionArea.isDragging
@@ -221,7 +242,7 @@ Item {
         Process {
             id: wallpaperSetter
 
-            command: ["matugen", "image", "", "--type", "scheme-smart", "--mode", "dark", "--prefer", "saturation"]
+            command: ["matugen", "image", "", "--type", "scheme-smart", "--mode", "dark", "--source-color-index", "0"]
         }
     }
 }
