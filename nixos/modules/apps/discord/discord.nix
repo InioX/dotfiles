@@ -74,11 +74,11 @@ in
 
     zenyte.matugen.template = {
       discord = {
-        input = "discord";
+        input = "discord.css";
         output = "~/.config/Vencord/themes/midnight-discord.css";
       };
       vesktop = {
-        input = "discord";
+        input = "discord.css";
         output = "~/.config/vesktop/themes/midnight-discord.css";
       };
     };
