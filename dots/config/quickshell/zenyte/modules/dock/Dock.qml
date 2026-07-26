@@ -130,7 +130,7 @@ Scope {
 
                                 onClicked: {
                                     if (modelData.isRunning && modelData.window) {
-                                        Quickshell.execDetached(["niri", "msg", "action", "focus-window", "--id", modelData.window.id]);
+                                        modelData.window.activate();
                                     } else {
                                         Quickshell.execDetached(["sh", "-c", "setsid -f " + modelData.command]);
                                     }

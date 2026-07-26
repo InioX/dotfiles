@@ -4,6 +4,7 @@ import qs.services
 import qs.services.niri
 import QtQuick
 import Quickshell
+import Quickshell.Hyprland
 import Quickshell.Io
 
 Singleton {
@@ -51,12 +52,42 @@ Singleton {
         launcherTabIndex += 1;
     }
 
-    property bool hasFullscreenWindow: Niri.hasFullscreenToplevelOnScreen(Quickshell.screens[0])
-    readonly property bool baseBarVisibility: (Config.bar.visible.always && !hasFullscreenWindow) || (Config.bar.visible.overview && Niri.isOverview) || (Config.bar.visible.empty_workspace && !(Niri.focusedWindow && !Niri.focusedWindow.isFloating)) || Config.bar.visible.on_top
+    property bool showInOverview: {
+        if (!Compositors.isNiri) {
+            return false;
+        }
+
+        return Niri.isOverview;
+    }
+
+    property bool showOnEmptyWorkspace: {
+        if (Compositors.isNiri) {
+            return !(Niri.focusedWindow && !Niri.focusedWindow.isFloating);
+        }
+
+        if (Compositors.isHyprland) {
+            return Hyprland.focusedWorkspace.toplevels.values.length == 0;
+        }
+
+        return false;
+    }
+
+    property bool hasFullscreenWindow: {
+        if (Compositors.isNiri) {
+            return Niri.hasFullscreenToplevelOnScreen(Quickshell.screens[0]);
+        }
+
+        if (Compositors.isHyprland) {
+            return Hyprland.focusedWorkspace.hasFullscreen;
+        }
+
+        return false;
+    }
+    readonly property bool baseBarVisibility: (Config.bar.visible.always && !hasFullscreenWindow) || (Config.bar.visible.overview && root.showInOverview) || (Config.bar.visible.empty_workspace && root.showOnEmptyWorkspace) || Config.bar.visible.on_top
     property bool forceShowBar: root.isLauncherOpened || root.isSoundSettingsOpened
     property bool showBar: baseBarVisibility || forceShowBar
 
-    readonly property bool baseDockVisibility: (Config.dock.visible.always && !hasFullscreenWindow) || (Config.dock.visible.overview && Niri.isOverview) || (Config.dock.visible.empty_workspace && !(Niri.focusedWindow && !Niri.focusedWindow.isFloating)) || Config.dock.visible.on_top
+    readonly property bool baseDockVisibility: (Config.dock.visible.always && !hasFullscreenWindow) || (Config.dock.visible.overview && root.showInOverview) || (Config.dock.visible.empty_workspace && root.showOnEmptyWorkspace) || Config.dock.visible.on_top
 
     property bool showDock: baseDockVisibility
 
