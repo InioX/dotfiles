@@ -45,7 +45,6 @@ in
       "gtk-4.0/settings.ini" = "gtk-4.0/settings.ini";
       "gtk-3.0/settings.ini" = "gtk-3.0/settings.ini";
       "gtk-3.0/bookmarks" = "gtk-3.0/bookmarks";
-      "vesktop-flags.conf" = "vesktop-flags.conf";
     };
 
     zenyte.matugen.template = {
