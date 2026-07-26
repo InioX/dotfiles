@@ -56,13 +56,13 @@ Scope {
 
     PanelWindow {
         id: topLeftCorner
-        visible: !Config.bar.bottom && Config.bar.full_width
+
+        visible: !Config.bar.bottom && Config.bar.full_width && States.showBar
+        WlrLayershell.layer: WlrLayer.Overlay
 
         implicitHeight: border.cornerRadius
         implicitWidth: border.cornerRadius
         color: "transparent"
-
-        WlrLayershell.layer: WlrLayer.Overlay
 
         anchors {
             top: true
@@ -104,7 +104,9 @@ Scope {
 
     PanelWindow {
         id: topRightCorner
-        visible: !Config.bar.bottom && Config.bar.full_width
+
+        visible: !Config.bar.bottom && Config.bar.full_width && States.showBar
+        WlrLayershell.layer: WlrLayer.Overlay
 
         implicitHeight: border.cornerRadius
         implicitWidth: border.cornerRadius
@@ -150,7 +152,9 @@ Scope {
 
     PanelWindow {
         id: bottomLeftCorner
-        visible: Config.bar.bottom && Config.bar.full_width
+
+        visible: Config.bar.bottom && Config.bar.full_width && States.showBar
+        WlrLayershell.layer: WlrLayer.Overlay
 
         implicitHeight: border.cornerRadius
         implicitWidth: border.cornerRadius
@@ -196,7 +200,9 @@ Scope {
 
     PanelWindow {
         id: bottomRightCorner
-        visible: Config.bar.bottom && Config.bar.full_width
+
+        visible: Config.bar.bottom && Config.bar.full_width && States.showBar
+        WlrLayershell.layer: WlrLayer.Overlay
 
         implicitHeight: border.cornerRadius
         implicitWidth: border.cornerRadius

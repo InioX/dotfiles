@@ -1,6 +1,7 @@
 pragma Singleton
 import QtQuick
 import Quickshell
+import Quickshell.Wayland
 import Quickshell.Io
 import qs.services.niri
 
@@ -8,7 +9,7 @@ Singleton {
     id: root
 
     readonly property list<var> items: {
-        const running = [...Niri.windows];
+        const running = [...ToplevelManager.toplevels.values];
         const pinned = Config.launcher.pinned_apps || [];
         const resultList = [];
 
