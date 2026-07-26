@@ -41,6 +41,7 @@ hl.monitor({
 hl.on("hyprland.start", function ()
   hl.exec_cmd("dbus-update-activation-environment --all")
   hl.exec_cmd("awww-daemon")
+  hl.exec_cmd("wl-clip-persist --clipboard regular")
   hl.exec_cmd("qs --path ~/.config/quickshell/zenyte")
 
   -- hl.exec_cmd("nm-applet")
