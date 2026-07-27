@@ -27,9 +27,13 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
+
 -- Terminal special workspace
 hl.bind(mainMod .. " + E",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + E", hl.dsp.window.move({ workspace = "special:magic" }))
+
+hl.bind(mainMod .. " + V",         hl.dsp.workspace.toggle_special("video"))
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.move({ workspace = "special:video" }))
 
 -- App launching
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("qs --path ~/.config/quickshell/zenyte ipc call root toggleLauncher"))
@@ -52,8 +56,9 @@ hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-")
 
 -- Requires playerctl
 hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
-hl.bind("SHIFT + O", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
 hl.bind("XF86Calculator",  hl.dsp.exec_cmd("hyprshot -m region --clipboard-only --freeze"),   { locked = true })
+
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exit())
