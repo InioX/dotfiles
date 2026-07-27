@@ -154,7 +154,7 @@ ColumnLayout {
     }
 
     SettingsGroup {
-        groupTitle: "Basic Settings"
+        groupTitle: "Dock Settings"
         modelData: root.basicSettingsModel
     }
 

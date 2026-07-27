@@ -136,7 +136,7 @@ ColumnLayout {
     }
 
     SettingsGroup {
-        groupTitle: "Basic Settings"
+        groupTitle: "Bar Settings"
         modelData: root.basicSettingsModel
     }
 

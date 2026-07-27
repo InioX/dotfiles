@@ -170,6 +170,37 @@ ColumnLayout {
         },
     ]
 
+    readonly property var blurSettingsModel: [
+        {
+            type: "switch",
+            name: "Bar",
+            desc: "Enable blur for the bar",
+            bind: () => Config.style.blur.bar,
+            set: v => Config.style.blur.bar = v
+        },
+        {
+            type: "switch",
+            name: "Widgets",
+            desc: "Enable blur for widgets",
+            bind: () => Config.style.blur.widget,
+            set: v => Config.style.blur.widget = v
+        },
+        {
+            type: "switch",
+            name: "Dock",
+            desc: "Enable blur for the dock",
+            bind: () => Config.style.blur.dock,
+            set: v => Config.style.blur.dock = v
+        },
+        {
+            type: "switch",
+            name: "Popouts",
+            desc: "Enable blur for popouts",
+            bind: () => Config.style.blur.popout,
+            set: v => Config.style.blur.popout = v
+        },
+    ]
+
     component SettingsGroup: ColumnLayout {
         id: groupRoot
 
@@ -219,6 +250,11 @@ ColumnLayout {
     SettingsGroup {
         groupTitle: "Radius Size"
         modelData: root.radiusSizeSettingsModel
+    }
+
+    SettingsGroup {
+        groupTitle: "Blur"
+        modelData: root.blurSettingsModel
     }
 
     Component {
