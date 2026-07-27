@@ -56,7 +56,7 @@
   "ui_font_size": 20.0,
   "buffer_font_size": 20.0,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Matugen Light",
     "dark": "Matugen Dark",
   },
