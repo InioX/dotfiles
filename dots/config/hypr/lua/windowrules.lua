@@ -23,6 +23,28 @@ hl.window_rule({
 })
 
 hl.window_rule({
+  match = {
+    class = ".*(steam_proton|overwatch).*"
+  },
+  immediate = true,
+  render_unfocused = true,
+})
+
+hl.window_rule({
+  match = {
+      initial_title = "Discord Popout"
+  },
+  opacity = 0.75,
+  keep_aspect_ratio = true,
+  size = { 420,263 },
+  float = true,
+  pin = true,
+  no_blur = true,
+  content = "video",
+})
+
+
+hl.window_rule({
     match = {
         title = ".*Sign in.*"
     },
@@ -65,7 +87,8 @@ hl.window_rule({
 })
 
 hl.layer_rule({
-  match = { namespace = "quickshell" },
+  match = { namespace = "quickshell-(bar|dock)" },
   blur = true,
+  blur_popups = true,
   ignore_alpha = 0.5,
 })
