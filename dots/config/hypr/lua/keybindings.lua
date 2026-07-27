@@ -38,7 +38,7 @@ hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.move({ workspace = "special:vid
 -- App launching
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("qs --path ~/.config/quickshell/zenyte ipc call root toggleLauncher"))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("qs --path ~/.config/quickshell/zenyte ipc call root toggleProjectSearch"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("qs --path ~/.config/quickshell/zenyte ipc call root toggleSoundSettings"))
+-- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("qs --path ~/.config/quickshell/zenyte ipc call root toggleSoundSettings"))
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + SHIFT + Return", hl.dsp.exec_cmd(fileManager))
 
@@ -59,6 +59,8 @@ hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
-hl.bind("XF86Calculator",  hl.dsp.exec_cmd("hyprshot -m region --clipboard-only --freeze"),   { locked = true })
+hl.bind("Print",  hl.dsp.exec_cmd("hyprshot -m region --clipboard-only --freeze"),   { locked = true })
+-- When FnLock is on the print screen key uses this
+hl.bind(mainMod .. " + SHIFT + S",  hl.dsp.exec_cmd("hyprshot -m region --clipboard-only --freeze"),   { locked = true })
 
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exit())
