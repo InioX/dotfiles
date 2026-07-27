@@ -25,6 +25,10 @@ Singleton {
             let name = appId;
             let lookupId = appId;
 
+            if (title === "Genshin Impact") {
+                appId = "anime-game-launcher";
+            }
+
             icon = AppSearch.guessIcon(appId);
 
             let entry = DesktopEntries.byId(appId) || DesktopEntries.heuristicLookup(appId);
