@@ -96,14 +96,14 @@ in
     };
 
     zenyte.matugen.template = {
-      Hyprland-autostart = {
-        input = "autostart.conf";
-        output = "~/.config/hypr/autostart.conf";
-      };
-      Hyprland-colors = {
-        input = "colors.conf";
-        output = "~/.config/hypr/colors.conf";
-      };
+      # Hyprland-autostart = {
+      #   input = "autostart.conf";
+      #   output = "~/.config/hypr/autostart.conf";
+      # };
+      # Hyprland-colors = {
+      #   input = "colors.conf";
+      #   output = "~/.config/hypr/colors.conf";
+      # };
     };
   };
 }
