@@ -4,6 +4,7 @@ pragma ComponentBehavior: Bound
 import qs.services
 import qs.modules.shared
 import Quickshell
+import Quickshell.Wayland
 import QtQuick
 
 PopupWindow {

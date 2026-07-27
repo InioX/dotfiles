@@ -42,7 +42,7 @@ Scope {
 
         Region {
             id: blurRegionDefinition
-            item: rectangle
+            item: !Compositors.isHyprland ? rectangle : null
             radius: rectangle.radius
         }
 

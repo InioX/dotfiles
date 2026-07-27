@@ -51,7 +51,7 @@ Item {
 
         Region {
             id: blurRegionDefinition
-            item: rect
+            item: !Compositors.isHyprland ? rect : null
             radius: rect.radius
         }
 

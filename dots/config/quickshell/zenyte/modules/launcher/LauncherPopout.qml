@@ -4,6 +4,7 @@ import qs.services
 import qs.modules.shared
 import Quickshell
 import Quickshell.Wayland
+import Quickshell.Hyprland
 import Quickshell.Io
 import QtQuick
 import QtQuick.Controls
@@ -80,7 +81,7 @@ Item {
 
         Region {
             id: blurRegionDefinition
-            item: rect
+            item: !Compositors.isHyprland ? rect : null
             radius: rect.radius
         }
 
