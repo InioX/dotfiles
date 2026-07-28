@@ -50,8 +50,8 @@ Item {
     Rectangle {
         id: background
 
-        width: Config.bar.height - 22
-        height: Config.bar.height - 22
+        width: 40
+        height: 40
         radius: width / 2
 
         color: shouldHighlightBackground ? Colors.md3.primary : Colors.md3.primary_container
