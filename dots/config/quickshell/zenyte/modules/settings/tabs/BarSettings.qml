@@ -10,6 +10,8 @@ ColumnLayout {
     id: root
     spacing: 20
 
+    property string searchQuery: ""
+
     MouseArea {
         anchors.fill: parent
         onClicked: {
@@ -40,12 +42,14 @@ ColumnLayout {
             set: v => Config.bar.floating = v
         },
         {
-            type: "text",
+            type: "slider",
             name: "Bar Height",
             desc: "Set the custom height of the bar in pixels",
             bind: () => Config.bar.height,
-            width: 60,
-            set: v => Config.bar.height = parseInt(v)
+            min: 40,
+            max: 100,
+            step: 1,
+            set: v => Config.bar.height = Math.round(v)
         }
     ]
 
@@ -82,90 +86,42 @@ ColumnLayout {
 
     readonly property var marginsSettingsModel: [
         {
-            type: "text",
+            type: "slider",
             name: "Floating",
             desc: "Set the margins of bar when it is floating",
             bind: () => Config.bar.margins.floating,
-            width: 60,
-            set: v => Config.bar.margins.floating = parseInt(v)
+            min: 0,
+            max: 100,
+            step: 1,
+            set: v => Config.bar.margins.floating = Math.round(v)
         },
         {
-            type: "text",
+            type: "slider",
             name: "Popouts",
             desc: "Set the margins of bar poputs",
             bind: () => Config.bar.margins.popout,
-            width: 60,
-            set: v => Config.bar.margins.popout = parseInt(v)
+            min: 0,
+            max: 100,
+            step: 1,
+            set: v => Config.bar.margins.popout = Math.round(v)
         }
     ]
-
-    component SettingsGroup: ColumnLayout {
-        id: groupRoot
-
-        property string groupTitle: ""
-        property var modelData: []
-        Layout.fillWidth: true
-        spacing: 15
-
-        TabHeader {
-            text: groupTitle
-        }
-
-        Repeater {
-            model: groupRoot.modelData
-
-            delegate: SettingsEntry {
-                name: modelData.name
-                description: modelData.desc
-
-                Loader {
-                    sourceComponent: {
-                        if (modelData.type === "switch")
-                            return switchComponent;
-                        if (modelData.type === "text")
-                            return textComponent;
-                        return null;
-                    }
-
-                    property var setting: modelData
-
-                    Layout.alignment: Qt.AlignRight
-                }
-            }
-        }
-    }
 
     SettingsGroup {
         groupTitle: "Bar Settings"
         modelData: root.basicSettingsModel
+        searchQuery: root.searchQuery
     }
 
     SettingsGroup {
         groupTitle: "Visibility"
         modelData: root.visibilitySettingsModel
+        searchQuery: root.searchQuery
     }
 
     SettingsGroup {
         groupTitle: "Margins"
         modelData: root.marginsSettingsModel
-    }
-
-    Component {
-        id: switchComponent
-        StyledSwitch {
-            checked: setting.bind()
-            onCheckedChanged: setting.set(checked)
-        }
-    }
-
-    Component {
-        id: textComponent
-        StyledTextField {
-            text: setting.bind().toString()
-            placeholderText: "Enter value..."
-            onEditingFinished: setting.set(text)
-
-            implicitWidth: setting.width !== undefined ? setting.width : 150
-        }
+        searchQuery: root.searchQuery
     }
 }

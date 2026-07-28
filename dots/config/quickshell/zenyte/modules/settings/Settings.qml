@@ -153,7 +153,7 @@ FloatingWindow {
                                     width: tabDelegate.isActive ? tabDelegate.width : tabDelegate.width * 0.7
 
                                     radius: Config.style.radius.widget
-                                    color: isActive ? Colors.md3.primary_container : "transparent"
+                                    color: isActive ? Colors.md3.secondary_container : "transparent"
 
                                     Behavior on color {
                                         StyledColorAnimation {
@@ -169,7 +169,7 @@ FloatingWindow {
                                         id: tabIcon
                                         anchors.centerIn: parent
                                         text: modelData.icon
-                                        color: tabDelegate.isActive ? Colors.md3.on_primary_container : Colors.md3.on_surface_variant
+                                        color: tabDelegate.isActive ? Colors.md3.on_secondary_container : Colors.md3.on_surface_variant
                                         font.pixelSize: Config.style.font.size.icon_small
                                     }
                                 }
@@ -197,35 +197,47 @@ FloatingWindow {
                 //     color: Colors.md3.outline_variant
                 // }
 
-                ScrollView {
+                ColumnLayout {
                     id: settingsScrollView
 
                     Layout.fillWidth: true
                     Layout.fillHeight: true
 
-                    clip: true
-                    ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-                    ScrollBar.vertical.policy: ScrollBar.AlwaysOn
-                    ScrollBar.vertical.implicitWidth: 8
+                    StyledSearch {
+                        id: searchInput
+                        Layout.bottomMargin: 10
+                    }
 
-                    rightPadding: 16
+                    ScrollView {
+                        id: mainScrollView
 
-                    contentHeight: (settingsTabLoader.item ? settingsTabLoader.item.implicitHeight : 0) + 20
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
 
-                    Loader {
-                        id: settingsTabLoader
+                        clip: true
+                        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+                        ScrollBar.vertical.policy: ScrollBar.AlwaysOn
+                        ScrollBar.vertical.implicitWidth: 8
 
-                        sourceComponent: {
-                            if (root.settingsTab === "bar")
-                                return barTabComponent;
-                            if (root.settingsTab === "dock")
-                                return dockTabComponent;
-                            if (root.settingsTab === "style")
-                                return styleTabComponent;
-                            return null;
+                        rightPadding: 16
+
+                        contentHeight: (settingsTabLoader.item ? settingsTabLoader.item.implicitHeight : 0) + 20
+
+                        Loader {
+                            id: settingsTabLoader
+
+                            width: mainScrollView.availableWidth
+
+                            sourceComponent: {
+                                if (root.settingsTab === "bar")
+                                    return barTabComponent;
+                                if (root.settingsTab === "dock")
+                                    return dockTabComponent;
+                                if (root.settingsTab === "style")
+                                    return styleTabComponent;
+                                return null;
+                            }
                         }
-
-                        width: settingsScrollView.availableWidth
                     }
                 }
             }
@@ -234,16 +246,22 @@ FloatingWindow {
 
     Component {
         id: barTabComponent
-        BarSettings {}
+        BarSettings {
+            searchQuery: searchInput.text
+        }
     }
 
     Component {
         id: dockTabComponent
-        DockSettings {}
+        DockSettings {
+            searchQuery: searchInput.text
+        }
     }
 
     Component {
         id: styleTabComponent
-        StyleSettings {}
+        StyleSettings {
+            searchQuery: searchInput.text
+        }
     }
 }

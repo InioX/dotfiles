@@ -11,8 +11,6 @@ Slider {
     property color backgroundColor: Colors.md3.surface_container_high
     property color fillColor: isActive ? Colors.md3.primary : Colors.md3.outline
 
-    stepSize: 0.01
-
     background: Rectangle {
         StyledHoverHandler {}
 
@@ -48,7 +46,12 @@ Slider {
 
         parent: slider.handle
         visible: slider.pressed
-        text: (slider.value * 100).toFixed(0)
+        text: {
+            if (slider.to <= 1.0) {
+                return (slider.value * 100).toFixed(0) + "%";
+            }
+            return Math.round(slider.value).toString();
+        }
 
         contentItem: StyledText {
             text: control.text

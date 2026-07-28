@@ -10,6 +10,8 @@ ColumnLayout {
     id: root
     spacing: 20
 
+    property string searchQuery: ""
+
     MouseArea {
         anchors.fill: parent
         onClicked: {
@@ -40,12 +42,14 @@ ColumnLayout {
             set: v => Config.dock.floating = v
         },
         {
-            type: "text",
+            type: "slider",
             name: "Dock Height",
             desc: "Set the custom height of the dock in pixels",
             bind: () => Config.dock.height,
-            width: 60,
-            set: v => Config.dock.height = parseInt(v)
+            min: 40,
+            max: 100,
+            step: 1,
+            set: v => Config.dock.height = Math.round(v)
         }
     ]
 
@@ -82,31 +86,37 @@ ColumnLayout {
 
     readonly property var marginsSettingsModel: [
         {
-            type: "text",
+            type: "slider",
             name: "Floating",
             desc: "Set the margins of dock when it is floating",
             bind: () => Config.dock.margins.floating,
-            width: 60,
-            set: v => Config.dock.margins.floating = parseInt(v)
+            min: 0,
+            max: 100,
+            step: 1,
+            set: v => Config.dock.margins.floating = Math.round(v)
         },
         {
-            type: "text",
+            type: "slider",
             name: "Popouts",
             desc: "Set the margins of dock poputs",
             bind: () => Config.dock.margins.popout,
-            width: 60,
-            set: v => Config.dock.margins.popout = parseInt(v)
+            min: 0,
+            max: 100,
+            step: 1,
+            set: v => Config.dock.margins.popout = Math.round(v)
         }
     ]
 
     readonly property var iconSettingsModel: [
         {
-            type: "text",
+            type: "slider",
             name: "Icon Size",
             desc: "Set the size of icons in pixels",
             bind: () => Config.dock.icons.size,
-            width: 60,
-            set: v => Config.dock.icons.size = parseInt(v)
+            min: 20,
+            max: 100,
+            step: 1,
+            set: v => Config.dock.icons.size = Math.round(v)
         },
         {
             type: "switch",
@@ -117,42 +127,6 @@ ColumnLayout {
         }
     ]
 
-    component SettingsGroup: ColumnLayout {
-        id: groupRoot
-
-        property string groupTitle: ""
-        property var modelData: []
-        Layout.fillWidth: true
-        spacing: 15
-
-        TabHeader {
-            text: groupTitle
-        }
-
-        Repeater {
-            model: groupRoot.modelData
-
-            delegate: SettingsEntry {
-                name: modelData.name
-                description: modelData.desc
-
-                Loader {
-                    sourceComponent: {
-                        if (modelData.type === "switch")
-                            return switchComponent;
-                        if (modelData.type === "text")
-                            return textComponent;
-                        return null;
-                    }
-
-                    property var setting: modelData
-
-                    Layout.alignment: Qt.AlignRight
-                }
-            }
-        }
-    }
-
     SettingsGroup {
         groupTitle: "Dock Settings"
         modelData: root.basicSettingsModel
@@ -161,34 +135,18 @@ ColumnLayout {
     SettingsGroup {
         groupTitle: "Visibility"
         modelData: root.visibilitySettingsModel
+        searchQuery: root.searchQuery
     }
 
     SettingsGroup {
         groupTitle: "Margins"
         modelData: root.marginsSettingsModel
+        searchQuery: root.searchQuery
     }
 
     SettingsGroup {
         groupTitle: "Icons"
         modelData: root.iconSettingsModel
-    }
-
-    Component {
-        id: switchComponent
-        StyledSwitch {
-            checked: setting.bind()
-            onCheckedChanged: setting.set(checked)
-        }
-    }
-
-    Component {
-        id: textComponent
-        StyledTextField {
-            text: setting.bind().toString()
-            placeholderText: "Enter value..."
-            onEditingFinished: setting.set(text)
-
-            implicitWidth: setting.width !== undefined ? setting.width : 150
-        }
+        searchQuery: root.searchQuery
     }
 }

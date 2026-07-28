@@ -1,4 +1,4 @@
-// BarSettings.qml
+// StyleSettings.qml
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
@@ -10,165 +10,14 @@ ColumnLayout {
     id: root
     spacing: 20
 
+    property string searchQuery: ""
+
     MouseArea {
         anchors.fill: parent
         onClicked: {
             root.forceActiveFocus();
         }
     }
-
-    readonly property var fontSizeSettingsModel: [
-        {
-            type: "text",
-            name: "Small",
-            desc: "Sets the custom height of the font in pixels",
-            bind: () => Config.style.font.size.small,
-            width: 60,
-            set: v => Config.style.font.size.small = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Medium",
-            desc: "Sets the custom height of the font in pixels",
-            bind: () => Config.style.font.size.medium,
-            width: 60,
-            set: v => Config.style.font.size.medium = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Big",
-            desc: "Sets the custom height of the font in pixels",
-            bind: () => Config.style.font.size.big,
-            width: 60,
-            set: v => Config.style.font.size.big = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Icon",
-            desc: "Sets the custom height of the font in pixels",
-            bind: () => Config.style.font.size.icon,
-            width: 60,
-            set: v => Config.style.font.size.icon = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Icon Small",
-            desc: "Sets the custom height of the font in pixels",
-            bind: () => Config.style.font.size.icon_small,
-            width: 60,
-            set: v => Config.style.font.size.icon_small = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Icon Medium",
-            desc: "Sets the custom height of the font in pixels",
-            bind: () => Config.style.font.size.icon_medium,
-            width: 60,
-            set: v => Config.style.font.size.icon_medium = parseInt(v)
-        },
-    ]
-
-    readonly property var borderSizeSettingsModel: [
-        {
-            type: "text",
-            name: "Bar",
-            desc: "Sets the border size of the bar in pixels",
-            bind: () => Config.style.borders.bar.normal,
-            width: 60,
-            set: v => Config.style.borders.bar.normal = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Floating Bar",
-            desc: "Sets the border size of the bar when floating in pixels",
-            bind: () => Config.style.borders.bar.floating,
-            width: 60,
-            set: v => Config.style.borders.bar.floating = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Dock",
-            desc: "Sets the border size of the dock in pixels",
-            bind: () => Config.style.borders.dock.normal,
-            width: 60,
-            set: v => Config.style.borders.dock.normal = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Floating Dock",
-            desc: "Sets the border size of the dock when floating in pixels",
-            bind: () => Config.style.borders.dock.floating,
-            width: 60,
-            set: v => Config.style.borders.dock.floating = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Popouts",
-            desc: "Sets the border size of popouts in pixels",
-            bind: () => Config.style.borders.popout,
-            width: 60,
-            set: v => Config.style.borders.popout = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Widgets",
-            desc: "Sets the border size of the widgets in pixels",
-            bind: () => Config.style.borders.widget,
-            width: 60,
-            set: v => Config.style.borders.widget = parseInt(v)
-        },
-    ]
-
-    readonly property var radiusSizeSettingsModel: [
-        {
-            type: "text",
-            name: "Bar",
-            desc: "Sets the radius of the bar in pixels",
-            bind: () => Config.style.radius.bar.normal,
-            width: 60,
-            set: v => Config.style.radius.bar.normal = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Floating Bar",
-            desc: "Sets the radius of the bar when floating in pixels",
-            bind: () => Config.style.radius.bar.floating,
-            width: 60,
-            set: v => Config.style.radius.bar.floating = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Dock",
-            desc: "Sets the radius of the dock in pixels",
-            bind: () => Config.style.radius.dock.normal,
-            width: 60,
-            set: v => Config.style.radius.dock.normal = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Floating Dock",
-            desc: "Sets the radius of the dock when floating in pixels",
-            bind: () => Config.style.radius.dock.floating,
-            width: 60,
-            set: v => Config.style.radius.dock.floating = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Popouts",
-            desc: "Sets the radius of popouts in pixels",
-            bind: () => Config.style.radius.popout,
-            width: 60,
-            set: v => Config.style.radius.popout = parseInt(v)
-        },
-        {
-            type: "text",
-            name: "Widgets",
-            desc: "Sets the radius of the widgets in pixels",
-            bind: () => Config.style.radius.widget,
-            width: 60,
-            set: v => Config.style.radius.widget = parseInt(v)
-        },
-    ]
 
     readonly property var blurSettingsModel: [
         {
@@ -182,6 +31,7 @@ ColumnLayout {
             type: "switch",
             name: "Widgets",
             desc: "Enable blur for widgets",
+            bind: () => Config.style.blur.widget,
             bind: () => Config.style.blur.widget,
             set: v => Config.style.blur.widget = v
         },
@@ -198,81 +48,219 @@ ColumnLayout {
             desc: "Enable blur for popouts",
             bind: () => Config.style.blur.popout,
             set: v => Config.style.blur.popout = v
-        },
+        }
     ]
 
-    component SettingsGroup: ColumnLayout {
-        id: groupRoot
-
-        property string groupTitle: ""
-        property var modelData: []
-        Layout.fillWidth: true
-        spacing: 15
-
-        TabHeader {
-            text: groupTitle
+    readonly property var fontSizeSettingsModel: [
+        {
+            type: "slider",
+            name: "Small",
+            desc: "Sets the custom height of the font in pixels",
+            bind: () => Config.style.font.size.small,
+            min: 8,
+            max: 24,
+            step: 1,
+            set: v => Config.style.font.size.small = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Medium",
+            desc: "Sets the custom height of the font in pixels",
+            bind: () => Config.style.font.size.medium,
+            min: 10,
+            max: 32,
+            step: 1,
+            set: v => Config.style.font.size.medium = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Big",
+            desc: "Sets the custom height of the font in pixels",
+            bind: () => Config.style.font.size.big,
+            min: 14,
+            max: 48,
+            step: 1,
+            set: v => Config.style.font.size.big = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Icon",
+            desc: "Sets the custom height of the font in pixels",
+            bind: () => Config.style.font.size.icon,
+            min: 12,
+            max: 48,
+            step: 1,
+            set: v => Config.style.font.size.icon = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Icon Small",
+            desc: "Sets the custom height of the font in pixels",
+            bind: () => Config.style.font.size.icon_small,
+            min: 8,
+            max: 24,
+            step: 1,
+            set: v => Config.style.font.size.icon_small = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Icon Medium",
+            desc: "Sets the custom height of the font in pixels",
+            bind: () => Config.style.font.size.icon_medium,
+            min: 10,
+            max: 32,
+            step: 1,
+            set: v => Config.style.font.size.icon_medium = Math.round(v)
         }
+    ]
 
-        Repeater {
-            model: groupRoot.modelData
-
-            delegate: SettingsEntry {
-                name: modelData.name
-                description: modelData.desc
-
-                Loader {
-                    sourceComponent: {
-                        if (modelData.type === "switch")
-                            return switchComponent;
-                        if (modelData.type === "text")
-                            return textComponent;
-                        return null;
-                    }
-
-                    property var setting: modelData
-
-                    Layout.alignment: Qt.AlignRight
-                }
-            }
+    readonly property var borderSizeSettingsModel: [
+        {
+            type: "slider",
+            name: "Bar",
+            desc: "Sets the border size of the bar in pixels",
+            bind: () => Config.style.borders.bar.normal,
+            min: 0,
+            max: 10,
+            step: 1,
+            set: v => Config.style.borders.bar.normal = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Floating Bar",
+            desc: "Sets the border size of the bar when floating in pixels",
+            bind: () => Config.style.borders.bar.floating,
+            min: 0,
+            max: 10,
+            step: 1,
+            set: v => Config.style.borders.bar.floating = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Dock",
+            desc: "Sets the border size of the dock in pixels",
+            bind: () => Config.style.borders.dock.normal,
+            min: 0,
+            max: 10,
+            step: 1,
+            set: v => Config.style.borders.dock.normal = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Floating Dock",
+            desc: "Sets the border size of the dock when floating in pixels",
+            bind: () => Config.style.borders.dock.floating,
+            min: 0,
+            max: 10,
+            step: 1,
+            set: v => Config.style.borders.dock.floating = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Popouts",
+            desc: "Sets the border size of popouts in pixels",
+            bind: () => Config.style.borders.popout,
+            min: 0,
+            max: 10,
+            step: 1,
+            set: v => Config.style.borders.popout = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Widgets",
+            desc: "Sets the border size of the widgets in pixels",
+            bind: () => Config.style.borders.widget,
+            min: 0,
+            max: 10,
+            step: 1,
+            set: v => Config.style.borders.widget = Math.round(v)
         }
+    ]
+
+    readonly property var radiusSizeSettingsModel: [
+        {
+            type: "slider",
+            name: "Bar",
+            desc: "Sets the radius of the bar in pixels",
+            bind: () => Config.style.radius.bar.normal,
+            min: 0,
+            max: 30,
+            step: 1,
+            set: v => Config.style.radius.bar.normal = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Floating Bar",
+            desc: "Sets the radius of the bar when floating in pixels",
+            bind: () => Config.style.radius.bar.floating,
+            min: 0,
+            max: 30,
+            step: 1,
+            set: v => Config.style.radius.bar.floating = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Dock",
+            desc: "Sets the radius of the dock in pixels",
+            bind: () => Config.style.radius.dock.normal,
+            min: 0,
+            max: 30,
+            step: 1,
+            set: v => Config.style.radius.dock.normal = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Floating Dock",
+            desc: "Sets the radius of the dock when floating in pixels",
+            bind: () => Config.style.radius.dock.floating,
+            min: 0,
+            max: 30,
+            step: 1,
+            set: v => Config.style.radius.dock.floating = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Popouts",
+            desc: "Sets the radius of popouts in pixels",
+            bind: () => Config.style.radius.popout,
+            min: 0,
+            max: 30,
+            step: 1,
+            set: v => Config.style.radius.popout = Math.round(v)
+        },
+        {
+            type: "slider",
+            name: "Widgets",
+            desc: "Sets the radius of the widgets in pixels",
+            bind: () => Config.style.radius.widget,
+            min: 0,
+            max: 30,
+            step: 1,
+            set: v => Config.style.radius.widget = Math.round(v)
+        }
+    ]
+
+    SettingsGroup {
+        groupTitle: "Blur"
+        modelData: root.blurSettingsModel
+        searchQuery: root.searchQuery
     }
 
     SettingsGroup {
         groupTitle: "Font Size"
         modelData: root.fontSizeSettingsModel
+        searchQuery: root.searchQuery
     }
 
     SettingsGroup {
         groupTitle: "Border Size"
         modelData: root.borderSizeSettingsModel
+        searchQuery: root.searchQuery
     }
 
     SettingsGroup {
         groupTitle: "Radius Size"
         modelData: root.radiusSizeSettingsModel
-    }
-
-    SettingsGroup {
-        groupTitle: "Blur"
-        modelData: root.blurSettingsModel
-    }
-
-    Component {
-        id: switchComponent
-        StyledSwitch {
-            checked: setting.bind()
-            onCheckedChanged: setting.set(checked)
-        }
-    }
-
-    Component {
-        id: textComponent
-        StyledTextField {
-            text: setting.bind().toString()
-            placeholderText: "Enter value..."
-            onEditingFinished: setting.set(text)
-
-            implicitWidth: setting.width !== undefined ? setting.width : 150
-        }
+        searchQuery: root.searchQuery
     }
 }
