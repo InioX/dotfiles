@@ -85,6 +85,7 @@ Singleton {
     component Style: JsonObject {
         property JsonObject font: JsonObject {
             property JsonObject size: JsonObject {
+                property int smallest: 12
                 property int small: 14
                 property int medium: 16
                 property int big: 20
@@ -127,10 +128,10 @@ Singleton {
         }
 
         property JsonObject blur: JsonObject {
-            property bool bar: true
-            property bool widget: true
-            property bool dock: true
-            property bool popout: true
+            property bool bar: false
+            property bool widget: false
+            property bool dock: false
+            property bool popout: false
         }
 
         property JsonObject transparency: JsonObject {
