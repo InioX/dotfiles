@@ -78,7 +78,8 @@ Singleton {
         }
 
         if (Compositors.isHyprland) {
-            return Hyprland.focusedWorkspace.hasFullscreen;
+            // Have to use Hyprland.activeToplevel.wayland.fullscreen because special workspaces dont work with the first one
+            return Hyprland.focusedWorkspace.hasFullscreen || Hyprland.activeToplevel.wayland.fullscreen;
         }
 
         return false;
