@@ -134,6 +134,10 @@
       "systemd.show_status=auto"
       "ntsync"
       "preempt=full"
+      "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+      "nvidia.NVreg_EnableS0ixPowerManagement=1"
+      "nvidia_drm.modeset=1"
+      "nvidia_drm.fbdev=1"
     ];
 
     plymouth = {
