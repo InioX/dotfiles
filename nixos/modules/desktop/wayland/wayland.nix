@@ -62,6 +62,10 @@ in
       brightnessctl
     ];
 
+    zenyte.apps = {
+      gpu-screen-recorder = enabled;
+    };
+
     zenyte.desktop.addons = {
       waybar = disabled;
       kitty = enabled;
