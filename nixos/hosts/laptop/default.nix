@@ -74,12 +74,13 @@ with lib.zenyte;
     # xfce.enable = true;
     # awesome.enable = true;
     # kde = enabled;
-    # hyprland = enabled;
+    hyprland = enabled;
     niri = enabled;
   };
 
   zenyte.browsers = {
     brave = disabled;
+    zen = enabled;
     chromium = disabled;
 
     firefox = {
