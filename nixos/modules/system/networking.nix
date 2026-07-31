@@ -28,6 +28,7 @@ in
       ];
       networkmanager = {
         enable = true;
+        dns = "none";
         wifi = {
           powersave = false;
           # backend = "iwd";
