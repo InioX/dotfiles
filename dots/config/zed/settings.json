@@ -7,6 +7,13 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "tabs": {
+    "git_status": true,
+    "file_icons": true
+  },
+  "status_bar": {
+    "show_active_file": false
+  },
   "format_on_save": "on",
   "cli_default_open_behavior": "existing_window",
   "disable_ai": true,
@@ -35,6 +42,10 @@
   },
   "colorize_brackets": true,
   "project_panel": {
+    "file_icons": true,
+    "scrollbar": {
+      "horizontal_scroll": false
+    },
     "diagnostic_badges": true,
     "git_status_indicator": true,
     "dock": "right",
@@ -43,7 +54,7 @@
     "enabled": false,
   },
   "buffer_font_family": "Iosevka Nerd Font Mono",
-  "icon_theme": "Material Icon Theme",
+  "icon_theme": "VSCode Icons for Zed (Dark Official Icons)",
   "redact_private_values": false,
   "telemetry": {
     "diagnostics": false,
