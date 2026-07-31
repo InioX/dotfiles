@@ -1,7 +1,9 @@
 import Quickshell
+import Quickshell.Wayland
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Effects
 import qs.services
 import qs.modules.shared
 import qs.modules.settings.tabs
@@ -22,8 +24,22 @@ FloatingWindow {
 
     property string settingsTab: "bar"
 
+    BackgroundEffect.blurRegion: Config.style.blur.popout ? blurRegionDefinition : null
+
+    Region {
+        id: blurRegionDefinition
+        item: !Compositors.isHyprland ? rect : null
+        radius: rect.radius
+    }
+
     StyledRoundRect {
+        id: rect
+
         anchors.fill: parent
+
+        radius: Config.style.radius.popout
+
+        color: Colors.getPopoutWidgetColor(Colors.md3.surface_container_low)
 
         ColumnLayout {
             anchors.fill: parent
@@ -33,7 +49,8 @@ FloatingWindow {
                 Layout.fillWidth: true
                 height: 40
 
-                color: Colors.md3.surface_container
+                color: "transparent"
+
                 topLeftRadius: parent.parent.radius !== undefined ? parent.parent.radius : 0
                 topRightRadius: parent.parent.radius !== undefined ? parent.parent.radius : 0
 
@@ -50,7 +67,7 @@ FloatingWindow {
                         Layout.preferredHeight: 40
                         Layout.rightMargin: 4
 
-                        color: closeButtonMouseArea.containsMouse ? Colors.md3.surface_container_high : "transparent"
+                        color: closeButtonMouseArea.containsMouse ? Colors.getPopoutWidgetColor(Colors.md3.surface_container_high) : "transparent"
                         radius: Config.style.radius.widget
 
                         StyledText {
@@ -75,14 +92,20 @@ FloatingWindow {
                 id: mainBody
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                Layout.margins: 20
+                Layout.leftMargin: 20
+                Layout.rightMargin: 20
+                Layout.bottomMargin: 20
                 spacing: 20
 
-                Item {
-                    implicitWidth: 60
+                Rectangle {
+                    implicitWidth: 50
                     Layout.fillHeight: true
+                    radius: Config.style.radius.popout
+
+                    color: "transparent"
 
                     StyledFabButton {
+                        id: fab
                         anchors.horizontalCenter: parent.horizontalCenter
 
                         buttonIcon: "󰠘"
@@ -197,45 +220,54 @@ FloatingWindow {
                 //     color: Colors.md3.outline_variant
                 // }
 
-                ColumnLayout {
-                    id: settingsScrollView
-
+                Rectangle {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    color: Colors.getPopoutWidgetColor(Colors.md3.surface)
 
-                    StyledSearch {
-                        id: searchInput
-                        Layout.bottomMargin: 10
-                    }
+                    radius: Config.style.radius.popout
 
-                    ScrollView {
-                        id: mainScrollView
+                    ColumnLayout {
+                        id: settingsScrollView
 
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
+                        anchors.fill: parent
+                        anchors.margins: 20
 
-                        clip: true
-                        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-                        ScrollBar.vertical.policy: ScrollBar.AlwaysOn
-                        ScrollBar.vertical.implicitWidth: 8
+                        StyledSearch {
+                            id: searchInput
+                            Layout.bottomMargin: 10
+                            color: Colors.getPopoutWidgetColor(Colors.md3.surface_container)
+                        }
 
-                        rightPadding: 16
+                        ScrollView {
+                            id: mainScrollView
 
-                        contentHeight: (settingsTabLoader.item ? settingsTabLoader.item.implicitHeight : 0) + 20
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
 
-                        Loader {
-                            id: settingsTabLoader
+                            clip: true
+                            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+                            ScrollBar.vertical.policy: ScrollBar.AlwaysOn
+                            ScrollBar.vertical.implicitWidth: 8
 
-                            width: mainScrollView.availableWidth
+                            rightPadding: 16
 
-                            sourceComponent: {
-                                if (root.settingsTab === "bar")
-                                    return barTabComponent;
-                                if (root.settingsTab === "dock")
-                                    return dockTabComponent;
-                                if (root.settingsTab === "style")
-                                    return styleTabComponent;
-                                return null;
+                            contentHeight: (settingsTabLoader.item ? settingsTabLoader.item.implicitHeight : 0) + 20
+
+                            Loader {
+                                id: settingsTabLoader
+
+                                width: mainScrollView.availableWidth
+
+                                sourceComponent: {
+                                    if (root.settingsTab === "bar")
+                                        return barTabComponent;
+                                    if (root.settingsTab === "dock")
+                                        return dockTabComponent;
+                                    if (root.settingsTab === "style")
+                                        return styleTabComponent;
+                                    return null;
+                                }
                             }
                         }
                     }

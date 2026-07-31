@@ -329,7 +329,7 @@ Item {
 
                     model: filtered.values
                     currentIndex: filtered.values.length > 0 ? 0 : -1
-                    highlightColor: Colors.getPopoutWidgetColor(Colors.md3.surface_container_high)
+                    highlightColor: Colors.getPopoutWidgetColor(Colors.md3.surface_container)
 
                     delegate: Item {
                         id: listDelegate

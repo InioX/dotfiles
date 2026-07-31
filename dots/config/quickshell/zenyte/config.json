@@ -3,7 +3,7 @@
         "bottom": false,
         "color_widget_background": false,
         "floating": true,
-        "full_width": true,
+        "full_width": false,
         "height": 60,
         "margins": {
             "floating": 10,
@@ -47,15 +47,16 @@
             "firefox",
             "Overwatch",
             "Genshin",
-            "honkers-railway-launcher"
+            "honkers-railway-launcher",
+            "dev.zed.Zed"
         ]
     },
     "style": {
         "blur": {
-            "bar": true,
-            "dock": true,
-            "popout": true,
-            "widget": true
+            "bar": false,
+            "dock": false,
+            "popout": false,
+            "widget": false
         },
         "borders": {
             "bar": {
@@ -77,7 +78,8 @@
                 "icon_medium": 26,
                 "icon_small": 22,
                 "medium": 16,
-                "small": 14
+                "small": 14,
+                "smallest": 12
             }
         },
         "radius": {
@@ -98,7 +100,7 @@
         },
         "transparency": {
             "blur_enabled": {
-                "bar": 0.7,
+                "bar": 0.7000000000000001,
                 "dock": 0.7,
                 "popout": 0.7,
                 "popout_widget": 0.5,

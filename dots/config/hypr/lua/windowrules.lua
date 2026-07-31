@@ -37,6 +37,7 @@ hl.window_rule({
   opacity = 0.75,
   keep_aspect_ratio = true,
   size = { 420,263 },
+  -- size = { 263,420 },
   float = true,
   pin = true,
   no_blur = true,
@@ -62,13 +63,22 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    name = "nautilus_float",
     match = {
         class = "^(org.gnome.Nautilus|nautilus)$",
     },
     float = true,
     center = true,
 })
+
+hl.window_rule({
+    match = {
+        initial_title = "Zenyte Settings",
+    },
+    size = { 800,700 },
+    float = true,
+    center = true,
+})
+
 -- Layer rules also return a handle.
 -- local overlayLayerRule = hl.layer_rule({
 --     name  = "no-anim-overlay",

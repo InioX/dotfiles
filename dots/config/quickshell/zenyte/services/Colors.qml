@@ -17,11 +17,10 @@ Singleton {
     }
 
     function getPopoutWidgetColor(color) {
-        let alpha = Config.style.blur.bar ? Config.style.transparency.blur_enabled.widget : Config.style.transparency.normal.widget;
+        let alpha = Config.style.blur.popout ? Config.style.transparency.blur_enabled.widget : Config.style.transparency.normal.widget;
 
         return Colors.getColorWithAlpha(color, alpha);
     }
-
 
     function getColorWithAlpha(hexColor, alpha) {
         let c = Qt.color(hexColor);

@@ -19,6 +19,92 @@ ColumnLayout {
         }
     }
 
+    readonly property var transparencyBlurEnabledSettingsModel: [
+        {
+            type: "slider",
+            name: "Bar",
+            desc: "Sets the transparency of the bar when blur is enabled",
+            bind: () => Config.style.transparency.blur_enabled.bar,
+            min: 0.1,
+            max: 1.0,
+            step: 0.05,
+            set: v => Config.style.transparency.blur_enabled.bar = v
+        },
+        {
+            type: "slider",
+            name: "Bar",
+            desc: "Sets the transparency of widgets when blur is enabled",
+            bind: () => Config.style.transparency.blur_enabled.widget,
+            min: 0.1,
+            max: 1.0,
+            step: 0.05,
+            set: v => Config.style.transparency.blur_enabled.widget = v
+        },
+        {
+            type: "slider",
+            name: "Bar",
+            desc: "Sets the transparency of the dock when blur is enabled",
+            bind: () => Config.style.transparency.blur_enabled.dock,
+            min: 0.1,
+            max: 1.0,
+            step: 0.05,
+            set: v => Config.style.transparency.blur_enabled.dock = v
+        },
+        {
+            type: "slider",
+            name: "Bar",
+            desc: "Sets the transparency of popouts when blur is enabled",
+            bind: () => Config.style.transparency.blur_enabled.popout,
+            min: 0.1,
+            max: 1.0,
+            step: 0.05,
+            set: v => Config.style.transparency.blur_enabled.popout = v
+        },
+        {
+            type: "slider",
+            name: "Bar",
+            desc: "Sets the transparency of widgets in popouts when blur is enabled",
+            bind: () => Config.style.transparency.blur_enabled.popout_widget,
+            min: 0.1,
+            max: 1.0,
+            step: 0.05,
+            set: v => Config.style.transparency.blur_enabled.popout_widget = v
+        },
+    ]
+
+    readonly property var transparencySettingsModel: [
+        {
+            type: "slider",
+            name: "Bar",
+            desc: "Sets the transparency of the bar when blur is not enabled",
+            bind: () => Config.style.transparency.normal.bar,
+            min: 0.1,
+            max: 1.0,
+            step: 0.05,
+            set: v => Config.style.transparency.normal.bar = v
+        },
+        {
+            type: "slider",
+            name: "Dock",
+            desc: "Sets the transparency of the dock when blur is not enabled",
+            bind: () => Config.style.transparency.normal.dock,
+            min: 0.1,
+            max: 1.0,
+            step: 0.05,
+            set: v => Config.style.transparency.normal.dock = v
+        },
+        {
+            type: "slider",
+            name: "Bar",
+            desc: "Sets the transparency of the popouts when blur is not enabled",
+            bind: () => Config.style.transparency.normal.popout,
+            min: 0.1,
+            max: 1.0,
+            step: 0.05,
+            set: v => Config.style.transparency.normal.popout = v
+        }
+    ]
+
     readonly property var blurSettingsModel: [
         {
             type: "switch",
@@ -239,6 +325,18 @@ ColumnLayout {
             set: v => Config.style.radius.widget = Math.round(v)
         }
     ]
+
+    SettingsGroup {
+        groupTitle: "Transparency (Blur Enabled)"
+        modelData: root.transparencyBlurEnabledSettingsModel
+        searchQuery: root.searchQuery
+    }
+
+    SettingsGroup {
+        groupTitle: "Transparency"
+        modelData: root.transparencySettingsModel
+        searchQuery: root.searchQuery
+    }
 
     SettingsGroup {
         groupTitle: "Blur"

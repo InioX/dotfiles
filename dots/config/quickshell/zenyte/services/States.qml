@@ -78,8 +78,9 @@ Singleton {
         }
 
         if (Compositors.isHyprland) {
+            // TODO: Fix the warning about wayland being null
             // Have to use Hyprland.activeToplevel.wayland.fullscreen because special workspaces dont work with the first one
-            return Hyprland.focusedWorkspace.hasFullscreen || Hyprland.activeToplevel.wayland.fullscreen;
+            return Hyprland.focusedWorkspace.hasFullscreen || Hyprland.activeToplevel?.wayland?.fullscreen;
         }
 
         return false;

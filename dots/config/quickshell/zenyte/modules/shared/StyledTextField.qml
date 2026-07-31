@@ -7,6 +7,9 @@ import qs.modules.shared
 TextField {
     id: root
 
+    property color backgroundColor: Colors.md3.surface_container
+    property color activeBackgroundColor: Colors.md3.surface_container_high
+
     color: Colors.md3.on_surface
     placeholderTextColor: Colors.getColorWithAlpha(Colors.md3.on_surface, 0.5)
     selectedTextColor: Colors.md3.on_primary
@@ -29,10 +32,8 @@ TextField {
 
         color: {
             if (root.activeFocus)
-                return Colors.md3.surface_container_high;
-            if (root.hovered)
-                return Colors.getColorWithAlpha(Colors.md3.surface_container, 0.8);
-            return Colors.md3.surface_container;
+                return root.activeBackgroundColor;
+            return root.backgroundColor;
         }
 
         border.color: root.activeFocus ? Colors.md3.primary : "transparent"

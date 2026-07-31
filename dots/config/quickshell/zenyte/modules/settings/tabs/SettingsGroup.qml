@@ -76,6 +76,8 @@ ColumnLayout {
     Component {
         id: switchComponent
         StyledSwitch {
+            inactiveTrackColor: Colors.getPopoutWidgetColor(Colors.md3.surface_container_high)
+
             checked: setting.bind()
             onCheckedChanged: setting.set(checked)
         }
@@ -84,6 +86,9 @@ ColumnLayout {
     Component {
         id: textComponent
         StyledTextField {
+            backgroundColor: Colors.getPopoutWidgetColor(Colors.md3.surface_container)
+            activeBackgroundColor: Colors.getPopoutWidgetColor(Colors.md3.surface_container_high)
+
             text: setting.bind().toString()
             placeholderText: "Enter value..."
             onEditingFinished: setting.set(text)
@@ -95,6 +100,8 @@ ColumnLayout {
     Component {
         id: sliderComponent
         StyledSlider {
+            backgroundColor: Colors.getPopoutWidgetColor(Colors.md3.surface_container_high)
+
             value: setting.bind()
             from: setting.min !== undefined ? setting.min : 0
             to: setting.max !== undefined ? setting.max : 100
@@ -107,7 +114,17 @@ ColumnLayout {
     Component {
         id: sliderInputComponent
         StyledTextField {
-            text: Math.round(setting.bind()).toString()
+            // TODO: Make sure floats dont have too many decimal places
+            property real minVal: setting.min !== undefined ? setting.min : 0
+            property real maxVal: setting.min !== undefined ? setting.max : 0
+
+            backgroundColor: Colors.getPopoutWidgetColor(Colors.md3.surface_container)
+            activeBackgroundColor: Colors.getPopoutWidgetColor(Colors.md3.surface_container_high)
+
+            text: {
+                let temp = (minVal == 0.0 && maxVal == 1.0) ? Math.round(setting.bind()) : setting.bind();
+                temp.toString();
+            }
             placeholderText: "Value"
             implicitWidth: Math.max(40, contentWidth + leftPadding + rightPadding)
 
@@ -116,11 +133,13 @@ ColumnLayout {
             onEditingFinished: {
                 let val = parseFloat(text);
                 if (!isNaN(val)) {
-                    let minVal = setting.min !== undefined ? setting.min : 0;
-                    let maxVal = setting.max !== undefined ? setting.max : 100;
-
                     val = Math.max(minVal, Math.min(maxVal, val));
                     setting.set(val);
+
+                    if (minVal == 0.0 && maxVal == 1.0) {
+                        return text = val.toString();
+                    }
+
                     text = Math.round(val).toString();
                 } else {
                     text = Math.round(setting.bind()).toString();
