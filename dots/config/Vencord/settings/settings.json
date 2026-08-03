@@ -103,7 +103,7 @@
             "enabled": false
         },
         "BetterSettings": {
-            "enabled": false,
+            "enabled": true,
             "disableFade": true,
             "organizeMenu": true,
             "eagerLoad": true
@@ -118,7 +118,8 @@
             "enabled": false
         },
         "CallTimer": {
-            "enabled": true
+            "enabled": true,
+            "format": "stopwatch"
         },
         "CharacterCounter": {
             "enabled": true,
@@ -161,7 +162,23 @@
             "enabled": false
         },
         "CustomRPC": {
-            "enabled": false
+            "enabled": true,
+            "type": 0,
+            "appName": "Genshin Impact",
+            "timestampMode": 3,
+            "startTime": 31556952000,
+            "endTime": 32000000000,
+            "appID": "1530649015908303011",
+            "details": "Currently resinless (0.01/200)",
+            "detailsURL": "",
+            "state": "Lost all 50/50 (Jean Curse)",
+            "partySize": 0,
+            "partyMaxSize": 0,
+            "buttonOneText": "Donate primos",
+            "buttonOneURL": "https://i.pinimg.com/736x/84/ce/9f/84ce9fb1c8acabed23697feb99b1dc42.jpg",
+            "imageSmall": "https://i.pinimg.com/736x/d6/bb/00/d6bb00a34fe55a4e5afaae773b532d3d.jpg",
+            "buttonTwoText": "Blow me",
+            "buttonTwoURL": "https://i.pinimg.com/736x/12/54/ed/1254edc9de4e2e4accbd69b5a7483f60.jpg"
         },
         "Dearrow": {
             "enabled": false
@@ -269,9 +286,6 @@
             "enabled": false
         },
         "KeepCurrentChannel": {
-            "enabled": false
-        },
-        "LastFMRichPresence": {
             "enabled": false
         },
         "LoadingQuotes": {
@@ -597,6 +611,9 @@
         },
         "SupportHelper": {
             "enabled": true
+        },
+        "MusicRichPresence": {
+            "enabled": false
         }
     },
     "uiElements": {
@@ -613,6 +630,7 @@
         "authenticated": false,
         "url": "https://api.vencord.dev/",
         "settingsSync": false,
-        "settingsSyncVersion": 1781335811949
-    }
+        "settingsSyncVersion": 1785780688170
+    },
+    "windowsMaterial": "none"
 }
