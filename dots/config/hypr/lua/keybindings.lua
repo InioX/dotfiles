@@ -29,8 +29,8 @@ for i = 1, 10 do
 end
 
 -- Terminal special workspace
-hl.bind(mainMod .. " + E",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + E", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(mainMod .. " + TAB",         hl.dsp.workspace.toggle_special("popout"))
+hl.bind(mainMod .. " + SHIFT + TAB", hl.dsp.window.move({ workspace = "special:popout" }))
 
 hl.bind(mainMod .. " + V",         hl.dsp.workspace.toggle_special("video"))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.move({ workspace = "special:video" }))

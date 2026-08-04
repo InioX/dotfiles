@@ -1,3 +1,20 @@
+hl.workspace_rule({
+    workspace = "special:popout",
+    gaps_out = 20,
+    gaps_in = 0,
+    on_created_empty = "kitty --class popout_kitty"
+})
+
+hl.window_rule({
+    match = {
+        class = "popout_kitty",
+    },
+    opacity = 0.8,
+    float = true,
+    center = true,
+    dim_around = true,
+})
+
 local suppressMaximizeRule = hl.window_rule({
     -- Ignore maximize requests from all apps. You'll probably like this.
     name  = "suppress-maximize-events",

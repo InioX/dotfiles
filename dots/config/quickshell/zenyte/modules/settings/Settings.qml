@@ -266,6 +266,8 @@ FloatingWindow {
                                         return dockTabComponent;
                                     if (root.settingsTab === "style")
                                         return styleTabComponent;
+                                    if (root.settingsTab === "general")
+                                        return generalTabComponent;
                                     return null;
                                 }
                             }
@@ -293,6 +295,13 @@ FloatingWindow {
     Component {
         id: styleTabComponent
         StyleSettings {
+            searchQuery: searchInput.text
+        }
+    }
+
+    Component {
+        id: generalTabComponent
+        GeneralSettings {
             searchQuery: searchInput.text
         }
     }

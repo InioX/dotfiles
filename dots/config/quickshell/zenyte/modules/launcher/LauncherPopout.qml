@@ -60,6 +60,13 @@ Item {
         return pinnedAppIds.indexOf(appId) !== -1;
     }
 
+    function openProject(editorCmd, projectPath) {
+        let parts = editorCmd.trim().split(/\s+/);
+        parts.push(projectPath);
+
+        Quickshell.execDetached(parts);
+    }
+
     StyledPopout {
         id: popout
 
@@ -264,8 +271,7 @@ Item {
                                 if (States.launcherTab === "apps") {
                                     list.currentItem.modelData.execute();
                                 } else {
-                                    projectOpener.command[1] = list.currentItem.modelData.path;
-                                    projectOpener.running = true;
+                                    root.openProject(Config.launcher.editor_command, list.currentItem.modelData.path);
                                 }
                                 root.isOpen = false;
                             }
@@ -347,8 +353,7 @@ Item {
                                 if (States.launcherTab === "apps") {
                                     listDelegate.modelData.execute();
                                 } else {
-                                    projectOpener.command[1] = listDelegate.modelData.path;
-                                    projectOpener.running = true;
+                                    root.openProject(Config.launcher.editor_command, list.currentItem.modelData.path);
                                 }
                                 root.isOpen = false;
                             }
@@ -444,12 +449,6 @@ Item {
                     color: Colors.md3.on_surface
                     Layout.alignment: Qt.AlignHCenter
                 }
-            }
-
-            Process {
-                id: projectOpener
-
-                command: ["zeditor", ""]
             }
         }
     }

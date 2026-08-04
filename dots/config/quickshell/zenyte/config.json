@@ -42,6 +42,7 @@
         }
     },
     "launcher": {
+        "editor_command": "kitty -e hx",
         "pinned_apps": [
             "discord",
             "firefox",

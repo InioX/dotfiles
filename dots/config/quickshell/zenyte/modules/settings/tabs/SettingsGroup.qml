@@ -53,6 +53,8 @@ ColumnLayout {
                             return textComponent;
                         if (modelData.type === "slider")
                             return sliderInputComponent;
+                        if (modelData.type === "combo")
+                            return comboComponent;
                         return null;
                     }
 
@@ -144,6 +146,35 @@ ColumnLayout {
                 } else {
                     text = Math.round(setting.bind()).toString();
                 }
+            }
+        }
+    }
+
+    Component {
+        id: comboComponent
+        ComboBox {
+            id: combo
+            model: setting.options !== undefined ? setting.options : []
+            textRole: "label"
+            valueRole: "command"
+
+            implicitWidth: setting.width !== undefined ? setting.width : 150
+
+            // Find current index based on the bound command string
+            currentIndex: {
+                let currentCmd = setting.bind();
+                if (!model)
+                    return 0;
+                for (let i = 0; i < model.length; i++) {
+                    if (model[i].command === currentCmd)
+                        return i;
+                }
+                return 0;
+            }
+
+            onActivated: index => {
+                let selectedCommand = model[index].command;
+                setting.set(selectedCommand);
             }
         }
     }
