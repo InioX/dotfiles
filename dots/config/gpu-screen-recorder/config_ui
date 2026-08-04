@@ -13,7 +13,7 @@ record.pause_unpause_hotkey 92 16
 record.record_options.advanced_view false
 record.record_options.audio_codec opus
 record.record_options.audio_track_item false [add_audio_track]
-record.record_options.audio_track_item false default_output
+record.record_options.audio_track_item false device:default_output
 record.record_options.change_video_resolution false
 record.record_options.codec auto
 record.record_options.color_range limited
@@ -22,17 +22,17 @@ record.record_options.fps 60
 record.record_options.framerate_mode auto
 record.record_options.low_power_mode false
 record.record_options.overclock false
-record.record_options.record_area_height 0
+record.record_options.record_area_height 1080
 record.record_options.record_area_option focused_monitor
-record.record_options.record_area_width 0
+record.record_options.record_area_width 1920
 record.record_options.record_cursor true
 record.record_options.restore_portal_session true
 record.record_options.show_notifications true
 record.record_options.use_led_indicator false
 record.record_options.video_bitrate 40000
-record.record_options.video_height 0
+record.record_options.video_height 1080
 record.record_options.video_quality very_high
-record.record_options.video_width 0
+record.record_options.video_width 1920
 record.record_options.webcam_camera_fps 0
 record.record_options.webcam_camera_height 0
 record.record_options.webcam_camera_width 0
@@ -50,14 +50,14 @@ record.start_stop_region_hotkey 94 4
 record.start_stop_window_hotkey 94 1
 replay.container mp4
 replay.only_start_replay_if_power_supply_connected false
-replay.record_options.advanced_view false
+replay.record_options.advanced_view true
 replay.record_options.audio_codec opus
 replay.record_options.audio_track_item false [add_audio_track]
 replay.record_options.audio_track_item false device:default_output
 replay.record_options.change_video_resolution false
 replay.record_options.codec auto
 replay.record_options.color_range limited
-replay.record_options.enable_vulkan_video_encoding false
+replay.record_options.enable_vulkan_video_encoding true
 replay.record_options.fps 60
 replay.record_options.framerate_mode auto
 replay.record_options.low_power_mode false
@@ -96,9 +96,9 @@ replay.turn_on_replay_automatically_mode dont_turn_on_automatically
 screenshot.change_image_resolution false
 screenshot.custom_script 
 screenshot.image_format jpg
-screenshot.image_height 0
+screenshot.image_height 1080
 screenshot.image_quality very_high
-screenshot.image_width 0
+screenshot.image_width 1920
 screenshot.record_area_option focused_monitor
 screenshot.record_cursor true
 screenshot.restore_portal_session true
@@ -119,7 +119,7 @@ streaming.kick.url
 streaming.record_options.advanced_view false
 streaming.record_options.audio_codec opus
 streaming.record_options.audio_track_item false [add_audio_track]
-streaming.record_options.audio_track_item false default_output
+streaming.record_options.audio_track_item false device:default_output
 streaming.record_options.change_video_resolution false
 streaming.record_options.codec auto
 streaming.record_options.color_range limited
@@ -128,17 +128,17 @@ streaming.record_options.fps 60
 streaming.record_options.framerate_mode auto
 streaming.record_options.low_power_mode false
 streaming.record_options.overclock false
-streaming.record_options.record_area_height 0
+streaming.record_options.record_area_height 1080
 streaming.record_options.record_area_option focused_monitor
-streaming.record_options.record_area_width 0
+streaming.record_options.record_area_width 1920
 streaming.record_options.record_cursor true
 streaming.record_options.restore_portal_session true
 streaming.record_options.show_notifications true
 streaming.record_options.use_led_indicator false
 streaming.record_options.video_bitrate 8000
-streaming.record_options.video_height 0
+streaming.record_options.video_height 1080
 streaming.record_options.video_quality custom
-streaming.record_options.video_width 0
+streaming.record_options.video_width 1920
 streaming.record_options.webcam_camera_fps 0
 streaming.record_options.webcam_camera_height 0
 streaming.record_options.webcam_camera_width 0
