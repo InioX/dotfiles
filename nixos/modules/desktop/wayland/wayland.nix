@@ -47,7 +47,7 @@ in
 
       nwg-look
 
-      # wl-clipboard
+      wl-clipboard
       wl-clip-persist
       cliphist
       wf-recorder
