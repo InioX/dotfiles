@@ -125,6 +125,78 @@ in
               };
             }) extensions
           );
+          Bookmarks = [
+            {
+              Title = "P-Stream";
+              URL = "https://pstream.net/";
+              Placement = "toolbar";
+            }
+            {
+              Title = "YouTube";
+              URL = "https://www.youtube.com/";
+              Placement = "toolbar";
+            }
+            {
+              Title = "YouTube Music";
+              URL = "https://www.music.youtube.com/";
+              Placement = "toolbar";
+            }
+            {
+              Title = "Gmail";
+              URL = "https://mail.google.com/mail/u/3/";
+              Placement = "toolbar";
+            }
+            {
+              Title = "Google Translate";
+              URL = "https://translate.google.com/?sl=auto&tl=en&op=translate";
+              Placement = "toolbar";
+            }
+            {
+              Title = "FitGirl Repacks";
+              URL = "https://fitgirl-repacks.site/";
+              Placement = "toolbar";
+            }
+            {
+              Title = "CS.RIN.RU";
+              URL = "https://cs.rin.ru/forum/";
+              Placement = "toolbar";
+            }
+            {
+              Title = "FMHY";
+              URL = "https://fmhy.net/video";
+              Placement = "toolbar";
+            }
+            {
+              Title = "YarrList";
+              URL = "https://yarrlist.net/";
+              Placement = "toolbar";
+            }
+            {
+              Title = "Bitwarden Vault";
+              URL = "https://vault.bitwarden.com/#/vault";
+              Placement = "toolbar";
+            }
+            {
+              Title = "GitHub";
+              URL = "https://github.com/";
+              Placement = "toolbar";
+            }
+            {
+              Title = "Discord";
+              URL = "https://discord.com/channels/1304762650651000883/1304762650651000886";
+              Placement = "toolbar";
+            }
+            {
+              Title = "Twitch";
+              URL = "https://www.twitch.tv/";
+              Placement = "toolbar";
+            }
+            {
+              Title = "Genshin Map";
+              URL = "https://genshin-impact-map.appsample.com/";
+              Placement = "toolbar";
+            }
+          ];
         };
       };
       profiles = {
@@ -142,70 +214,7 @@ in
 
           id = 0;
           name = "ini";
-          bookmarks = {
-            force = true;
-            settings = [
-              {
-                name = "Stuff";
-                toolbar = true;
-                bookmarks = [
-                  {
-                    name = "P-Stream";
-                    url = "https://pstream.net/";
-                  }
-                  {
-                    name = "YouTube";
-                    url = "https://www.youtube.com/";
-                  }
-                  {
-                    name = "YouTube Music";
-                    url = "https://www.music.youtube.com/";
-                  }
-                  {
-                    name = "Gmail";
-                    url = "https://mail.google.com/mail/u/3/";
-                  }
-                  {
-                    name = "Google Translate";
-                    url = "https://translate.google.com/?sl=auto&tl=en&op=translate";
-                  }
-                  {
-                    name = "FitGirl Repacks";
-                    url = "https://fitgirl-repacks.site/";
-                  }
-                  {
-                    name = "CS.RIN.RU";
-                    url = "https://cs.rin.ru/forum/";
-                  }
-                  {
-                    name = "FMHY";
-                    url = "https://fmhy.net/video";
-                  }
-                  {
-                    name = "YarrList";
-                    url = "https://yarrlist.net/";
-                  }
-                  {
-                    name = "Bitwarden Vault";
-                    url = "https://vault.bitwarden.com/#/vault";
-                  }
-                  {
-                    name = "GitHub";
-                    url = "https://github.com/";
-                  }
-                  {
-                    name = "Discord";
-                    url = "https://discord.com/channels/1304762650651000883/1304762650651000886";
-                  }
-                  {
-                    name = "Twitch";
-                    url = "https://www.twitch.tv/";
-                  }
-                ];
-              }
-            ];
-          };
-
+          isDefault = true;
           search = {
             force = true;
             default = "google";
@@ -254,6 +263,8 @@ in
             "userChrome.TabSeparatorsLowSaturation-Enabled" = true;
             "userChrome.Tabs.Option4.Enabled" = true;
             "userChrome.FilledMenuIcons-Enabled" = true;
+            "browser.bookmarks.showMobileBookmarks" = true;
+            "browser.places.importBookmarksHTML" = true;
           };
           # userChrome = ''
           #  a css
