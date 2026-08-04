@@ -6,9 +6,11 @@
   ...
 }:
 with lib;
-with lib.zenyte; let
+with lib.zenyte;
+let
   cfg = config.zenyte.presets.development;
-in {
+in
+{
   options.zenyte.presets.development = {
     enable = mkBoolOpt false "Whether to enable the development suite.";
   };
@@ -16,11 +18,14 @@ in {
   config = mkIf cfg.enable {
     zenyte.apps = {
       vscodium = {
-        enable = true;
+        enable = false;
         extensions = with pkgs.vscode-extensions; [
         ];
       };
       zed = {
+        enable = true;
+      };
+      helix = {
         enable = true;
       };
     };
