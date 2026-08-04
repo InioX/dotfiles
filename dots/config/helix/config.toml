@@ -2,3 +2,24 @@ theme = "matugen"
 
 [editor]
 bufferline = "multiple"
+auto-format = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[keys.normal]
+C-f = ":format"
+C-g = [
+    ":write-all", 
+    ":new", 
+    ":insert-output lazygit", 
+    ":buffer-close!", 
+    ":redraw", 
+    ":reload-all"
+]
+esc = ["collapse_selection", "keep_primary_selection"]
+
+[keys.normal.space]
+x = ":buffer-close"
