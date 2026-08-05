@@ -3,6 +3,7 @@
   pkgs,
   lib,
   default,
+  inputs,
   ...
 }:
 with lib;
@@ -14,6 +15,10 @@ in
   options.zenyte.gaming.steam = {
     enable = mkBoolOpt false "Whether to enable steam.";
   };
+
+  imports = [
+    inputs.steam-config-nix.nixosModules.default
+  ];
 
   config = mkIf cfg.enable {
     # How to enable Reshade for DBD
@@ -47,6 +52,52 @@ in
         proton-cachyos_x86_64_v3
         # protontricks
       ];
+      config = {
+        enable = true;
+        onSteamRunning = "close";
+        defaultCompatTool = pkgs.proton-cachyos_x86_64_v3;
+
+        apps."Overwatch" = {
+          id = 2357570;
+          launchOptions = {
+            env = {
+              __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
+              PROTON_DLSS_UPGRADE = "1";
+              PROTON_NVIDIA_LIBS_NO_32BIT = "1";
+              PROTON_USE_NTSYNC = "1";
+              PROTON_ENABLE_WAYLAND = "1";
+              PROTON_ENABLE_NVAPI = "1";
+              PROTON_LOCAL_SHADER_CACHE = "1";
+              DXVK_CONFIG = "dxvk.trackPipelineLifetime = True";
+            };
+
+            args = [
+              "-dx12"
+            ];
+
+            wrappers = [
+              "game-performance"
+            ];
+          };
+        };
+
+        apps."Dead by Daylight" = {
+          id = 381210;
+          launchOptions = {
+            env = {
+              PROTON_ENABLE_WAYLAND = "1";
+            };
+
+            args = [
+              "-dx11"
+            ];
+
+            wrappers = [
+              "game-performance"
+            ];
+          };
+        };
+      };
     };
 
     zenyte.matugen.template = {
