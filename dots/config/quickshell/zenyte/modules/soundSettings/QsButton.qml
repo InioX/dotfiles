@@ -16,15 +16,27 @@ Button {
     property string enabledText: "On"
     property string disabledText: "Off"
 
+    property color normalBackground: buttonMouseArea.hovered ? Colors.getPopoutWidgetColor(Colors.md3.surface_container_high) : Colors.getPopoutWidgetColor(Colors.md3.surface_container)
+
     leftPadding: 10
 
     background: Rectangle {
         radius: Config.style.radius.qs_button
-        color: root.enabled ? Colors.md3.primary : Colors.getPopoutWidgetColor(Colors.md3.surface_container)
+        color: root.enabled ? Colors.md3.primary : root.normalBackground
 
         Behavior on color {
             StyledColorAnimation {}
         }
+    }
+
+    /* StyledMouseArea {
+        id: buttonMouseArea
+
+        anchors.fill: parent
+    } */
+
+    StyledHoverHandler {
+        id: buttonMouseArea
     }
 
     contentItem: RowLayout {
