@@ -28,7 +28,9 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      lxappearance-gtk2
+      # This package got deprecated
+      # lxappearance-gtk2
+
       libadwaita
 
       # gnome.adwaita-icon-theme
