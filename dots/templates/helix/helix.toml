@@ -76,17 +76,17 @@
 "ui.linenr" = { fg = "{{ colors.on_surface_variant.default.hex }}" }
 "ui.linenr.selected" = { fg = "{{ colors.primary_fixed.default.hex }}" }
 
-"ui.statusline" = { fg = "{{ colors.on_primary_container.default.hex }}", bg = "none" }
-"ui.statusline.inactive" = { fg = "{{ colors.on_surface_variant.default.hex }}", bg = "none" }
-"ui.statusline.normal" = { fg = "{{ colors.background.default.hex }}", bg = "none", modifiers = ["bold"] }
-"ui.statusline.insert" = { fg = "{{ colors.background.default.hex }}", bg = "none", modifiers = ["bold"] }
-"ui.statusline.select" = { fg = "{{ colors.background.default.hex }}", bg = "none", modifiers = ["bold"] }
+"ui.statusline" = { fg = "{{ colors.on_surface.default.hex }}", bg = "{{ colors.surface_container_high.default.hex }}" }
+"ui.statusline.inactive" = { fg = "{{ colors.on_surface.default.hex }}", bg = "{{ colors.surface_container.default.hex }}" }
+"ui.statusline.normal" = { fg = "{{ colors.on_surface.default.hex }}", bg = "none", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "{{ colors.on_surface.default.hex}}", bg = "none", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "{{ colors.on_surface.default.hex }}", bg = "none", modifiers = ["bold"] }
 
 "ui.popup" = { fg = "{{ colors.on_surface.default.hex }}", bg = "none" }
 "ui.window" = { fg = "{{ colors.on_surface_variant.default.hex }}" }
 "ui.help" = { fg = "{{ colors.on_surface_variant.default.hex }}", bg = "none" }
 
-"ui.bufferline" = { fg = "{{ colors.on_surface_variant.default.hex }}", bg = "none" }
+"ui.bufferline" = { fg = "{{ colors.on_surface_variant.default.hex }}", bg = "{{ colors.surface_container.default.hex }}" }
 "ui.bufferline.active" = { fg = "{{ colors.on_primary.default.hex }}", bg = "{{ colors.primary.default.hex }}", underline = { color = "{{ colors.primary.default.hex }}", style = "line" } }
 "ui.bufferline.background" = { bg = "none" }
 
