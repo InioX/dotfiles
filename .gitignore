@@ -9,3 +9,4 @@ dots/config/niri/colors.kdl
 dots/config/zen/chrome/zen-themes.css
 dots/config/zen/chrome/browser-theme.css
 dots/config/zen/chrome/colors.css
+dots/config/helix/themes/*

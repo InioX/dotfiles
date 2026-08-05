@@ -76,17 +76,17 @@
 "ui.linenr" = { fg = "#cbc4cf" }
 "ui.linenr.selected" = { fg = "#ebdcff" }
 
-"ui.statusline" = { fg = "#ebdcff", bg = "none" }
-"ui.statusline.inactive" = { fg = "#cbc4cf", bg = "none" }
-"ui.statusline.normal" = { fg = "#151218", bg = "none", modifiers = ["bold"] }
-"ui.statusline.insert" = { fg = "#151218", bg = "none", modifiers = ["bold"] }
-"ui.statusline.select" = { fg = "#151218", bg = "none", modifiers = ["bold"] }
+"ui.statusline" = { fg = "#e7e0e8", bg = "#2c292f" }
+"ui.statusline.inactive" = { fg = "#e7e0e8", bg = "#211f24" }
+"ui.statusline.normal" = { fg = "#e7e0e8", bg = "none", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "#e7e0e8", bg = "none", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "#e7e0e8", bg = "none", modifiers = ["bold"] }
 
 "ui.popup" = { fg = "#e7e0e8", bg = "none" }
 "ui.window" = { fg = "#cbc4cf" }
 "ui.help" = { fg = "#cbc4cf", bg = "none" }
 
-"ui.bufferline" = { fg = "#cbc4cf", bg = "none" }
+"ui.bufferline" = { fg = "#cbc4cf", bg = "#211f24" }
 "ui.bufferline.active" = { fg = "#39255c", bg = "#d4bbfc", underline = { color = "#d4bbfc", style = "line" } }
 "ui.bufferline.background" = { bg = "none" }
 
