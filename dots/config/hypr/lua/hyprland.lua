@@ -186,6 +186,12 @@ hl.gesture({
     action = "workspace"
 })
 
+hl.gesture({
+    fingers = 3,
+    direction = "horizontal",
+    action = "scroll_move",
+})
+
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
 hl.device({

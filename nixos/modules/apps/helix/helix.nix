@@ -18,6 +18,15 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       helix
+      # steelix
+
+      # For building grammars
+      gcc
+
+      rustc
+      rustfmt
+      cargo
+      rust-analyzer
     ];
 
     zenyte.home.configFile = {
