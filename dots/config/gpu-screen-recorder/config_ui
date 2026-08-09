@@ -104,7 +104,7 @@ screenshot.record_cursor true
 screenshot.restore_portal_session true
 screenshot.save_directory /home/ini/pics
 screenshot.save_screenshot_in_game_folder false
-screenshot.save_screenshot_to_clipboard false
+screenshot.save_screenshot_to_clipboard true
 screenshot.save_screenshot_to_disk true
 screenshot.show_notifications true
 screenshot.take_screenshot_hotkey 102 0
