@@ -63,6 +63,20 @@ hl.window_rule({
 
 
 hl.window_rule({
+  match = {
+      initial_title = "Picture-in-Picture"
+  },
+  opacity = 0.75,
+  keep_aspect_ratio = true,
+  size = { 420,263 },
+  -- size = { 263,420 },
+  float = true,
+  pin = true,
+  no_blur = true,
+  content = "video",
+})
+
+hl.window_rule({
     match = {
         title = ".*Sign in.*"
     },
