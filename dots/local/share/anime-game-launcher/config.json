@@ -28,7 +28,7 @@
       "prefix": "/home/ini/games/anime-game-launcher",
       "builds": "/home/ini/.local/share/anime-game-launcher/runners",
       "selected": "wine-dwproton-wow64-11.0-4",
-      "sync": "FSync",
+      "sync": "None",
       "language": "System",
       "borderless": false,
       "drives": {
@@ -55,7 +55,7 @@
       "fsr": {
         "strength": 2,
         "quality": "Balanced",
-        "enabled": true
+        "enabled": false
       },
       "gamemode": false,
       "hud": "None",
@@ -71,8 +71,8 @@
         "enabled": false,
         "window_mode": "Default",
         "game_window": {
-          "width": null,
-          "height": null
+          "width": 1920,
+          "height": 1980
         },
         "gamescope_window": {
           "width": null,
@@ -89,7 +89,7 @@
         },
         "options": {
           "hdr_support": false,
-          "realtime_scheduler": false,
+          "realtime_scheduler": true,
           "adaptive_sync": false,
           "force_grab_cursor": false,
           "mangohud": false
