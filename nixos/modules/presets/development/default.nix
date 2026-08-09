@@ -16,6 +16,10 @@ in
   };
 
   config = mkIf cfg.enable {
+
+    programs.zoxide.enable = true;
+    programs.zoxide.enableFishIntegration = true;
+
     zenyte.apps = {
       vscodium = {
         enable = false;
