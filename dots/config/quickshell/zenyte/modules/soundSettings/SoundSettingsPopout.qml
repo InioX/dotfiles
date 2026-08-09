@@ -6,6 +6,7 @@ import qs.modules.shared
 import qs.modules.soundSettings
 import Quickshell
 import Quickshell.Wayland
+import Quickshell.Widgets
 import Quickshell.Networking
 import Quickshell.Services.Pipewire as QsPipewire
 import QtQuick
@@ -75,7 +76,111 @@ Item {
 
                 spacing: 20
                 anchors.margins: 20
-                anchors.topMargin: 30
+                anchors.topMargin: 20
+
+                RowLayout {
+                    spacing: 8
+
+                    ClippingWrapperRectangle {
+                        radius: 30
+                        antialiasing: true
+
+                        IconImage {
+                            source: "file://" + User.iconPath
+                            implicitSize: 32
+                        }
+                    }
+
+                    StyledText {
+                        text: User.username
+                        color: Colors.md3.on_surface
+                        font.pixelSize: Config.style.font.size.medium
+                    }
+
+                    Item {
+                        Layout.fillWidth: true
+                    }
+
+                    Rectangle {
+                        width: 40
+                        height: 40
+                        color: settingsButtonMouseArea.containsMouse ? Colors.getPopoutWidgetColor(Colors.md3.surface_container_high) : Colors.getPopoutWidgetColor(Colors.md3.surface_container)
+                        radius: 40
+
+                        StyledText {
+                            anchors.centerIn: parent
+
+                            text: "󰒓"
+                            color: Colors.md3.on_surface
+                            font.pixelSize: Config.style.font.size.icon_small
+                        }
+
+                        StyledMouseArea {
+                            id: settingsButtonMouseArea
+                            anchors.fill: parent
+
+                            onClicked: {
+                                States.isSettingsOpened = true;
+                                root.isOpen = false;
+                            }
+                        }
+
+                        Behavior on color {
+                            StyledColorAnimation {}
+                        }
+                    }
+
+                    Rectangle {
+                        id: powerButton
+
+                        width: 40
+                        height: 40
+                        color: powerButtonMouseArea.containsMouse ? Colors.getPopoutWidgetColor(Colors.md3.surface_container_high) : Colors.getPopoutWidgetColor(Colors.md3.surface_container)
+                        radius: 40
+
+                        StyledText {
+                            anchors.centerIn: parent
+
+                            text: "󰐥"
+                            color: Colors.md3.on_surface
+                            font.pixelSize: Config.style.font.size.icon_small
+                        }
+
+                        StyledMouseArea {
+                            id: powerButtonMouseArea
+                            anchors.fill: parent
+
+                            onClicked: {
+                                powerMenu.open();
+                            }
+                        }
+
+                        Menu {
+                            id: powerMenu
+                            y: powerButton.height
+
+                            MenuItem {
+                                text: "Shutdown"
+                                onTriggered: {
+                                    Quickshell.execDetached(["shutdown", "now"])
+                                }
+                            }
+                            MenuItem {
+                                text: "Restart"
+                                onTriggered: {
+                                    Quickshell.execDetached(["reboot"])
+                                }
+                            }
+                            MenuItem {
+                                text: "Windows 11"
+                            }
+                        }
+
+                        Behavior on color {
+                            StyledColorAnimation {}
+                        }
+                    }
+                }
 
                 GridLayout {
 
