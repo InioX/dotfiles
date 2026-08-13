@@ -16,7 +16,6 @@ outputDevice=alsa_output.usb-0c76_GH510_PRO-00.analog-stereo
 forceBreezeTheme=false
 
 [Window]
-autostartOnLogin=true
 height=1080
 visiblePage=inputPage
-width=960
+width=1920
