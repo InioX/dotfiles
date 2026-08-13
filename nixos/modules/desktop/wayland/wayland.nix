@@ -50,7 +50,6 @@ in
       wl-clipboard
       wl-clip-persist
       cliphist
-      wf-recorder
       awww
 
       adwaita-icon-theme
@@ -69,6 +68,7 @@ in
     zenyte.desktop.addons = {
       waybar = disabled;
       kitty = enabled;
+      ghostty = enabled;
       alacritty = disabled;
       rofi = enabled;
       gtk = enabled;
