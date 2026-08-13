@@ -138,7 +138,7 @@ in
             }
             {
               Title = "YouTube Music";
-              URL = "https://www.music.youtube.com/";
+              URL = "https://music.youtube.com/";
               Placement = "toolbar";
             }
             {
