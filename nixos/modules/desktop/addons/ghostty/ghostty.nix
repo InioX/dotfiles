@@ -1,4 +1,3 @@
-
 {
   config,
   pkgs,
@@ -22,16 +21,16 @@ in
       jq
     ];
 
-    # zenyte.home.configFile = {
-    #   "kitty/kitty.conf" = "kitty/kitty.conf";
-    # };
+    zenyte.home.configFile = {
+      "ghostty/" = "ghostty/";
+    };
 
-    # zenyte.matugen.template = {
-    #   kitty = {
-    #     input = "kitty.conf";
-    #     output = "~/.config/kitty/themes/matugen.conf";
-    #     post_hook = "kitty +kitten themes --dump-theme=yes --reload-in=all matugen &> /dev/null";
-    #   };
-    # };
+    zenyte.matugen.template = {
+      ghostty = {
+        input = "ghostty";
+        output = "~/.config/ghostty/themes/Matugen";
+        post_hook = "pkill -SIGUSR2 ghostty";
+      };
+    };
   };
 }

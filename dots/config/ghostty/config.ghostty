@@ -1,0 +1,5 @@
+theme = "Matugen"
+
+custom-shader = shaders/cursor_tail.glsl
+custom-shader = shaders/ripple_cursor.glsl
+custom-shader-animation = always
