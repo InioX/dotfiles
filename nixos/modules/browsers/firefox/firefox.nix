@@ -127,8 +127,8 @@ in
           );
           Bookmarks = [
             {
-              Title = "P-Stream";
-              URL = "https://pstream.net/";
+              Title = "Z-Stream";
+              URL = "https://zstream.mov/";
               Placement = "toolbar";
             }
             {
