@@ -28,6 +28,7 @@ in
   config = mkIf cfg.enable {
     programs.hyprland = {
       enable = true;
+      withUWSM = true;
       # plugins = [
       # hyprland-scroll-overview
       # ];
