@@ -1,3 +1,5 @@
+local colors = require("colors")
+
 hl.config({
     general = {
         gaps_in  = 0,
@@ -5,10 +7,10 @@ hl.config({
 
         border_size = 0,
 
-        -- col = {
-        --     active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
-        --     inactive_border = "rgba(595959aa)",
-        -- },
+        col = {
+            active_border   = colors.primary,
+            inactive_border = colors.surface_container,
+        },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
         resize_on_border = false,
@@ -47,6 +49,4 @@ hl.config({
     animations = {
         enabled = true,
     },
-
-    hl.animation({ leaf = "workspaces", enabled = true, speed = 0.1, bezier = "default", style = "slidevert" })
 })

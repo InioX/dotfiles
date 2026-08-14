@@ -1,0 +1,8 @@
+local colors = {
+
+<* for name, value in colors *>
+      {{name}} = "rgb({{value.default.hex_stripped}})",
+<* endfor *>
+}
+
+return colors

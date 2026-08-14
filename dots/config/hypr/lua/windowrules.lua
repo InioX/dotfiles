@@ -1,18 +1,24 @@
+local colors = require("colors")
+
 hl.workspace_rule({
     workspace = "special:popout",
     gaps_out = 20,
     gaps_in = 0,
-    on_created_empty = "kitty --class popout_kitty"
+    on_created_empty = "ghostty --class=com.term.dropdown",
 })
 
 hl.window_rule({
     match = {
-        class = "popout_kitty",
+        class = "com.term.dropdown",
     },
     opacity = 0.8,
     float = true,
     center = true,
-    dim_around = true,
+    size = {"monitor_w * 0.98", "monitor_h * 0.95"},
+    border_size = 4,
+    border_color = colors.outline_variant,
+    min_size = {"monitor_w * 0.98", "monitor_h * 0.95"},
+    max_size = {"monitor_w", "monitor_h"},
 })
 
 local suppressMaximizeRule = hl.window_rule({
@@ -53,12 +59,13 @@ hl.window_rule({
   },
   opacity = 0.75,
   keep_aspect_ratio = true,
-  size = { 420,263 },
-  -- size = { 263,420 },
+  -- size = { 420,263 },
+  size = { 100,200 },
   float = true,
   pin = true,
   no_blur = true,
   content = "video",
+  decorate = false,
 })
 
 

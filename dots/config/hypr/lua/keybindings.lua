@@ -1,7 +1,16 @@
 local mainMod = "SUPER"
 
-local terminal    = "kitty"
+local terminal    = "ghostty"
 local fileManager = "nautilus"
+
+hl.bind(mainMod .. " + SHIFT + R", function()
+    local hlWindow = hl.get_window("initialtitle:Discord Popout")
+    hl.dispatch(hl.dsp.window.resize({
+        x = hlWindow.size.y,
+        y = hlWindow.size.x,
+        window = hlWindow,
+    }))
+end)
 
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + P", hl.dsp.window.pin({ action = "toggle" }))
