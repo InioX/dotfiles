@@ -59,7 +59,6 @@ in
 
         apps."Overwatch" = {
           id = 2357570;
-          launchOptions = {
             env = {
               __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
               PROTON_DLSS_UPGRADE = "1";
@@ -78,12 +77,10 @@ in
             wrappers = [
               "game-performance"
             ];
-          };
         };
 
         apps."Dead by Daylight" = {
           id = 381210;
-          launchOptions = {
             env = {
               PROTON_ENABLE_WAYLAND = "1";
             };
@@ -95,7 +92,6 @@ in
             wrappers = [
               "game-performance"
             ];
-          };
         };
       };
     };
