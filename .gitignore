@@ -12,3 +12,4 @@ dots/config/zen/chrome/colors.css
 dots/config/helix/themes/*
 dots/config/helix/runtime/*
 dots/config/ghostty/themes/Matugen
+dots/config/hypr/lua/colors.lua
