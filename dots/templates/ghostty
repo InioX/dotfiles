@@ -4,19 +4,47 @@ cursor-color = {{colors.primary.default.hex}}
 cursor-text = {{colors.on_primary.default.hex}}
 selection-background = {{colors.secondary_container.default.hex}}
 selection-foreground = {{colors.on_secondary_container.default.hex}}
-palette = 0={{colors.surface_container_high.default.hex}}
-palette = 1={{colors.error.default.hex}}
-palette = 2={{colors.primary.default.hex}}
-palette = 3={{colors.tertiary.default.hex}}
-palette = 4={{colors.secondary.default.hex}}
-palette = 5={{colors.primary_fixed.default.hex}}
-palette = 6={{colors.secondary_fixed.default.hex}}
-palette = 7={{colors.on_surface_variant.default.hex}}
-palette = 8={{colors.outline.default.hex}}
-palette = 9={{colors.error_container.default.hex}}
-palette = 10={{colors.primary_container.default.hex}}
-palette = 11={{colors.tertiary_container.default.hex}}
-palette = 12={{colors.secondary_container.default.hex}}
-palette = 13={{colors.inverse_primary.default.hex}}
-palette = 14={{colors.outline_variant.default.hex}}
-palette = 15={{colors.on_surface.default.hex}}
+
+# --- ANSI Colors ---
+palette = 0={{ colors.surface.default.hex }}
+palette = 1={{ colors.error.default.hex }}
+palette = 2={{ colors.tertiary.default.hex }}
+palette = 3={{ colors.secondary.default.hex }}
+palette = 4={{ colors.primary.default.hex }}
+palette = 5={{ colors.tertiary_fixed_dim.default.hex }}
+palette = 6={{ colors.secondary_fixed_dim.default.hex }}
+palette = 7={{ colors.on_surface.default.hex }}
+
+palette = 8={{ colors.surface_variant.default.hex }}
+palette = 9={{ colors.error_container.default.hex }}
+palette = 10={{ colors.tertiary_container.default.hex }}
+palette = 11={{ colors.secondary_container.default.hex }}
+palette = 12={{ colors.primary_container.default.hex }}
+palette = 13={{ colors.on_secondary_fixed_variant.default.hex }}
+palette = 14={{ colors.on_tertiary_fixed_variant.default.hex }}
+palette = 15={{ colors.on_surface_variant.default.hex }}
+
+# --- Starship Prompt Bubbles ---
+palette = 232={{ colors.on_primary_container.default.hex }}
+palette = 233={{ colors.on_primary.default.hex }}
+palette = 234={{ colors.on_secondary_container.default.hex }}
+palette = 235={{ colors.on_secondary.default.hex }}
+palette = 236={{ colors.on_tertiary_container.default.hex }}
+palette = 237={{ colors.on_tertiary.default.hex }}
+palette = 238={{ colors.on_error_container.default.hex }}
+palette = 239={{ colors.on_error.default.hex }}
+palette = 240={{ colors.on_primary_container.default.hex }}
+
+# Matched with unthemed light/dark
+palette = 243={{ colors.primary.default.hex }}
+palette = 244={{ colors.error.default.hex }}
+palette = 245={{ colors.outline_variant.default.hex }}
+
+palette = 248={{ colors.error.default.hex }}
+palette = 249={{ colors.error_container.default.hex }}
+palette = 250={{ colors.tertiary.default.hex }}
+palette = 251={{ colors.tertiary_container.default.hex }}
+palette = 252={{ colors.secondary.default.hex }}
+palette = 253={{ colors.secondary_container.default.hex }}
+palette = 254={{ colors.primary.default.hex }}
+palette = 255={{ colors.primary_container.default.hex }}
