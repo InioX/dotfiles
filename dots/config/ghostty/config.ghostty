@@ -5,3 +5,13 @@ theme = "Matugen"
 
 font-family="Iosevka NFM"
 font-size=20
+
+gtk-tabs-location = hidden
+
+keybind = ctrl+shift+o=toggle_tab_overview
+keybind = ctrl+shift+p=toggle_command_palette
+
+keybind = ctrl+1=goto_tab:1
+keybind = ctrl+2=goto_tab:2
+keybind = ctrl+3=goto_tab:3
+keybind = ctrl+4=goto_tab:4
