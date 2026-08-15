@@ -9,17 +9,14 @@
   ...
 }:
 with lib;
-with lib.zenyte;
-let
+with lib.zenyte; let
   cfg = config.zenyte.desktop.hyprland;
   wallpaper =
-    if builtins.hasAttr "wallpaper" options.zenyte.system.hosts.${hostName} then
-      config.zenyte.system.hosts.${hostName}.wallpaper
-    else
-      default.wallpaper;
+    if builtins.hasAttr "wallpaper" options.zenyte.system.hosts.${hostName}
+    then config.zenyte.system.hosts.${hostName}.wallpaper
+    else default.wallpaper;
   # hyprland-scroll-overview = (pkgs.callPackage inputs.hyprland-scroll-overview { });
-in
-{
+in {
   options.zenyte.desktop.hyprland = {
     enable = mkBoolOpt false "Whether to enable Hyprland, with other desktop addons.";
     nvidiaPatches = mkBoolOpt false "Whether to enable nvidia patches for hyprland.";
@@ -102,5 +99,7 @@ in
         output = "~/.config/hypr/colors.lua";
       };
     };
+
+    zenyte.home.file.".local/share/hypr/stubs".source = "${pkgs.hyprland}/share/hypr/stubs";
   };
 }

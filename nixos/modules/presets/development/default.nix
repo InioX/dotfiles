@@ -32,6 +32,9 @@ in
       helix = {
         enable = true;
       };
+      nvim = {
+        enable = true;
+      };
     };
 
     zenyte.cli = {
