@@ -20,6 +20,14 @@ in
     programs.zoxide.enable = true;
     programs.zoxide.enableFishIntegration = true;
 
+    zenyte.home.extraOptions.programs = {
+      direnv = {
+        enable = true;
+        enableBashIntegration = true; # see note on other shells below
+        nix-direnv.enable = true;
+      };
+    };
+
     zenyte.apps = {
       vscodium = {
         enable = false;
