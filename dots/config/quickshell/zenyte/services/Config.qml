@@ -153,7 +153,7 @@ Singleton {
 
     component Launcher: JsonObject {
         property list<string> pinned_apps: []
-        property string editor_command: "zeditor"
+        property list<string> editor_command: ["zeditor", "%path"]
     }
 
     component Desktop: JsonObject {

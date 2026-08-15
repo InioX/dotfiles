@@ -42,7 +42,10 @@
         }
     },
     "launcher": {
-        "editor_command": "kitty -e hx",
+        "editor_command": [
+            "ghostty",
+            "--command=nvim %path%"
+        ],
         "pinned_apps": [
             "discord",
             "firefox",

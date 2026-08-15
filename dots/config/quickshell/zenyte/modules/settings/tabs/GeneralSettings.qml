@@ -33,19 +33,19 @@ ColumnLayout {
             options: [
                 {
                     label: "Zed",
-                    command: "zeditor"
+                    command: ["zeditor", "%path%"]
                 },
                 {
                     label: "Helix",
-                    command: "kitty -e hx"
+                    command: ["ghostty", "--command=hx %path%"]
                 },
                 {
                     label: "VS Code",
-                    command: "code"
+                    command: ["code", "%path%"]
                 },
                 {
                     label: "Neovim",
-                    command: "kitty -e nvim"
+                    command: ["ghostty", "--command=nvim %path%"]
                 }
             ]
         }

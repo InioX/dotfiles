@@ -60,11 +60,11 @@ Item {
         return pinnedAppIds.indexOf(appId) !== -1;
     }
 
-    function openProject(editorCmd, projectPath) {
-        let parts = editorCmd.trim().split(/\s+/);
-        parts.push(projectPath);
+    function openProject(editorCmdArray, projectPath) {
+        console.log(editorCmdArray)
+        let finalArgs = editorCmdArray.map(arg => arg.replace("%path%", projectPath));
 
-        Quickshell.execDetached(parts);
+        Quickshell.execDetached(finalArgs);
     }
 
     StyledPopout {
