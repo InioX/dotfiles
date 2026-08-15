@@ -28,6 +28,7 @@ in
         pkgs.xdg-desktop-portal-gtk
         pkgs.xdg-desktop-portal-gnome
         pkgs.xdg-desktop-portal-wlr
+        pkgs.xdg-desktop-portal-hyprland
       ];
       config = {
         hyprland.default = [
