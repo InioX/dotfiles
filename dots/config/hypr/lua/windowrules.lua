@@ -11,7 +11,7 @@ hl.window_rule({
 	match = {
 		class = "com.term.dropdown",
 	},
-	opacity = 0.8,
+	opacity = 0.9,
 	float = true,
 	center = true,
 	size = { "monitor_w * 0.98", "monitor_h * 0.95" },
@@ -57,7 +57,7 @@ hl.window_rule({
 	match = {
 		initial_title = "Discord Popout",
 	},
-	opacity = 0.75,
+	opacity = 0.85,
 	keep_aspect_ratio = true,
 	-- size = { 420,263 },
 	size = { 100, 200 },
@@ -72,7 +72,7 @@ hl.window_rule({
 	match = {
 		initial_title = "Picture-in-Picture",
 	},
-	opacity = 0.75,
+	opacity = 0.85,
 	keep_aspect_ratio = true,
 	size = { 420, 263 },
 	-- size = { 263,420 },
