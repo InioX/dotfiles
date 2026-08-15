@@ -1,6 +1,6 @@
 theme = "Matugen"
 
-custom-shader = shaders/cursor_tail.glsl
+# custom-shader = shaders/cursor_sweep.glsl
 # custom-shader-animation = always
 
 font-family="Iosevka NFM"
