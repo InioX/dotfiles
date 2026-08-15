@@ -6,17 +6,14 @@
   ...
 }:
 with lib;
-with lib.zenyte;
-let
+with lib.zenyte; let
   cfg = config.zenyte.presets.development;
-in
-{
+in {
   options.zenyte.presets.development = {
     enable = mkBoolOpt false "Whether to enable the development suite.";
   };
 
   config = mkIf cfg.enable {
-
     programs.zoxide.enable = true;
     programs.zoxide.enableFishIntegration = true;
 
@@ -47,6 +44,7 @@ in
 
     zenyte.cli = {
       git = enabled;
+      # tmux = enabled;
     };
   };
 }
