@@ -52,6 +52,8 @@ Singleton {
         launcherTabIndex += 1;
     }
 
+    property bool isSpecialOpen: false
+
     property bool showInOverview: {
         if (!Compositors.isNiri) {
             return false;
@@ -66,7 +68,7 @@ Singleton {
         }
 
         if (Compositors.isHyprland) {
-            return Hyprland.focusedWorkspace.toplevels.values.length == 0;
+            return Hyprland.focusedWorkspace.toplevels.values.length == 0 && !root.isSpecialOpen;
         }
 
         return false;
@@ -85,6 +87,27 @@ Singleton {
 
         return false;
     }
+
+    Connections {
+        target: Hyprland
+        enabled: root.isHyprland
+
+        function onRawEvent(event) {
+            if (event.name === "activespecial" || event.name === "activespecialv2") {
+                // because it returns something like special,DP-1
+                // parse it as two args[0] and args[1]
+                const args = event.parse(2);
+
+                // If the workspace name (args[0]) is NOT empty, there is a special workspace opened
+                if (args && args.length > 0 && args[0] !== "") {
+                    root.isSpecialOpen = true;
+                } else {
+                    root.isSpecialOpen = false;
+                }
+            }
+        }
+    }
+
     readonly property bool baseBarVisibility: (Config.bar.visible.always && !hasFullscreenWindow) || (Config.bar.visible.overview && root.showInOverview) || (Config.bar.visible.empty_workspace && root.showOnEmptyWorkspace) || Config.bar.visible.on_top
     property bool forceShowBar: root.isLauncherOpened || root.isSoundSettingsOpened
     property bool showBar: baseBarVisibility || forceShowBar
