@@ -14,7 +14,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+Shift+Return hotkey-overlay-title="Open a File manager: nautilus" { spawn "nautilus"; }
     // Mod+W hotkey-overlay-title="Run an Application: rofi" { spawn-sh "niri msg action toggle-overview && qs ipc call root toggleLauncher"; }
     Mod+W hotkey-overlay-title="Toggle quickshell launcher" { spawn-sh "qs --path ~/.config/quickshell/zenyte ipc call root toggleLauncher"; }
