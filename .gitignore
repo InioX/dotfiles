@@ -14,3 +14,4 @@ dots/config/helix/runtime/*
 dots/config/ghostty/themes/Matugen
 dots/config/hypr/lua/colors.lua
 dots/config/tmux/generated.conf
+dots/config/zen/chrome/zen-themes/*
