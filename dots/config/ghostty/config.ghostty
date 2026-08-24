@@ -1,7 +1,7 @@
 theme = "Matugen"
 
 custom-shader = shaders/cursor_warp.glsl
-custom-shader = shaders/ripple_cursor.glsl
+custom-shader = shaders/ripple_rectangle_cursor.glsl
 custom-shader-animation = always
 
 font-family="Iosevka NF"
