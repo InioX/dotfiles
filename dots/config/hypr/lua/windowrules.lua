@@ -51,6 +51,7 @@ hl.window_rule({
 	},
 	immediate = true,
 	render_unfocused = true,
+	content = "game",
 })
 
 hl.window_rule({
