@@ -7,8 +7,7 @@
   ...
 }:
 with lib;
-with lib.zenyte;
-let
+with lib.zenyte; let
   cfg = config.zenyte.browsers.zen;
 
   extension = shortId: guid: {
@@ -32,21 +31,22 @@ let
     (extension "ublock-origin" "uBlock0@raymondhill.net")
     # ...
   ];
-in
-{
+in {
   options.zenyte.browsers.zen = {
     enable = mkBoolOpt false "Whether to enable zen.";
   };
 
   config = mkIf cfg.enable {
     environment.systemPackages = [
-      (pkgs.wrapFirefox
+      (
+        pkgs.wrapFirefox
         inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped
         {
           extraPrefs = lib.concatLines (
             lib.mapAttrsToList (
               name: value: "lockPref(${lib.strings.toJSON name}, ${lib.strings.toJSON value});"
-            ) prefs
+            )
+            prefs
           );
 
           extraPolicies = {
@@ -89,6 +89,7 @@ in
 
     zenyte.home.configFile = {
       "zen/ini/chrome/" = "zen/chrome/";
+      "zen/ini/user.js" = "zen/user.js";
     };
 
     zenyte.matugen.template = {

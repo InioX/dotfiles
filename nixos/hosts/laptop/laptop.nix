@@ -5,9 +5,8 @@
   ...
 }:
 with lib;
-with lib.zenyte;
-{
-  boot.supportedFilesystems = [ "ntfs" ];
+with lib.zenyte; {
+  boot.supportedFilesystems = ["ntfs"];
 
   # virtualisation.waydroid.enable = true;
 
@@ -27,10 +26,9 @@ with lib.zenyte;
   zenyte.system.hosts.laptop = {
     variant = "dark";
     type = "scheme-neutral";
-    wallpaper =
-      let
-        image = import ./wallpaper.nix;
-      in
+    wallpaper = let
+      image = import ./wallpaper.nix;
+    in
       zenyte.fetchImage image.url image.sha256;
   };
 
@@ -78,7 +76,7 @@ with lib.zenyte;
 
   zenyte.browsers = {
     brave = disabled;
-    # zen = enabled;
+    zen = enabled;
     # chromium = enabled;
 
     firefox = {
