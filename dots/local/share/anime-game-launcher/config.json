@@ -54,8 +54,8 @@
     "enhancements": {
       "fsr": {
         "strength": 2,
-        "quality": "Balanced",
-        "enabled": false
+        "quality": "Quality",
+        "enabled": true
       },
       "gamemode": false,
       "hud": "None",
@@ -69,7 +69,7 @@
       },
       "gamescope": {
         "enabled": false,
-        "window_mode": "Default",
+        "window_mode": "Fullscreen",
         "game_window": {
           "width": 1920,
           "height": 1980
@@ -84,8 +84,8 @@
         },
         "upscaling": {
           "upscaler": "None",
-          "filter": "None",
-          "sharpness": "None"
+          "filter": "FSR",
+          "sharpness": "Balanced"
         },
         "options": {
           "hdr_support": false,
