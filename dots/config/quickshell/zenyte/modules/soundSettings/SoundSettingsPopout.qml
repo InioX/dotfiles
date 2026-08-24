@@ -162,17 +162,20 @@ Item {
                             MenuItem {
                                 text: "Shutdown"
                                 onTriggered: {
-                                    Quickshell.execDetached(["shutdown", "now"])
+                                    Quickshell.execDetached(["shutdown", "now"]);
                                 }
                             }
                             MenuItem {
                                 text: "Restart"
                                 onTriggered: {
-                                    Quickshell.execDetached(["reboot"])
+                                    Quickshell.execDetached(["reboot"]);
                                 }
                             }
                             MenuItem {
                                 text: "Windows 11"
+                                onTriggered: {
+                                    Quickshell.execDetached(["systemctl", "reboot", "--boot-loader-entry=auto-windows"]);
+                                }
                             }
                         }
 
