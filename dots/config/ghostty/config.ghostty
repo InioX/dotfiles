@@ -1,9 +1,11 @@
 theme = "Matugen"
 
-# custom-shader = shaders/cursor_sweep.glsl
-# custom-shader-animation = always
+custom-shader = shaders/cursor_warp.glsl
+custom-shader = shaders/ripple_cursor.glsl
+custom-shader-animation = always
 
-font-family="Iosevka NFM"
+font-family="Iosevka NF"
+
 font-size=20
 
 gtk-tabs-location = hidden
