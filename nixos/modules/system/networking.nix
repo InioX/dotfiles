@@ -42,7 +42,7 @@ in {
         enable = true;
         wifi = {
           powersave = false;
-          # backend = "iwd";
+          backend = "iwd";
         };
         settings = {
           ipv4.ignore-auto-dns = true;
