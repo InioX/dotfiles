@@ -7,11 +7,9 @@
   ...
 }:
 with lib;
-with lib.zenyte;
-let
+with lib.zenyte; let
   cfg = config.zenyte.gaming.steam;
-in
-{
+in {
   options.zenyte.gaming.steam = {
     enable = mkBoolOpt false "Whether to enable steam.";
   };
@@ -41,8 +39,8 @@ in
       enable = true;
       protontricks.enable = true;
       package = pkgs.steam.override {
-        extraPkgs =
-          pkgs: with pkgs; [
+        extraPkgs = pkgs:
+          with pkgs; [
             gamemode
             mangohud
           ];
@@ -57,41 +55,41 @@ in
         onSteamRunning = "close";
         defaultCompatTool = pkgs.proton-cachyos_x86_64_v3;
 
-        apps."Overwatch" = {
-          id = 2357570;
-            env = {
-              __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
-              PROTON_DLSS_UPGRADE = "1";
-              PROTON_NVIDIA_LIBS_NO_32BIT = "1";
-              PROTON_USE_NTSYNC = "1";
-              PROTON_ENABLE_WAYLAND = "1";
-              PROTON_ENABLE_NVAPI = "1";
-              PROTON_LOCAL_SHADER_CACHE = "1";
-              DXVK_CONFIG = "dxvk.trackPipelineLifetime = True";
-            };
+        apps."2357570" = {
+          name = "Overwatch";
+          env = {
+            __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
+            PROTON_DLSS_UPGRADE = "1";
+            PROTON_NVIDIA_LIBS_NO_32BIT = "1";
+            PROTON_USE_NTSYNC = "1";
+            PROTON_ENABLE_WAYLAND = "1";
+            PROTON_ENABLE_NVAPI = "1";
+            PROTON_LOCAL_SHADER_CACHE = "1";
+            DXVK_CONFIG = "dxvk.trackPipelineLifetime = True";
+          };
 
-            args = [
-              "-dx12"
-            ];
+          args = [
+            "-dx12"
+          ];
 
-            wrappers = [
-              "game-performance"
-            ];
+          wrappers = [
+            "game-performance"
+          ];
         };
 
-        apps."Dead by Daylight" = {
-          id = 381210;
-            env = {
-              PROTON_ENABLE_WAYLAND = "1";
-            };
+        apps."381210" = {
+          name = "Dead by Daylight";
+          env = {
+            PROTON_ENABLE_WAYLAND = "1";
+          };
 
-            args = [
-              "-dx11"
-            ];
+          args = [
+            "-dx11"
+          ];
 
-            wrappers = [
-              "game-performance"
-            ];
+          wrappers = [
+            "game-performance"
+          ];
         };
       };
     };
