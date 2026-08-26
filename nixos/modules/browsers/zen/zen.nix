@@ -52,6 +52,80 @@ in {
           extraPolicies = {
             DisableTelemetry = true;
             ExtensionSettings = builtins.listToAttrs extensions;
+            NoDefaultBookmarks = true;
+
+            Bookmarks = [
+              {
+                Title = "Z-Stream";
+                URL = "https://zstream.mov/";
+                Placement = "toolbar";
+              }
+              {
+                Title = "YouTube";
+                URL = "https://www.youtube.com/";
+                Placement = "toolbar";
+              }
+              {
+                Title = "YouTube Music";
+                URL = "https://music.youtube.com/";
+                Placement = "toolbar";
+              }
+              {
+                Title = "Gmail";
+                URL = "https://mail.google.com/mail/u/3/";
+                Placement = "toolbar";
+              }
+              {
+                Title = "Google Translate";
+                URL = "https://translate.google.com/?sl=auto&tl=en&op=translate";
+                Placement = "toolbar";
+              }
+              {
+                Title = "FitGirl Repacks";
+                URL = "https://fitgirl-repacks.site/";
+                Placement = "toolbar";
+              }
+              {
+                Title = "CS.RIN.RU";
+                URL = "https://cs.rin.ru/forum/";
+                Placement = "toolbar";
+              }
+              {
+                Title = "FMHY";
+                URL = "https://fmhy.net/video";
+                Placement = "toolbar";
+              }
+              {
+                Title = "YarrList";
+                URL = "https://yarrlist.net/";
+                Placement = "toolbar";
+              }
+              {
+                Title = "Bitwarden Vault";
+                URL = "https://vault.bitwarden.com/#/vault";
+                Placement = "toolbar";
+              }
+              {
+                Title = "GitHub";
+                URL = "https://github.com/";
+                Placement = "toolbar";
+              }
+              {
+                Title = "Discord";
+                URL = "https://discord.com/channels/1304762650651000883/1304762650651000886";
+                Placement = "toolbar";
+              }
+              {
+                Title = "Twitch";
+                URL = "https://www.twitch.tv/";
+                Placement = "toolbar";
+              }
+              {
+                Title = "Genshin Map";
+                URL = "https://genshin-impact-map.appsample.com/";
+                Placement = "toolbar";
+              }
+            ];
 
             SearchEngines = {
               Default = "ddg";
