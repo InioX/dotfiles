@@ -7,15 +7,14 @@
   pkgs,
   modulesPath,
   ...
-}:
-{
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   hardware.enableRedistributableFirmware = true;
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   systemd.oomd.enable = true;
   systemd.oomd.enableUserSlices = true;
@@ -114,10 +113,10 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
 
-  services.scx = {
-    enable = true;
-    scheduler = "scx_lavd";
-  };
+  # services.scx = {
+  #   enable = true;
+  #   scheduler = "scx_lavd";
+  # };
 
   boot = {
     # kernelPackages = pkgs.linuxPackages_xanmod_latest;
@@ -142,7 +141,7 @@
 
     plymouth = {
       enable = true;
-      themePackages = [ pkgs.mac-style-plymouth ];
+      themePackages = [pkgs.mac-style-plymouth];
       theme = "mac-style";
     };
     consoleLogLevel = 3;
@@ -156,7 +155,7 @@
         "usb_storage"
         "sd_mod"
       ];
-      kernelModules = [ ];
+      kernelModules = [];
     };
 
     kernelModules = [
@@ -164,7 +163,7 @@
       "ntsync"
       # "lenovo-legion-module"
     ];
-    extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
+    extraModulePackages = [config.boot.kernelPackages.lenovo-legion-module];
 
     # Hide the OS choice for bootloaders.
     # It's still possible to open the bootloader list by pressing any key
@@ -204,7 +203,7 @@
     ];
   };
 
-  swapDevices = [ ];
+  swapDevices = [];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

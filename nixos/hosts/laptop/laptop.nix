@@ -56,14 +56,14 @@ with lib.zenyte; {
 
   zenyte.services = {
     syncthing = disabled;
-    tlp = {
-      enable = false;
-      # radeonDPM = true;
-    };
+    # tlp = {
+    # enable = false;
+    # radeonDPM = true;
+    # };
     # auto-cpufreq = {
     #   enable = true;
     # };
-    thermald.enable = true;
+    # thermald.enable = true;
     flatpak = enabled;
   };
 
@@ -78,7 +78,6 @@ with lib.zenyte; {
   zenyte.browsers = {
     brave = disabled;
     zen = enabled;
-    # chromium = enabled;
 
     firefox = {
       enable = true;
