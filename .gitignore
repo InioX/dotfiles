@@ -15,3 +15,9 @@ dots/config/ghostty/themes/Matugen
 dots/config/hypr/lua/colors.lua
 dots/config/tmux/generated.conf
 dots/config/zen/chrome/zen-themes/*
+
+dots/config/nvim/tags
+dots/config/nvim/test.sh
+dots/config/nvim/.luarc.json
+dots/config/nvim/nvim
+dots/config/nvim/spell/
