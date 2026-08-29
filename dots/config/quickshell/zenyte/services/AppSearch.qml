@@ -20,7 +20,9 @@ Singleton {
             "footclient": "foot",
             "sober": "org.vinegarhq.Sober",
             "popout_kitty": "kitty",
-            "steam_proton": "Genshin"
+            "steam_proton": "Genshin",
+            "WEBRTC VoiceEngine": "discord",
+            "GenshinImpact.exe": "an-anime-game-launcher"
         })
     property var regexSubstitutions: [
         {
