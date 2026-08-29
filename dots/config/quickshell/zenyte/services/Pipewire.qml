@@ -44,7 +44,7 @@ Singleton {
             if (nodeName.endsWith(".monitor"))
                 continue;
 
-            if (node.isStream && node.audio && appName) {
+            if (node.isStream && node.isSink && node.audio) {
                 uniqueStreams.set(appName, node);
             }
         }
