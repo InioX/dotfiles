@@ -329,6 +329,7 @@ Item {
                         }
 
                         nickname: modelData.properties["application.name"]
+                        icon: AppSearch.guessIcon(modelData.properties["application.name"])
                         volume: modelData.audio?.volume * 100
                         isMuted: modelData.audio?.muted
 

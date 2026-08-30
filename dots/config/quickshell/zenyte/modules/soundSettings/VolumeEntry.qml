@@ -1,4 +1,5 @@
 import Quickshell
+import Quickshell.Widgets
 import QtQuick
 import QtQuick.Layouts
 import qs.services
@@ -8,10 +9,11 @@ Column {
     id: root
 
     required property string nickname
+    required property string icon
     required property int volume
     required property bool isMuted
 
-    property string icon: "󰕾"
+    // property string icon: "󰕾"
 
     signal moved(real value)
     signal muteClicked
@@ -23,12 +25,13 @@ Column {
         anchors.left: parent.left
         anchors.right: parent.right
 
-        StyledText {
+        IconImage {
+            id: imageIcon
 
-            text: root.icon
-            color: Colors.md3.on_surface
-            font.pixelSize: Config.style.font.size.big
-            font.bold: true
+            source: Quickshell.iconPath(root.icon, "audio-volume-high-symbolic")
+            implicitSize: 30
+            layer.enabled: true
+            layer.smooth: true
         }
 
         Rectangle {
