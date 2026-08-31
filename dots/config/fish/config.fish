@@ -9,6 +9,7 @@ set fish_greeting
 if status is-interactive
     alias lst="eza --icons=auto -T --short-nix"
     alias ls="eza --icons=auto --short-nix"
+    alias cd="z"
     alias flake-update="nix flake update --flake ~/dev/dotfiles/nixos"
     alias nix-update="nh os switch ~/dev/dotfiles/nixos"
     alias develop="nix develop -c fish"
