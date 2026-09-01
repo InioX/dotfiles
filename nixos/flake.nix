@@ -107,6 +107,10 @@
   };
 
   inputs = {
+    hermes = {
+      url = "github:InioX/hermes";
+    };
+
     steam-config-nix = {
       url = "github:different-name/steam-config-nix";
       inputs.nixpkgs.follows = "nixpkgs";

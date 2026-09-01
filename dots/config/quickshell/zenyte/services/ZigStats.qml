@@ -12,7 +12,7 @@ Singleton {
     Process {
         id: dateProc
 
-        command: ["/home/ini/dev/hermes/zig-out/bin/default", "-i", root.timeout]
+        command: ["hermes", "-i", root.timeout]
         running: true
 
         stdout: SplitParser {

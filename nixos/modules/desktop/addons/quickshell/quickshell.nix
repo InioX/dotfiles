@@ -39,6 +39,8 @@ in {
       v4l-utils
       # Icon theme
       yet-another-monochrome-icons
+      # System monitor
+      inputs.hermes.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
     zenyte.home.configFile = {
