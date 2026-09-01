@@ -56,8 +56,8 @@ in {
 
             Bookmarks = [
               {
-                Title = "Z-Stream";
-                URL = "https://zstream.mov/";
+                Title = "Cinejoy";
+                URL = "https://cinejoy.to/";
                 Placement = "toolbar";
               }
               {

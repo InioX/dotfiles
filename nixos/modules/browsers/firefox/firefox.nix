@@ -5,8 +5,7 @@
   ...
 }:
 with lib;
-with lib.zenyte;
-let
+with lib.zenyte; let
   cfg = config.zenyte.browsers.firefox;
 
   # Check about:support for extension/add-on ID strings.
@@ -24,8 +23,7 @@ let
     # Ublock
     "uBlock0@raymondhill.net"
   ];
-in
-{
+in {
   options.zenyte.browsers.firefox = with types; {
     enable = mkBoolOpt false "Whether to enable firefox.";
     extensions = mkOption {
@@ -123,14 +121,16 @@ in
                 install_url = "https://addons.mozilla.org/firefox/downloads/latest/${id}/latest.xpi";
                 installation_mode = "normal_installed";
               };
-            }) extensions
+            })
+            extensions
           );
           Bookmarks = [
             {
-              Title = "Z-Stream";
-              URL = "https://zstream.mov/";
+              Title = "Cinejoy";
+              URL = "https://cinejoy.to/";
               Placement = "toolbar";
             }
+
             {
               Title = "YouTube";
               URL = "https://www.youtube.com/";
@@ -240,17 +240,17 @@ in
                   }
                 ];
                 icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-                definedAliases = [ "@np" ];
+                definedAliases = ["@np"];
               };
               "NixOS Wiki" = {
-                urls = [ { template = "https://nixos.wiki/index.php?search={searchTerms}"; } ];
+                urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
                 icon = "https://nixos.wiki/favicon.png";
                 updateInterval = 24 * 60 * 60 * 1000;
-                definedAliases = [ "@nw" ];
+                definedAliases = ["@nw"];
               };
               "youtube" = {
-                urls = [ { template = "https://www.youtube.com/results?search_query={searchTerms}"; } ];
-                definedAliases = [ "@yt" ];
+                urls = [{template = "https://www.youtube.com/results?search_query={searchTerms}";}];
+                definedAliases = ["@yt"];
               };
               "wikipedia".metaData.alias = "@wiki";
             };
