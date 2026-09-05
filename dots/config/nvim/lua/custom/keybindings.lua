@@ -28,6 +28,8 @@ do
   vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { desc = 'Telescope find files' })
   vim.keymap.set('n', '<leader>fi', '<cmd>Telescope live_grep<CR>', { desc = 'Telescope find files' })
 
+  vim.keymap.set('i', 'jk', '<ESC>', { silent = true })
+
   -- Switch buffers
   vim.keymap.set('n', 'gp', '<cmd>bprevious<CR>', { desc = 'Prev buffer' })
   vim.keymap.set('n', 'gn', '<cmd>bnext<CR>', { desc = 'Next buffer' })
