@@ -138,10 +138,10 @@ do
     delay = 0,
     icons = { mappings = vim.g.have_nerd_font },
     spec = {
-      { '<leader>s', group = '[S]earch',    mode = { 'n', 'v' } },
+      { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
       { '<leader>t', group = '[T]oggle' },
-      { '<leader>h', group = 'Git [H]unk',  mode = { 'n', 'v' } }, -- Enable gitsigns recommended keymaps first
-      { 'gr',        group = 'LSP Actions', mode = { 'n' } },
+      { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } }, -- Enable gitsigns recommended keymaps first
+      { 'gr', group = 'LSP Actions', mode = { 'n' } },
     },
   }
 
@@ -299,8 +299,7 @@ do
   )
 
   -- Shortcut for searching your Neovim configuration files
-  vim.keymap.set('n', '<leader>sn', function() builtin.find_files { cwd = vim.fn.stdpath 'config', follow = true } end,
-    { desc = '[S]earch [N]eovim files' })
+  vim.keymap.set('n', '<leader>sn', function() builtin.find_files { cwd = vim.fn.stdpath 'config', follow = true } end, { desc = '[S]earch [N]eovim files' })
 end
 
 do
@@ -366,9 +365,7 @@ do
       --
       -- This may be unwanted, since they displace some of your code
       if client and client:supports_method('textDocument/inlayHint', event.buf) then
-        map('<leader>th',
-          function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }) end,
-          '[T]oggle Inlay [H]ints')
+        map('<leader>th', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }) end, '[T]oggle Inlay [H]ints')
       end
     end,
   })
@@ -377,10 +374,7 @@ do
     group = vim.api.nvim_create_augroup('UserLspConfig', { clear = true }),
     callback = function(event)
       local client = vim.lsp.get_client_by_id(event.data.client_id)
-      if client and client:supports_method 'textDocument/inlayHint' then
-        vim.lsp.inlay_hint.enable(true,
-          { bufnr = event.buf })
-      end
+      if client and client:supports_method 'textDocument/inlayHint' then vim.lsp.inlay_hint.enable(true, { bufnr = event.buf }) end
     end,
   })
 
@@ -497,8 +491,7 @@ do
     },
   }
 
-  vim.keymap.set({ 'n', 'v' }, '<C-f>', function() require('conform').format { async = true } end,
-    { desc = '[F]ormat buffer' })
+  vim.keymap.set({ 'n', 'v' }, '<C-f>', function() require('conform').format { async = true } end, { desc = '[F]ormat buffer' })
 end
 
 -- ============================================================
