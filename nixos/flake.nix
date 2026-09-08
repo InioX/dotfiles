@@ -107,6 +107,10 @@
   };
 
   inputs = {
+    biri = {
+      url = "github:barrulus/biri";
+    };
+
     hermes = {
       url = "github:InioX/hermes";
     };

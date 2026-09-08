@@ -1,3 +1,6 @@
+workspace "scratch" {
+}
+
 layer-rule {
     match namespace="quickshell-bar"
     match namespace="quickshell-dock"
@@ -46,8 +49,10 @@ window-rule {
     // This app-id regular expression will work for both:
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
     open-floating true
+    open-sticky true
+    float-above-fullscreen true
 }
 
 // Example: block out two password managers from screen capture.

@@ -64,7 +64,7 @@ Singleton {
 
     property bool showOnEmptyWorkspace: {
         if (Compositors.isNiri) {
-            return !(Niri.focusedWindow && !Niri.focusedWindow.isFloating);
+            return !(Niri.focusedWindow);
         }
 
         if (Compositors.isHyprland) {

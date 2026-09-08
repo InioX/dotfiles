@@ -3,14 +3,13 @@
   pkgs,
   lib,
   default,
+  inputs,
   ...
 }:
 with lib;
-with lib.zenyte;
-let
+with lib.zenyte; let
   cfg = config.zenyte.desktop.niri;
-in
-{
+in {
   options.zenyte.desktop.niri = {
     enable = mkBoolOpt false "Whether to enable niri.";
   };
@@ -20,6 +19,7 @@ in
 
     programs.niri = {
       enable = true;
+      package = inputs.biri.packages.${pkgs.stdenv.hostPlatform.system}.default;
     };
 
     environment.systemPackages = with pkgs; [
