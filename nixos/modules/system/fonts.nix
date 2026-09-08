@@ -6,8 +6,7 @@
   ...
 }:
 with lib;
-with lib.zenyte;
-let
+with lib.zenyte; let
   cfg = config.zenyte.system.fonts;
 
   # Until https://github.com/NixOS/nixpkgs/pull/471699/ gets merged
@@ -39,22 +38,28 @@ let
     # platforms = lib.platforms.all;
     # };
   });
-in
-{
+in {
   options.zenyte.system.fonts = {
     nerd-fonts = mkBoolOpt false "Whether to enable nerd-fonts.";
   };
 
   config = {
-    fonts.packages = with pkgs; [
-      nerd-fonts.iosevka
-      noto-fonts
-      terminus_font_ttf
-      material-design-icons
-      material-symbols
-      cozette
+    fonts = {
+      fontDir.enable = true;
+      packages = with pkgs; [
+        nerd-fonts.iosevka
+        terminus_font_ttf
+        material-design-icons
+        material-symbols
+        cozette
 
-      google-sans-flex
-    ];
+        google-sans-flex
+
+        dejavu_fonts
+        noto-fonts
+        noto-fonts-cjk-sans
+        noto-fonts-color-emoji
+      ];
+    };
   };
 }
