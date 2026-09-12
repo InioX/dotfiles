@@ -70,6 +70,7 @@ in {
       steam = enabled;
       lutris = enabled;
       aagl = enabled;
+      roblox = enabled;
     };
 
     zenyte.apps = {

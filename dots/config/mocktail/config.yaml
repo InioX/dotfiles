@@ -1,0 +1,140 @@
+# Mocktail configuration.
+# The file is created once with mode 0600. Mocktail never replaces your edits.
+
+# Integer: configuration schema version. Only version 1 is supported.
+version: 1
+
+# One-line device preset. Short aliases pc, mobile, and console are accepted.
+# Presets: pc-windows-11, mobile-pixel-7, console-ps5.
+# Use the mapping below for a custom profile.
+device: pc-windows-11
+
+# Detailed alternative (replace the scalar device line above):
+# device:
+#   type: mobile
+#   platform: Android
+#   name: Google Pixel 9 Pro
+#   manufacturer: Google
+#   model: Pixel 9 Pro
+#   brand: google
+#   code: komodo
+#   sku: pixel-9-pro
+#   soc_model: Google Tensor G4
+#   touch: true
+#   mouse: false
+#   keyboard: false
+
+runtime:
+  # Boolean (default: false): start without a visible SDL window.
+  headless: false
+  # String (optional): use a specific x86_64 libroblox.so instead of the
+  # active verified payload.
+  # roblox_library: /absolute/path/to/libroblox.so
+
+appearance:
+  # String (default: roblox): use Roblox's saved account theme. Supported
+  # overrides: dark, light, or system (follow the desktop color scheme).
+  theme: roblox
+
+graphics:
+  # String (default: direct-vulkan): graphics backend. Use opengl on hardware
+  # without a working Vulkan driver; OpenGL ES 3.0 or newer is required.
+  # Recommended values: direct-vulkan, opengl, system, angle-vulkan.
+  backend: direct-vulkan
+  # Optional string or integer: Mocktail frame-rate override. Leave commented
+  # (or use -1) to let Roblox Basic Settings own the cap. Supported overrides:
+  # display, unlimited, or any positive integer; fixed values are forwarded to
+  # DFIntTaskSchedulerTargetFps without a whitelist.
+  # frame_rate_limit: -1
+  # Optional presentation synchronization override: auto, on, or off.
+  # vsync: off
+
+performance:
+  # Boolean (default: false): size Roblox scheduler/render queues from every
+  # physical CPU core. A place's Lua/main thread can still remain serial.
+  multithreaded_rendering: false
+  # String (default: throughput): `throughput` makes every physical core
+  # available to Roblox worker pools; `latency` preserves Roblox-managed pool
+  # sizes and coalesces midphase work. Supported: auto, latency, throughput.
+  physics_worker_mode: throughput
+  # Integer MiB (default: 0): hard RAM cap for the Mocktail process tree.
+  # 0 disables the cap. cgroup v2 also disables swap; other Linux systems use
+  # an RSS+swap watchdog. 6144 is a conservative starting point for 32 GiB RAM.
+  memory_limit_mb: 0
+  # String (default: auto): request Feral GameMode when its host daemon and
+  # client library are available. Supported values: auto, on, off.
+  gamemode: auto
+
+audio:
+  # String (default: default): `default` follows the host system output.
+  # To pin output, copy an exact SDL device name printed during startup.
+  output_device: default
+  # String (default: default): input device name, `id:<number>` printed during
+  # startup, or `disabled`. IDs disambiguate duplicate names but may change
+  # between boots; prefer the exact device name when it is unique.
+  input_device: default
+
+integrations:
+  discord_rpc:
+    # Boolean (default: false): publish Mocktail activity to Discord Desktop.
+    # This never signs in to Discord and never reads an account token.
+    enabled: false
+    # Boolean (default: true): show the current Roblox experience name.
+    show_place_name: true
+    # Boolean (default: true): show how long the current session has run.
+    show_elapsed_time: true
+    join:
+      # Boolean (default: true): let friends open the current experience. When
+      # Roblox provides a public server ID, the button targets that server.
+      enabled: true
+      # Boolean (default: true): never expose private or reserved joins.
+      public_servers_only: true
+      # button_label: Join Server
+    # English defaults. Uncomment only the lines you want to customize.
+    # text:
+    #   browsing: Browsing experiences
+    #   joining: Joining an experience
+    #   playing: "{place_name}"
+    #   state: Playing Roblox
+    #   unknown_place: Unknown experience
+    # Advanced: overrides the application bundled by the package maintainer.
+    # application_id: 123456789012345678
+
+window:
+  # Integer (default: 1280): initial window width in logical desktop units.
+  width: 1280
+  # Integer (default: 720): initial window height in logical desktop units.
+  height: 720
+  # String (default: Roblox): window title.
+  title: Roblox
+  # Boolean (default: false): render at physical display-pixel density instead
+  # of the logical desktop resolution. Enable only for sharper high-DPI output.
+  high_dpi: false
+
+network:
+  # Boolean (default: false): follow the host HTTP/SOCKS5 proxy and
+  # automatically use its current port. Do not combine with a fixed proxy.
+  use_system_proxy: false
+  # Optional fixed HTTP proxy. Uncomment both values together. The host must
+  # not contain a scheme such as http://.
+  # String (optional, default: disabled): proxy host name or IP address.
+  # proxy_host: 127.0.0.1
+  # Integer (optional, default: disabled): proxy TCP port from 1 to 65535.
+  # proxy_port: 8080
+  # Absolute path (optional): custom PEM CA bundle. Mocktail reads this file
+  # directly and does not replace it during Roblox payload updates.
+  # ca_bundle: /home/user/.config/mocktail/cacert.pem
+
+updates:
+  # Boolean (default: true): check the latest Roblox version, derive an exact
+  # HostAbi profile, run two isolated canaries with the selected graphics
+  # backend, and promote only on success. An existing current payload is
+  # preserved when probation fails.
+  automatic: true
+  # String (default: apk-pure): direct x86_64 APK provider selection. Both
+  # accepted values resolve the provider chain, which currently starts with
+  # APKPure. Supported values: auto, apk-pure.
+  source: apk-pure
+  # Reserved for desktop update integrations. `mocktail_updater` itself never
+  # launches another process after changing the active payload.
+  launch_after_update: false

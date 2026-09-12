@@ -107,6 +107,10 @@
   };
 
   inputs = {
+    mocktail = {
+      url = "github:komaruworld/mocktail";
+    };
+
     biri = {
       url = "github:barrulus/biri";
     };
