@@ -4,10 +4,9 @@ custom-shader = shaders/cursor_warp.glsl
 custom-shader = shaders/ripple_rectangle_cursor.glsl
 custom-shader-animation = always
 
-font-family="Cozette"
-font-style="HiDpi"
+font-family="Lekton Nerd Font"
 
-font-size=24
+font-size=20
 
 gtk-tabs-location = hidden
 

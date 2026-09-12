@@ -48,6 +48,8 @@ in {
       fontDir.enable = true;
       packages = with pkgs; [
         nerd-fonts.iosevka
+        nerd-fonts.lekton
+
         terminus_font_ttf
         material-design-icons
         material-symbols
