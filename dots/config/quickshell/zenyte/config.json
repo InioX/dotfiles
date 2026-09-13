@@ -2,8 +2,8 @@
     "bar": {
         "bottom": false,
         "color_widget_background": false,
-        "floating": true,
-        "full_width": false,
+        "floating": false,
+        "full_width": true,
         "height": 60,
         "margins": {
             "floating": 10,
@@ -19,7 +19,7 @@
     "desktop": {
         "show_files": true,
         "show_folders": true,
-        "show_icons": true
+        "show_icons": false
     },
     "dock": {
         "bottom": true,
@@ -48,7 +48,7 @@
         ],
         "pinned_apps": [
             "discord",
-            "zen",
+            "zen-beta",
             "Overwatch",
             "Genshin",
             "honkers-railway-launcher",
