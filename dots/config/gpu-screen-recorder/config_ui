@@ -9,6 +9,7 @@ main.software_encoding_warning_shown false
 main.tint_color nvidia
 main.wayland_warning_shown true
 record.container mp4
+record.name_video_file_after_game false
 record.pause_unpause_hotkey 92 16
 record.record_options.advanced_view false
 record.record_options.audio_codec opus
@@ -49,6 +50,7 @@ record.start_stop_hotkey 94 16
 record.start_stop_region_hotkey 94 4
 record.start_stop_window_hotkey 94 1
 replay.container mp4
+replay.name_video_file_after_game false
 replay.only_start_replay_if_power_supply_connected false
 replay.record_options.advanced_view true
 replay.record_options.audio_codec opus
@@ -99,6 +101,7 @@ screenshot.image_format jpg
 screenshot.image_height 1080
 screenshot.image_quality very_high
 screenshot.image_width 1920
+screenshot.name_screenshot_file_after_game false
 screenshot.record_area_option focused_monitor
 screenshot.record_cursor true
 screenshot.restore_portal_session true
@@ -107,7 +110,7 @@ screenshot.save_screenshot_in_game_folder false
 screenshot.save_screenshot_to_clipboard true
 screenshot.save_screenshot_to_disk true
 screenshot.show_notifications true
-screenshot.take_screenshot_hotkey 102 0
+screenshot.take_screenshot_hotkey 0 0
 screenshot.take_screenshot_region_hotkey 102 4
 screenshot.take_screenshot_window_hotkey 102 1
 screenshot.use_led_indicator false
@@ -153,4 +156,6 @@ streaming.rumble.key
 streaming.service twitch
 streaming.start_stop_hotkey 93 16
 streaming.twitch.key 
+streaming.whip.bearer_token 
+streaming.whip.url 
 streaming.youtube.key 
