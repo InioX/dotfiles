@@ -386,6 +386,8 @@ do
     -- clangd = {},
     -- gopls = {},
     -- pyright = {},
+    html = {},
+    cssls = {},
     rust_analyzer = {
       inlayHints = {
         bindingModeHints = { enable = true },
@@ -482,6 +484,8 @@ do
     },
     -- You can also specify external formatters in here.
     formatters_by_ft = {
+      html = { 'prettier' },
+      css = { 'prettier' },
       -- rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },

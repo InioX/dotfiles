@@ -6,17 +6,17 @@
   ...
 }:
 with lib;
-with lib.zenyte;
-let
+with lib.zenyte; let
   cfg = config.zenyte.apps.nvim;
-in
-{
+in {
   options.zenyte.apps.nvim = {
     enable = mkBoolOpt false "Whether to enable nvim.";
   };
 
   config = mkIf cfg.enable {
     programs.neovim.enable = true;
+
+    networking.firewall.allowedTCPPorts = [5500];
 
     environment.systemPackages = with pkgs; [
       cmake
