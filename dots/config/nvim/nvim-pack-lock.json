@@ -42,6 +42,10 @@
       "rev": "84a4987ff36798c2fc1169cbaff67960aed9776f",
       "src": "https://github.com/NMAC427/guess-indent.nvim"
     },
+    "liveserver.nvim": {
+      "rev": "9a2bbc5b5177a43f38567e48aaf9a5505f393aa2",
+      "src": "https://github.com/ankushbhagats/liveserver.nvim"
+    },
     "matugen.nvim": {
       "rev": "7f8a05f0f3e7f6a135998f50a9cbacd8ad6a7c28",
       "src": "https://github.com/Senal-D-A-Gunaratna/matugen.nvim"

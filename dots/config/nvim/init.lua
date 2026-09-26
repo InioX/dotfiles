@@ -13,6 +13,8 @@ do
   vim.o.number = true
   vim.o.mouse = 'a'
 
+  vim.o.wrap = false
+
   vim.o.showmode = false
 
   vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
@@ -421,7 +423,22 @@ do
       inlay_hints_hide_redundant_param_names_last_token = true,
     },
     stylua = {},
-    qmlls = {},
+    slint = {
+      cmd = {
+        'slint-lsp',
+      },
+      filetypes = { 'slint' },
+    },
+    qmlls = {
+      cmd = {
+        'qmlls',
+        '-I',
+        os.getenv 'QML2_IMPORT_PATH' or '',
+        '-I',
+        vim.fn.getcwd() .. '/qml',
+      },
+      filetypes = { 'qml' },
+    },
 
     lua_ls = {
 
@@ -486,6 +503,7 @@ do
     formatters_by_ft = {
       html = { 'prettier' },
       css = { 'prettier' },
+      toml = { 'taplo' },
       -- rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
