@@ -37,9 +37,9 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      syncthingDesktopItem
-    ];
+    # environment.systemPackages = with pkgs; [
+    #   syncthingDesktopItem
+    # ];
 
     services = {
       syncthing = {
@@ -51,13 +51,12 @@ in {
         overrideFolders = true; # overrides any folders added or deleted through the WebUI
         settings = {
           devices = {
-            "Android" = {id = "DANRJA7-MMDLUM3-IJAKI7R-SDCQJR3-IC6SSMF-BWHBYXT-MFOZOM6-365ZZAJ";};
+            "Android" = {id = "FRSL3YI-QHTPNI4-HZ4TLLV-ZLYNBOB-CN7E7HS-OXSMQMN-NMIX2UR-ECSRVQV";};
           };
           folders = {
             "docs" = {
-              # Name of folder in Syncthing, also the folder ID
-              path = "/home/ini/docs"; # Which folder to add to Syncthing
-              devices = ["Android"]; # Which devices to share the folder with
+              path = "/home/ini/docs";
+              devices = ["Android"];
             };
           };
         };

@@ -170,6 +170,7 @@ in {
             home.activation.createDevFolder = lib.hm.dag.entryAfter ["writeBoundary"] ''
               mkdir -p $HOME/dev/
               mkdir -p $HOME/games/
+              mkdir -p $HOME/docs/notes
             '';
 
             # Clone dotfiles repo inside ~/dev/dotfiles

@@ -26,6 +26,8 @@ in {
       tree-sitter
       luaPackages.tree-sitter-cli
       gcc
+
+      markdownlint-cli
     ];
 
     zenyte.home.configFile = {

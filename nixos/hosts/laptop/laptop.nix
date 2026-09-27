@@ -55,7 +55,7 @@ with lib.zenyte; {
   };
 
   zenyte.services = {
-    syncthing = disabled;
+    syncthing = enabled;
     kdeconnect = enabled;
     # tlp = {
     # enable = false;
