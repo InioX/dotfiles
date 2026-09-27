@@ -61,7 +61,7 @@ Item {
     }
 
     function openProject(editorCmdArray, projectPath) {
-        console.log(editorCmdArray)
+        console.log(editorCmdArray);
         let finalArgs = editorCmdArray.map(arg => arg.replace("%path%", projectPath));
 
         Quickshell.execDetached(finalArgs);
@@ -386,13 +386,14 @@ Item {
 
                                     font.pixelSize: Config.style.font.size.medium
                                     color: Colors.md3.on_surface
+                                    font.weight: 600
                                 }
 
                                 StyledText {
                                     text: States.launcherTab === "apps" ? listDelegate.modelData.id : listDelegate.modelData.path
 
                                     font.pixelSize: Config.style.font.size.small
-                                    color: Colors.md3.outline_variant
+                                    color: Config.style.blur.popout ? Colors.md3.outline : Colors.md3.outline_variant
                                 }
                             }
 

@@ -24,7 +24,6 @@ Singleton {
         running: true
         repeat: false
         onTriggered: {
-            console.log(root.compositor);
             detectCompositor(ZigStats.json?.compositor);
 
             compositorDetected = true;
@@ -46,7 +45,7 @@ Singleton {
         compositor = name;
         compositorDetected = true;
 
-        if (isNiri)
-            NiriService.generateNiriBlurrule();
+        // if (isNiri)
+        //     Niri.generateNiriBlurrule();
     }
 }

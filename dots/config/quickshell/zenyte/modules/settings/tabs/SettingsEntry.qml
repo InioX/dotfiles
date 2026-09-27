@@ -18,12 +18,13 @@ RowLayout {
             text: root.name
             color: Colors.md3.on_surface
             font.pixelSize: root.showDescription ? Config.style.font.size.small : Config.style.font.size.medium
+            font.weight: 600
         }
 
         StyledText {
             visible: root.showDescription
             text: root.description
-            color: Colors.md3.outline_variant
+            color: Config.style.blur.popout ? Colors.md3.outline : Colors.md3.outline_variant
             font.pixelSize: Config.style.font.size.small
         }
     }

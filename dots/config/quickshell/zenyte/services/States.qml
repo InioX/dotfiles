@@ -90,7 +90,7 @@ Singleton {
 
     Connections {
         target: Hyprland
-        enabled: root.isHyprland
+        enabled: Compositors.isHyprland
 
         function onRawEvent(event) {
             if (event.name === "activespecial" || event.name === "activespecialv2") {

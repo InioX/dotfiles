@@ -2,8 +2,8 @@
     "bar": {
         "bottom": false,
         "color_widget_background": false,
-        "floating": false,
-        "full_width": true,
+        "floating": true,
+        "full_width": false,
         "height": 60,
         "margins": {
             "floating": 10,
@@ -57,10 +57,10 @@
     },
     "style": {
         "blur": {
-            "bar": false,
-            "dock": false,
-            "popout": false,
-            "widget": false
+            "bar": true,
+            "dock": true,
+            "popout": true,
+            "widget": true
         },
         "borders": {
             "bar": {
@@ -105,9 +105,9 @@
         "transparency": {
             "blur_enabled": {
                 "bar": 0.7000000000000001,
-                "dock": 0.7,
-                "popout": 0.7,
-                "popout_widget": 0.5,
+                "dock": 0.7000000000000001,
+                "popout": 0.7000000000000001,
+                "popout_widget": 0.4,
                 "widget": 0.5
             },
             "normal": {
