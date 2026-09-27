@@ -56,6 +56,7 @@ with lib.zenyte; {
 
   zenyte.services = {
     syncthing = disabled;
+    kdeconnect = enabled;
     # tlp = {
     # enable = false;
     # radeonDPM = true;
