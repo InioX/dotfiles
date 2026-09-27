@@ -4,6 +4,7 @@ workspace "scratch" {
 layer-rule {
     match namespace="quickshell-bar"
     match namespace="quickshell-dock"
+    match namespace="quickshell-popout"
 
     background-effect {
         xray false

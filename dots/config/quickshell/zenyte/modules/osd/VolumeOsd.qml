@@ -16,6 +16,11 @@ Loader {
             hideTimer.restart();
         }
 
+        function onMutedSinkChanged() {
+            root.shouldShowOsd = true;
+            hideTimer.restart();
+        }
+
         target: Pipewire
     }
 

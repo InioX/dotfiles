@@ -30,6 +30,7 @@ Scope {
         // aboveWindows: true
         exclusionMode: ExclusionMode.Ignore
         WlrLayershell.layer: WlrLayer.Overlay
+        WlrLayershell.namespace: "quickshell-popout"
 
         screen: Quickshell.screens[0]
 
@@ -68,12 +69,12 @@ Scope {
 
                 spacing: 10
 
-                StyledText {
+                StyledAnimatedText {
                     anchors.horizontalCenter: parent.horizontalCenter
 
-                    text: osd.value + "%"
-                    color: Colors.md3.on_surface
-                    font.pixelSize: Config.style.font.size.small
+                    displayText: osd.value + "%"
+                    textColor: Colors.md3.on_surface
+                    fontSize: Config.style.font.size.small
                 }
 
                 StyledSlider {
