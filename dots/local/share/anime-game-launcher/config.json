@@ -14,6 +14,7 @@
       "fast": false
     },
     "environment": "PC",
+    "disable_telemetry": true,
     "behavior": "Close"
   },
   "game": {
@@ -27,7 +28,7 @@
     "wine": {
       "prefix": "/home/ini/games/anime-game-launcher",
       "builds": "/home/ini/.local/share/anime-game-launcher/runners",
-      "selected": "wine-dwproton-wow64-11.0-4",
+      "selected": "wine-dwproton-wow64-11.0-11",
       "sync": "None",
       "language": "System",
       "borderless": false,
