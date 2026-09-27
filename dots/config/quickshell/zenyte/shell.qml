@@ -7,11 +7,16 @@ import "modules/bar"
 import "modules/dock"
 import "modules/desktop"
 import "modules/settings"
+import "modules/osd"
+
 import QtQuick
 import Quickshell
 
 ShellRoot {
     id: root
+
+    VolumeOsd {}
+    MicOsd {}
 
     Loader {
         active: true

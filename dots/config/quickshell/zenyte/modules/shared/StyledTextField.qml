@@ -36,8 +36,8 @@ TextField {
             return root.backgroundColor;
         }
 
-        border.color: root.activeFocus ? Colors.md3.primary : "transparent"
-        border.width: root.activeFocus ? 1.5 : 0
+        border.color: root.activeFocus ? Colors.md3.primary : Colors.md3.outline_variant
+        border.width: root.activeFocus ? 2 : 1
 
         Behavior on color {
             StyledColorAnimation {}

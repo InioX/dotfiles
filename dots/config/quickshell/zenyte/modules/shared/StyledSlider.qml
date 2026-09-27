@@ -11,27 +11,50 @@ Slider {
     property color backgroundColor: Colors.md3.surface_container_high
     property color fillColor: isActive ? Colors.md3.primary : Colors.md3.outline
 
-    background: Rectangle {
-        StyledHoverHandler {}
+    implicitWidth: vertical ? 16 : 200
+    implicitHeight: vertical ? 200 : 16
 
-        x: slider.leftPadding
-        y: slider.topPadding + slider.availableHeight / 2 - height / 2
-        implicitHeight: 16
-        width: slider.availableWidth
-        height: implicitHeight
+    background: Rectangle {
+        id: bg
+
+        x: slider.vertical ? slider.leftPadding + slider.availableWidth / 2 - width / 2 : slider.leftPadding
+        y: slider.vertical ? slider.topPadding : slider.topPadding + slider.availableHeight / 2 - height / 2
+
+        width: slider.vertical ? 16 : slider.availableWidth
+        height: slider.vertical ? slider.availableHeight : 16
+
         radius: 10
         color: slider.backgroundColor
+
+        border.color: Colors.md3.outline_variant
+        border.width: 1
+
+        StyledHoverHandler {}
 
         Rectangle {
             id: fill
 
-            width: slider.visualPosition * parent.width - 4
-            height: parent.height
-            color: fillColor
+            x: slider.vertical ? 0 : 2
+
+            y: slider.vertical ? parent.height - height : 0
+
+            width: slider.vertical ? parent.width : slider.visualPosition * parent.width - 4
+
+            height: slider.vertical ? slider.position * parent.height : parent.height
+
+            color: slider.fillColor
+
             bottomLeftRadius: parent.radius
-            topLeftRadius: parent.radius
+            topLeftRadius: slider.vertical ? 0 : parent.radius
+            bottomRightRadius: slider.vertical ? parent.radius : 0
 
             Behavior on width {
+                enabled: !slider.vertical
+                StyledSpringAnimation {}
+            }
+
+            Behavior on height {
+                enabled: slider.vertical
                 StyledSpringAnimation {}
             }
 
@@ -68,23 +91,13 @@ Slider {
     }
 
     handle: Rectangle {
-        x: slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
-        y: slider.topPadding + slider.availableHeight / 2 - height / 2
-        implicitWidth: 4
-        implicitHeight: 22
+        x: slider.vertical ? slider.leftPadding + slider.availableWidth / 2 - width / 2 : slider.leftPadding + slider.visualPosition * (slider.availableWidth - width)
+
+        y: slider.vertical ? slider.topPadding + (1 - slider.position) * (slider.availableHeight - height) : slider.topPadding + slider.availableHeight / 2 - height / 2
+
+        implicitWidth: slider.vertical ? 22 : 4
+        implicitHeight: slider.vertical ? 4 : 22
         radius: 14
-        color: fillColor
-
-        Behavior on x {
-            StyledSpringAnimation {}
-        }
-
-        Behavior on y {
-            StyledSpringAnimation {}
-        }
-
-        Behavior on color {
-            StyledColorAnimation {}
-        }
+        color: slider.fillColor
     }
 }
