@@ -37,6 +37,67 @@ in {
   };
 
   config = mkIf cfg.enable {
+    zenyte.home.extraOptions.programs.zen-browser = {
+      enable = true;
+      setAsDefaultBrowser = true;
+
+      profiles.ini = {
+        id = 0;
+        name = "ini";
+        isDefault = true;
+
+        search = {
+          force = true;
+          default = "google";
+
+          engines = {
+            nix-packages = {
+              name = "Nix Packages";
+              urls = [
+                {
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    {
+                      name = "type";
+                      value = "packages";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = ["@np"];
+            };
+            nixos-wiki = {
+              name = "NixOS Wiki";
+              urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
+              icon = "https://nixos.wiki/favicon.png";
+              updateInterval = 24 * 60 * 60 * 1000;
+              definedAliases = ["@nw"];
+            };
+            youtube = {
+              name = "YouTube";
+              urls = [{template = "https://www.youtube.com/results?search_query={searchTerms}";}];
+              definedAliases = ["@yt"];
+            };
+
+            github = {
+              name = "GitHub Search";
+              urls = [
+                {
+                  template = "https://github.com/search?q={searchTerms}";
+                }
+              ];
+              definedAliases = ["@gh"];
+            };
+          };
+        };
+      };
+    };
+
     environment.systemPackages = [
       (
         inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default.override
@@ -52,6 +113,49 @@ in {
             DisableTelemetry = true;
             ExtensionSettings = builtins.listToAttrs extensions;
             NoDefaultBookmarks = true;
+
+            SearchEngines = {
+              PreventInstalls = true;
+
+              Add = [
+                {
+                  Name = "nixpkgs packages";
+                  URLTemplate = "https://search.nixos.org/packages?query={searchTerms}";
+                  IconURL = "https://wiki.nixos.org/favicon.ico";
+                  Alias = "@np";
+                }
+                {
+                  Name = "NixOS options";
+                  URLTemplate = "https://search.nixos.org/options?query={searchTerms}";
+                  IconURL = "https://wiki.nixos.org/favicon.ico";
+                  Alias = "@no";
+                }
+                {
+                  Name = "NixOS Wiki";
+                  URLTemplate = "https://wiki.nixos.org/w/index.php?search={searchTerms}";
+                  IconURL = "https://wiki.nixos.org/favicon.ico";
+                  Alias = "@nw";
+                }
+                {
+                  Name = "YouTube";
+                  URLTemplate = "https://www.youtube.com/results?search_query={searchTerms}";
+                  IconURL = "https://www.youtube.com/favicon.ico";
+                  Alias = "@yt";
+                }
+                {
+                  Name = "YouTube Music";
+                  URLTemplate = "https://music.youtube.com/search?q={searchTerms}";
+                  IconURL = "https://music.youtube.com/favicon.ico";
+                  Alias = "@ytm";
+                }
+                {
+                  Name = "GitHub";
+                  URLTemplate = "https://github.com/search?q={searchTerms}";
+                  IconURL = "https://github.githubassets.com/favicons/favicon.png";
+                  Alias = "@gh";
+                }
+              ];
+            };
 
             Bookmarks = [
               {
@@ -125,36 +229,6 @@ in {
                 Placement = "toolbar";
               }
             ];
-
-            SearchEngines = {
-              Default = "ddg";
-              Add = [
-                {
-                  Name = "nixpkgs packages";
-                  URLTemplate = "https://search.nixos.org/packages?query={searchTerms}";
-                  IconURL = "https://wiki.nixos.org/favicon.ico";
-                  Alias = "@np";
-                }
-                {
-                  Name = "NixOS options";
-                  URLTemplate = "https://search.nixos.org/options?query={searchTerms}";
-                  IconURL = "https://wiki.nixos.org/favicon.ico";
-                  Alias = "@no";
-                }
-                {
-                  Name = "NixOS Wiki";
-                  URLTemplate = "https://wiki.nixos.org/w/index.php?search={searchTerms}";
-                  IconURL = "https://wiki.nixos.org/favicon.ico";
-                  Alias = "@nw";
-                }
-                {
-                  Name = "noogle";
-                  URLTemplate = "https://noogle.dev/q?term={searchTerms}";
-                  IconURL = "https://noogle.dev/favicon.ico";
-                  Alias = "@ng";
-                }
-              ];
-            };
           };
         }
       )

@@ -8,13 +8,11 @@
   hostName,
   ...
 }:
-with lib;
-let
+with lib; let
   sysConfig = config;
   cfg = sysConfig.zenyte.home;
   wallpaper = config.zenyte.system.hosts.${hostName}.wallpaper or default.wallpaper;
-in
-{
+in {
   imports = with inputs; [
     home-manager.nixosModules.home-manager
   ];
@@ -22,23 +20,23 @@ in
   options.zenyte.home = with types; {
     file = mkOption {
       type = attrsOf (either str attrs);
-      default = { };
+      default = {};
     };
     configFile = mkOption {
       type = attrsOf (either str attrs);
-      default = { };
+      default = {};
     };
     dataFile = mkOption {
       type = attrsOf (either str attrs);
-      default = { };
+      default = {};
     };
     extraOptions = mkOption {
       type = attrs;
-      default = { };
+      default = {};
     };
     programs = mkOption {
       type = attrs;
-      default = { };
+      default = {};
     };
   };
 
@@ -53,19 +51,20 @@ in
       # useUserPackages = true;
       useGlobalPkgs = true;
 
-      users.${default.username} =
-        { config, ... }:
-        let
-          processFiles =
-            baseFolder: attrs:
-            mapAttrs (
-              name: value:
-              if isString value then
-                { source = config.lib.file.mkOutOfStoreSymlink "${baseFolder}/${value}"; }
-              else
-                value
-            ) attrs;
-        in
+      sharedModules = [
+        inputs.zen-browser.homeModules.beta
+      ];
+
+      users.${default.username} = {config, ...}: let
+        processFiles = baseFolder: attrs:
+          mapAttrs (
+            name: value:
+              if isString value
+              then {source = config.lib.file.mkOutOfStoreSymlink "${baseFolder}/${value}";}
+              else value
+          )
+          attrs;
+      in
         mkMerge [
           (mkAliasDefinitions options.zenyte.home.extraOptions)
 
@@ -78,7 +77,6 @@ in
           {
             # Most stuff is in their own modules, this is just for weird stuff
             xdg.configFile = {
-
               # Electron
               "electron-flags.conf".source =
                 config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/electron-flags.conf";
@@ -91,7 +89,6 @@ in
 
               "mimeapps.list".source =
                 config.lib.file.mkOutOfStoreSymlink "${default.configFolder}/mimeapps.list";
-
             };
 
             home.file = {
@@ -170,13 +167,13 @@ in
             };
 
             # Setup basic directories
-            home.activation.createDevFolder = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+            home.activation.createDevFolder = lib.hm.dag.entryAfter ["writeBoundary"] ''
               mkdir -p $HOME/dev/
               mkdir -p $HOME/games/
             '';
 
             # Clone dotfiles repo inside ~/dev/dotfiles
-            home.activation.cloneDotfiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+            home.activation.cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
               baseDir="/home/${default.username}/dev/dotfiles"
               if [ ! -d "$baseDir" ]; then
                 ${pkgs.git}/bin/git clone https://github.com/InioX/dotfiles "$baseDir"
