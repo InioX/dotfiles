@@ -55,6 +55,27 @@ in {
         onSteamRunning = "close";
         defaultCompatTool = pkgs.proton-cachyos_x86_64_v3;
 
+        apps."3513350" = {
+          name = "Wuthering Waves";
+
+          env = {
+            __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
+            PROTON_DLSS_UPGRADE = "1";
+            PROTON_NVIDIA_LIBS_NO_32BIT = "1";
+            PROTON_USE_NTSYNC = "1";
+            PROTON_ENABLE_WAYLAND = "1";
+            PROTON_ENABLE_NVAPI = "1";
+          };
+
+          args = [
+            "-SkipSplash"
+          ];
+
+          wrappers = [
+            "game-performance"
+          ];
+        };
+
         apps."2357570" = {
           name = "Overwatch";
           env = {
