@@ -38,7 +38,8 @@ Loader {
     active: shouldShowOsd
 
     sourceComponent: Osd {
-        icon: "󰕾"
+        icon: Pipewire.icon
+
         value: Pipewire.volumeSink
         isActive: !Pipewire.mutedSink
 

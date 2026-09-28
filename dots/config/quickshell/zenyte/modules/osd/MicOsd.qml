@@ -38,7 +38,7 @@ Loader {
     active: shouldShowOsd
 
     sourceComponent: Osd {
-        icon: "󰍬"
+        icon: Pipewire.mutedSource ? "󰍭" : "󰍬"
         value: Pipewire.volumeSource
         isActive: !Pipewire.mutedSource
 
