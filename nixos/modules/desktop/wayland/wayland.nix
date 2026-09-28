@@ -6,11 +6,9 @@
   ...
 }:
 with lib;
-with lib.zenyte;
-let
+with lib.zenyte; let
   cfg = config.zenyte.desktop.wayland;
-in
-{
+in {
   options.zenyte.desktop.wayland = {
     enable = mkBoolOpt false "Whether to enable common wayland stuff.";
   };
@@ -35,7 +33,16 @@ in
           "hyprland"
           "gtk"
         ];
-        common.default = [ "gnome" ];
+
+        niri = {
+          default = ["gnome" "gtk"];
+          "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
+          "org.freedesktop.impl.portal.Access" = ["gtk"];
+          "org.freedesktop.impl.portal.ScreenCast" = ["gnome"];
+          "org.freedesktop.impl.portal.Inhibit" = ["gnome"];
+        };
+
+        common.default = ["gnome"];
         # niri = {
         # "org.freedesktop.impl.portal.ScreenCast" = lib.mkForce "wlr";
         # "org.freedesktop.impl.portal.Screenshot" = lib.mkForce "wlr";

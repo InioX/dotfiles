@@ -12,8 +12,12 @@ include "./animations.kdl"
 // Check the wiki for a full description of the configuration:
 // https://niri-wm.github.io/niri/Configuration:-Introduction
 
-
-
+blur {
+    passes 1 
+    offset 4.5
+    noise 0.015
+    saturation 1.7
+}
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:

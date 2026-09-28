@@ -2,6 +2,11 @@ workspace "scratch" {
 }
 
 window-rule {
+    match app-id=r#"com.mitchellh.ghostty"#
+    match app-id=r#"discord"#
+    match app-id=r#"zen-beta"#
+    match app-id=r#"zen"#
+
     open-maximized true
 }
 
