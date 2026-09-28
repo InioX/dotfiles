@@ -339,7 +339,7 @@ Item {
                     highlight: Rectangle {
                         color: Colors.getPopoutWidgetColor(Colors.md3.surface_container)
 
-                        border.width: 1
+                        border.width: Config.style.borders.widget
                         border.color: Colors.md3.outline_variant
 
                         radius: 26

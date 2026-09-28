@@ -36,7 +36,7 @@ Scope {
 
         implicitWidth: rectangle.implicitWidth
         color: "transparent"
-        implicitHeight: Config.dock.height + (Config.dock.floating ? Config.dock.margins.floating * 2 : 0)
+        implicitHeight: 8 + Config.dock.height + (Config.dock.floating ? Config.dock.margins.floating * 2 : 0)
 
         BackgroundEffect.blurRegion: Config.style.blur.dock ? blurRegionDefinition : null
 
@@ -90,14 +90,12 @@ Scope {
                 anchors.fill: parent
                 anchors.leftMargin: 8
                 anchors.rightMargin: 8
-                anchors.topMargin: 10
+                anchors.topMargin: 8
 
                 RowLayout {
                     id: rowLayout
                     anchors.centerIn: parent
                     spacing: 16
-
-                    anchors.margins: 20
 
                     Repeater {
                         model: DockApps.items
@@ -121,8 +119,8 @@ Scope {
 
                                 StyledAppIcon {
                                     anchors.centerIn: parent
-
-                                    backgroundColor: Colors.md3.primary
+                                    backgroundColor: Colors.md3.primary_container
+                                    iconColor: Colors.md3.on_primary_container
 
                                     icon: modelData.icon
                                     wantedSize: Config.dock.icons.size
@@ -138,13 +136,40 @@ Scope {
                             }
 
                             Rectangle {
-                                Layout.preferredWidth: 5
+                                Layout.preferredWidth: 6
                                 Layout.preferredHeight: 5
                                 radius: 2
                                 color: modelData.isRunning ? Colors.md3.primary : "transparent"
-
                                 Layout.alignment: Qt.AlignHCenter
                             }
+                        }
+                    }
+                    MouseArea {
+                        id: launcherButton
+
+                        Layout.alignment: Qt.AlignVCenter
+                        Layout.preferredWidth: Config.dock.icons.size
+                        Layout.preferredHeight: Config.dock.icons.size
+
+                        Layout.bottomMargin: 13
+
+                        cursorShape: Qt.PointingHandCursor
+
+                        StyledAppIcon {
+                            anchors.centerIn: parent
+
+                            icon: "applications-other"
+                            wantedSize: Config.dock.icons.size
+
+                            border.width: Config.style.borders.widget
+                            border.color: Colors.md3.outline_variant
+
+                            backgroundColor: Colors.getWidgetColor(Colors.md3.surface_container_high)
+                            iconColor: Colors.md3.on_surface
+                        }
+
+                        onClicked: {
+                            States.toggleTab(0);
                         }
                     }
                 }

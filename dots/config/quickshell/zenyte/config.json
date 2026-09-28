@@ -71,7 +71,7 @@
             },
             "popout": 1,
             "tooltip": 0,
-            "widget": 0
+            "widget": 1
         },
         "font": {
             "size": {

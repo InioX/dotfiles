@@ -15,7 +15,7 @@ Rectangle {
 
     implicitWidth: imageIcon.width + 10
     implicitHeight: imageIcon.height + 6
-    color: Colors.md3.primary_container
+    color: root.backgroundColor
     radius: root.rounding
 
     IconImage {

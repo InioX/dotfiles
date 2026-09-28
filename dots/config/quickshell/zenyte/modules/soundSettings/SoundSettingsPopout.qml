@@ -108,7 +108,7 @@ Item {
                         radius: 40
 
                         border.color: Colors.md3.outline_variant
-                        border.width: 1
+                        border.width: Config.style.borders.widget
 
                         StyledText {
                             anchors.centerIn: parent
@@ -142,7 +142,7 @@ Item {
                         radius: 40
 
                         border.color: Colors.md3.outline_variant
-                        border.width: 1
+                        border.width: Config.style.borders.widget
 
                         StyledText {
                             anchors.centerIn: parent

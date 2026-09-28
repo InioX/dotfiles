@@ -20,7 +20,7 @@ Rectangle {
     Layout.alignment: Qt.AlignHCenter
 
     border.color: Colors.md3.outline_variant
-    border.width: 1
+    border.width: Config.style.borders.widget
 
     z: 2
 

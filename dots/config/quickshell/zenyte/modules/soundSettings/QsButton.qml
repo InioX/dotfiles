@@ -25,7 +25,7 @@ Button {
         color: root.enabled ? Colors.md3.primary : root.normalBackground
 
         border.color: Colors.md3.outline_variant
-        border.width: root.enabled ? 0 : 1
+        border.width: root.enabled ? 0 : Config.style.borders.widget
 
         Behavior on color {
             StyledColorAnimation {}
