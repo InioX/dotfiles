@@ -69,12 +69,12 @@ Scope {
 
                 spacing: 10
 
-                StyledAnimatedText {
+                StyledText {
                     anchors.horizontalCenter: parent.horizontalCenter
 
-                    displayText: osd.value + "%"
-                    textColor: Colors.md3.on_surface
-                    fontSize: Config.style.font.size.small
+                    text: osd.value + "%"
+                    color: Colors.md3.on_surface
+                    font.pixelSize: Config.style.font.size.small
                 }
 
                 StyledSlider {
@@ -114,7 +114,7 @@ Scope {
                         color: osd.isActive ? Colors.md3.on_primary_container : Colors.md3.surface_inverse
 
                         font.bold: true
-                        font.pixelSize: Config.style.font.size.icon
+                        font.pixelSize: Config.style.font.size.icon_medium
 
                         Behavior on color {
                             StyledColorAnimation {}

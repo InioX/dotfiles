@@ -78,6 +78,9 @@ Column {
             implicitHeight: muteText.height + 6
             radius: 10
 
+            border.color: Colors.md3.outline_variant
+            border.width: 1
+
             StyledText {
                 id: muteText
                 text: (root.isMuted ? root.isMuted : false) ? "Unmute" : "Mute"

@@ -107,6 +107,9 @@ Item {
                         color: settingsButtonMouseArea.containsMouse ? Colors.getPopoutWidgetColor(Colors.md3.surface_container_high) : Colors.getPopoutWidgetColor(Colors.md3.surface_container)
                         radius: 40
 
+                        border.color: Colors.md3.outline_variant
+                        border.width: 1
+
                         StyledText {
                             anchors.centerIn: parent
 
@@ -137,6 +140,9 @@ Item {
                         height: 40
                         color: powerButtonMouseArea.containsMouse ? Colors.getPopoutWidgetColor(Colors.md3.surface_container_high) : Colors.getPopoutWidgetColor(Colors.md3.surface_container)
                         radius: 40
+
+                        border.color: Colors.md3.outline_variant
+                        border.width: 1
 
                         StyledText {
                             anchors.centerIn: parent

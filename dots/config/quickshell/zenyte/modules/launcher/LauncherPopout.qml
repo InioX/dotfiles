@@ -335,7 +335,22 @@ Item {
 
                     model: filtered.values
                     currentIndex: filtered.values.length > 0 ? 0 : -1
-                    highlightColor: Colors.getPopoutWidgetColor(Colors.md3.surface_container)
+
+                    highlight: Rectangle {
+                        color: Colors.getPopoutWidgetColor(Colors.md3.surface_container)
+
+                        border.width: 1
+                        border.color: Colors.md3.outline_variant
+
+                        radius: 26
+
+                        Behavior on y {
+                            NumberAnimation {
+                                duration: 150
+                                easing.type: Easing.OutCubic
+                            }
+                        }
+                    }
 
                     delegate: Item {
                         id: listDelegate
@@ -407,6 +422,9 @@ Item {
                                 implicitWidth: parent.implicitHeight - 10
                                 color: pinButton.isPinned ? Colors.md3.primary : Colors.getPopoutWidgetColor(Colors.md3.surface_container_high)
                                 radius: 40
+
+                                border.width: isPinned ? 0 : 1
+                                border.color: Colors.md3.outline_variant
 
                                 Layout.alignment: Qt.AlignVCenter
 

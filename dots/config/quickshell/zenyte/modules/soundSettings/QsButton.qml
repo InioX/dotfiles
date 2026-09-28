@@ -24,6 +24,9 @@ Button {
         radius: Config.style.radius.qs_button
         color: root.enabled ? Colors.md3.primary : root.normalBackground
 
+        border.color: Colors.md3.outline_variant
+        border.width: root.enabled ? 0 : 1
+
         Behavior on color {
             StyledColorAnimation {}
         }

@@ -19,6 +19,9 @@ Rectangle {
     Layout.preferredWidth: root.searchTextEntered ? parent.width : parent.width - 20
     Layout.alignment: Qt.AlignHCenter
 
+    border.color: Colors.md3.outline_variant
+    border.width: 1
+
     z: 2
 
     Behavior on Layout.preferredWidth {
