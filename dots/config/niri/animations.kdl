@@ -1,0 +1,13 @@
+animations {
+    workspace-switch {
+        off
+    }
+
+    window-open {
+        off
+    }
+
+    window-close {
+        off
+    }
+}

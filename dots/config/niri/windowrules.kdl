@@ -1,6 +1,10 @@
 workspace "scratch" {
 }
 
+window-rule {
+    open-maximized true
+}
+
 layer-rule {
     match namespace="quickshell-bar"
     match namespace="quickshell-dock"
