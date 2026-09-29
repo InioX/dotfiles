@@ -242,7 +242,7 @@ Item {
         Process {
             id: wallpaperSetter
 
-            command: ["matugen", "image", "", "--type", "scheme-smart", "--mode", "dark", "--source-color-index", "0"]
+            command: ["matugen", "image", "", "--type", "scheme-smart", "--mode", "dark", "--prefer", "saturation"]
         }
     }
 }
