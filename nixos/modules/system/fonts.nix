@@ -50,6 +50,8 @@ in {
         nerd-fonts.iosevka
         nerd-fonts.lekton
 
+        nerd-fonts.terminess-ttf
+
         terminus_font_ttf
         material-design-icons
         material-symbols
