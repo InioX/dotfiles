@@ -29,6 +29,7 @@ with lib.zenyte; let
     # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
     # Then go to https://addons.mozilla.org/api/v5/addons/addon/!SHORT_ID!/ to get the guid
     (extension "ublock-origin" "uBlock0@raymondhill.net")
+    (extension "betterttv" "firefox@betterttv.net")
     # ...
   ];
 in {
