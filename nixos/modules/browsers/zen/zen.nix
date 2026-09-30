@@ -30,6 +30,7 @@ with lib.zenyte; let
     # Then go to https://addons.mozilla.org/api/v5/addons/addon/!SHORT_ID!/ to get the guid
     (extension "ublock-origin" "uBlock0@raymondhill.net")
     (extension "betterttv" "firefox@betterttv.net")
+    (extension "p-stream-extension-v1" "be961bb7-0f52-4600-a46a-3de5e8829f68")
     # ...
   ];
 in {
