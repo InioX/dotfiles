@@ -161,8 +161,8 @@ in {
 
             Bookmarks = [
               {
-                Title = "Cinejoy";
-                URL = "https://cinejoy.to/";
+                Title = "Cinecat";
+                URL = "https://beta.cinecat.eu/";
                 Placement = "toolbar";
               }
               {
