@@ -42,7 +42,7 @@ with lib.zenyte; {
   zenyte.apps = {
     motrix = enabled;
     libreoffice = disabled;
-    obsidian = enabled;
+    obsidian = disabled;
     transmission = enabled;
   };
 

@@ -31,6 +31,12 @@ in {
     #   };
     # };
 
+    boot.kernelParams = [
+      "rtw89_pci.disable_aspm_l1=Y"
+      "rtw89_pci.disable_aspm_l1ss=Y"
+      "rtw89_core.disable_ps_mode=Y"
+    ];
+
     networking = {
       hostName = hostName;
       nameservers = [

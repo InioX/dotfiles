@@ -43,7 +43,7 @@ in {
       game-performance
 
       mangohud
-      goverlay
+      # goverlay
       protonup-qt
     ];
 
@@ -74,7 +74,7 @@ in {
     };
 
     zenyte.apps = {
-      prism-launcher = enabled;
+      # prism-launcher = enabled;
     };
 
     zenyte.services = {
