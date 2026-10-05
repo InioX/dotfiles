@@ -7,8 +7,7 @@
   ...
 }:
 with lib;
-with lib.zenyte;
-let
+with lib.zenyte; let
   cfg = config.zenyte.system;
 
   rebuild = pkgs.writeShellScriptBin "rebuild" ''
@@ -20,15 +19,16 @@ let
       --log-format internal-json \
       |& nom --json
   '';
-in
-{
+in {
   options.zenyte.system = {
     diffScript = mkBoolOpt true "Enables showing what packages changes between generations on rebuild.";
-    defaultShell = mkOpt (types.enum [
-      pkgs.bash
-      pkgs.zsh
-      pkgs.fish
-    ]) pkgs.bash "Which shell to set the default as.";
+    defaultShell =
+      mkOpt (types.enum [
+        pkgs.bash
+        pkgs.zsh
+        pkgs.fish
+      ])
+      pkgs.bash "Which shell to set the default as.";
   };
 
   config = {
@@ -78,6 +78,7 @@ in
 
         # Adb
         android-tools
+        scrcpy
       ];
 
       sessionVariables = {
