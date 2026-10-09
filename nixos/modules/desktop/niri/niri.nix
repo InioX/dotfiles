@@ -19,7 +19,6 @@ in {
 
     programs.niri = {
       enable = true;
-      package = inputs.biri.packages.${pkgs.stdenv.hostPlatform.system}.default;
     };
 
     environment.systemPackages = with pkgs; [
