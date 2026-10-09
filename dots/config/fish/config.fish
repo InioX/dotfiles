@@ -17,4 +17,9 @@ if status is-interactive
     function nix-run
         nix run -- "nixpkgs#$argv[1]" $argv[2..-1]
     end
+
+    function start-live-server
+        live-server --port 5500 -o $argv
+    end
+
 end
