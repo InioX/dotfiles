@@ -50,15 +50,16 @@
             "discord",
             "zen-beta",
             "Overwatch",
-            "Genshin"
+            "Genshin",
+            "War Thunder"
         ]
     },
     "style": {
         "blur": {
-            "bar": true,
-            "dock": true,
-            "popout": true,
-            "widget": true
+            "bar": false,
+            "dock": false,
+            "popout": false,
+            "widget": false
         },
         "borders": {
             "bar": {
