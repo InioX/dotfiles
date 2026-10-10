@@ -56,7 +56,7 @@
       "fsr": {
         "strength": 2,
         "quality": "Quality",
-        "enabled": true
+        "enabled": false
       },
       "gamemode": false,
       "hud": "None",
