@@ -113,9 +113,9 @@ in {
               };
 
               # Desktop entries
-              ".local/share/applications/org.vinegarhq.Sober.desktop" = {
-                source = config.lib.file.mkOutOfStoreSymlink "${default.desktopEntryFolder}/org.vinegarhq.Sober.desktop";
-              };
+              # ".local/share/applications/org.vinegarhq.Sober.desktop" = {
+              #   source = config.lib.file.mkOutOfStoreSymlink "${default.desktopEntryFolder}/org.vinegarhq.Sober.desktop";
+              # };
 
               ".local/share/applications/Overwatch.desktop" = {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.desktopEntryFolder}/Overwatch.desktop";
