@@ -42,9 +42,7 @@ in {
     environment.systemPackages = with pkgs; [
       game-performance
 
-      mangohud
       # goverlay
-      protonup-qt
     ];
 
     programs.gamescope = {
