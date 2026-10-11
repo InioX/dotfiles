@@ -34,6 +34,10 @@
       "rev": "6f793b2bcd2d35e201c09520f698bb763220908a",
       "src": "https://github.com/j-hui/fidget.nvim"
     },
+    "follow-md-links.nvim": {
+      "rev": "99c4e7c78c0211e02c9ff282044b45f7b9dc2d0f",
+      "src": "https://github.com/jghauser/follow-md-links.nvim"
+    },
     "gitsigns.nvim": {
       "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
@@ -107,6 +111,10 @@
     "todo-comments.nvim": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
       "src": "https://github.com/folke/todo-comments.nvim"
+    },
+    "vim-markdown": {
+      "rev": "1bc9d0cd8e1cc3e901b0a49c2b50a843f1c89397",
+      "src": "https://github.com/preservim/vim-markdown"
     },
     "warp.nvim": {
       "rev": "406c6d0906d71350d96ee8a7bd6b0cb24e55b41d",
