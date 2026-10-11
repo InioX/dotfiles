@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://nixos.wiki/images/thumb/2/20/Home-nixos-logo.png/207px-Home-nixos-logo.png" alt="logo" width=150>
+    <img src="https://icon.icepanel.io/Technology/svg/NixOS.svg" alt="logo" width=150>
     <h1>NIXOS DOTFILES</h1>
 </div>
 
