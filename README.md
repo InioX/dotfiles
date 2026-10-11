@@ -47,7 +47,7 @@ The Arch branch has an installer thats best used after a fresh install, though i
     <td><code>bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/arch/install.sh)</code></td>
   </tr>
   <tr>
-    <th><img src="https://nixos.wiki/images/thumb/2/20/Home-nixos-logo.png/207px-Home-nixos-logo.png" alt="logo" width=15> NixOS</th>
+    <th><img src="https://icon.icepanel.io/Technology/svg/NixOS.svg" alt="logo" width=15> NixOS</th>
     <td><code>bash <(curl -s https://raw.githubusercontent.com/InioX/dotfiles/nixos/install.sh) &lthostname&gt</code></td>
   </tr>
  <tr>
@@ -84,71 +84,6 @@ Every branch has its own showcase located at the top of their README.
     <td><img src="https://github.com/InioX/dotfiles/assets/81521595/70d39d7a-4640-4a43-8d4e-3c027ff396ef" width=1500></td>
   </tr>
  </table>
-
-<h2>
-     <sub>
-          <img  src="https://github.com/InioX/dotfiles/assets/81521595/79bffd6e-f4d8-4cbc-84e4-3d8b90124188"
-           height="25"
-           width="25">
-     </sub>
-     Basic keybindings (Arch and NixOS)
-</h2>
-
-> [!IMPORTANT]
-> 🖱️ Left mouse click is <kbd>mouse:272</kbd>, 🖱️ right click is <kbd>mouse:273</kbd>, and <kbd>⌘ Command</kbd> the ⊞ Windows key.
-
- <table>
-  <tr>
-    <th>Apps</th>
-    <th>Other</th>
-  </tr>
-  <tr>
-    <td>
-      <table>
-        <tr>
-          <td><kbd>⌘ Command</kbd> <kbd>⏎ Enter</kbd></td>
-          <td>Terminal <sup>(kitty)</sup></td>
-        </tr>
-        <tr>
-          <td><kbd>⌘ Command</kbd> <kbd>W</kbd> </td>
-          <td>App Launcher <sup>(Rofi)</sup></td>
-        </tr>
-        <tr>
-          <td><kbd>⌘ Command</kbd> <kbd>⇧ Shift</kbd> <kbd>⏎ Enter</kbd></td>
-          <td>File manager <sup>(Thunar)</sup></td>
-        </tr>
-        <tr>
-          <td><kbd>F12</kbd></td>
-          <td>Take a screenshot of region</td>
-        </tr>
-         <tr>
-          <td><kbd>⇧ Shift</kbd> <kbd>F12</kbd></td>
-          <td>Take a screenshot of screen</td>
-        </tr>
-      </table>
-    </td>
-    <td>
-      <table>
-        <tr>
-          <td><kbd>⌘ Command</kbd> <kbd>⇧ Shift</kbd> <kbd>[0,9]</kbd></td>
-          <td>Move window to a workspace</td>
-        </tr>
-        <tr>
-          <td><kbd>⌘ Command</kbd> <kbd>[0,9]</kbd></td>
-          <td>Change workspace</td>
-        </tr>
-        <tr>
-          <td><kbd>⌘ Command</kbd> <kbd>Q</kbd></td>
-          <td>Kill a window</td>
-        </tr>
-        <tr>
-          <td><kbd>⌘ Command</kbd> <kbd>mouse:272</kbd</td>
-          <td>Move a window</td>
-        </tr>
-        <tr>
-          <td><kbd>⌘ Command</kbd> <kbd>mouse:273</kbd></td>
-          <td>Resize a window</td>
-        </tr>
       </table>
     </td>
 </table> 
