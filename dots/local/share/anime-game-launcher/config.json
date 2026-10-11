@@ -28,7 +28,7 @@
     "wine": {
       "prefix": "/home/ini/games/anime-game-launcher",
       "builds": "/home/ini/.local/share/anime-game-launcher/runners",
-      "selected": "wine-dwproton-wow64-11.0-11",
+      "selected": "spritz-wine-cachyos-wow64-10.0-11",
       "sync": "None",
       "language": "System",
       "borderless": false,
@@ -56,7 +56,7 @@
       "fsr": {
         "strength": 2,
         "quality": "Quality",
-        "enabled": false
+        "enabled": true
       },
       "gamemode": false,
       "hud": "None",
@@ -98,9 +98,7 @@
         "extra_args": ""
       }
     },
-    "environment": {
-      "NVPRESENT_ENABLE_SMOOTH_MOTION": "1"
-    },
+    "environment": {},
     "command": "game-performance %command%"
   },
   "sandbox": {
