@@ -48,7 +48,7 @@ in {
         enable = true;
         wifi = {
           powersave = false;
-          backend = "iwd";
+          backend = "wpa_supplicant";
         };
         settings = {
           ipv4.ignore-auto-dns = true;
