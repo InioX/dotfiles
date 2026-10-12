@@ -2,8 +2,7 @@
   "plugins": {
     "LuaSnip": {
       "rev": "642b0c595e11608b4c18219e93b88d7637af27bc",
-      "src": "https://github.com/L3MON4D3/LuaSnip",
-      "version": "2.0.0 - 3.0.0"
+      "src": "https://github.com/L3MON4D3/LuaSnip"
     },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
@@ -37,6 +36,10 @@
     "follow-md-links.nvim": {
       "rev": "99c4e7c78c0211e02c9ff282044b45f7b9dc2d0f",
       "src": "https://github.com/jghauser/follow-md-links.nvim"
+    },
+    "friendly-snippets": {
+      "rev": "b4d01b0fdf3c9a549961c2f9ffe8dc09be166219",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
       "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
