@@ -60,6 +60,10 @@ in {
                   template = "https://search.nixos.org/packages";
                   params = [
                     {
+                      name = "channel";
+                      value = "unstable";
+                    }
+                    {
                       name = "type";
                       value = "packages";
                     }
@@ -73,6 +77,27 @@ in {
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = ["@np"];
             };
+            nix-options = {
+              name = "Nix Options";
+              urls = [
+                {
+                  template = "https://search.nixos.org/options";
+                  params = [
+                    {
+                      name = "channel";
+                      value = "unstable";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = ["@no"];
+            };
+
             nixos-wiki = {
               name = "NixOS Wiki";
               urls = [{template = "https://nixos.wiki/index.php?search={searchTerms}";}];
