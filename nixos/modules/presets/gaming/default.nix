@@ -69,6 +69,7 @@ in {
       lutris = enabled;
       aagl = enabled;
       roblox = enabled;
+      wine = enabled;
     };
 
     zenyte.apps = {
