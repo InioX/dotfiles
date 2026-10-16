@@ -119,7 +119,7 @@
   # };
 
   boot = {
-    # kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     # kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
     kernel.sysctl = {
       "kernel.split_lock_mitigate" = 0;
