@@ -98,6 +98,29 @@ in {
           ];
         };
 
+        apps."2767030" = {
+          name = "Marvel Rivals";
+
+          env = {
+            __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
+            PROTON_DLSS_UPGRADE = "1";
+            PROTON_NVIDIA_LIBS_NO_32BIT = "1";
+            PROTON_USE_NTSYNC = "1";
+            PROTON_ENABLE_WAYLAND = "1";
+            PROTON_ENABLE_NVAPI = "1";
+            PROTON_LOCAL_SHADER_CACHE = "1";
+            SteamDeck = "1";
+          };
+
+          args = [
+            "-dx12"
+          ];
+
+          wrappers = [
+            "game-performance"
+          ];
+        };
+
         apps."381210" = {
           name = "Dead by Daylight";
           env = {
