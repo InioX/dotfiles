@@ -73,7 +73,7 @@ in {
     };
 
     zenyte.apps = {
-      # prism-launcher = enabled;
+      prism-launcher = enabled;
     };
 
     zenyte.services = {
