@@ -80,6 +80,7 @@ in {
 
     zenyte.home.extraOptions.programs.firefox = {
       enable = true;
+      configPath = ".mozilla/firefox";
       package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
         extraPolicies = {
           CaptivePortal = false;
