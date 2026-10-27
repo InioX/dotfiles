@@ -147,7 +147,7 @@
     consoleLogLevel = 3;
 
     initrd = {
-      verbose = false;
+      # verbose = false;
       availableKernelModules = [
         "nvme"
         "xhci_pci"
@@ -163,7 +163,7 @@
       "ntsync"
       # "lenovo-legion-module"
     ];
-    extraModulePackages = [config.boot.kernelPackages.lenovo-legion-module];
+    # extraModulePackages = [config.boot.kernelPackages.lenovo-legion-module];
 
     # Hide the OS choice for bootloaders.
     # It's still possible to open the bootloader list by pressing any key

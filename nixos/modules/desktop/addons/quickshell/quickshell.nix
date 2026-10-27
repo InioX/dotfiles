@@ -17,7 +17,7 @@ with lib.zenyte; let
 
     src = pkgs.fetchzip {
       url = "https://bitbucket.org/dirn-typo/yet-another-monochrome-icon-set/get/main.zip";
-      sha256 = "sha256-phDlqqyZiIqmFR6gOUiYwtlUid/imgc+n0fzElZOjIY=";
+      sha256 = "sha256-abHFEWQGOoVAJ9oFedfFS9inHx9v8L4u3Amy28I2UUs=";
     };
 
     installPhase = ''
