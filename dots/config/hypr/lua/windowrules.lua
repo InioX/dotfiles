@@ -47,7 +47,7 @@ hl.window_rule({
 
 hl.window_rule({
 	match = {
-		class = ".*(steam_proton|overwatch).*",
+		class = ".*(steam_proton|overwatch|War Thunder|Roblox).*",
 	},
 	immediate = true,
 	render_unfocused = true,

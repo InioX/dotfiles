@@ -125,6 +125,10 @@ in {
                 source = config.lib.file.mkOutOfStoreSymlink "${default.desktopEntryFolder}/Genshin.desktop";
               };
 
+              ".local/share/applications/space.bigrat.mocktail.desktop" = {
+                source = config.lib.file.mkOutOfStoreSymlink "${default.desktopEntryFolder}/space.bigrat.mocktail.desktop";
+              };
+
               # TODO: Move this into a services/ module
               # Easy effects
               ".local/share/easyeffects" = {

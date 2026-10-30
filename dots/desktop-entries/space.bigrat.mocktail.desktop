@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Mocktail
+GenericName=Roblox Player
+Comment=Play Roblox on Linux
+Exec=env SDL_VIDEODRIVER=wayland mocktail %u
+Icon=space.bigrat.mocktail
+StartupWMClass=space.bigrat.mocktail
+Categories=Game;
+Terminal=false
+MimeType=x-scheme-handler/roblox;x-scheme-handler/roblox-player;
+X-Mocktail-Managed=true
