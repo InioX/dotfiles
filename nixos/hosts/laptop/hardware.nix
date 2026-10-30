@@ -194,14 +194,14 @@
     ];
   };
 
-  fileSystems."/mnt/windows" = {
-    device = "/dev/disk/by-uuid/781455E81455A9C0";
-    fsType = "ntfs-3g";
-    options = [
-      "rw"
-      "uid=1000"
-    ];
-  };
+#  fileSystems."/mnt/windows" = {
+#    device = "/dev/disk/by-uuid/781455E81455A9C0";
+#    fsType = "ntfs-3g";
+ #   options = [
+ #     "rw"
+ #     "uid=1000"
+ #   ];
+ # };
 
   swapDevices = [];
 
