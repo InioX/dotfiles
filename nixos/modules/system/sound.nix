@@ -6,11 +6,9 @@
   ...
 }:
 with lib;
-with lib.zenyte;
-let
+with lib.zenyte; let
   cfg = config.zenyte.system.sound;
-in
-{
+in {
   options.zenyte.system.sound = {
     enable = mkBoolOpt false "Whether to enable sound.";
   };
@@ -21,7 +19,7 @@ in
 
     environment.systemPackages = with pkgs; [
       alsa-utils
-      easyeffects
+      # easyeffects
       # helvum
       # pavucontrol
       pwvucontrol
@@ -41,20 +39,20 @@ in
       jack.enable = true;
       extraConfig.pipewire = {
         "92-low-latency" = {
-            "context.properties" = {
-              "default.clock.rate" = 48000;
-              "default.clock.quantum" = 32;
-              "default.clock.min-quantum" = 32;
-              "default.clock.max-quantum" = 32;
-            };
+          "context.properties" = {
+            "default.clock.rate" = 48000;
+            "default.clock.quantum" = 32;
+            "default.clock.min-quantum" = 32;
+            "default.clock.max-quantum" = 32;
+          };
         };
         "98-crackling-fix" = {
-            "context.properties" = {
-              "default.clock.quantum" = 1024;
-              "default.clock.min-quantum" = 1024;
-              "default.clock.max-quantum" = 8192;
-            };
+          "context.properties" = {
+            "default.clock.quantum" = 1024;
+            "default.clock.min-quantum" = 1024;
+            "default.clock.max-quantum" = 8192;
           };
+        };
         # "10-low-latency.conf" = {
         #   "context.properties" = {
         #     "default.frags" = 16;
