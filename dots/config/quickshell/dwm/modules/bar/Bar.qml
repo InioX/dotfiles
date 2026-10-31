@@ -88,6 +88,10 @@ Scope {
                                 symbol: ""
                             }
 
+                            Tray {}
+
+                            Separator {}
+
                             MicVolume {}
 
                             Separator {}
