@@ -1,0 +1,36 @@
+{
+    "bar": {
+        "bottom": false,
+        "color_widget_background": true,
+        "floating": false,
+        "full_width": true,
+        "height": 22,
+        "margins": {
+            "floating": 10,
+            "popout": 10
+        }
+    },
+        "launcher": {
+        "editor_command": [
+            "ghostty",
+            "--command=nvim %path%"
+        ],
+        "pinned_apps": [
+            "discord",
+            "zen-beta",
+            "Overwatch",
+            "Genshin",
+            "War Thunder",
+            "Dead by Daylight",
+            "Marvel Rivals"
+        ]
+    },
+    "style": {
+        "font": {
+            "name": "Terminess Nerd Font Mono",
+            "size": {
+                "small": 20
+            }
+        }
+    }
+}
