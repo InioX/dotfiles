@@ -44,6 +44,10 @@ with lib.zenyte; {
     libreoffice = disabled;
     obsidian = disabled;
     transmission = enabled;
+    vlc = {
+      enable = true;
+      enableChromecast = true;
+    };
   };
 
   zenyte.system.locale.timeZone = "Europe/Prague";
