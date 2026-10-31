@@ -13,24 +13,34 @@ RowLayout {
     Repeater {
         model: Hyprland.focusedWorkspace?.toplevels
 
-        delegate: Rectangle {
+        delegate: ColumnLayout {
+            id: delegate
+            required property var modelData
+
             Layout.fillWidth: true
             Layout.fillHeight: true
+            spacing: 0
 
-            color: modelData.activated ? Colors.md3.primary : Colors.md3.surface_container
+            // Rectangle {
+            //     Layout.fillWidth: true
+            //     Layout.preferredHeight: 2
+            //     color: delegate.modelData.activated ? Colors.md3.primary : "transparent"
+            // }
 
-            StyledText {
-                id: text
-                text: modelData.title
-                color: modelData.activated ? Colors.md3.on_primary : Colors.md3.on_surface
+            Rectangle {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                color: delegate.modelData.activated ? Colors.md3.surface_container : "transparent"
 
-                anchors.left: parent.left
-                anchors.leftMargin: 8
-                anchors.right: parent.right
-                anchors.rightMargin: 8
-                anchors.verticalCenter: parent.verticalCenter
-
-                elide: Text.ElideRight
+                StyledText {
+                    text: delegate.modelData.title
+                    anchors.left: parent.left
+                    anchors.leftMargin: 8
+                    anchors.right: parent.right
+                    anchors.rightMargin: 8
+                    anchors.verticalCenter: parent.verticalCenter
+                    elide: Text.ElideRight
+                }
             }
         }
     }
