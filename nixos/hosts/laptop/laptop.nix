@@ -70,6 +70,7 @@ with lib.zenyte; {
     # };
     # thermald.enable = true;
     flatpak = enabled;
+    # jellyfin = enabled;
   };
 
   zenyte.desktop = {
