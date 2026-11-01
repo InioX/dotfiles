@@ -40,6 +40,7 @@ with lib.zenyte; {
   };
 
   zenyte.apps = {
+    vesktop = enabled;
     motrix = enabled;
     libreoffice = disabled;
     obsidian = disabled;

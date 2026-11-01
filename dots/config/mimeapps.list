@@ -9,7 +9,7 @@ application/x-extension-shtml=zen-beta.desktop
 application/xhtml+xml=zen-beta.desktop
 application/x-extension-xhtml=zen-beta.desktop
 application/x-extension-xht=zen-beta.desktop
-x-scheme-handler/discord=discord.desktop
+x-scheme-handler/discord=vesktop.desktop
 text/plain=zed.desktop
 inode/directory=org.gnome.Nautilus.desktop
 
