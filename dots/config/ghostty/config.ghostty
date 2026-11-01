@@ -6,7 +6,7 @@ custom-shader-animation = always
 
 font-family="Terminess Nerd Font"
 
-font-size=20
+font-size=16
 
 gtk-tabs-location = hidden
 
