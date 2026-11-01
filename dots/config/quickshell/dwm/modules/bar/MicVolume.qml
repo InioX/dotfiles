@@ -4,5 +4,7 @@ import Quickshell
 import QtQuick
 
 StyledText {
-    text: "󰍬 " + Pipewire.volumeSource + "%"
+    readonly property string icon: Pipewire.mutedSource ? "󰍭 " : "󰍬 "
+
+    text: icon + Pipewire.volumeSource + "%"
 }
