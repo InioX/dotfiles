@@ -31,7 +31,7 @@ Scope {
 
             // aboveWindows: true
             exclusionMode: ExclusionMode.Auto
-            WlrLayershell.layer: WlrLayer.Top
+            WlrLayershell.layer: States.exclusiveFocus ? WlrLayer.Overlay : WlrLayer.Top
 
             screen: modelData
             anchors {
