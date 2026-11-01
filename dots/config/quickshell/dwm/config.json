@@ -10,19 +10,20 @@
             "popout": 10
         }
     },
-        "launcher": {
+    "launcher": {
         "editor_command": [
             "ghostty",
             "--command=nvim %path%"
         ],
         "pinned_apps": [
-            "discord",
+            "vesktop",
             "zen-beta",
             "Overwatch",
             "Genshin",
             "War Thunder",
             "Dead by Daylight",
-            "Marvel Rivals"
+            "Marvel Rivals",
+            "space.bigrat.mocktail"
         ]
     },
     "style": {
