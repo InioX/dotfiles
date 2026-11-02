@@ -19,7 +19,7 @@ in {
     ];
 
     zenyte.home.configFile = {
-      "Vesktop" = "Vesktop";
+      "vesktop" = "vesktop";
       "vesktop-flags.conf" = "vesktop-flags.conf";
     };
 
