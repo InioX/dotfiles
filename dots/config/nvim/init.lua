@@ -33,6 +33,10 @@ do
   vim.o.splitright = true
   vim.o.splitbelow = true
 
+  vim.o.tabstop = 2
+  vim.o.shiftwidth = 2
+  vim.o.expandtab = true
+
   -- Sets how neovim will display certain whitespace characters in the editor.
   --  See `:help 'list'`
   --  and `:help 'listchars'`
@@ -132,8 +136,8 @@ local function gh(repo) return 'https://github.com/' .. repo end
 -- guess-indent, gitsigns, which-key, colorscheme, todo-comments, mini modules
 -- ============================================================
 do
-  vim.pack.add { gh 'NMAC427/guess-indent.nvim' }
-  require('guess-indent').setup {}
+  -- vim.pack.add { gh 'NMAC427/guess-indent.nvim' }
+  -- require('guess-indent').setup {}
 
   vim.pack.add { gh 'folke/which-key.nvim' }
   require('which-key').setup {
@@ -504,6 +508,9 @@ do
       html = { 'prettier' },
       css = { 'prettier' },
       toml = { 'taplo' },
+      nunjucks = { 'prettier' },
+      javascript = { 'prettier' },
+      json = { 'prettier' },
       -- rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
