@@ -26,3 +26,4 @@ application/x-extension-xhtml=firefox.desktop;zen.desktop;zen-beta.desktop;
 application/x-extension-xht=firefox.desktop;zen.desktop;zen-beta.desktop;
 text/plain=zed.desktop;
 application/vnd.sqlite3=org.gnome.Loupe.desktop;
+application/pdf=zen-beta.desktop;
