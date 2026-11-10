@@ -11,13 +11,15 @@ with lib.zenyte; let
 in {
   options.zenyte.apps.discord = {
     enable = mkBoolOpt false "Whether to enable discord.";
+    withOpenASAR = mkBoolOpt true "Whether to enable OpenASAR, a replacement for Discord desktop's app.asar file.";
+    withVencord = mkBoolOpt true "Whether to enable Vencord, a client mod for Discord.";
   };
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       (pkgs.discord.override {
-        withOpenASAR = true;
-        withVencord = true;
+        withOpenASAR = cfg.withOpenASAR;
+        withVencord = cfg.withVencord;
       })
     ];
 
