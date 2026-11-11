@@ -1,0 +1,13 @@
+game:
+  exe: /mnt/games/Games/ProjectZomboid.v42.21.0.ZeiGames.com/ProjectZomboid64.exe
+system:
+  env:
+    PROTONFIXES_DISABLE_DLSS: '1'
+    PROTON_DLSS_UPGRADE: '1'
+    PROTON_ENABLE_NVAPI: '1'
+    PROTON_ENABLE_WAYLAND: '1'
+    PROTON_NVIDIA_LIBS_NO_32BIT: '1'
+    PROTON_USE_NTSYNC: '1'
+  gamescope: false
+wine:
+  version: ge-proton

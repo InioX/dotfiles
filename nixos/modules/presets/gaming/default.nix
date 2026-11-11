@@ -66,7 +66,8 @@ in {
 
     zenyte.gaming = {
       steam = enabled;
-      lutris = enabled;
+      # lutris = enabled;
+      faugus = enabled;
       aagl = enabled;
       roblox = enabled;
       wine = enabled;
