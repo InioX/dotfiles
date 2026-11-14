@@ -55,6 +55,22 @@ in {
         onSteamRunning = "close";
         defaultCompatTool = pkgs.proton-cachyos_x86_64_v3;
 
+        apps."236390" = {
+          name = "War Thunder";
+
+          env = {
+            PROTON_DLSS_UPGRADE = "1";
+            PROTON_NVIDIA_LIBS_NO_32BIT = "1";
+            PROTON_USE_NTSYNC = "1";
+            PROTON_ENABLE_WAYLAND = "1";
+            PROTON_ENABLE_NVAPI = "1";
+          };
+
+          wrappers = [
+            "game-performance"
+          ];
+        };
+
         apps."3513350" = {
           name = "Wuthering Waves";
 
