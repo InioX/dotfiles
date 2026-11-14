@@ -34,5 +34,9 @@ in {
       "org.upscayl.Upscayl"
       "com.dec05eba.gpu_screen_recorder"
     ];
+
+    zenyte.home.desktopEntryFile = {
+      "space.bigrat.mocktail.desktop" = "space.bigrat.mocktail.desktop";
+    };
   };
 }

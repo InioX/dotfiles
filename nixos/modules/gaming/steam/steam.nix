@@ -138,6 +138,11 @@ in {
       };
     };
 
+
+    zenyte.home.desktopEntryFile = {
+      "Overwatch.desktop" = "Overwatch.desktop";
+    };
+
     zenyte.matugen.template = {
       steam = {
         input = "steam.css";

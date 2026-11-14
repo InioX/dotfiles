@@ -33,5 +33,12 @@ in {
         ];
       })
     ];
+
+    zenyte.home.dataFile = {
+      "lutris/games" = "share/lutris/games/";
+      "lutris/system.yml" = "share/lutris/system.yml";
+      "lutris/lutris.conf" = "share/lutris/lutris.conf";
+      "lutris/runners/wine.yml" = "share/lutris/runners/wine.yml";
+    };
   };
 }

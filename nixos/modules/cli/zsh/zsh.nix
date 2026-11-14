@@ -35,5 +35,9 @@ in
         [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
       '';
     };
+
+    zenyte.home.file = {
+      ".zshrc.local" = "zsh/.zshrc";
+    };
   };
 }

@@ -155,5 +155,14 @@ in {
         }
       ];
     };
+
+    zenyte.home.dataFile = {
+      "easyeffects/" = "/share/easyeffects/";
+    };
+
+    zenyte.home.configFile = {
+      "easyeffects/" = "easyeffects/";
+      "easyeffectsrc" = "easyeffectsrc";
+    };
   };
 }

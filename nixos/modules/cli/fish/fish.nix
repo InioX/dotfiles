@@ -19,5 +19,9 @@ in
     programs.fish = {
       enable = true;
     };
+
+    zenyte.home.configFile = {
+      "fish/config.fish" = "fish/config.fish";
+    };
   };
 }

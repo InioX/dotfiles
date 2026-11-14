@@ -18,5 +18,14 @@ in {
     programs.honkers-railway-launcher.enable = true;
     programs.anime-game-launcher.enable = true;
     # programs.honkers-launcher.enable = true;
+
+    zenyte.home.dataFile = {
+      "honkers-railway-launcher/config.json" = "share/honkers-railway-launcher/config.json";
+      "anime-game-launcher/config.json" = "share/anime-game-launcher/config.json";
+    };
+
+    zenyte.home.desktopEntryFile = {
+      "Genshin.desktop" = "Genshin.desktop";
+    };
   };
 }

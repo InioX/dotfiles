@@ -277,6 +277,11 @@ in {
       };
     };
 
+    zenyte.home.file = {
+      ".mozilla/firefox/ini/chrome" = "firefox/chrome";
+      ".mozilla/firefox/ini/user.js" = "firefox/user.js";
+    };
+
     zenyte.matugen.template = {
       pywalfox = {
         input = "pywalfox-colors.json";
