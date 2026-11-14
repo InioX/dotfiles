@@ -604,7 +604,8 @@
         },
         "NoTrack": {
             "enabled": true,
-            "disableAnalytics": true
+            "disableAnalytics": true,
+            "allowBadgeTracking": true
         },
         "Settings": {
             "enabled": true,
@@ -659,7 +660,7 @@
             "enabled": false
         },
         "JumpToTop": {
-            "enabled": false
+            "enabled": true
         },
         "MutedServersActivityBadge": {
             "enabled": false
@@ -678,6 +679,9 @@
         },
         "NoticesAPI": {
             "enabled": true
+        },
+        "BetterSearch": {
+            "enabled": false
         }
     },
     "uiElements": {
@@ -694,7 +698,7 @@
         "authenticated": true,
         "url": "https://api.vencord.dev/",
         "settingsSync": true,
-        "settingsSyncVersion": 1793613736834
+        "settingsSyncVersion": 1794684815157
     },
     "windowsMaterial": "none",
     "nativeTitleBar": false

@@ -27,5 +27,6 @@
     "splashPixelated": false,
     "webRTCIPHandlingPolicy": "default",
     "appBadge": true,
-    "transparencyOption": "none"
+    "transparencyOption": "none",
+    "hardwareVideoEncoding": true
 }
