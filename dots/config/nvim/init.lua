@@ -50,7 +50,6 @@ do
 
   vim.o.inccommand = 'split'
   vim.o.cursorline = true
-  vim.o.scrolloff = 10
 
   vim.o.confirm = true
 end
@@ -511,6 +510,7 @@ do
       nunjucks = { 'prettier' },
       javascript = { 'prettier' },
       json = { 'prettier' },
+      lua = { 'stylua' },
       -- rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
