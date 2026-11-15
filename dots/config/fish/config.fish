@@ -6,6 +6,8 @@ starship init fish | source
 
 set fish_greeting
 
+direnv export fish | source
+
 if status is-interactive
     alias lst="eza --icons=auto -T --short-nix"
     alias ls="eza --icons=auto --short-nix"
