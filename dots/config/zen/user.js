@@ -9,3 +9,5 @@ user_pref("media.rdd-ffmpeg.enabled", true);
 user_pref("gfx.x11-egl.force-enabled", true);
 
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+user_pref("zen.window-sync.enabled", false);
