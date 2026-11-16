@@ -49,6 +49,9 @@ with lib.zenyte; {
       enable = true;
       enableChromecast = true;
     };
+    nvim = {
+      withNeovide = true;
+    };
   };
 
   zenyte.system.locale.timeZone = "Europe/Prague";

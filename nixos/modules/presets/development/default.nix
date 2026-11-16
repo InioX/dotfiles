@@ -21,6 +21,7 @@ in {
       direnv = {
         enable = true;
         enableBashIntegration = true; # see note on other shells below
+        enableFishIntegration = true;
         nix-direnv.enable = true;
       };
     };

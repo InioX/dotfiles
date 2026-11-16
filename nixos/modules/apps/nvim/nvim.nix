@@ -11,6 +11,7 @@ with lib.zenyte; let
 in {
   options.zenyte.apps.nvim = {
     enable = mkBoolOpt false "Whether to enable nvim.";
+    withNeovide = mkBoolOpt true "Whether to enable neovide for nvim.";
   };
 
   config = mkIf cfg.enable {
@@ -28,6 +29,8 @@ in {
       gcc
 
       markdownlint-cli
+    ] ++ optionals cfg.withNeovide [
+      neovide
     ];
 
     zenyte.home.configFile = {
