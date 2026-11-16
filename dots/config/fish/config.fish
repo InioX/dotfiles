@@ -6,7 +6,7 @@ starship init fish | source
 
 set fish_greeting
 
-direnv export fish | source
+direnv hook fish | source
 
 if status is-interactive
     alias lst="eza --icons=auto -T --short-nix"
@@ -15,6 +15,7 @@ if status is-interactive
     alias flake-update="nix flake update --flake ~/dev/dotfiles/nixos"
     alias nix-update="nh os switch ~/dev/dotfiles/nixos"
     alias develop="nix develop -c fish"
+    alias reboot-windows="systemctl reboot --boot-loader-entry=auto-windows"
 
     function nix-run
         nix run -- "nixpkgs#$argv[1]" $argv[2..-1]
