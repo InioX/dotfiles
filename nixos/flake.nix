@@ -75,7 +75,7 @@
     in
       pkgs.mkShell {
         buildInputs = with pkgs; [
-          inputs.alejandra.defaultPackage.${stdenv.hostPlatform.system}
+          alejandra
           shellcheck
           shfmt
           nixd
@@ -137,10 +137,10 @@
     #   url = "github:sodiboo/niri-flake";
     # };
 
-    hyprland-scroll-overview = {
-      url = "github:yayuuu/hyprland-scroll-overview";
-      flake = false;
-    };
+    # hyprland-scroll-overview = {
+    #   url = "github:yayuuu/hyprland-scroll-overview";
+    #   flake = false;
+    # };
 
     # Hyprland plugins
     # hyprland-plugins = {
@@ -171,10 +171,10 @@
     };
 
     # Alejandra
-    alejandra = {
-      url = "github:kamadorueda/alejandra/4.0.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # alejandra = {
+    #   url = "github:kamadorueda/alejandra/4.0.0";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # Matugen
     matugen = {
