@@ -111,6 +111,15 @@ hl.window_rule({
 
 hl.window_rule({
 	match = {
+		initial_class = "hyprland-share-picker",
+	},
+	size = { 800, 700 },
+	float = true,
+	center = true,
+})
+
+hl.window_rule({
+	match = {
 		initial_title = "Zenyte Settings",
 	},
 	size = { 800, 700 },
