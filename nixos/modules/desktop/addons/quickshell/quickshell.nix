@@ -10,21 +10,6 @@
 with lib;
 with lib.zenyte; let
   cfg = config.zenyte.desktop.addons.quickshell;
-
-  yet-another-monochrome-icons = pkgs.stdenv.mkDerivation {
-    pname = "yet-another-monochrome-icon-set";
-    version = "latest";
-
-    src = pkgs.fetchzip {
-      url = "https://bitbucket.org/dirn-typo/yet-another-monochrome-icon-set/get/main.zip";
-      sha256 = "sha256-ER1k0lFcj53cQZ6lV1RZw3uU/uekFNpNFZ1gFwbt+0k=";
-    };
-
-    installPhase = ''
-      mkdir -p $out/share/icons/Yet-Another-Monochrome
-      cp -r * $out/share/icons/Yet-Another-Monochrome/
-    '';
-  };
 in {
   options.zenyte.desktop.addons.quickshell = {
     enable = mkBoolOpt false "Whether to enable quickshell.";
@@ -38,7 +23,7 @@ in {
       # For camera privacy shutter
       v4l-utils
       # Icon theme
-      yet-another-monochrome-icons
+      zenyte.yet-another-monochrome-icon-set
       # System monitor
       inputs.hermes.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];

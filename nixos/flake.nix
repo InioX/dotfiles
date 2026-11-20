@@ -34,6 +34,36 @@
         self: super: {zenyte = import ./lib {lib = self;};} // inputs.home-manager.lib
       );
 
+    importedPackages = final: prev: let
+      inherit
+        (nixpkgs.lib)
+        filterAttrs
+        hasSuffix
+        makeScope
+        mapAttrs'
+        nameValuePair
+        pathExists
+        removeSuffix
+        ;
+
+      dir = ./packages;
+
+      valid =
+        filterAttrs (
+          name: type:
+            (type == "directory" && pathExists (dir + "/${name}/default.nix"))
+            || (type == "regular" && hasSuffix ".nix" name)
+        )
+        (builtins.readDir dir);
+    in {
+      zenyte = makeScope final.newScope (self:
+        mapAttrs' (
+          name: _:
+            nameValuePair (removeSuffix ".nix" name) (self.callPackage (dir + "/${name}") {})
+        )
+        valid);
+    };
+
     addNewHost = hostName:
       with inputs;
         nixpkgs.lib.nixosSystem {
@@ -48,6 +78,7 @@
                 # nur.overlays.default
                 # nixpkgs-f2k.overlays.window-managers
                 inputs.mac-style-plymouth.overlays.default
+                importedPackages
               ];
 
               environment.systemPackages = [
